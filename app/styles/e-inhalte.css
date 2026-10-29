@@ -1,0 +1,115 @@
+/* Paket E: Inhalte, News, Rechner, Quiz, Prompts, Launch-Kit. Nur eigene Klassen mit Präfix e-. */
+
+/* Marke „Neu“ an Karten (News, Modelle) */
+.e-neu-marke {
+    display: inline-block;
+    margin-left: 0.4em;
+    padding: 0.05em 0.5em;
+    border: 2px solid var(--border);
+    border-radius: 999px;
+    background: var(--pop-2);
+    color: #1b1b1f;
+    font-size: 0.8rem;
+    font-weight: 800;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+/* Abgelaufene Fristen in News-Meldungen */
+.e-frist-vorbei time {
+    text-decoration: line-through;
+    opacity: 0.75;
+}
+
+.e-frist-kalender {
+    margin: 0.6rem 0 0;
+}
+
+.e-frist-kalender a {
+    font-weight: 700;
+}
+
+.e-hinweis {
+    display: block;
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+/* Eingabeprüfung in Rechnern und Formularen */
+.e-feld-fehler {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--bad-fg);
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+input[aria-invalid='true'] {
+    border-color: var(--bad-fg);
+    outline: 2px solid var(--bad-fg);
+    outline-offset: 1px;
+}
+
+/* Regler mit gekoppeltem Zahlenfeld (API-Kostenrechner) */
+.e-regler-zeile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.e-regler-zeile input[type='range'] {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.e-regler-zeile input[type='number'] {
+    flex: 0 0 7.5rem;
+    width: 7.5rem;
+    min-height: 2.5rem;
+    padding: 0.3rem 0.5rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+}
+
+/* Teilen-Leiste unter Ergebnissen (Quiz, Rechner) */
+.e-teilen {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    margin-top: 1rem;
+}
+
+.e-teilen-status {
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+/* Pflichtfeld-Hinweis */
+.e-pflicht-hinweis {
+    margin: 0 0 0.5rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+/* Launch-Kit: Ausgaben, solange Pflichtfelder fehlen */
+.e-kit-leer {
+    opacity: 0.55;
+}
+
+.e-kit-leer-hinweis {
+    margin: 0 0 1rem;
+    padding: 0.6rem 0.9rem;
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    background: var(--warn-bg);
+    font-weight: 700;
+}
+
+/* KI-Test: eingeklappte Tests */
+.e-kitest-zu {
+    margin-top: 0.5rem;
+}

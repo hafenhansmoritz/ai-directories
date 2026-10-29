@@ -7,10 +7,12 @@ import GlossarText from '../../components/GlossarText'
 import Faq, { faqSchema } from '../../components/Faq'
 import Quellen from '../../components/Quellen'
 import { NEWS, getNews, getNewsArtikel } from '../../../lib/news'
-import { absoluteUrl } from '../../../lib/site'
+import { absoluteUrl, withBase } from '../../../lib/site'
 import { autorRef } from '../../../lib/autor'
 import Pruefer from '../../components/Pruefer'
+import '../../styles/e-inhalte.css'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import { ogMeta, OG_BILDER, publisherRef } from '../../../lib/og-meta'
 
 export const dynamicParams = false
 
@@ -25,7 +27,7 @@ export function generateMetadata({ params }) {
         title: n.seoTitle || n.titel,
         description: n.description,
         alternates: { canonical: `/ki-news/${n.slug}`, types: { 'application/rss+xml': '/ki-news/feed.xml' } },
-        openGraph: { url: `/ki-news/${n.slug}`, type: 'article' },
+        openGraph: ogMeta({ url: `/ki-news/${n.slug}`, type: 'article', bild: OG_BILDER.news, alt: n.titel }),
     }
 }
 
@@ -58,12 +60,14 @@ function NewsPage({ params }) {
             datePublished: n.veroeffentlicht,
             dateModified: n.veroeffentlicht,
             author: autorRef(),
-            publisher: { '@type': 'Organization', name: 'AIGeddon', url: absoluteUrl('/') },
-            image: absoluteUrl('/opengraph-image.png'),
+            publisher: publisherRef(),
+            image: absoluteUrl(OG_BILDER.news),
             citation: n.quellen.map((q) => q.url),
         },
         faqSchema(n.faq),
     ]
+    // Seite wird täglich neu gebaut: abgelaufene Fristen bekommen dann automatisch den Hinweis.
+    const heute = new Date().toISOString().slice(0, 10)
     const weitere = getNews().filter((x) => x.slug !== n.slug)
     const gesehen = new Set()
     return (
@@ -96,16 +100,33 @@ function NewsPage({ params }) {
             {n.fristen?.length > 0 && (
                 <aside className="news-fristen news-fristen-klein" aria-label="Fristen">
                     <p>
-                        <strong>⏰ Termine zum Eintragen</strong>
+                        <strong>{n.fristen.some(([datum]) => datum >= heute) ? '⏰ Termine zum Eintragen' : '⏰ Termine aus dieser Meldung'}</strong>
                     </p>
                     <ul className="fristen-liste">
-                        {n.fristen.map(([datum, was]) => (
-                            <li key={datum + was}>
-                                <time dateTime={datum}>{datumLang(datum)}</time>
-                                <span>{was}</span>
-                            </li>
-                        ))}
+                        {n.fristen.map(([datum, was]) => {
+                            const vorbei = datum < heute
+                            return (
+                                <li key={datum + was} className={vorbei ? 'e-frist-vorbei' : undefined}>
+                                    <time dateTime={datum}>{datumLang(datum)}</time>
+                                    <span>
+                                        {was}
+                                        {vorbei && (
+                                            <>
+                                                . <strong>Diese Frist ist seit dem {datumLang(datum)} abgelaufen.</strong> Stand der Meldung: {datumLang(n.veroeffentlicht)}.
+                                            </>
+                                        )}
+                                    </span>
+                                </li>
+                            )
+                        })}
                     </ul>
+                    {n.fristen.some(([datum]) => datum >= heute) && (
+                        <p className="e-frist-kalender">
+                            <a href={withBase('/ki-news/fristen.ics')} download>
+                                📅 Alle KI-Fristen als Kalenderdatei (.ics)
+                            </a>
+                        </p>
+                    )}
                 </aside>
             )}
 

@@ -58,7 +58,7 @@ export default function PromptCheck() {
                 </label>
                 <p className="prompt-fields-actions">
                     <span>
-                        {r.zeichen} Zeichen · {r.woerter} Wörter · ca. {r.tokMin}–{r.tokMax} Tokens (Schätzung)
+                        {r.zeichen} Zeichen · {r.woerter} Wörter · ca. {r.tokMin} bis {r.tokMax} Tokens (Schätzung)
                     </span>
                     <button type="button" className="copy-button" onClick={() => setText('Schreib mir einen Text über E-Bikes, der gut ist.')}>
                         Beispiel laden

@@ -17,14 +17,14 @@
  },
  "/rechner/": {
   "intro": "Sechs Rechner für die Frage, die vor jedem Abo kommt: Lohnt sich das überhaupt? Du schiebst Regler, das Ergebnis steht sofort da, die Preise stammen von den offiziellen Preisseiten mit Datum. Fang mit dem Schnellcheck zum KI-Abo an und trag ehrliche Stunden ein, nicht die geschönten. Danach weißt du, ob du ein Werkzeug kaufst oder ein schlechtes Gewissen.",
-  "jean": "Erst rechnen, dann bezahlen. Mein Konto hat das auch lernen müssen."
+  "jean": "Erst rechnen, dann bezahlen. Dein Konto dankt es dir."
  },
  "/beste-ki-tools/": {
   "intro": "15 Aufgaben, pro Aufgabe die Tools, die mehrere unabhängige Community-Listen empfehlen. Kein bezahlter Platz, keine Sternchen-Deals. Spring über das Inhaltsverzeichnis direkt zu deiner Aufgabe, etwa Videotools oder Programmieren, und schau dir zuerst die Favoriten oben an. Die Alternativen darunter sind dein Plan B, falls der Favorit preislich oder beim Datenschutz nicht passt.",
   "jean": "Ranglisten kauft man. Empfehlungen verdient man sich."
  },
  "/glossar/": {
-  "intro": "85 Begriffe aus KI, Prompt Engineering und SEO, übersetzt in normales Deutsch. Ideal, wenn ein Tutorial plötzlich von Few-Shot redet oder ein Formular nach rel=sponsored fragt. Mein Tipp: Lies nicht von vorne nach hinten, sondern spring gezielt zum Begriff, über den du gerade gestolpert bist. Der Teil zu Verzeichnissen und SEO ist kleiner, spart beim Eintragen aber am meisten Zeit.",
+  "intro": "Begriffe aus KI, Prompt Engineering und SEO, übersetzt in normales Deutsch. Ideal, wenn ein Tutorial plötzlich von Few-Shot redet oder ein Formular nach rel=sponsored fragt. Mein Tipp: Lies nicht von vorne nach hinten, sondern spring gezielt zum Begriff, über den du gerade gestolpert bist. Der Teil zu Verzeichnissen und SEO ist kleiner, spart beim Eintragen aber am meisten Zeit.",
   "jean": "Fachchinesisch ist meistens nur Deutsch mit Krawatte."
  },
  "/top-50/": {

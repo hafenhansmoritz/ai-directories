@@ -208,7 +208,7 @@ export default function KiTestSuite({ tests, kategorien }) {
                             <span className="kitest-bar">
                                 <span style={{ width: `${e.prozent}%` }} />
                             </span>
-                            <span className="kitest-result-pct">{e.bewertet ? `${e.prozent} %` : '–'}</span>
+                            <span className="kitest-result-pct">{e.bewertet ? `${e.prozent} %` : 'offen'}</span>
                         </li>
                     ))}
                 </ol>

@@ -7,13 +7,14 @@ import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import { getDirectories } from '../../lib/data'
 import { absoluteUrl } from '../../lib/site'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import { ogMeta, OG_BILDER } from '../../lib/og-meta'
 
 export const metadata = {
     title: 'Launch-Kit: Texte für KI-Verzeichnisse erstellen',
     description:
         'Kostenloses Launch-Kit: Einmal Name, Nutzen und Funktionen deines KI-Tools eingeben, dann Einzeiler, Kurz- und Langbeschreibung auf Deutsch und Englisch sowie UTM-Links für jedes Verzeichnis kopieren.',
     alternates: { canonical: '/launch-kit' },
-    openGraph: { url: '/launch-kit' },
+    openGraph: ogMeta({ url: '/launch-kit', bild: OG_BILDER.launchKit, alt: 'Launch-Kit auf AIGeddon' }),
 }
 
 function LaunchKitPage() {

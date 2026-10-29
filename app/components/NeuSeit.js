@@ -3,25 +3,32 @@
 import { useEffect, useState } from 'react'
 import { lies } from '../../lib/herz'
 
-// Zeigt auf /ki-news, wie viele Meldungen seit deinem letzten Besuch neu sind. Rechnet nur im Browser.
-export default function NeuSeit({ daten }) {
-    const [info, setInfo] = useState(null)
+// Letzter Besuch vor dieser Sitzung (ISO-Zeitpunkt) oder null beim ersten Besuch. Rechnet nur im Browser.
+export function useLetzterBesuch() {
+    const [vorher, setVorher] = useState(null)
     useEffect(() => {
-        let vorher = null
+        let wert = null
         try {
-            vorher = sessionStorage.getItem('aigeddon-vorher')
+            wert = sessionStorage.getItem('aigeddon-vorher')
         } catch {}
-        if (vorher === null) vorher = lies('aigeddon-zuletzt', '')
-        if (!vorher) return
-        const tag = vorher.slice(0, 10)
-        const neu = daten.filter((d) => d > tag).length
-        if (neu > 0) setInfo([neu, new Date(vorher).toLocaleDateString('de-DE', { day: 'numeric', month: 'long' })])
-    }, [daten])
-    if (!info) return null
+        if (wert === null) wert = lies('aigeddon-zuletzt', '')
+        if (wert) setVorher(wert)
+    }, [])
+    return vorher
+}
+
+// Zeigt auf /ki-news, wie viele Meldungen seit deinem letzten Besuch neu sind.
+export default function NeuSeit({ daten }) {
+    const vorher = useLetzterBesuch()
+    if (!vorher) return null
+    const tag = vorher.slice(0, 10)
+    const neu = daten.filter((d) => d > tag).length
+    if (neu === 0) return null
+    const am = new Date(vorher).toLocaleDateString('de-DE', { day: 'numeric', month: 'long' })
     return (
         <p className="neu-seit">
-            <span aria-hidden="true">🆕</span> Willkommen zurück! Seit deinem letzten Besuch am {info[1]} {info[0] === 1 ? 'ist 1 Meldung' : `sind ${info[0]} Meldungen`}{' '}
-            dazugekommen.
+            <span aria-hidden="true">🆕</span> Willkommen zurück! Seit deinem letzten Besuch am {am} {neu === 1 ? 'ist 1 Meldung' : `sind ${neu} Meldungen`} dazugekommen. Sie
+            tragen unten die Marke „Neu“.
         </p>
     )
 }

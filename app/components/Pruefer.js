@@ -8,7 +8,7 @@ export default function Pruefer({ datum }) {
             <JeanIcon size={56} />
             <p>
                 <strong>Geschrieben und geprüft von </strong>
-                <Link href="/ueber-jean">Jean Maurice Port</Link>, SEO-Manager.
+                <Link href="/ueber-jean">Jean Maurice Port</Link>, Senior SEO/SGE Manager bei der MotoMobilityGroup.
                 {datum ? ` Alle Angaben mit den Quellen abgeglichen am ${new Date(datum).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })}.` : ' Angaben aus offiziellen Quellen, Stand siehe Seite.'}{' '}
                 <Link href="/so-pruefen-wir">So prüfen wir →</Link>
             </p>

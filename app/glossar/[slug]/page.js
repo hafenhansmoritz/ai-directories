@@ -85,7 +85,7 @@ function BegriffPage({ params }) {
             <JsonLd data={schema} />
             <Breadcrumbs items={crumbs} />
             <section className="hero">
-                <p className="eyebrow">KI-Glossar · Begriff {i + 1} von {BEGRIFFE.length}</p>
+                <p className="eyebrow">KI-Glossar · KI-Begriff {i + 1} von {BEGRIFFE.length}</p>
                 <h1>{frage(b.term)}</h1>
                 <p className="lead">{b.text}</p>
             </section>

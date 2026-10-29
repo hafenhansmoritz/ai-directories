@@ -7,12 +7,13 @@ import Faq, { faqSchema } from '../components/Faq'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import { absoluteUrl, withBase } from '../../lib/site'
 import { getGuides } from '../../lib/guides'
+import { ogMeta, OG_BILDER } from '../../lib/og-meta'
 
 export const metadata = {
     title: 'Gratis-Guides als PDF: KI-Agenten, KI-Sichtbarkeit, Skills',
     description: 'Kostenlose PDF-Guides von AIGeddon: KI-Agenten-Fahrplan 2026, 30-Tage-Checkliste für Sichtbarkeit in ChatGPT und Google KI-Modus, KI-Skills-Starterkit. E-Mail eintragen, sofort herunterladen.',
     alternates: { canonical: '/guides' },
-    openGraph: { url: '/guides' },
+    openGraph: ogMeta({ url: '/guides' }),
     ...(getGuides().length ? {} : { robots: { index: false, follow: true } }),
 }
 

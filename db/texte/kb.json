@@ -1205,7 +1205,7 @@
  },
  "kimi-chat": {
   "take": "Moonshot AI schickt mit Kimi Chat einen Assistenten ins Rennen, laut Liste aktuell mit Kimi K3, einem MoE-Modell mit 1M Token Kontext. Optimiert für Softwareentwicklung, Analysen ganzer Repositories und lange Dokumente, kostenlos gelistet. Die Domain endet auf .cn, prüf also Anmeldung und Datenschutz für dich.",
-  "jean": "Ein Kontextfenster so groß wie mein Umzugskarton-Keller."
+  "jean": "Ein Kontextfenster so groß wie ein Keller voller Umzugskartons."
  },
  "kimi-code": {
   "take": "Code mit Video erklären? Kimi Code, Moonshots Coding-Agent fürs Terminal, nimmt laut Beschreibung Videoeingaben an und kann besonders gut Chinesisch. Er liest und bearbeitet Code, führt Shell-Befehle aus, durchsucht Dateien und ruft Webseiten ab. Kostenlos und quelloffen. Gib ihm nur die Rechte, die er wirklich braucht.",
@@ -1361,7 +1361,7 @@
  },
  "llama-cpp": {
   "take": "Motorhaube offen: llama.cpp führt Metas LLaMA und andere Modelle in purem C/C++ aus. Für Bastler, die Modelle schlank und lokal betreiben wollen, ohne riesige Python-Umgebung. Quelloffen auf GitHub. Du kompilierst, besorgst Modelldateien und verstehst Parameter selbst, für Einsteiger gibt es bequemere Oberflächen.",
-  "jean": "Motor pur, ohne Verkleidung. Genau mein Ding am Wochenende."
+  "jean": "Motor pur, ohne Verkleidung. Für Leute, die gern selbst schrauben."
  },
  "llamaindex": {
   "take": "LlamaIndex ist ein Daten-Framework, mit dem du LLM-Anwendungen auf deine eigenen externen Daten aufbaust. Also klar ein Werkzeug für Entwickler, nicht für den schnellen Chat zwischendurch. Es hat es in zwei Community-Listen geschafft. Rechne mit Einarbeitung in Doku und Code, und überleg vorher genau, welche Daten du an welches Modell schickst.",
@@ -2201,7 +2201,7 @@
  },
  "refinder-ai": {
   "take": "Eine universelle Suche samt Assistent für die Arbeit, das will Refinder AI sein. Gemeint sind vermutlich Teams, die ihre Infos über zu viele Tools verstreut haben. Die Beschreibung bleibt sehr allgemein, darum checke vor dem Anschließen genau, welche Quellen unterstützt werden und wer worauf Zugriff bekommt.",
-  "jean": "Suchen statt Ordner durchwühlen. Wie mein Keller, nur digital."
+  "jean": "Suchen statt Ordner durchwühlen. Wie ein beschrifteter Keller, nur digital."
  },
  "rehydra": {
   "take": "rehydra ist ein Open-Source-SDK, das personenbezogene Daten lokal anonymisiert, bevor ein Prompt an ein Sprachmodell geht, und die Antwort danach wieder mit den echten Werten befüllt. Ideal für Entwickler mit Datenschutzbauchweh. Einbauen musst du es selbst, und testen, ob wirklich jede E-Mail-Adresse erwischt wird, solltest du auch.",

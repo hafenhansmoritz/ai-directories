@@ -3,15 +3,18 @@ import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import JsonLd from '../components/JsonLd'
 import Jean from '../components/Jean'
 import NeuSeit from '../components/NeuSeit'
+import NeuMarke from '../components/NeuMarke'
+import '../styles/e-inhalte.css'
 import { getNews, getFristen, NEWS_STAND } from '../../lib/news'
-import { absoluteUrl } from '../../lib/site'
+import { absoluteUrl, withBase } from '../../lib/site'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import { ogMeta, OG_BILDER } from '../../lib/og-meta'
 
 export const metadata = {
     title: 'KI-News: aktuelle KI-Nachrichten verständlich erklärt',
     description: `Aktuelle KI-News auf Deutsch: neue Funktionen, Abschaltungen, Sicherheitslücken und Preise von OpenAI, Anthropic, Google und Co. Jede Meldung geprüft, mit Quellen und dem, was du jetzt tun solltest. Stand ${NEWS_STAND}.`,
     alternates: { canonical: '/ki-news', types: { 'application/rss+xml': '/ki-news/feed.xml' } },
-    openGraph: { url: '/ki-news' },
+    openGraph: ogMeta({ url: '/ki-news', bild: OG_BILDER.news, alt: 'KI-News auf AIGeddon' }),
 }
 
 const datumKurz = (d) => new Date(d).toLocaleDateString('de-DE', { day: 'numeric', month: 'short' })
@@ -60,6 +63,14 @@ function KiNews() {
                 <section aria-labelledby="fristen" className="news-fristen">
                     <h2 id="fristen">KI-Fristen-Kalender ⏰</h2>
                     <p>Abschaltungen, Lebensenden und Umzugstermine aus den Meldungen. Trag dir ein, was dich betrifft, bevor es dein Fehlerprotokoll für dich tut.</p>
+                    <p className="e-frist-kalender">
+                        <a href={absoluteUrl('/ki-news/fristen.ics').replace(/^https?:/, 'webcal:')}>📅 Alle Fristen im Kalender abonnieren</a>
+                        <span aria-hidden="true"> · </span>
+                        <a href={withBase('/ki-news/fristen.ics')} download>
+                            als .ics-Datei herunterladen
+                        </a>
+                        <span className="e-hinweis"> Das Abo aktualisiert sich selbst, neue Fristen kommen automatisch dazu.</span>
+                    </p>
                     <ol className="fristen-liste">
                         {fristen.map((f) => (
                             <li key={`${f.datum}-${f.was}`}>
@@ -96,6 +107,7 @@ function KiNews() {
                                     <span aria-hidden="true">{n.emoji}</span> {n.thema}
                                 </span>
                                 <time dateTime={n.datum}>{datumKurz(n.datum)}</time>
+                                <NeuMarke datum={n.veroeffentlicht || n.datum} />
                             </p>
                             <h3>
                                 <Link href={`/ki-news/${n.slug}`}>{n.titel}</Link>

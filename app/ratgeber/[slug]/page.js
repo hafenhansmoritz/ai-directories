@@ -12,6 +12,7 @@ import Pruefer from '../../components/Pruefer'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 import GuideGate from '../../components/GuideGate'
 import { guideFuerRatgeber } from '../../../lib/guides'
+import { ogMeta, OG_BILDER, publisherRef } from '../../../lib/og-meta'
 
 export const dynamicParams = false
 
@@ -26,7 +27,7 @@ export function generateMetadata({ params }) {
         title: a.seoTitle || a.title,
         description: a.description,
         alternates: { canonical: `/ratgeber/${a.slug}` },
-        openGraph: { url: `/ratgeber/${a.slug}`, type: 'article' },
+        openGraph: ogMeta({ url: `/ratgeber/${a.slug}`, type: 'article', bild: OG_BILDER.ratgeber, alt: a.title }),
     }
 }
 
@@ -55,7 +56,8 @@ function ArtikelPage({ params }) {
             inLanguage: 'de-DE',
             url: absoluteUrl(`/ratgeber/${a.slug}`),
             author: autorRef(),
-            image: absoluteUrl('/ratgeber/opengraph-image.png'),
+            publisher: publisherRef(),
+            image: absoluteUrl(OG_BILDER.ratgeber),
             ...(a.geprueft ? { dateModified: a.geprueft } : {}),
             ...(a.quellen ? { citation: a.quellen.map((q) => q.url) } : {}),
         },

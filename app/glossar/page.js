@@ -8,12 +8,13 @@ import Toc from '../components/Toc'
 import { Band } from '../components/Deko'
 import { absoluteUrl } from '../../lib/site'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import { ogMeta, OG_BILDER } from '../../lib/og-meta'
 
 export const metadata = {
     title: 'KI-Glossar: KI- und SEO-Begriffe einfach erklärt',
     description: `${KI_GLOSSAR.length + GLOSSAR.length} Begriffe kurz erklärt: Prompt, Token, Kontextfenster, Halluzination, RAG, KI-Agent, MCP und mehr, dazu SEO-Begriffe wie Domain Rating, nofollow und GEO.`,
     alternates: { canonical: '/glossar' },
-    openGraph: { url: '/glossar' },
+    openGraph: ogMeta({ url: '/glossar', bild: OG_BILDER.glossar, alt: 'KI-Glossar auf AIGeddon' }),
 }
 
 function GlossarPage() {
