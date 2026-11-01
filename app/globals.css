@@ -385,6 +385,8 @@ main {
     font-size: var(--fs-xl);
     font-weight: 700;
     font-family: var(--font-display);
+    hyphens: auto;
+    overflow-wrap: break-word;
 }
 
 .facts dd small {
