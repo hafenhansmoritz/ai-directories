@@ -1,0 +1,18 @@
+/* Meme auf der Startseite: Chat im eigenen Look, ohne Markenzeichen eines Messengers. */
+.meme { margin: 32px 0; }
+.meme-figur { margin: 0; max-width: 560px; padding: 18px 16px 12px; border: 2px solid var(--border); border-radius: var(--radius); background: #efe6d8; box-shadow: var(--shadow); }
+.meme-chat { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 10px; }
+.meme-blase { max-width: 85%; padding: 10px 14px; border-radius: 16px; background: #ffffff; color: #1b1b1f; font-size: 1.05rem; line-height: 1.45; overflow-wrap: anywhere; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12); }
+.meme-links { justify-self: start; border-top-left-radius: 4px; }
+.meme-rechts { justify-self: end; background: #d8f5c9; border-top-right-radius: 4px; }
+.meme-emoji { font-size: 2rem; padding: 4px 10px; line-height: 1.2; }
+.meme-figur figcaption { margin: 4px 2px 0; color: #4a4450; }
+.meme-uebersetzung { margin: 12px 0 0; max-width: 560px; }
+.meme-uebersetzung summary { cursor: pointer; font-weight: 700; }
+.meme-weiter { margin: 12px 0 0; font-weight: 700; }
+@media (prefers-color-scheme: dark) {
+    .meme-figur { background: #2a2333; }
+    .meme-blase { background: #3a3245; color: #f4efe6; }
+    .meme-rechts { background: #2f4a2a; }
+    .meme-figur figcaption { color: #cfc6da; }
+}

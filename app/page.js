@@ -27,6 +27,7 @@ import { SITE_NAME, SITE_URL, absoluteUrl, withBase } from '../lib/site'
 import getFaq from '../utils/faq-de'
 import { formatNumber } from '../utils/i18n-de'
 import Vernetzt, { seitenPfad } from './components/Vernetzt'
+import MemeChat from './components/MemeChat'
 
 export function generateMetadata() {
     const stats = getSiteStats()
@@ -292,6 +293,8 @@ function Home() {
                     der Wind weht und ein Cookie-Banner.
                 </p>
             </section>
+
+            <MemeChat />
 
             <Band farbe="mint" id="mehr-als-liste" titel="Mehr als eine Liste 🧰">
                 <ul className="link-cards">
