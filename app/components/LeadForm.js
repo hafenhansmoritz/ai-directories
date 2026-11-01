@@ -89,6 +89,10 @@ export default function LeadForm({ titel, text, vorauswahl = 'tool-eintragen', i
 
     return (
         <section className="leadform" id={id} aria-labelledby={`${id}-titel`}>
+            {/* Sprungziele für Links wie #anfrage-werbung, damit sie auch vor dem Laden von JavaScript ankommen. */}
+            {ANLIEGEN.map(([k]) => (
+                <span key={k} id={`${id}-${k}`} />
+            ))}
             <div className="leadform-kopf">
                 <p className="leadform-titel" id={`${id}-titel`}>
                     {titel || 'Frag Jean direkt ✉️'}
