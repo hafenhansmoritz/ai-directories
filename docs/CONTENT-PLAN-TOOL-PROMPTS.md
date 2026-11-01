@@ -31,7 +31,7 @@ Technik: neue Seite je Tool, die alle Prompts mit diesem Slug im Feld `tools` ze
 | 2 | Claude-Prompts | claude prompts | 170 | 22 | 8 (Projekte, Artefakte, lange Dokumente) |
 | 3 | NotebookLM-Prompts | notebooklm prompts | 90 | 34 | 6 |
 | 3 | Canva Magic Write | canva magic write | 170 | 34 | 6 |
-| 4 | Gamma, HeyGen, Perplexity, ElevenLabs, Leonardo, Ideogram, Runway, Kling, InVideo | je 20 bis 50 | | 0 | je 5, als Long-Tail-Bündel |
+| 4 | Gamma, HeyGen, Perplexity, ElevenLabs, Leonardo, Ideogram, Runway, Kling, InVideo (je eigene Seite) | je 20 bis 50 | | 0 | je 5 |
 
 Wichtig: Bei Suno, Midjourney, Kling, Runway und ElevenLabs ist ein "Prompt" etwas anderes als im Chat (Stil-Tags, Parameter, Sprechanweisungen). Die Prompts pro Tool basieren deshalb auf der offiziellen Doku des Anbieters, nicht auf Chat-Mustern.
 
@@ -107,13 +107,13 @@ Nicht verfolgen: "prompt generator" (3.600, KD 65, die Suche will ein Tool, das 
 | 9 | Wordtune-, Leonardo-, Rytr-Ausbau; ChatGPT Memory |
 | 10 | NotebookLM-Prompts; Canva Magic Write; SEO-Prompts für ChatGPT |
 | 11 | Make-, n8n-, ElevenLabs-, HeyGen-Ausbau; GPTs erstellen |
-| 12 | Long-Tail-Bündel (Gamma, HeyGen, Perplexity, ElevenLabs, Leonardo, Ideogram, Runway, Kling, InVideo); Prompt-Engineering-Pillar; Messung und Nachschärfen |
+| 12 | Long-Tail-Seiten (Gamma, HeyGen, Perplexity, ElevenLabs, Leonardo, Ideogram, Runway, Kling, InVideo); Prompt-Engineering-Pillar; Zwischenmessung der Stücke aus Woche 1 bis 8 |
 
-Summe: 9 Prompt-Tool-Seiten plus Long-Tail-Bündel mit rund 95 neuen Prompts, 5 Chat-Verlauf-Stücke, 3 Vergleiche, 12 Steckbrief-Ausbauten, 8 Anwendungsfall-Hubs.
+Summe: 17 Prompt-Tool-Seiten (8 Haupt-Tools mit 66 neuen Prompts, 9 Long-Tail-Tools mit je 5, zusammen 111 neue Prompts), 5 Chat-Verlauf-Stücke, 3 Vergleiche, 12 Steckbrief-Ausbauten, 8 Anwendungsfall-Hubs.
 
 ## Abhängigkeiten und offene Punkte
 
 - Partnerlinks: in `db/partners.json` ist noch kein Programm aktiv. Die Verlinkung läuft trotzdem über die Helfer und schaltet automatisch um.
 - Vergleiche brauchen eigene Praxistests (gleiche Prompts in beiden Tools, Datum, Ergebnis). Keine erfundenen Testwerte.
 - Menüpfade und Funktionsumfang zu Verlauf, Memory, Projekten und Export ändern sich häufig: vor jeder Veröffentlichung in der offiziellen Hilfe prüfen.
-- Messung: Search Console für die genannten Keywords nach 4 und 8 Wochen.
+- Messung relativ zur Veröffentlichung: Jede Sitzung, die ein Stück veröffentlicht, ergänzt in `docs/TASKS.md` zwei Mess-Aufgaben mit festem Datum (Veröffentlichung plus 4 Wochen und plus 8 Wochen): Search Console für das Ziel-Keyword prüfen, Titel, Beschreibung und Inhalt nachschärfen. Die Messung in Woche 12 deckt nur Stücke ab, die bis dahin mindestens 4 Wochen live sind.

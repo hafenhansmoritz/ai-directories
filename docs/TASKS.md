@@ -27,7 +27,19 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
 - [ ] **Netlify-Projekt löschen** (alte Kopie). *wartet auf Jean*
 
 ### Automatisch abzuarbeiten (Reihenfolge = Priorität)
-- [ ] **Content-Plan Tool-Prompts umsetzen**: Wochenplan in `docs/CONTENT-PLAN-TOOL-PROMPTS.md` (Prompts pro getestetem Tool, Chat-Verlauf und Gedächtnis, Vergleiche, Steckbrief-Ausbau, Anwendungsfall-Hubs). Pro Sitzung eine Zeile aus der Wochentabelle, Verlinkungsregel aus dem Plan beachten.
+- Content-Plan Tool-Prompts (`docs/CONTENT-PLAN-TOOL-PROMPTS.md`): eine Woche pro Sitzung, von oben. Verlinkungsregel aus dem Plan beachten. Nach jeder Veröffentlichung zwei Mess-Aufgaben (plus 4 und plus 8 Wochen) mit Datum hier unten ergänzen.
+  - [ ] **Content-Plan Woche 1**: Route /prompts/tool/[slug] bauen; ChatGPT-Prompts; Claude vs. ChatGPT
+  - [ ] **Content-Plan Woche 2**: ChatGPT-Verlauf löschen; Gemini vs. ChatGPT; Gemini-Prompts
+  - [ ] **Content-Plan Woche 3**: Claude Memory; Suno-Prompts; ChatGPT für die Bewerbung
+  - [ ] **Content-Plan Woche 4**: Gamma-Steckbrief-Ausbau; Mit ChatGPT übersetzen; Prompt-Vorlagen-Hub
+  - [ ] **Content-Plan Woche 5**: Descript-Steckbrief-Ausbau; Copilot-Prompts; ChatGPT- vs. Claude-Projekte
+  - [ ] **Content-Plan Woche 6**: Midjourney-Prompts; Perplexity vs. ChatGPT; Chats exportieren und umziehen
+  - [ ] **Content-Plan Woche 7**: Claude-Prompts; ChatGPT und Excel; Runway-Ausbau
+  - [ ] **Content-Plan Woche 8**: ChatGPT Agent erklärt; Writesonic- und Surfer-Ausbau
+  - [ ] **Content-Plan Woche 9**: Wordtune-, Leonardo-, Rytr-Ausbau; ChatGPT Memory
+  - [ ] **Content-Plan Woche 10**: NotebookLM-Prompts; Canva Magic Write; SEO-Prompts für ChatGPT
+  - [ ] **Content-Plan Woche 11**: Make-, n8n-, ElevenLabs-, HeyGen-Ausbau; GPTs erstellen
+  - [ ] **Content-Plan Woche 12**: Long-Tail-Seiten (Gamma, HeyGen, Perplexity, ElevenLabs, Leonardo, Ideogram, Runway, Kling, InVideo); Prompt-Engineering-Pillar; Zwischenmessung der Stücke aus Woche 1 bis 8
 Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die angegebene Menge). Ton immer nach `docs/BRAND-VOICE.md`, Fakten nur mit offizieller Quelle, Unikat-Texte in `db/texte/*.json`.
 - [ ] **Vergleich Lovable vs. Bolt.new vs. v0** in `lib/comparisons.js` mit Picks, 5 Unterschieden, 3 FAQ, Quellen (Daten aus `db/tools.json`, Preise vorher auf den Preisseiten prüfen).
 - [ ] **Vergleich GitHub Copilot vs. Cursor vs. Replit** (wie oben).
