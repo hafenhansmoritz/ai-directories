@@ -27,6 +27,7 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
 - [ ] **Netlify-Projekt löschen** (alte Kopie). *wartet auf Jean*
 
 ### Automatisch abzuarbeiten (Reihenfolge = Priorität)
+- [ ] **Content-Plan Tool-Prompts umsetzen**: Wochenplan in `docs/CONTENT-PLAN-TOOL-PROMPTS.md` (Prompts pro getestetem Tool, Chat-Verlauf und Gedächtnis, Vergleiche, Steckbrief-Ausbau, Anwendungsfall-Hubs). Pro Sitzung eine Zeile aus der Wochentabelle, Verlinkungsregel aus dem Plan beachten.
 Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die angegebene Menge). Ton immer nach `docs/BRAND-VOICE.md`, Fakten nur mit offizieller Quelle, Unikat-Texte in `db/texte/*.json`.
 - [ ] **Vergleich Lovable vs. Bolt.new vs. v0** in `lib/comparisons.js` mit Picks, 5 Unterschieden, 3 FAQ, Quellen (Daten aus `db/tools.json`, Preise vorher auf den Preisseiten prüfen).
 - [ ] **Vergleich GitHub Copilot vs. Cursor vs. Replit** (wie oben).
