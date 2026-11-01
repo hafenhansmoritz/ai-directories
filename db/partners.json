@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-27",
+ "stand": "2026-11-01",
  "hinweis": "Register aller Partnerprogramme (Netzwerk, Provision, Anmeldung, Status). Eigene Partnerlinks und Rabattcodes stehen nicht hier, sondern zentral in db/affiliate-links.json. Ein Link wird genutzt, sobald er dort mit passender id eingetragen ist; status wird dann automatisch als 'aktiv' gewertet.",
  "status_werte": [
   "nicht registriert",
@@ -64,8 +64,11 @@
    "cookie": "60 Tage",
    "signup_url": "https://www.beehiiv.com/partners",
    "status": "nicht registriert",
-   "notes": "",
-   "programm": "ja"
+   "notes": "Partner Dashboard und Link nach Kontoerstellung; Auszahlung am 15. über Dub; keine Suchanzeigen bei Google oder Bing, Social Ads erlaubt.",
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://www.beehiiv.com/partners",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "webflow",
@@ -106,8 +109,11 @@
    "cookie": "unbekannt",
    "signup_url": "https://www.getresponse.com/affiliate-programs",
    "status": "nicht registriert",
-   "notes": "",
-   "programm": "ja"
+   "notes": "Nach PartnerStack Anmeldung Link sofort nutzbar; Prüfung der Provision bis 60 Tage, Auszahlung über PartnerStack.",
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://www.getresponse.com/affiliate-programs",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "make",
@@ -120,8 +126,11 @@
    "cookie": "30 Tage",
    "signup_url": "https://www.make.com/en/affiliate",
    "status": "nicht registriert",
-   "notes": "",
-   "programm": "ja"
+   "notes": "Jeder mit Make Konto kann Affiliate Link erstellen; Auszahlung nur über Wise ab 100 USD und 3 zahlenden Nutzern; Marke Make nicht in Anzeigen.",
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://www.make.com/en/affiliate",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "n8n",
@@ -148,8 +157,11 @@
    "cookie": "90 Tage",
    "signup_url": "https://elevenlabs.io/affiliates",
    "status": "nicht registriert",
-   "notes": "",
-   "programm": "ja"
+   "notes": "Nach PartnerStack Onboarding direkt im Dashboard mit Link; Provision erst nach 90 Tagen aktiv; Mindestauszahlung 5 USD; nur natürliche Personen laut Bedingungen; kein Enterprise.",
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://elevenlabs.io/affiliate",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "se-ranking",
@@ -162,8 +174,11 @@
    "cookie": "120 Tage",
    "signup_url": "https://seranking.com/affiliate-program.html",
    "status": "nicht registriert",
-   "notes": "",
-   "programm": "ja"
+   "notes": "Teilnahme durch Login ins SE Ranking Konto; Auszahlung alle 14 Tage per PayPal ab 50 USD; keine Suchanzeigen, kein Brand Bidding, keine Gutscheinseiten; W 8BEN Formular nötig.",
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://help.seranking.com/hc/de/articles/16332910001180-Affiliate-Programm-FAQ",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "surfer-seo",
@@ -190,8 +205,11 @@
    "cookie": "60 Tage",
    "signup_url": "https://synthesia.getrewardful.com/signup",
    "status": "nicht registriert",
-   "notes": "",
-   "programm": "ja"
+   "notes": "Bewerbung wird geprüft, Dauer nicht angegeben; Auszahlung ab 30 USD in den ersten fünf Werktagen.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://www.synthesia.io/partners/affiliates",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "heygen",
@@ -218,8 +236,11 @@
    "cookie": "90 Tage",
    "signup_url": "https://murf.ai/partner-with-us/affiliate",
    "status": "nicht registriert",
-   "notes": "",
-   "programm": "ja"
+   "notes": "Laut Seite kann jeder teilnehmen, Bedingungen sprechen von Annahme; Auszahlung monatlich via PayPal oder Stripe; keine eigenen Rabattcodes, keine SMS Werbung.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://murf.ai/partner-with-us/affiliate",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "writesonic",
@@ -232,8 +253,11 @@
    "cookie": "60 Tage",
    "signup_url": "https://affiliates.writesonic.com/",
    "status": "nicht registriert",
-   "notes": "",
-   "programm": "ja"
+   "notes": "Meist Freigabe innerhalb 24 Stunden, kein Traffic Minimum; keine Gutscheinseiten, kein Brand Bidding; Auszahlung ab 50 USD laut Bedingungen.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://writesonic.com/affiliate",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "invideo-ai",
@@ -246,8 +270,11 @@
    "cookie": "120 Tage",
    "signup_url": "https://invideo.io/make/affiliate-program/",
    "status": "nicht registriert",
-   "notes": "",
-   "programm": "ja"
+   "notes": "Laut Seite free to join and open to everyone, Anmeldung über Impact (Freigabe dort nicht beschrieben); nicht wiederkehrend.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://invideo.io/make/affiliate-program/",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "pictory",
@@ -260,8 +287,11 @@
    "cookie": "unbekannt",
    "signup_url": "https://partners.pictory.ai/signup/40690",
    "status": "nicht registriert",
-   "notes": "",
-   "programm": "ja"
+   "notes": "Selbstanmeldung über FirstPromoter, Freigabedauer und Cookie nicht angegeben; Provisionshöhe nur als bis zu 50 % genannt.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://pictory.ai/partnernow",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "descript",
@@ -331,7 +361,10 @@
    "signup_url": "https://tally.so/help/referral-program",
    "status": "nicht registriert",
    "notes": "Keine bezahlten Anzeigen",
-   "programm": "ja"
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://tally.so/help/referral-program",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "typeform",
@@ -373,7 +406,10 @@
    "signup_url": "https://www.uneed.best/affiliates",
    "status": "nicht registriert",
    "notes": "Zusätzlich eigenen Rabattcode anfragen (Abschnitt 3)",
-   "programm": "ja"
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://www.uneed.best/affiliates",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "peerpush",
@@ -387,7 +423,10 @@
    "signup_url": "https://peerpush.com/affiliates",
    "status": "nicht registriert",
    "notes": "Zusätzlich eigenen Rabattcode anfragen (Abschnitt 3)",
-   "programm": "ja"
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://peerpush.com/affiliates",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "appsumo",
@@ -400,8 +439,11 @@
    "cookie": "7 Tage",
    "signup_url": "https://appsumo.com/p/affiliates",
    "status": "nicht registriert",
-   "notes": "",
-   "programm": "ja"
+   "notes": "Antwort meist innerhalb von 2 Werktagen; Auszahlung über Impact am 10., 60 Tage nach Monatsende.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://appsumo.com/p/affiliates",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "alteropen",
@@ -737,7 +779,10 @@
    "signup_url": "https://rytr.me/affiliates",
    "status": "nicht registriert",
    "notes": "Auszahlung per PayPal ab 100 $; 20 % Rabatt für Empfohlene",
-   "programm": "ja"
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://rytr.me/affiliates",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "runway",
@@ -821,9 +866,11 @@
    "commission": "„up to 30% recurring commissions per sale for 12 months“, Einstieg mit 10 %",
    "cookie": "90 Tage",
    "signup_url": "https://fireflies.getrewardful.com/",
-   "quelle": "https://fireflies.ai/affiliate",
+   "quelle": "https://fireflies.ai/blog/affiliate-program",
    "status": "nicht registriert",
-   "notes": "Gestaffelt 10 bis 30 %. Auszahlung per PayPal quartalsweise ab 50 $. Separates Reseller-Programm, Kontakt partners@fireflies.ai."
+   "notes": "Gestaffelt 10 bis 30 %. Auszahlung per PayPal quartalsweise ab 50 $. Separates Reseller-Programm, Kontakt partners@fireflies.ai.",
+   "anmeldung": "sofort",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "tldv",
@@ -837,9 +884,11 @@
    "commission": "„earn 25% of all referred payments with no limit“, Geworbene erhalten 30 % Rabatt auf Pro",
    "cookie": "unbekannt",
    "signup_url": "https://tldv.io/partner-programs/",
-   "quelle": "https://tldv.io/partner-programs/",
+   "quelle": "https://tldv.io/ambassador-program/",
    "status": "nicht registriert",
-   "notes": "Link wird in der tl;dv-App über das Geschenk-Symbol erzeugt. Cap widersprüchlich (ohne Limit bzw. bis 10.000 $). Zusätzlich Ambassador- und Reseller-Programm."
+   "notes": "Link wird in der tl;dv-App über das Geschenk-Symbol erzeugt. Cap widersprüchlich (ohne Limit bzw. bis 10.000 $). Zusätzlich Ambassador- und Reseller-Programm.",
+   "anmeldung": "sofort",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "mistral-le-chat",
@@ -933,9 +982,11 @@
    "commission": "„Earn 25% recurring commission through the first year of each new subscriber“",
    "cookie": "unbekannt",
    "signup_url": "https://www.opus.pro/affiliate",
-   "quelle": "https://www.opus.pro/affiliate",
+   "quelle": "https://www.opus.pro/affiliate-terms",
    "status": "nicht registriert",
-   "notes": "Manuelle Prüfung ca. 1 Woche. Auszahlung am 15. per PayPal ab 20 $. Keine Paid Ads. Deaktivierung nach 6 Monaten ohne Traffic."
+   "notes": "Manuelle Prüfung ca. 1 Woche. Auszahlung am 15. per PayPal ab 20 $. Keine Paid Ads. Deaktivierung nach 6 Monaten ohne Traffic.",
+   "anmeldung": "schnell",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "capcut",
@@ -967,7 +1018,9 @@
    "signup_url": "https://affiliates.fliki.ai/signup",
    "quelle": "https://fliki.ai/affiliate-program",
    "status": "nicht registriert",
-   "notes": "Kostenlos, automatische Freigabe. Auszahlung monatlich per Wise oder PayPal ab 50 $. Keine Paid Ads, keine Gutscheinseiten."
+   "notes": "Kostenlos, automatische Freigabe. Auszahlung monatlich per Wise oder PayPal ab 50 $. Keine Paid Ads, keine Gutscheinseiten.",
+   "anmeldung": "schnell",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "replit",
@@ -1143,7 +1196,9 @@
    "signup_url": "https://quillbot.com/affiliates",
    "quelle": "https://quillbot.com/affiliates",
    "status": "nicht registriert",
-   "notes": "Offen für alle Bewerber."
+   "notes": "Offen für alle Bewerber.",
+   "anmeldung": "schnell",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "otter-ai",
@@ -1301,9 +1356,11 @@
    "commission": "„you earn 15% of what they pay Bolt, up to $50 per referral“",
    "cookie": "unbekannt",
    "signup_url": "https://bolt.new/platform/referral",
-   "quelle": "https://support.bolt.new/account/referral-program",
+   "quelle": "https://bolt.new/platform/referral",
    "status": "nicht registriert",
-   "notes": "Bargeld per PayPal oder Venmo, 30 Tage Haltefrist, nur persönlicher Account. Bezahlte Werbung nur mit Genehmigung."
+   "notes": "Bargeld per PayPal oder Venmo, 30 Tage Haltefrist, nur persönlicher Account. Bezahlte Werbung nur mit Genehmigung.",
+   "anmeldung": "sofort",
+   "geprueft": "2026-11-01"
   },
   {
    "id": "v0",
@@ -1446,6 +1503,227 @@
    "signup_url": "",
    "status": "kein Programm",
    "notes": "Kein eigenes Partnerprogramm gefunden (Recherche 23.10.2026, docs/AFFILIATE-PROGRAMME.md)"
+  },
+  {
+   "id": "okara-ai",
+   "name": "Okara AI",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "okara.ai",
+   "network": "Rewardful",
+   "commission": "20 % wiederkehrend für 6 Monate",
+   "cookie": "60 Tage",
+   "signup_url": "https://okara.ai/affiliates",
+   "status": "aktiv",
+   "notes": "Laut Seite Instant Approval ohne Kriterien; monatlich per PayPal ohne Mindestbetrag; kein Brand Bidding. Jean bereits aktiv (via Parameter = Rewardful).",
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://okara.ai/affiliates",
+   "geprueft": "2026-11-01"
+  },
+  {
+   "id": "kaiber-ai",
+   "name": "Kaiber AI (Superstudio)",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "kaiber.ai",
+   "network": "Rewardful",
+   "commission": "10 % auf jede Zahlung, wiederkehrend solange Abo läuft",
+   "cookie": "",
+   "signup_url": "https://kaiber.getrewardful.com/signup",
+   "status": "aktiv",
+   "notes": "Selbstanmeldung über Rewardful; Freigabe laut Bedingungen durch Kaiber, Dauer nicht angegeben; gültige Steuernummer nötig. Cookie auf offizieller Seite nicht genannt. Jean bereits aktiv.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://kaiber.ai/affiliate/terms",
+   "geprueft": "2026-11-01"
+  },
+  {
+   "id": "gohighlevel",
+   "name": "GoHighLevel (HighLevel)",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "gohighlevel.com",
+   "network": "FirstPromoter",
+   "commission": "40 % wiederkehrend, plus 5 % auf Tier 2",
+   "cookie": "",
+   "signup_url": "https://www.gohighlevel.com/joinaffiliate/",
+   "status": "aktiv",
+   "notes": "Seite: Apply and get instant access to your affiliate dashboard; Auszahlung am 15. des Folgemonats, Tipalti nötig; Affiliate Policy beachten. Cookie nicht genannt. Jean bereits aktiv.",
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://www.gohighlevel.com/joinaffiliate/",
+   "geprueft": "2026-11-01"
+  },
+  {
+   "id": "tiiny-host",
+   "name": "Tiiny Host",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "tiiny.host",
+   "network": "Cello (Referral Programm)",
+   "commission": "30 % des Umsatzes, max. 50 USD pro Empfehlung",
+   "cookie": "",
+   "signup_url": "https://tiiny.host/affiliates",
+   "status": "aktiv",
+   "notes": "Jeans Link (tiiny.cello.so) ist das Referral Programm: Link erscheint im Konto nach Upload, nur für Free Plan B2C Konten; Geworbene erhalten 50 % Rabatt; PayPal. Separat gibt es das Affiliate Programm (20 % wiederkehrend solange Abo, 60 Tage Cookie, Bewerbung kann abgelehnt werden, kein Brand Bidding, PPC nur nach Freigabe).",
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://helpdesk.tiiny.host/en/article/tiiny-host-programs-affiliate-referral-creator-r5ah5x/",
+   "geprueft": "2026-11-01"
+  },
+  {
+   "id": "submagic",
+   "name": "Submagic",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "submagic.co",
+   "network": "",
+   "commission": "30 % lebenslang wiederkehrend",
+   "cookie": "",
+   "signup_url": "https://affiliate.submagic.co/",
+   "status": "nicht registriert",
+   "notes": "Seite: Start earning in 2 minutes; Rabattcode wird ebenfalls zugeordnet; Auszahlung am 7. per PayPal ab 50 USD; keine bezahlte Werbung. Formular fragt USt IdNr ab.",
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://www.submagic.co/affiliate",
+   "geprueft": "2026-11-01"
+  },
+  {
+   "id": "jenni-ai",
+   "name": "Jenni AI",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "jenni.ai",
+   "network": "Rewardful",
+   "commission": "bis zu 30 %",
+   "cookie": "",
+   "signup_url": "https://jenni-ai.getrewardful.com/signup",
+   "status": "nicht registriert",
+   "notes": "Selbstanmeldung über Rewardful, Affiliate Brief beachten; Laufzeit und Cookie nicht angegeben.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://jenni-ai.getrewardful.com/signup",
+   "geprueft": "2026-11-01"
+  },
+  {
+   "id": "lalal-ai",
+   "name": "LALAL.AI",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "lalal.ai",
+   "network": "FirstPromoter",
+   "commission": "30 % im ersten Monat, danach 20 % bis insgesamt 6 Monate",
+   "cookie": "180 Tage",
+   "signup_url": "https://www.lalal.ai/affiliate-program/",
+   "status": "nicht registriert",
+   "notes": "Freigabe meist innerhalb von 24 bis 48 Stunden an Werktagen; Auszahlung per PayPal oder für EU per Überweisung ab 150 USD.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://www.lalal.ai/affiliate-program/",
+   "geprueft": "2026-11-01"
+  },
+  {
+   "id": "scispace",
+   "name": "SciSpace",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "scispace.com",
+   "network": "",
+   "commission": "25 % auf jedes neue Abo (erste Zahlung)",
+   "cookie": "90 Tage",
+   "signup_url": "https://scispace.com/influencer-program",
+   "status": "nicht registriert",
+   "notes": "Bewerbung in 2 Minuten, Freigabedauer nicht angegeben; Auszahlung alle 30 Tage per PayPal, Wise oder Überweisung.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://scispace.com/influencer-program",
+   "geprueft": "2026-11-01"
+  },
+  {
+   "id": "soundraw",
+   "name": "SOUNDRAW",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "soundraw.io",
+   "network": "",
+   "commission": "bis zu 25 USD pro erfolgreicher Empfehlung",
+   "cookie": "",
+   "signup_url": "https://affiliates.soundraw.io/",
+   "status": "nicht registriert",
+   "notes": "Kostenlose Anmeldung, Freigabe nicht beschrieben; Auszahlung NET30 ab 100 USD, meist per Überweisung.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://affiliates.soundraw.io/",
+   "geprueft": "2026-11-01"
+  },
+  {
+   "id": "merlin-ai",
+   "name": "Merlin AI",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "getmerlin.in",
+   "network": "Tapfiliate",
+   "commission": "30 % wiederkehrend bis 12 Monate (Jahresplan einmalig 30 %)",
+   "cookie": "90 Tage",
+   "signup_url": "https://merlin.tapfiliate.com/",
+   "status": "nicht registriert",
+   "notes": "Partnerkonto anlegen, Zahlungsmethode verbinden, Link anpassen; Mindestbestellwert 14 USD monatlich bzw. 100 USD jährlich; Auszahlung ab 100 USD.",
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://www.getmerlin.in/affiliate-program",
+   "geprueft": "2026-11-01"
+  },
+  {
+   "id": "elephas",
+   "name": "Elephas",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "elephas.app",
+   "network": "Gumroad",
+   "commission": "25 % wiederkehrend solange das Abo läuft",
+   "cookie": "",
+   "signup_url": "https://elephas.app/become-an-affiliate",
+   "status": "nicht registriert",
+   "notes": "Jeder kann teilnehmen, Gumroad Konto nötig (Tracking und Auszahlung); Freigabe nicht beschrieben.",
+   "programm": "ja",
+   "anmeldung": "schnell",
+   "quelle": "https://elephas.app/become-an-affiliate",
+   "geprueft": "2026-11-01"
+  },
+  {
+   "id": "higgsfield",
+   "name": "Higgsfield AI",
+   "kind": "tool",
+   "tool_slug": null,
+   "directory_slug": null,
+   "host": "higgsfield.ai",
+   "network": "eigenes Programm",
+   "commission": "bis zu 25 % wiederkehrend bis 12 Monate",
+   "cookie": "",
+   "signup_url": "https://higgsfield.ai/affiliate",
+   "status": "nicht registriert",
+   "notes": "Link sofort nach kurzer Bewerbung; Geworbene erhalten bis 50 % Rabatt für 3 Stunden; Auszahlung in Geld; keine bezahlte Werbung, kein Brand Bidding, keine Gutscheinseiten.",
+   "programm": "ja",
+   "anmeldung": "sofort",
+   "quelle": "https://higgsfield.ai/affiliate",
+   "geprueft": "2026-11-01"
   }
+ ],
+ "anmeldung_werte": [
+  "sofort",
+  "schnell",
+  "manuell"
  ]
 }
