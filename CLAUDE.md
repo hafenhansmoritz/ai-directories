@@ -2,9 +2,10 @@
 
 ## Partnerlinks: immer automatisch nutzen
 
-- Einzige Quelle für Partner- und Referral-Links ist `db/partners.json`. Jean pflegt sie über `docs/partnerprogramme.xlsx` (Firma mit USt-IdNr. angemeldet).
+- Zentrale Sammlung aller eigenen Affiliate-Links und Rabattcodes von Jean (alle Projekte) ist `db/affiliate-links.json`. Programmdaten und Status stehen in `db/partners.json`, verknüpft über die id. Jean pflegt beides über `docs/partnerprogramme.xlsx` (Firma mit USt-IdNr. angemeldet). Einträge mit `bestaetigt: false` nutzt keine Seite.
+- Fremde Referral-Links (z. B. `?ref=`, `?via=`, `?aff=`, `fp_ref`, fremde `utm_*`) und fremde Rabattcodes gehören in kein Repo von Jean. Beim Import von Daten entfernen (`ohneTracking` in `lib/kb.js` und `utils/kb/import.js`); fremde Codes der Verzeichnisliste werden nicht übernommen (`ONLY_OWN_DEALS = true`).
 - Liefert Jean eine ausgefüllte Excel-Datei (Upload oder `docs/partnerprogramme.xlsx` im Repo), immer:
-  1. `python3 utils/partners/xlsx_import.py [pfad.xlsx]` (übernimmt Status, Partner-Link, Rabattcode, Notizen)
+  1. `python3 utils/partners/xlsx_import.py [pfad.xlsx]` (Status und Notizen nach `db/partners.json`, Partner-Link und Rabattcode nach `db/affiliate-links.json`)
   2. `npm run partners` (prüft das Register, schreibt `docs/PARTNERLINKS.md`)
   3. `python3 utils/partners/xlsx_build.py` nach einem Build (erzeugt die Tabelle neu, eingetragene Werte bleiben erhalten)
   4. bauen, prüfen, PR, mergen.
@@ -12,8 +13,8 @@
   - Tools mit Steckbrief: `toolHref(t)` / `toolRel(t)` aus `lib/tools.js` (nutzt `TOOL_AFFILIATES`).
   - Verzeichnisse: `lib/data.js` (nutzt `AFFILIATES`, eigene Rabattcodes über `OWN_DEALS`).
   - Alle anderen Anbieter, z. B. die 705 Tools der KI-Tool-Datenbank: `HOST_AFFILIATES[domain]` bzw. `t.affiliate` aus `lib/kb.js`.
-- Ein Link wird nur genutzt bei `status: "aktiv"` und gesetztem `partner_link`. Partnerlinks bekommen sichtbar ein `*` und `rel="sponsored"` (siehe /transparenz).
-- Neue Seiten oder neue Tool-Erwähnungen (News, Ratgeber, Vergleiche, Prompts): vorhandene aktive Partnerlinks einbauen, wo das Tool genannt und verlinkt wird. Für andere Webprojekte von Jean gilt dasselbe Register als Quelle: https://github.com/jmp-collab/ai-directories/blob/main/db/partners.json
+- Ein Link wird genutzt, sobald er in `db/affiliate-links.json` mit passender id steht (Projekt leer oder `aigeddon`, nicht `bestaetigt: false`). Partnerlinks bekommen sichtbar ein `*` und `rel="sponsored"` (siehe /transparenz).
+- Neue Seiten oder neue Tool-Erwähnungen (News, Ratgeber, Vergleiche, Prompts): vorhandene aktive Partnerlinks einbauen, wo das Tool genannt und verlinkt wird. Für andere Webprojekte von Jean gilt dieselbe Sammlung als Quelle: https://github.com/jmp-collab/ai-directories/blob/main/db/affiliate-links.json
 - Bei Programmen ohne Anmeldung (`programm: "nein"`, `"pausiert/geschlossen"`) keinen Link erfinden. Neue Programme nur mit offizieller Quelle eintragen.
 
 ## Skills

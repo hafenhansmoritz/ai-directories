@@ -74,7 +74,9 @@ export default function sitemap() {
         ...NEWS.map((n) => eintrag(`/ki-news/${n.slug}`, new Date(n.veroeffentlicht), 'weekly', 0.8)),
         ...[...FAMILIEN, ...MODELLE].map((m) => eintrag(`/neue-ki-modelle/${m.slug}`, dateiStand('lib/modelle.js'), 'weekly', 0.7)),
         ...ARTIKEL.map((a) => eintrag(`/ratgeber/${a.slug}`, spaetestes(a.geprueft, dateiStand('lib/ratgeber.js')), 'monthly', 0.7)),
-        ...Object.keys(LISTS).map((slug) => eintrag(`/liste/${slug}`, dateiStand('db/directories.json', 'lib/data.js'), 'weekly', 0.8)),
+        ...Object.entries(LISTS)
+            .filter(([, l]) => getDirectories().some(l.filter))
+            .map(([slug]) => eintrag(`/liste/${slug}`, dateiStand('db/directories.json', 'lib/data.js'), 'weekly', 0.8)),
         ...getComparisons().map((c) => eintrag(`/tool-vergleiche/${c.slug}`, spaetestes(c.geprueft, dateiStand('lib/comparisons.js')), 'monthly', 0.7)),
         ...RECHNER.map((r) => eintrag(`/rechner/${r.slug}`, seitenStand(`/rechner/${r.slug}`, 'lib/preise.js', 'lib/abo-preise.js'), 'monthly', 0.8)),
         ...getTestKategorien().map((k) => eintrag(`/ki-test/${k.key}`, dateiStand('lib/kitests.js'), 'monthly', 0.7)),

@@ -9,8 +9,6 @@ export const directories: Directory[] = [
         "monthly_visits": 109800,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "SERG20",
-        "dealText": "70% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1755128156628131840/6P3EZ-z1_400x400.jpg"
     },
     {

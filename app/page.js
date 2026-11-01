@@ -165,10 +165,12 @@ function Home() {
                         <dt>Domain Rating 50+ 💪</dt>
                         <dd data-count={stats.strong.length}>{formatNumber(stats.strong.length)}</dd>
                     </div>
-                    <div>
-                        <dt>Mit Rabattcode 🤑</dt>
-                        <dd data-count={stats.withDeal.length}>{formatNumber(stats.withDeal.length)}</dd>
-                    </div>
+                    {stats.withDeal.length > 0 && (
+                        <div>
+                            <dt>Mit eigenem Rabattcode 🤑</dt>
+                            <dd data-count={stats.withDeal.length}>{formatNumber(stats.withDeal.length)}</dd>
+                        </div>
+                    )}
                 </dl>
                 <SchicksalsWuerfel
                     options={stats.freeAndSmooth.map((d) => ({
@@ -185,9 +187,11 @@ function Home() {
                     <li>
                         <Link href="/liste/domain-rating-50-plus">Die Muskelprotze unter den Domains →</Link>
                     </li>
-                    <li>
-                        <Link href="/liste/rabattcodes">Rabattcodes für Sparfüchse →</Link>
-                    </li>
+                    {stats.withDeal.length > 0 && (
+                        <li>
+                            <Link href="/liste/rabattcodes">Rabattcodes für Sparfüchse →</Link>
+                        </li>
+                    )}
                     <li>
                         <Link href="/deutsche-ki-verzeichnisse">Deutsche Verzeichnisse 🇩🇪 →</Link>
                     </li>

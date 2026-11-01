@@ -53,12 +53,16 @@ Mein Startpunkt, wenn das Budget bei null liegt: kostenlos, Einreichung ohne Sto
 
 ${createTable(stats.topFreeSmooth)}
 
-## Rabattcodes für bezahlte Einträge
+${
+    stats.withDeal.length
+        ? `## Eigene Rabattcodes für bezahlte Einträge
 
-${stats.withDeal.length} Verzeichnisse geben auf bezahlte Einträge einen Rabatt. Code beim Checkout eintragen, ob er noch gilt, entscheidet der Anbieter.
+${stats.withDeal.length} Verzeichnisse geben mit unserem eigenen Code einen Rabatt. Code beim Checkout eintragen, ob er noch gilt, entscheidet der Anbieter.
 
 ${createDealTable(stats.withDeal)}
-
+`
+        : ''
+}
 ## Alle KI-Verzeichnisse
 
 Alphabetisch sortiert, ${stats.total} Einträge.

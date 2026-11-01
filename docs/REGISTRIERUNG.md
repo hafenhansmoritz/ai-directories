@@ -80,7 +80,7 @@ Tipp: Ein Konto bei einem **Netzwerk** schaltet mehrere Programme frei. Mit Part
 
 ## 3. Eigene Rabattcodes für die 24 Verzeichnisse
 
-Die bisherigen Codes (z. B. `AIDIRECTORIES30`) gehören zu einer fremden Partnerschaft. Eigene Codes bekommst du nur, wenn du die Verzeichnisse anfragst. Am schnellsten geht das über deren Kontaktformular, die E-Mail im Footer oder eine Direktnachricht auf X.
+Die Codes aus der Ursprungsliste gehörten einer fremden Partnerschaft und sind seit dem 01.11.2026 aus allen Daten entfernt. Eigene Codes bekommst du nur, wenn du die Verzeichnisse anfragst. Am schnellsten geht das über deren Kontaktformular, die E-Mail im Footer oder eine Direktnachricht auf X.
 
 **Anfrage-Text (EN), einfach kopieren:**
 
@@ -88,19 +88,19 @@ Die bisherigen Codes (z. B. `AIDIRECTORIES30`) gehören zu einer fremden Partner
 >
 > Hi [Name] team,
 >
-> I run AIGeddon (https://jmp-collab.github.io/ai-directories/), a German-language guide to 256 AI directories with verified approval times and discount codes. [Directory] is already listed with a detail page, a verdict and a discount code.
+> I run AIGeddon (https://jmp-collab.github.io/ai-directories/), a German-language guide to 256 AI directories with verified approval times. [Directory] is already listed with a detail page and a verdict.
 >
-> I'd like to feature an exclusive code for our readers, ideally [the same discount as your current partner code, e.g. 30%], named AIGEDDON or AIGEDDON30. If you have an affiliate program, I'd be happy to join it as well.
+> I'd like to feature an exclusive code for our readers, ideally [e.g. 30%], named AIGEDDON or AIGEDDON30. If you have an affiliate program, I'd be happy to join it as well.
 >
 > In return the code is highlighted on our deals page, in the daily "Deal of the day" widget and in our newsletter.
 >
 > Thanks,
 > Jean Maurice Port, AIGeddon
 
-| ✓ | Verzeichnis | Website | Bisheriger Nachlass | Danach schickst du mir |
+| ✓ | Verzeichnis | Website | Bisheriger Nachlass (fremder Code, nicht mehr gelistet) | Danach schickst du mir |
 |---|---|---|---|---|
 | [ ] | AlterOpen | https://alteropen.com/ | 70 % | `CODE alteropen <CODE> 70%` |
-| [ ] | BasedTools | https://basedtools.ai | 70 % (Code heißt „SERG20“, Angabe prüfen) | `CODE basedtools <CODE> <Prozent>` |
+| [ ] | BasedTools | https://basedtools.ai | 70 % (Angabe prüfen) | `CODE basedtools <CODE> <Prozent>` |
 | [ ] | AI Tool Trek | https://aitooltrek.com/ | 50 % | `CODE ai-tool-trek <CODE> 50%` |
 | [ ] | AI Zones | https://aizones.io/ | 50 % | `CODE ai-zones <CODE> 50%` |
 | [ ] | AIStage | https://aistage.net | 50 % | `CODE aistage <CODE> 50%` |

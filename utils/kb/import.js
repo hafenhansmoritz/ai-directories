@@ -61,8 +61,8 @@ const domainOf = (url) => {
 }
 
 // Fremde Referral- und Tracking-Parameter der Quelllisten (z. B. ?ref=mahseema-awesome-ai-tools) nicht übernehmen.
-// Eigene Partnerlinks stehen nur in db/partners.json (CLAUDE.md). lib/kb.js filtert zusätzlich beim Lesen.
-const TRACKING = /^(ref|via|utm_[a-z]+)$/i
+// Eigene Partnerlinks stehen nur in db/affiliate-links.json (CLAUDE.md). lib/kb.js filtert zusätzlich beim Lesen.
+const TRACKING = /^(ref|via|fpr|aff|aff_id|affiliate|afmc|referral|ref_id|refer|fp_ref|a_aid|irclickid|sscid|ps_partner_key|utm_[a-z]+)$/i
 const ohneTracking = (url) => {
     try {
         const u = new URL(url)

@@ -18,8 +18,6 @@ export const directories: Directory[] = [
         "monthly_visits": 553400,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "AZNJUYMQ",
-        "dealText": "10% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1652202412222889986/ixH50eBo_400x400.jpg"
     },
     {
@@ -76,8 +74,6 @@ export const directories: Directory[] = [
         "monthly_visits": 10000,
         "submission_experience": "Good",
         "pricing": "Free",
-        "dealCode": "Buy 1 take 2",
-        "dealText": "Buy 1 take 2",
         "icon": "https://cdn.prod.website-files.com/657b3d8ca1cab4015f06c850/65f57018d631fa7967ddaf12_icon.svg"
     },
     {
@@ -124,8 +120,6 @@ export const directories: Directory[] = [
         "monthly_visits": 207000,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "TF10",
-        "dealText": "10% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1979166137083404288/p8GVBB-M_400x400.png"
     },
     {
@@ -145,8 +139,6 @@ export const directories: Directory[] = [
         "monthly_visits": 23000,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "TOOLIO48",
-        "dealText": "48% Discount",
         "icon": "https://uploads-ssl.webflow.com/65c65e7858f778b425edee6b/66435f945840e853a4effe94_Toolio_logo.webp"
     },
     {
@@ -229,8 +221,6 @@ export const directories: Directory[] = [
         "monthly_visits": 2400000,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "Q3ODY5NA",
-        "dealText": "10% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1626279065995943940/qaxFGlrt_400x400.jpg"
     },
     {

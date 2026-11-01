@@ -27,8 +27,6 @@ export const directories: Directory[] = [
         "monthly_visits": 3000000,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "DIRECTORIES20",
-        "dealText": "20% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1849087452373291008/_op6UtG8_400x400.png"
     },
     {
@@ -39,8 +37,6 @@ export const directories: Directory[] = [
         "monthly_visits": 275000,
         "submission_experience": "Good",
         "pricing": "Free",
-        "dealCode": "AIDIR20",
-        "dealText": "20% Discount",
         "icon": "https://openalternative.co/favicon.png"
     },
     {

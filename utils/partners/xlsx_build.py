@@ -2,7 +2,7 @@
 # Partnerprogramm, Registrierungslink und leeren Spalten zum Eintragen der eigenen Partnerlinks.
 # Aufruf nach einem Build (für das Blatt „Alle Domains“ wird out/ gelesen):
 #   python3 utils/partners/xlsx_build.py
-# Bereits eingetragene Links und Status kommen aus db/partners.json, gehen also beim Neuerzeugen nicht verloren.
+# Bereits eingetragene Status kommen aus db/partners.json, Links und Codes aus db/affiliate-links.json; beim Neuerzeugen geht nichts verloren.
 import collections
 import glob
 import html
@@ -21,6 +21,11 @@ from openpyxl.worksheet.datavalidation import DataValidation
 ROOT = Path(__file__).resolve().parents[2]
 SITE = 'https://jmp-collab.github.io/ai-directories'
 reg = json.loads((ROOT / 'db/partners.json').read_text())
+_links = {l['id']: l for l in json.loads((ROOT / 'db/affiliate-links.json').read_text())['links']}
+for _p in reg['programme']:
+    _l = _links.get(_p['id']) or {}
+    _p['partner_link'] = _l.get('link', '')
+    _p['coupon'] = {'code': _l['code'], 'text': _l.get('rabatt') or 'discount'} if _l.get('code') else None
 STATUS = reg['status_werte']
 prog = reg['programme']
 by_tool = {p['tool_slug']: p for p in prog if p.get('tool_slug')}

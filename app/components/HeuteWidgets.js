@@ -62,7 +62,7 @@ function DealInhalt({ deal }) {
     if (!deal)
         return (
             <p>
-                Täglich ein anderer Rabattcode für ein KI-Verzeichnis. <Link href="/liste/rabattcodes" prefetch={false}>Alle Deals ansehen</Link>
+                Eigene Rabattcodes für KI-Verzeichnisse folgen. Bis dahin: <Link href="/liste/kostenlos" prefetch={false}>kostenlose Verzeichnisse</Link>
             </p>
         )
     return (

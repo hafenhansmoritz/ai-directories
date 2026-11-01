@@ -13,7 +13,7 @@ Verlinkungsregel für jedes neue Stück:
 2. Passender Vergleich unter `/tool-vergleiche/[slug]`, falls vorhanden.
 3. Mindestens drei passende Prompt-Seiten `/prompts/[slug]` und die Kategorieseite.
 4. Passende KI-Test-Kategorie unter `/ki-test/[kategorie]`.
-5. Externe Links nur über `toolHref(t)` / `toolRel(t)` bzw. `HOST_AFFILIATES`. Stand heute ist keins der 98 Programme in `db/partners.json` aktiv mit Link. Sobald Jean eins aktiviert, tragen alle Seiten automatisch den Partnerlink mit `*` und `rel="sponsored"`.
+5. Externe Links nur über `toolHref(t)` / `toolRel(t)` bzw. `HOST_AFFILIATES`. Stand heute steht in der zentralen Sammlung `db/affiliate-links.json` noch kein bestätigter Link für AIGeddon. Sobald Jean eins aktiviert, tragen alle Seiten automatisch den Partnerlink mit `*` und `rel="sponsored"`.
 
 Prompt-Technik nach der Recherche vom 2026-11-01 (Bericht im Scratchpad): Kontext, Aufgabe, Platzhalter, Ausgabeformat. Beispiele dort, wo das Format zählt. Kein "denk Schritt für Schritt und schreib deine Gedanken auf", keine Großbuchstaben-Befehle. Jeder Prompt bekommt ein Prüfdatum und wird auf mindestens zwei Modellen getestet.
 
@@ -127,7 +127,7 @@ Summe: 17 Prompt-Tool-Seiten (8 Haupt-Tools mit 66 neuen Prompts, 9 Long-Tail-To
 
 ## Abhängigkeiten und offene Punkte
 
-- Partnerlinks: in `db/partners.json` ist noch kein Programm aktiv. Die Verlinkung läuft trotzdem über die Helfer und schaltet automatisch um.
+- Partnerlinks: in `db/affiliate-links.json` ist noch kein bestätigter Link für AIGeddon. Die Verlinkung läuft trotzdem über die Helfer und schaltet automatisch um.
 - Vergleiche brauchen eigene Praxistests (gleiche Prompts in beiden Tools, Datum, Ergebnis). Keine erfundenen Testwerte.
 - Menüpfade und Funktionsumfang zu Verlauf, Memory, Projekten und Export ändern sich häufig: vor jeder Veröffentlichung in der offiziellen Hilfe prüfen.
 - Messung relativ zur Veröffentlichung: Jede Sitzung, die ein Stück veröffentlicht, trägt in `docs/TASKS.md` im automatischen Abschnitt zwei Mess-Aufgaben ein (Veröffentlichung plus 4 Wochen und plus 8 Wochen), jeweils mit „fällig ab“ und „braucht Datei docs/gsc/JJJJ-MM-TT.csv“. Search Console ist nur mit Jeans Login zugänglich (`docs/FUER-JEAN.md`, Abschnitt 2): Jean legt zum Fälligkeitsdatum den Leistungsbericht als CSV unter diesem Pfad ab. Sobald Datum erreicht und Datei vorhanden ist, nimmt die nächste Sitzung die Aufgabe automatisch (Titel, Beschreibung und Inhalt anhand der Daten nachschärfen). Ohne Datei bleibt sie stehen, Zahlen werden nie geschätzt.

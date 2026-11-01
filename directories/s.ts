@@ -63,8 +63,6 @@ export const directories: Directory[] = [
         "monthly_visits": 127300,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "AIDirectories10",
-        "dealText": "10% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1711867419776454656/Ym9do8Zm_400x400.jpg"
     },
     {
@@ -247,8 +245,6 @@ export const directories: Directory[] = [
         "monthly_visits": 5000,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "Buy 1 take 2",
-        "dealText": "Buy 1 take 2",
         "icon": "https://cdn.prod.website-files.com/657b3d8ca1cab4015f06c850/66edda4b853c47efe45e9b42_icon.png"
     },
     {

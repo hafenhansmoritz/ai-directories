@@ -18,8 +18,6 @@ export const directories: Directory[] = [
         "monthly_visits": 252000,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "AIDIRECTORIES",
-        "dealText": "20% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1749808918518509568/BzqYq2qf_400x400.png"
     },
     {

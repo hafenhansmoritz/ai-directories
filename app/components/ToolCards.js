@@ -4,7 +4,7 @@ import { toolHref, toolRel } from '../../lib/tools'
 import PartnerHinweis, { hatPartnerlink } from './PartnerHinweis'
 
 // Karten für Tools aus der Datenbank (lib/kb.js) mit Konsens-Abzeichen und Steckbrief-Link.
-// Anbieter-Link über die Helfer: Partnerlink aus db/partners.json mit * und rel="sponsored", sonst nofollow.
+// Anbieter-Link über die Helfer: Partnerlink aus db/affiliate-links.json mit * und rel="sponsored", sonst nofollow.
 export default function ToolCards({ tools }) {
     return (
         <>

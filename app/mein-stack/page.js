@@ -15,7 +15,7 @@ export const metadata = {
 export default function MeinStackPage() {
     const tools = getTools().map(({ slug, name, category, free_plan, price_from, pricing_url, source, affiliate, url }) => ({
         slug,
-        // Anbieter-Link über den Helfer: Partnerlink aus db/partners.json, sonst die Website (partner steuert * und rel)
+        // Anbieter-Link über den Helfer: Partnerlink aus db/affiliate-links.json, sonst die Website (partner steuert * und rel)
         href: toolHref({ affiliate, url }),
         partner: Boolean(affiliate),
         name,

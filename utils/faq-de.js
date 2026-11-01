@@ -4,7 +4,7 @@ const listNames = (names) => names.slice(0, -1).join(', ') + ' und ' + names[nam
 module.exports = function getFaq(stats) {
     const strongestFree = listNames(stats.topFreeSmooth.slice(0, 5).map((d) => d.name))
     const percents = stats.withDeal.map((d) => parseInt(d.dealText, 10)).filter(Boolean)
-    const dealRange = `zwischen ${Math.min(...percents)} und ${Math.max(...percents)} Prozent`
+    const dealRange = percents.length ? `zwischen ${Math.min(...percents)} und ${Math.max(...percents)} Prozent` : ''
 
     return [
         {
@@ -29,7 +29,7 @@ module.exports = function getFaq(stats) {
         },
         {
             q: 'Lohnen sich bezahlte Einträge?',
-            a: `Manchmal. Wie bei Currywurst am Bahnhof: Zahl nur, wenn das Verzeichnis echten Traffic aus deiner Zielgruppe hat und der Link dofollow ist. ${stats.withDeal.length} Verzeichnisse der Liste geben Rabattcodes ${dealRange}.`,
+            a: `Manchmal. Wie bei Currywurst am Bahnhof: Zahl nur, wenn das Verzeichnis echten Traffic aus deiner Zielgruppe hat und der Link dofollow ist. ${stats.withDeal.length ? `Für ${stats.withDeal.length} Verzeichnisse gibt es eigene Rabattcodes ${dealRange}.` : 'Rabattcodes zeigen wir nur, wenn wir sie selbst vereinbart haben.'}`,
         },
         {
             q: 'Wie aktuell sind die Daten?',
