@@ -154,10 +154,16 @@ export default function Thema() {
 
     useEffect(() => {
         if (!user || !id) return
-        supabase().then(async (sb) => {
-            const { data } = await sb.from('thema_abos').select('thema_id').eq('thema_id', id).eq('user_id', user.id).maybeSingle()
-            setFolgt(Boolean(data))
-        })
+        let aktiv = true
+        supabase()
+            .then(async (sb) => {
+                const { data } = await sb.from('thema_abos').select('thema_id').eq('thema_id', id).eq('user_id', user.id).maybeSingle()
+                if (aktiv) setFolgt(Boolean(data))
+            })
+            .catch(() => {})
+        return () => {
+            aktiv = false
+        }
     }, [user, id])
 
     const [reaktionenT, setReaktionenT] = useReaktionen('thema', id ? [id] : [])

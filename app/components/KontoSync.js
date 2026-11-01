@@ -15,17 +15,32 @@ export default function KontoSync() {
         const offen = new Map()
         let sb = null
         const gilt = () => aktiv && istAktuell(user.id)
-        supabase().then(async (client) => {
-            sb = client
-            if (!sb || !aktiv) return
-            const schon = sessionStorage.getItem('aigeddon-sync') === user.id
-            const ok = await erstAbgleich(sb, user.id, gilt).catch(() => false)
-            if (ok && !schon) {
-                sessionStorage.setItem('aigeddon-sync', user.id)
-                toast('Deine Merkliste, Herzen und Abzeichen sind jetzt in deinem Konto gesichert.', '☁️')
-                verleihe('Mitglieds-Abzeichen')
+        // sessionStorage kann gesperrt sein (privates Fenster); der Abgleich läuft trotzdem.
+        const sitzungLesen = () => {
+            try {
+                return sessionStorage.getItem('aigeddon-sync')
+            } catch {
+                return null
             }
-        })
+        }
+        const sitzungMerken = () => {
+            try {
+                sessionStorage.setItem('aigeddon-sync', user.id)
+            } catch {}
+        }
+        supabase()
+            .then(async (client) => {
+                sb = client
+                if (!sb || !aktiv) return
+                const schon = sitzungLesen() === user.id
+                const ok = await erstAbgleich(sb, user.id, gilt).catch(() => false)
+                if (ok && !schon) {
+                    sitzungMerken()
+                    toast('Deine Merkliste, Herzen und Abzeichen sind jetzt in deinem Konto gesichert.', '☁️')
+                    verleihe('Mitglieds-Abzeichen')
+                }
+            })
+            .catch(() => {})
         const geaendert = (e) => {
             const key = e.detail?.key
             if (!sb || !SYNC_KEYS.includes(key)) return
