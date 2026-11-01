@@ -60,6 +60,21 @@ const domainOf = (url) => {
     }
 }
 
+// Fremde Referral- und Tracking-Parameter der Quelllisten (z. B. ?ref=mahseema-awesome-ai-tools) nicht übernehmen.
+// Eigene Partnerlinks stehen nur in db/partners.json (CLAUDE.md). lib/kb.js filtert zusätzlich beim Lesen.
+const TRACKING = /^(ref|via|utm_[a-z]+)$/i
+const ohneTracking = (url) => {
+    try {
+        const u = new URL(url)
+        const weg = [...u.searchParams.keys()].filter((k) => TRACKING.test(k))
+        if (!weg.length) return url
+        for (const k of weg) u.searchParams.delete(k)
+        return u.toString()
+    } catch {
+        return url
+    }
+}
+
 const slugify = require('../slugify')
 
 function parse(source) {
@@ -89,6 +104,7 @@ function parse(source) {
             ;[name, desc, url, fees] = [clean(cells[0]), cells[1], link[1], cells[3] && clean(cells[3])]
         } else continue
         name = clean(name)
+        url = ohneTracking(url)
         desc = clean(desc || '').replace(/^[-–—:]\s*/, '')
         if (!name || !url || /awesome|^\s*$/i.test(name) || /#/.test(url.slice(0, 1))) continue
         const domain = domainOf(url)

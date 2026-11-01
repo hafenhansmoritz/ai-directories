@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { ABOS } from '../../lib/preise'
+import { RechnerStatus, RechnungTeilen, ZahlFeld, useHashZustand } from './RechnerHelfer'
 
 const eur = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 })
 
@@ -21,10 +22,21 @@ export default function ZeitRechner() {
         const gespartStdMonat = stunden * (prozent / 100) * 4.33 * personen
         const wertMonat = gespartStdMonat * satz
         const netto = wertMonat - kostenMonat
-        const faktor = kostenMonat > 0 ? wertMonat / kostenMonat : 0
+        // Ohne Kosten zählt jede gesparte Minute als Gewinn, das Urteil folgt dann dem Gewinn.
+        const faktor = kostenMonat > 0 ? wertMonat / kostenMonat : wertMonat > 0 ? Infinity : 0
         const breakEvenMin = satz > 0 ? (kostenMonat / personen / satz / 4.33) * 60 : 0
         return { kostenMonat, gespartStdMonat, wertMonat, netto, faktor, breakEvenMin, jahr: netto * 12 }
     }, [stunden, prozent, satz, personen, abo, eigen, kurs])
+
+    useHashZustand({
+        h: { wert: stunden, setzen: setStunden, min: 1, max: 40 },
+        p: { wert: prozent, setzen: setProzent, min: 5, max: 60 },
+        s: { wert: satz, setzen: setSatz, min: 15, max: 200 },
+        t: { wert: personen, setzen: setPersonen, min: 1, max: 25 },
+        abo: { wert: abo, setzen: setAbo, text: true, erlaubt: [...ABOS.map((a) => a.id), 'eigen'] },
+        e: { wert: eigen, setzen: setEigen, min: 0, max: 10000 },
+        k: { wert: kurs, setzen: setKurs, min: 0.5, max: 1.5 },
+    })
 
     const urteil =
         r.faktor >= 5 ? ['🚀', 'Absolut lohnenswert', 'is-top'] : r.faktor >= 1.5 ? ['✅', 'Lohnt sich', 'is-good'] : r.faktor >= 1 ? ['🤏', 'Knapp im Plus', 'is-mid'] : ['🧊', 'Lohnt sich (noch) nicht', 'is-low']
@@ -71,16 +83,17 @@ export default function ZeitRechner() {
                     {abo === 'eigen' && (
                         <label>
                             <span>Preis in $ pro Monat</span>
-                            <input type="number" min="0" value={eigen} onChange={(e) => setEigen(Number(e.target.value) || 0)} />
+                            <ZahlFeld id="zeit-eigen" wert={eigen} setzen={setEigen} min={0} max={10000} step={1} einheit="$" />
                         </label>
                     )}
                     <label>
                         <span>1 $ in €</span>
-                        <input type="number" step="0.01" min="0.5" max="1.5" value={kurs} onChange={(e) => setKurs(Number(e.target.value) || 0.9)} />
+                        <ZahlFeld id="zeit-kurs" wert={kurs} setzen={setKurs} min={0.5} max={1.5} step={0.01} einheit="€" />
                     </label>
                 </div>
             </div>
-            <div className={`rechner-output ${urteil[2]}`} aria-live="polite">
+            <div className={`rechner-output ${urteil[2]}`}>
+                <RechnerStatus text={`${urteil[1]}. Gewinn pro Jahr ${eur.format(r.jahr)} Euro.`} />
                 <p className="rechner-urteil">
                     <span aria-hidden="true">{urteil[0]}</span> {urteil[1]}
                 </p>
@@ -111,8 +124,15 @@ export default function ZeitRechner() {
                     </span>
                 </div>
                 <p className="rechner-hinweis">
-                    Break-even: Schon <strong>{Math.max(1, Math.round(r.breakEvenMin))} Minuten</strong> gesparte Zeit pro Woche und Person bezahlen das Abo. Faktor Nutzen/Kosten: <strong>{r.faktor.toFixed(1)}×</strong>.
+                    Break-even: Schon <strong>{Math.max(1, Math.round(r.breakEvenMin))} Minuten</strong> gesparte Zeit pro Woche und Person bezahlen das Abo.
+                    {Number.isFinite(r.faktor) && (
+                        <>
+                            {' '}
+                            Faktor Nutzen/Kosten: <strong>{r.faktor.toFixed(1)}×</strong>.
+                        </>
+                    )}
                 </p>
+                <RechnungTeilen titel="Lohnt sich mein KI-Abo?" text={`Meine Rechnung auf AIGeddon: ${urteil[1]}, ${eur.format(r.jahr)} € Gewinn pro Jahr.`} />
             </div>
         </div>
     )

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { withBase } from '../../lib/site'
+import { partnerRel } from '../../lib/monetization'
 
 // Dreht durch die Konsens-Tools und bleibt bei einem Zufallsfund stehen.
 export default function ToolRoulette() {
@@ -43,8 +44,8 @@ export default function ToolRoulette() {
             {aktuell && !dreht && (
                 <>
                     <p className="widget-note">
-                        <a href={aktuell.u} target="_blank" rel="nofollow noopener noreferrer">
-                            Ansehen ↗
+                        <a href={aktuell.u} target="_blank" rel={partnerRel(aktuell.a)}>
+                            Ansehen ↗{aktuell.a ? <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup> : null}
                         </a>
                         {aktuell.p && (
                             <>

@@ -5,6 +5,8 @@ import Link from 'next/link'
 import useKonto from '../components/useKonto'
 import { KONTO_AKTIV } from '../../lib/konto'
 import { toast } from '../../lib/herz'
+import { partnerRel } from '../../lib/monetization'
+import PartnerHinweis from '../components/PartnerHinweis'
 import {
     beobachteStack,
     bereinige,
@@ -83,7 +85,7 @@ function Zeile({ e, tool, aendern, entfernen }) {
     )
 }
 
-export default function MeinStack({ tools, abo, stand }) {
+export default function MeinStack({ tools, abo, stand, vergleiche = [] }) {
     const { bereit: kontoBereit, user } = useKonto()
     const [wolke, setWolke] = useState({ uid: null, bereit: false, fehler: false, eintraege: [] })
     const [lokal, setLokal] = useState(null)
@@ -104,6 +106,12 @@ export default function MeinStack({ tools, abo, stand }) {
     const s = useMemo(() => summen(eintraege), [eintraege])
     const tipps = useMemo(() => stackTipps(eintraege, tools, abo), [eintraege, tools, abo])
     const gewaehlt = neu.tool_slug && toolBySlug.get(neu.tool_slug)
+    // Doppelte Kategorie: passenden Tool-Vergleich finden, in dem mindestens zwei der Tools vorkommen
+    const vergleichFuer = (kategorie) => {
+        const slugs = eintraege.map((e) => e.tool_slug).filter((sl) => sl && toolBySlug.get(sl)?.category === kategorie)
+        return vergleiche.find((c) => c.tools.filter((sl) => slugs.includes(sl)).length >= 2) || null
+    }
+    const partnerSichtbar = tipps.some((t) => t.art === 'jaehrlich' && toolBySlug.get(t.slug)?.partner)
 
     if (lokal === null || (KONTO_AKTIV && !kontoBereit)) return <p className="widget-note">Lade deinen Stack …</p>
     if (KONTO_AKTIV && user && (!imKonto || !wolke.bereit)) return <p className="widget-note">Lade deinen Stack aus dem Konto …</p>
@@ -265,6 +273,12 @@ export default function MeinStack({ tools, abo, stand }) {
                                     {t.art === 'doppelt' && (
                                         <>
                                             🔁 <strong>{t.namen.join(' und ')}</strong> sind beide in der Kategorie {t.kategorie}. Brauchst du wirklich beide?
+                                            {vergleichFuer(t.kategorie) && (
+                                                <>
+                                                    {' '}
+                                                    <Link href={`/tool-vergleiche/${vergleichFuer(t.kategorie).slug}`}>Im Vergleich: {vergleichFuer(t.kategorie).title} →</Link>
+                                                </>
+                                            )}
                                         </>
                                     )}
                                     {t.art === 'jaehrlich' && (
@@ -274,6 +288,14 @@ export default function MeinStack({ tools, abo, stand }) {
                                                 ? `, du zahlst gerade ${geld(t.betrag, 'USD')}. Das wären ${geld(t.ersparnis, 'USD')} weniger im Jahr`
                                                 : ` statt ${geld(t.monatlich, 'USD')} bei monatlicher Zahlung`}
                                             . Lohnt sich, wenn du das Tool das ganze Jahr nutzt.
+                                            {toolBySlug.get(t.slug)?.href && (
+                                                <>
+                                                    {' '}
+                                                    <a href={toolBySlug.get(t.slug).href} target="_blank" rel={partnerRel(toolBySlug.get(t.slug).partner)}>
+                                                        Tarif bei {t.name} umstellen ↗{toolBySlug.get(t.slug).partner && <sup>*</sup>}
+                                                    </a>
+                                                </>
+                                            )}
                                         </>
                                     )}
                                     {t.art === 'gratis' && (
@@ -285,6 +307,7 @@ export default function MeinStack({ tools, abo, stand }) {
                             ))}
                         </ul>
                     )}
+                    <PartnerHinweis zeigen={partnerSichtbar} />
                 </>
             )}
             <p className="widget-note">{imKonto ? 'Gespeichert in deinem Konto.' : 'Gespeichert nur in diesem Browser.'}</p>

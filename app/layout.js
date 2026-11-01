@@ -1,13 +1,14 @@
-import Link from 'next/link'
+import Link from './components/NavLink'
 import { getGuides } from '../lib/guides'
 import './globals.css'
+import './styles/a-layout.css'
 import { SITE_URL, SITE_NAME, SITE_TAGLINE, REPO_URL, withBase } from '../lib/site'
 import Reveal from './components/Reveal'
 import LeadBox from './components/LeadBox'
 import JeansSenf from './components/JeansSenf'
 import LeseFortschritt from './components/LeseFortschritt'
 import Gruss from './components/Gruss'
-import LeadForm from './components/LeadForm'
+import SeitenAnhang from './components/SeitenAnhang'
 import { SidebarLeft, SidebarRight, MobileDock } from './components/Sidebars'
 import BackToTop from './components/BackToTop'
 import JeanIcon, { JeanSprite } from './components/JeanIcon'
@@ -18,15 +19,34 @@ import SeitenAktionen from './components/SeitenAktionen'
 import FooterExtras from './components/FooterExtras'
 import LeseHelfer from './components/LeseHelfer'
 import KontoKnopf from './components/KontoKnopf'
-import KontoSync from './components/KontoSync'
-import Glocke from './components/community/Glocke'
-import Kommentare from './components/community/Kommentare'
+import { Glocke, Kommentare, KontoSync } from './components/KontoInseln'
 import { KONTO_AKTIV } from '../lib/konto'
+import HauptNav from './components/HauptNav'
+import MerkZaehler from './components/MerkZaehler'
+import RuheKnopf from './components/RuheKnopf'
+import { HeuteKarte } from './components/HeuteWidgets'
+import SENF_TEXTE from '../db/texte/hubs.json'
 import JsonLd from './components/JsonLd'
 import { absoluteUrl } from '../lib/site'
 import { getKbRubriken } from '../lib/kb'
 import { getTestKategorien } from '../lib/kitests'
 import { RECHNER } from '../lib/rechner'
+import { AUTOR_ID } from '../lib/autor'
+
+// Nur die Pfade mit eigenem „Jeans Senf“-Text; die Texte selbst lädt JeansSenf bei Bedarf nach.
+const SENF_PFADE = Object.keys(SENF_TEXTE)
+
+// Hauptnavigation: die Kernaufgaben. Gratis, Deals, DACH, Skills, Tutorials, KI-Test und Über Jean stehen im Footer.
+const HAUPTNAV = [
+    { href: '/#alle', label: 'Verzeichnisse', emoji: '📇', bereich: ['/', '/verzeichnis', '/liste', '/top-50', '/deutsche-ki-verzeichnisse', '/neu-entdeckt', '/vergleich', '/ki-verzeichnis', '/freischaltung'] },
+    { href: '/ki-tools', label: 'KI-Tools', emoji: '🛠️', bereich: ['/ki-tools', '/tools', '/tool-finder', '/tool-vergleiche', '/beste-ki-tools'] },
+    { href: '/launch-kit', label: 'Launch-Kit', emoji: '🧰' },
+    { href: '/prompts', label: 'Prompts', emoji: '💬', bereich: ['/prompts', '/prompt-baukasten', '/prompt-check'] },
+    { href: '/ratgeber', label: 'Ratgeber', emoji: '📖', bereich: ['/ratgeber', '/tutorials', '/glossar'] },
+    { href: '/rechner', label: 'Rechner', emoji: '🧮' },
+    { href: '/ki-news', label: 'News', emoji: '📰' },
+    ...(KONTO_AKTIV ? [{ href: '/forum', label: 'Forum', emoji: '🗣️' }] : []),
+]
 
 const SITE_SCHEMA = [
     {
@@ -36,7 +56,7 @@ const SITE_SCHEMA = [
         name: SITE_NAME,
         url: SITE_URL,
         logo: absoluteUrl('/opengraph-image.png'),
-        founder: { '@type': 'Person', name: 'Jean Maurice Port', url: absoluteUrl('/ueber-jean') },
+        founder: { '@type': 'Person', '@id': AUTOR_ID, name: 'Jean Maurice Port', url: absoluteUrl('/ueber-jean') },
         sameAs: ['https://www.youtube.com/@AIGeddon', REPO_URL],
         publishingPrinciples: absoluteUrl('/so-pruefen-wir'),
     },
@@ -87,6 +107,7 @@ const footerSpalten = () => [
             ['/deutsche-ki-verzeichnisse', 'Deutsche KI-Verzeichnisse'],
             ['/neu-entdeckt', 'Neu entdeckte Verzeichnisse'],
             ['/top-50', 'Top 50'],
+            ['/vergleich', 'Verzeichnisse vergleichen'],
             ['/liste/rabattcodes', 'Rabattcodes'],
             ['/freischaltung', 'Freischaltdauer'],
             ['/launch-kit', 'Launch-Kit'],
@@ -96,6 +117,7 @@ const footerSpalten = () => [
         'KI-Test & Rechner',
         [
             ['/ki-test', 'KI-Test: Chatbots vergleichen'],
+            ['/quiz', 'Quiz'],
             ...getTestKategorien().map((k) => [`/ki-test/${k.key}`, `KI-Test ${k.name}`]),
             ['/rechner', 'KI-Rechner'],
             ...RECHNER.map((r) => [`/rechner/${r.slug}`, r.titel]),
@@ -134,6 +156,7 @@ export const metadata = {
         default: SITE_NAME,
         template: `%s | ${SITE_NAME}`,
     },
+    referrer: 'strict-origin-when-cross-origin',
     description:
         'AIGeddon: die deutsche Liste der KI-Verzeichnisse mit Domain Rating, Traffic, Preis, Freischaltdauer und Einreichungs-Check. Dazu Launch-Kit, Ratgeber und KI-Use-Cases. Ehrlich, kostenlos und mit mehr Humor, als SEO erlaubt.',
     applicationName: SITE_NAME,
@@ -142,9 +165,9 @@ export const metadata = {
         locale: 'de_DE',
         siteName: SITE_NAME,
     },
-    twitter: { card: 'summary' },
+    // Großes Vorschaubild: Die Bilder sind 1200 x 630. Das Bild selbst übernimmt Next.js aus og:image.
+    twitter: { card: 'summary_large_image' },
     robots: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
-    icons: { icon: '/favicon.ico' },
     ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } } : {}),
 }
 
@@ -155,9 +178,32 @@ export const viewport = {
     ],
 }
 
+// Content-Security-Policy per Meta (GitHub Pages erlaubt keine eigenen Header). Fremde Skripte, Plugins und ein
+// umgebogenes base-URL sind gesperrt. 'unsafe-inline' braucht Next.js für seine eingebetteten Daten-Skripte;
+// Verbindungen und Bilder bleiben für https offen (FormSubmit, Supabase, Profilbilder). Im Entwicklungsmodus aus,
+// weil der Dev-Server eval nutzt. frame-ancestors geht per Meta nicht.
+const CSP = [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline'",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: blob: https:",
+    "font-src 'self' data:",
+    "connect-src 'self' https: wss:",
+    "frame-src https:",
+    "media-src 'self' https:",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self' https://formsubmit.co",
+].join('; ')
+
 export default function RootLayout({ children }) {
     return (
         <html lang="de">
+            <head>
+                {process.env.NODE_ENV === 'production' && <meta httpEquiv="Content-Security-Policy" content={CSP} />}
+                <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME}: Neues auf einen Blick`} href={absoluteUrl('/feed.xml')} />
+                <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME}: KI-News`} href={absoluteUrl('/ki-news/feed.xml')} />
+            </head>
             <body>
                 <JeanSprite />
                 <LeseFortschritt />
@@ -168,78 +214,39 @@ export default function RootLayout({ children }) {
                     <div className="container header-inner">
                         <Link href="/" className="brand">
                             <JeanIcon cool badge="strahlung" size={44} className="brand-icon" />
-                            AIGEDDON ☢️
+                            <span>
+                                AIGEDDON <span aria-hidden="true">☢️</span>
+                            </span>
                             <span className="brand-sub">{SITE_TAGLINE}</span>
                         </Link>
                         <Gruss />
                         <div className="konto-leiste">
+                            {!KONTO_AKTIV && <MerkZaehler />}
                             <Glocke />
                             <KontoKnopf />
                         </div>
-                        <nav aria-label="Hauptnavigation">
-                            <ul>
-                                <li>
-                                    <Link href="/liste/kostenlos">Gratis 🎁</Link>
-                                </li>
-                                <li>
-                                    <Link href="/ki-news">News 📰</Link>
-                                </li>
-                                <li>
-                                    <Link href="/prompts">Prompts 💬</Link>
-                                </li>
-                                <li>
-                                    <Link href="/skills">Skills 🧩</Link>
-                                </li>
-                                {KONTO_AKTIV && (
-                                    <li>
-                                        <Link href="/forum">Forum 🗣️</Link>
-                                    </li>
-                                )}
-                                <li>
-                                    <Link href="/tools">Tools 🛠️</Link>
-                                </li>
-                                <li>
-                                    <Link href="/liste/rabattcodes">Deals 🏷️</Link>
-                                </li>
-                                <li>
-                                    <Link href="/deutsche-ki-verzeichnisse">DACH 🇩🇪</Link>
-                                </li>
-                                <li>
-                                    <Link href="/launch-kit">Launch-Kit 🧰</Link>
-                                </li>
-                                <li>
-                                    <Link href="/ratgeber">Ratgeber 📖</Link>
-                                </li>
-                                <li>
-                                    <Link href="/tutorials">Tutorials 🎓</Link>
-                                </li>
-                                <li>
-                                    <Link href="/ki-test">KI-Test 🧪</Link>
-                                </li>
-                                <li>
-                                    <Link href="/ueber-jean">Über Jean 🧔</Link>
-                                </li>
-                            </ul>
-                        </nav>
+                        <HauptNav punkte={HAUPTNAV} />
                     </div>
                 </header>
-                <div className="ticker" aria-hidden="true">
-                    <div className="ticker-track">
+                <div className="ticker a-ticker">
+                    <div className="ticker-track" aria-hidden="true">
                         {TICKER.map((t) => (
                             <span key={t}>{t}</span>
                         ))}
                     </div>
+                    <RuheKnopf />
                 </div>
                 <div className="page-grid">
                     <aside className="sidebar sidebar-left" aria-label="Jeans Kompass">
                         <SidebarLeft />
                     </aside>
-                    <main id="inhalt" className="page-main">
+                    <main id="inhalt" tabIndex={-1} className="page-main">
                         {children}
+                        <HeuteKarte />
                         <SeitenAktionen />
                         <Kommentare />
-                        <JeansSenf />
-                        <LeadForm />
+                        <JeansSenf pfade={SENF_PFADE} />
+                        <SeitenAnhang />
                         <LeadBox />
                         <Reveal />
                     </main>
@@ -277,9 +284,11 @@ export default function RootLayout({ children }) {
                     <div className="container">
                         <FooterExtras />
                         <p>
-                            Gebaut von <Link href="/ueber-jean">Jean Maurice Port</Link>, SEO-Manager mit Humor. ·{' '}
+                            Gebaut von <Link href="/ueber-jean">Jean Maurice Port</Link>, Senior SEO/SGE Manager bei der MotoMobilityGroup. ·{' '}
                             <Link href="/werben">Werben</Link> · <Link href="/transparenz">Transparenz</Link> · <Link href="/so-pruefen-wir">So prüfen wir</Link> ·{' '}
-                            <Link href="/datenschutz">Datenschutz</Link> · <Link href="/merkliste">Merkliste ⭐</Link> ·{' '}
+                            <Link href="/datenschutz">Datenschutz</Link> · <Link href="/merkliste">
+                                Merkliste <span aria-hidden="true">⭐</span>
+                            </Link> ·{' '}
                             {KONTO_AKTIV && (
                                 <>
                                     <Link href="/forum">Forum</Link> · <Link href="/community-regeln">Community-Regeln</Link> ·{' '}
@@ -289,8 +298,9 @@ export default function RootLayout({ children }) {
                         </p>
                         <p>
                             Open Source auf <a href={REPO_URL}>GitHub</a> (Pull Requests werden mit Konfetti empfangen) · Rohdaten als{' '}
-                            <a href={withBase('/api/directories')}>JSON-API</a> · Für KI-Assistenten, die auch mal lachen wollen:{' '}
-                            <a href={withBase('/llms.txt')}>llms.txt</a>
+                            <a href={withBase('/api/directories.json')}>JSON-API</a> · Für KI-Assistenten, die auch mal lachen wollen:{' '}
+                            <a href={withBase('/llms.txt')}>llms.txt</a> · Neues per RSS: <a href={withBase('/feed.xml')}>Gesamt-Feed</a> ·{' '}
+                            <a href={withBase('/ki-news/feed.xml')}>KI-News-Feed</a>
                         </p>
                         <p className="footer-liebe">
                             Mit ❤️, viel ☕ und einem Schuss Zweitakt-Öl von Hand geschraubt. Kein Algorithmus wurde beim Lesen dieser Zeile verletzt.

@@ -19,6 +19,7 @@ import { getGuides } from '../lib/guides'
 import { RUBRIK_RATGEBER } from '../lib/rubrik-ratgeber'
 import { dateiStand, seitenStand, spaetestes } from '../lib/stand'
 import { KONTO_AKTIV } from '../lib/konto'
+import { eintragStand } from '../lib/eintrag-stand'
 
 // lastModified ist das echte Änderungsdatum: Prüfdatum des Inhalts oder letzter Git-Commit der Quelldateien.
 // Ein Datum, das sich täglich ändert, obwohl nichts passiert ist, ignoriert Google; ein ehrliches nutzt es.
@@ -34,6 +35,8 @@ const STATISCH = {
     '/mein-stack': ['app/mein-stack/MeinStack.js', 'lib/stack.js', 'lib/abo-preise.js'],
     '/tool-vergleiche': ['lib/comparisons.js'],
     '/top-50': ['db/directories.json'],
+    '/verzeichnis': ['app/verzeichnis/page.js', 'db/directories.json'],
+    '/liste': ['app/liste/page.js', 'lib/data.js'],
     '/prompts': ['lib/prompts.js'],
     '/skills': ['lib/skills.js', 'db/skills.json'],
     ...(KONTO_AKTIV ? { '/forum': ['app/forum/page.js'], '/community-regeln': ['app/community-regeln/page.js'] } : {}),
@@ -76,12 +79,12 @@ export default function sitemap() {
         ...RECHNER.map((r) => eintrag(`/rechner/${r.slug}`, seitenStand(`/rechner/${r.slug}`, 'lib/preise.js', 'lib/abo-preise.js'), 'monthly', 0.8)),
         ...getTestKategorien().map((k) => eintrag(`/ki-test/${k.key}`, dateiStand('lib/kitests.js'), 'monthly', 0.7)),
         ...getKbRubriken().map((r) => eintrag(`/ki-tools/${r.key}`, spaetestes(RUBRIK_RATGEBER[r.key]?.geprueft, dateiStand('db/kb-tools.json', 'lib/rubrik-ratgeber.js')), 'weekly', 0.8)),
-        ...KI_GLOSSAR.map(([term]) => eintrag(`/glossar/${glossarSlug(term)}`, dateiStand('lib/ki-glossar.js', 'lib/ki-glossar-details.js', 'db/texte/glossar.json'), 'monthly', 0.5)),
+        ...KI_GLOSSAR.map(([term]) => eintrag(`/glossar/${glossarSlug(term)}`, eintragStand(glossarSlug(term), 'db/texte/glossar.json') || dateiStand('lib/ki-glossar.js', 'lib/ki-glossar-details.js', 'db/texte/glossar.json'), 'monthly', 0.5)),
         ...ZIELGRUPPEN.map((z) => eintrag(`/ki-tools/fuer/${z.slug}`, spaetestes(z.geprueft, dateiStand('lib/zielgruppen.js')), 'monthly', 0.7)),
         ...ALTERNATIVEN.map((a) => eintrag(`/ki-tools/alternativen/${a.slug}`, dateiStand('lib/alternativen.js', 'db/kb-tools.json'), 'weekly', 0.7)),
         ...getKbTools()
             .filter(kbIndexierbar)
-            .map((t) => eintrag(`/ki-tools/tool/${t.slug}`, dateiStand('db/kb-tools.json', 'db/texte/kb.json'), 'monthly', 0.5)),
+            .map((t) => eintrag(`/ki-tools/tool/${t.slug}`, eintragStand(t.slug, 'db/kb-tools.json', 'db/texte/kb.json') || dateiStand('db/kb-tools.json', 'db/texte/kb.json'), 'monthly', 0.5)),
         ...getTutorials().map((t) => eintrag(`/tutorials/${t.slug}`, dateiStand('lib/tutorials.js'), 'monthly', 0.8)),
         ...getPrompts().map((p) => eintrag(`/prompts/${p.slug}`, dateiStand('lib/prompts.js', 'db/texte/prompts.json'), 'monthly', 0.7)),
         ...(getGuides().length ? [eintrag('/guides', dateiStand('lib/guides.js'), 'monthly', 0.8)] : []),
@@ -89,7 +92,10 @@ export default function sitemap() {
         ...promptsByKategorie()
             .filter((k) => k.prompts.length && KATEGORIE_TEXTE[k.key])
             .map((k) => eintrag(`/prompts/kategorie/${k.key}`, dateiStand('lib/prompts.js', 'lib/prompt-kategorien.js'), 'monthly', 0.7)),
-        ...getTools().map((t) => eintrag(`/tools/${t.slug}`, dateiStand('db/tools.json', 'db/texte/tools.json'), 'monthly', 0.6)),
-        ...getDirectories().map((d) => eintrag(`/verzeichnis/${d.slug}`, dateiStand('db/directories.json', 'db/texte/verzeichnisse.json', 'db/checks.json'), 'monthly', 0.5)),
+        ...getTools().map((t) => eintrag(`/tools/${t.slug}`, eintragStand(t.slug, 'db/tools.json', 'db/texte/tools.json') || dateiStand('db/tools.json', 'db/texte/tools.json'), 'monthly', 0.6)),
+        // Je Verzeichnis das Datum der letzten Änderung an genau diesem Eintrag (Daten, Text, Freischaltungs-Check).
+        ...getDirectories().map((d) =>
+            eintrag(`/verzeichnis/${d.slug}`, eintragStand(d.slug, 'db/directories.json', 'db/texte/verzeichnisse.json', 'db/checks.json') || dateiStand('db/directories.json', 'db/texte/verzeichnisse.json', 'db/checks.json'), 'monthly', 0.5)
+        ),
     ]
 }

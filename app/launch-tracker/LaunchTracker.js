@@ -1,21 +1,39 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import useKonto from '../components/useKonto'
 import useLaunch from '../components/useLaunch'
 import { KONTO_AKTIV } from '../../lib/konto'
-import { STATUS, heute, lokaleHaekchen, setzeLaunch, uebernehmeLokal } from '../../lib/launch'
+import { LOKAL_EVENT, LOKAL_LAUNCH, LOKAL_KEY, STATUS, datumDe, heute, lokalLaunch, setzeLaunch, setzeLokal, uebernehmeLokal } from '../../lib/launch'
 import { submitRel } from '../../lib/monetization'
 import { toast } from '../../lib/herz'
 
 const FILTER = [['alle', 'Alle'], ['offen', 'Noch offen'], ...STATUS.map(([k, name]) => [k, name]), ['faellig', 'Erinnerung fällig']]
 const STATUS_NAME = Object.fromEntries(STATUS.map(([k, name, emoji]) => [k, `${emoji} ${name}`]))
 
-function Zeile({ v, e, uid }) {
+// Tracker im Browser (ohne Konto): liest den lokalen Stand und folgt Änderungen aus der Tabelle oder anderen Tabs.
+function useLokalLaunch() {
+    const [eintraege, setEintraege] = useState(() => new Map())
+    useEffect(() => {
+        const laden = () => setEintraege(lokalLaunch())
+        const aufStorage = (e) => (!e.key || e.key === LOKAL_LAUNCH || e.key === LOKAL_KEY) && laden()
+        laden()
+        window.addEventListener(LOKAL_EVENT, laden)
+        window.addEventListener('storage', aufStorage)
+        return () => {
+            window.removeEventListener(LOKAL_EVENT, laden)
+            window.removeEventListener('storage', aufStorage)
+        }
+    }, [])
+    return eintraege
+}
+
+function Zeile({ v, e, speichernIn }) {
     const [notiz, setNotiz] = useState(e?.notiz || '')
+    useEffect(() => setNotiz(e?.notiz || ''), [e?.notiz])
     const speichern = async (felder) => {
-        const ok = await setzeLaunch(uid, v.slug, felder)
+        const ok = await speichernIn(v.slug, felder)
         if (!ok) toast('Das hat nicht geklappt. Bitte versuch es noch einmal.', '⚠️')
     }
     const faellig = e?.erinnerung && e.erinnerung <= heute() && e.status !== 'live'
@@ -57,7 +75,7 @@ function Zeile({ v, e, uid }) {
                     />
                 </label>
             </div>
-            {faellig && <p className="lt-hinweis">⏰ Erinnerung fällig seit {new Date(e.erinnerung).toLocaleDateString('de-DE')}</p>}
+            {faellig && <p className="lt-hinweis">⏰ Erinnerung fällig seit {datumDe(e.erinnerung)}</p>}
         </li>
     )
 }
@@ -65,16 +83,22 @@ function Zeile({ v, e, uid }) {
 export default function LaunchTracker({ verzeichnisse }) {
     const { bereit: kontoBereit, user } = useKonto()
     const launch = useLaunch(true)
+    const lokal = useLokalLaunch()
     const [filter, setFilter] = useState('alle')
     const [suche, setSuche] = useState('')
     const erlaubt = useMemo(() => new Set(verzeichnisse.map((v) => v.slug)), [verzeichnisse])
+
+    // Mit Konto liegt der Tracker in der Cloud, sonst in diesem Browser.
+    const imKonto = Boolean(KONTO_AKTIV && user)
+    const eintraege = imKonto ? launch.eintraege : lokal
+    const speichernIn = imKonto ? (slug, felder) => setzeLaunch(launch.uid, slug, felder) : async (slug, felder) => setzeLokal(slug, felder)
 
     const zahlen = useMemo(() => {
         const z = { offen: 0, faellig: 0 }
         STATUS.forEach(([k]) => (z[k] = 0))
         const h = heute()
         verzeichnisse.forEach((v) => {
-            const e = launch.eintraege.get(v.slug)
+            const e = eintraege.get(v.slug)
             if (!e) z.offen++
             else {
                 z[e.status]++
@@ -82,61 +106,34 @@ export default function LaunchTracker({ verzeichnisse }) {
             }
         })
         return z
-    }, [verzeichnisse, launch.eintraege])
+    }, [verzeichnisse, eintraege])
 
     const liste = useMemo(() => {
         const q = suche.trim().toLowerCase()
         const h = heute()
         return verzeichnisse.filter((v) => {
-            const e = launch.eintraege.get(v.slug)
+            const e = eintraege.get(v.slug)
             if (q && !v.name.toLowerCase().includes(q)) return false
             if (filter === 'alle') return true
             if (filter === 'offen') return !e
             if (filter === 'faellig') return e?.erinnerung && e.erinnerung <= h && e.status !== 'live'
             return e?.status === filter
         })
-    }, [verzeichnisse, launch.eintraege, filter, suche])
+    }, [verzeichnisse, eintraege, filter, suche])
 
-    if (!KONTO_AKTIV)
-        return (
-            <p className="konto-karte">
-                Der Launch-Tracker mit Konto ist gerade in Vorbereitung. Bis dahin kannst du Verzeichnisse in der <Link href="/#alle">Tabelle auf der Startseite</Link> abhaken.
-            </p>
-        )
-    if (!kontoBereit) return <p className="widget-note">Einen Moment …</p>
-    if (!user)
-        return (
-            <div className="konto-karte">
-                <p className="konto-gross">Mit Konto wird aus der Liste dein Launch-Plan</p>
-                <ul className="konto-vorteile">
-                    <li>📨 Status je Verzeichnis: geplant, eingereicht, live oder abgelehnt</li>
-                    <li>📝 Notizen, etwa Login, Ansprechpartner oder Preis</li>
-                    <li>⏰ Erinnerungsdatum zum Nachhaken</li>
-                    <li>📄 Export als CSV, auf allen Geräten verfügbar</li>
-                </ul>
-                <p className="konto-links">
-                    <Link className="button" href="/anmelden?zurueck=/launch-tracker">
-                        Kostenlos anmelden
-                    </Link>
-                    <Link className="button button-small" href="/#alle">
-                        Ohne Konto in der Tabelle abhaken
-                    </Link>
-                </p>
-                {lokaleHaekchen().length > 0 && <p className="widget-note">Deine {lokaleHaekchen().length} Häkchen aus diesem Browser kannst du nach der Anmeldung mit einem Klick übernehmen.</p>}
-            </div>
-        )
-    if (!launch.aktiv || !launch.bereit) return <p className="widget-note">Lade deinen Launch-Tracker …</p>
-    if (launch.fehler) return <p className="konto-karte">Dein Launch-Tracker konnte gerade nicht geladen werden. Bitte lade die Seite neu.</p>
+    if (KONTO_AKTIV && !kontoBereit) return <p className="widget-note">Einen Moment …</p>
+    if (imKonto && (!launch.aktiv || !launch.bereit)) return <p className="widget-note">Lade deinen Launch-Tracker …</p>
+    if (imKonto && launch.fehler) return <p className="konto-karte">Dein Launch-Tracker konnte gerade nicht geladen werden. Bitte lade die Seite neu.</p>
 
-    const offenLokal = lokaleHaekchen().filter((s) => erlaubt.has(s) && !launch.eintraege.has(s)).length
+    const offenLokal = imKonto ? [...lokal.keys()].filter((s) => erlaubt.has(s) && !launch.eintraege.has(s)).length : 0
     const uebernehmen = async () => {
         const n = await uebernehmeLokal(launch.uid, erlaubt)
-        toast(n > 0 ? `${n} Häkchen übernommen. Sie stehen jetzt als „Eingereicht“ im Tracker.` : n < 0 ? 'Das hat nicht geklappt. Bitte versuch es noch einmal.' : 'Alles schon da.', n < 0 ? '⚠️' : '☁️')
+        toast(n > 0 ? `${n} ${n === 1 ? 'Eintrag' : 'Einträge'} aus diesem Browser übernommen.` : n < 0 ? 'Das hat nicht geklappt. Bitte versuch es noch einmal.' : 'Alles schon da.', n < 0 ? '⚠️' : '☁️')
     }
     const exportieren = () => {
         const zeilen = [['Verzeichnis', 'Website', 'Einreichung', 'Status', 'Erinnerung', 'Notiz', 'Geändert']]
         verzeichnisse.forEach((v) => {
-            const e = launch.eintraege.get(v.slug)
+            const e = eintraege.get(v.slug)
             zeilen.push([v.name, v.link, v.submission_link, e ? STATUS.find(([k]) => k === e.status)?.[1] : 'Offen', e?.erinnerung || '', e?.notiz || '', e?.aktualisiert ? e.aktualisiert.slice(0, 10) : ''])
         })
         const csv = zeilen.map((r) => r.map((x) => `"${String(x).replace(/"/g, '""')}"`).join(';')).join('\n')
@@ -150,6 +147,22 @@ export default function LaunchTracker({ verzeichnisse }) {
 
     return (
         <>
+            {!imKonto && (
+                <div className="konto-karte">
+                    <p>
+                        <strong>Dein Tracker liegt nur in diesem Browser.</strong> Kein Konto nötig, nichts geht an einen Server. Häkchen aus der{' '}
+                        <Link href="/#alle">Tabelle auf der Startseite</Link> stehen hier als „{STATUS_NAME.eingereicht}“. Leerst du den Browser-Speicher, ist der Stand weg: Sichere ihn
+                        ab und zu als CSV.
+                    </p>
+                    {KONTO_AKTIV && (
+                        <p className="konto-links">
+                            <Link className="button button-small" href="/anmelden?zurueck=/launch-tracker">
+                                Mit Konto auf allen Geräten nutzen
+                            </Link>
+                        </p>
+                    )}
+                </div>
+            )}
             <ul className="lt-zahlen" aria-label="Überblick">
                 {STATUS.map(([k, name, emoji]) => (
                     <li key={k}>
@@ -171,8 +184,8 @@ export default function LaunchTracker({ verzeichnisse }) {
             {offenLokal > 0 && (
                 <p className="konto-karte">
                     {offenLokal === 1
-                        ? 'In diesem Browser hast du 1 Verzeichnis abgehakt, das noch nicht im Konto steht.'
-                        : `In diesem Browser hast du ${offenLokal} Verzeichnisse abgehakt, die noch nicht im Konto stehen.`}{' '}
+                        ? 'In diesem Browser steht 1 Verzeichnis im Tracker, das noch nicht im Konto ist.'
+                        : `In diesem Browser stehen ${offenLokal} Verzeichnisse im Tracker, die noch nicht im Konto sind.`}{' '}
                     <button type="button" className="button button-small" onClick={uebernehmen}>
                         Ins Konto übernehmen
                     </button>
@@ -199,7 +212,7 @@ export default function LaunchTracker({ verzeichnisse }) {
             ) : (
                 <ul className="lt-liste">
                     {liste.map((v) => (
-                        <Zeile key={v.slug} v={v} e={launch.eintraege.get(v.slug)} uid={launch.uid} />
+                        <Zeile key={v.slug} v={v} e={eintraege.get(v.slug)} speichernIn={speichernIn} />
                     ))}
                 </ul>
             )}

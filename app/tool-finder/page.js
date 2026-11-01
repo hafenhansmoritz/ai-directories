@@ -4,8 +4,8 @@ import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import ToolFinder from '../components/ToolFinder'
 import { Band } from '../components/Deko'
 import { SITE_NAME } from '../../lib/site'
-import { getKbTools, kbStats } from '../../lib/kb'
-import { getTools } from '../../lib/tools'
+import { kbStats } from '../../lib/kb'
+import { KB_DATEN } from '../../lib/kb-client'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 
 export const metadata = {
@@ -15,19 +15,6 @@ export const metadata = {
 }
 
 function ToolFinderPage() {
-    const gratisProfil = new Set(getTools().filter((t) => t.free_plan).map((t) => t.slug))
-    const tools = getKbTools().map((t) => ({
-        s: t.slug,
-        n: t.name,
-        u: t.url,
-        r: t.rubrik,
-        k: t.konsens,
-        o: t.open_source ? 1 : 0,
-        g: t.gratis ? 1 : 0,
-        f: t.profil && gratisProfil.has(t.profil.slug) ? 1 : 0,
-        p: t.profil?.slug || '',
-        d: t.deutsch ? t.beschreibung : '',
-    }))
     const crumbs = [
         { name: SITE_NAME, path: '/' },
         { name: 'Tool-Finder', path: '/tool-finder' },
@@ -42,7 +29,7 @@ function ToolFinderPage() {
                 <p className="lead">Drei Klicks, sechs Treffer. Sortiert nach dem, was die großen Community-Listen empfehlen, mit Jeans Steckbriefen, wo es welche gibt.</p>
             </section>
             <Band farbe="lila" id="finder" titel="Los geht's 🎯">
-                <ToolFinder tools={tools} />
+                <ToolFinder quelle={KB_DATEN} />
             </Band>
             <p className="box box-tipp">
                 Treffer gefunden? Teste die Chatbots im <Link href="/ki-test">KI-Test</Link> und rechne mit dem <Link href="/rechner/ki-zeitersparnis">Zeitersparnis-Rechner</Link> nach, ob sich das Abo lohnt.

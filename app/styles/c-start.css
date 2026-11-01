@@ -1,0 +1,210 @@
+/* Paket C: Startseite, Verzeichnistabelle, Listen, Vergleich. Alle Klassen mit Präfix c-. */
+
+/* Einstieg über der Falz: klarer Weg zur Liste und zum Launch-Kit */
+.c-hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0 8px;
+}
+
+.c-hero-ctas .button {
+    font-size: 1.05rem;
+}
+
+.c-knopf-zweit {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.c-knopf-zweit:hover {
+    background: var(--pop);
+    color: #1b1b1f;
+}
+
+.c-stand {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Leerer Treffer: Ausweg statt Sackgasse */
+.c-leer {
+    margin: 12px 0;
+}
+
+.c-leer-knoepfe {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.c-tabelle .table-scroll[aria-busy] {
+    opacity: 0.75;
+    transition: opacity 0.2s;
+}
+
+/* Vergleich: Eintragen-Zeile */
+.c-vergleich-eintragen td {
+    white-space: normal;
+    /* Hält den sr-only-Hinweis im Scrollbereich, sonst ragt er über den Seitenrand */
+    position: relative;
+}
+
+.c-vergleich-eintragen .button {
+    padding: 8px 14px;
+}
+
+.c-vergleich-code {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+/* Die Spalte Eintragen steht direkt hinter dem Namen, damit sie auch in der schmalen Desktop-Spalte sichtbar bleibt. */
+
+/* Mobil: jede Zeile wird eine Karte, "Eintragen" ist ohne seitliches Wischen sichtbar */
+@media (max-width: 720px) {
+    .c-tabelle .table-scroll {
+        overflow: visible;
+    }
+
+    .c-tabelle table,
+    .c-tabelle tbody {
+        display: block;
+    }
+
+    .c-tabelle caption {
+        display: block;
+    }
+
+    .c-tabelle thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+
+    .c-tabelle tbody tr {
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr) minmax(0, 1fr) auto;
+        column-gap: 10px;
+        row-gap: 6px;
+        align-items: center;
+        padding: 12px 14px;
+        border-bottom: 2px solid var(--border);
+        /* Karten außerhalb des Bildschirms werden nicht gelayoutet und gemalt */
+        content-visibility: auto;
+        contain-intrinsic-size: auto 150px;
+    }
+
+    .c-tabelle-leicht tbody tr {
+        contain-intrinsic-size: auto 120px;
+    }
+
+    .c-tabelle tbody tr:last-child {
+        border-bottom: 0;
+    }
+
+    .c-tabelle tbody th,
+    .c-tabelle tbody td {
+        padding: 0;
+        border: 0;
+        white-space: normal;
+        text-align: left;
+    }
+
+    .c-tabelle tbody td:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .c-tabelle tbody th {
+        grid-column: 2 / 4;
+        grid-row: 1;
+        overflow-wrap: anywhere;
+        font-size: 1.02rem;
+    }
+
+    .c-tabelle tbody td:nth-child(4) {
+        grid-column: 4;
+        grid-row: 1;
+        text-align: right;
+    }
+
+    .c-tabelle tbody td:nth-child(5) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .c-tabelle tbody td:nth-child(6) {
+        grid-column: 3 / 5;
+        grid-row: 2;
+    }
+
+    .c-tabelle tbody td:nth-child(5)::before,
+    .c-tabelle tbody td:nth-child(6)::before {
+        color: var(--muted);
+        font-size: 0.82rem;
+        margin-right: 4px;
+    }
+
+    .c-tabelle tbody td:nth-child(5)::before {
+        content: 'DR';
+    }
+
+    .c-tabelle tbody td:nth-child(6)::before {
+        content: 'Besuche/Monat';
+    }
+
+    .c-tabelle tbody td:nth-child(7) {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .c-tabelle tbody td:nth-child(8) {
+        grid-column: 3 / 5;
+        grid-row: 3;
+    }
+
+    .c-tabelle tbody td:nth-child(3) {
+        grid-column: 1 / -1;
+        grid-row: 4;
+    }
+
+    .c-tabelle .track {
+        width: 24px;
+        height: 24px;
+    }
+
+    .c-tabelle:not(.c-tabelle-leicht) td:nth-child(3) .submit-link {
+        display: block;
+        text-align: center;
+        padding: 10px 14px;
+        border: 2px solid var(--border);
+        border-radius: 8px;
+        background: var(--accent);
+        color: var(--accent-contrast);
+    }
+
+    .c-tabelle:not(.c-tabelle-leicht) td:nth-child(3) .submit-closed {
+        display: block;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    /* Alternativen und Top 10: Eintragen als Textlink, damit der Haupt-CTA der Seite heraussticht */
+    .c-tabelle-leicht tbody td:nth-child(3) {
+        text-align: right;
+    }
+}

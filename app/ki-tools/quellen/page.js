@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Breadcrumbs from '../../components/Breadcrumbs'
 import { SITE_NAME } from '../../../lib/site'
 import { KB_SOURCES, KB_STAND, kbStats } from '../../../lib/kb'
+import { datumDe } from '../../../lib/text'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 
 export const metadata = {
@@ -25,7 +26,7 @@ function QuellenPage() {
                 <p className="eyebrow">Methode</p>
                 <h1>Quellen, Lizenzen und Methode</h1>
                 <p className="lead">
-                    Die Datenbank führt die drei größten frei lizenzierten KI-Tool-Listen auf GitHub zusammen, gemessen an Sternen und Forks. Stand {KB_STAND}: {s.gesamt} eindeutige Tools.
+                    Die Datenbank führt die drei größten frei lizenzierten KI-Tool-Listen auf GitHub zusammen, gemessen an Sternen und Forks. Stand {datumDe(KB_STAND)}: {s.gesamt} eindeutige Tools.
                 </p>
             </section>
             <div className="table-scroll">

@@ -21,11 +21,17 @@ STATUS = register['status_werte']
 
 
 def leer(v):
-    return v is None or str(v).strip() in ('', '–', '-')
+    return v is None or str(v).strip() in ('', '\u2013', '-')
+
+
+# Layer A: keine Gedankenstriche im Register. Bereiche werden zu „bis“, sonst Bindestrich.
+def ohne_striche(t):
+    t = re.sub(r'(?<=[\d$\u20ac])\s*\u2013\s*(?=[\d$\u20ac])', ' bis ', t)
+    return re.sub(r'\s*[\u2013\u2014]\s*', ' - ', t)
 
 
 def text(v):
-    return '' if leer(v) else str(v).strip()
+    return '' if leer(v) else ohne_striche(str(v).strip())
 
 
 def zeilen(ws):

@@ -37,12 +37,20 @@ function countUp(el) {
     requestAnimationFrame(step)
 }
 
+// Nur Karten in Rastern kommen nacheinander, ganze Abschnitte erscheinen ohne Verzögerung.
+const STAFFEL = /^\.(link-cards|kb-list|tutorial-cards|rubrik-tiles|entry-tiles|podium|archiv-list)/
+
 export default function Reveal() {
     const path = usePathname()
     useEffect(() => {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return
         const root = document.documentElement
-        root.classList.add('reveal-ready')
+        const staffelSel = SELECTOR.split(',').filter((s) => STAFFEL.test(s)).join(',')
+        // Nach einem Seitenwechsel erst alles zeigen, bis der Observer den neuen Stand kennt.
+        root.classList.remove('reveal-ready')
+        let erster = true
+        // Kein getBoundingClientRect: der Observer meldet den Startzustand selbst, ohne erzwungenes Layout.
+        // Die Klasse reveal-ready kommt erst nach seiner ersten Meldung, sichtbare Inhalte blinken also nicht weg.
         const io = new IntersectionObserver(
             (entries) => {
                 for (const e of entries) {
@@ -52,23 +60,35 @@ export default function Reveal() {
                     if (e.target.dataset?.count) countUp(e.target)
                     io.unobserve(e.target)
                 }
+                if (erster) {
+                    erster = false
+                    root.classList.add('reveal-ready')
+                }
             },
             { rootMargin: '0px 0px -6% 0px', threshold: 0 }
         )
-        const els = document.querySelectorAll(SELECTOR)
-        els.forEach((el) => {
-            // Geschwister bekommen eine kleine Verzögerung, damit Karten nacheinander erscheinen
-            const i = el.parentElement ? [...el.parentElement.children].indexOf(el) : 0
-            el.style.setProperty('--reveal-delay', `${Math.min(i, 8) * 60}ms`)
-            const r = el.getBoundingClientRect()
-            if (r.top < window.innerHeight) el.classList.add('is-in')
-            else io.observe(el)
+        // Über einen Anker angesprungene Abschnitte (z. B. /#alle) sofort zeigen.
+        let ziel = null
+        try {
+            ziel = window.location.hash ? document.getElementById(decodeURIComponent(window.location.hash.slice(1))) : null
+        } catch {
+            ziel = null
+        }
+        const zielAbschnitt = ziel?.closest('.page-main > section, .page-main > .band')
+        if (zielAbschnitt) zielAbschnitt.classList.add('is-in')
+        // Verzögerung je Elternliste hochzählen statt indexOf (bei langen Listen sonst quadratisch).
+        const zaehler = new Map()
+        if (staffelSel) {
+            document.querySelectorAll(staffelSel).forEach((el) => {
+                const i = zaehler.get(el.parentElement) || 0
+                zaehler.set(el.parentElement, i + 1)
+                if (i) el.style.setProperty('--reveal-delay', `${Math.min(i, 8) * 60}ms`)
+            })
+        }
+        document.querySelectorAll(SELECTOR).forEach((el) => {
+            if (!el.classList.contains('is-in')) io.observe(el)
         })
-        document.querySelectorAll('[data-count]').forEach((el) => {
-            const r = el.getBoundingClientRect()
-            if (r.top < window.innerHeight) countUp(el)
-            else io.observe(el)
-        })
+        document.querySelectorAll('[data-count]').forEach((el) => io.observe(el))
         return () => io.disconnect()
     }, [path])
     return null

@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
+import { RechnerStatus, RechnungTeilen, useHashZustand } from './RechnerHelfer'
 
 const fmt = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 })
 
@@ -18,6 +19,14 @@ export default function AutomatisierungsRechner({ tools }) {
         const bauKosten = bau * satz
         return { stundenJahr, wertJahr, bauKosten, wochenBisPlus: wertJahr > 0 ? Math.ceil(bauKosten / (wertJahr / 52)) : 0 }
     }, [minuten, proWoche, satz, bau])
+
+    useHashZustand({
+        min: { wert: minuten, setzen: setMinuten, min: 1, max: 60 },
+        w: { wert: proWoche, setzen: setProWoche, min: 1, max: 200 },
+        s: { wert: satz, setzen: setSatz, min: 15, max: 150 },
+        bau: { wert: bau, setzen: setBau, min: 1, max: 40 },
+    })
+    const urteil = r.wochenBisPlus <= 8 ? 'Sofort automatisieren' : r.wochenBisPlus <= 26 ? 'Lohnt sich' : 'Erst später angehen'
 
     return (
         <div className="rechner">
@@ -47,9 +56,10 @@ export default function AutomatisierungsRechner({ tools }) {
                     <input type="range" min="1" max="40" value={bau} onChange={(e) => setBau(Number(e.target.value))} />
                 </label>
             </div>
-            <div className={`rechner-output ${r.wertJahr > r.bauKosten * 3 ? 'is-top' : 'is-good'}`} aria-live="polite">
+            <div className={`rechner-output ${r.wertJahr > r.bauKosten * 3 ? 'is-top' : 'is-good'}`}>
+                <RechnerStatus text={`${urteil}. Bezahlt nach rund ${r.wochenBisPlus} Wochen.`} />
                 <p className="rechner-urteil">
-                    <span aria-hidden="true">⚙️</span> {r.wochenBisPlus <= 8 ? 'Sofort automatisieren' : r.wochenBisPlus <= 26 ? 'Lohnt sich' : 'Erst später angehen'}
+                    <span aria-hidden="true">⚙️</span> {urteil}
                 </p>
                 <dl className="rechner-zahlen">
                     <div>
@@ -68,6 +78,7 @@ export default function AutomatisierungsRechner({ tools }) {
                 <p className="rechner-hinweis">
                     Der Aufbau hat sich nach rund <strong>{r.wochenBisPlus} Wochen</strong> bezahlt gemacht, die laufenden Tool-Kosten noch nicht eingerechnet.
                 </p>
+                <RechnungTeilen titel="Lohnt sich die Automatisierung?" text={`Meine Rechnung auf AIGeddon: ${urteil}, ${fmt.format(r.stundenJahr)} Stunden Handarbeit pro Jahr, bezahlt nach rund ${r.wochenBisPlus} Wochen.`} />
                 <p className="send-to-ai-label">Einstiegspreise laut Anbieter</p>
                 <ul className="rechner-tools">
                     {tools.map((t) => (

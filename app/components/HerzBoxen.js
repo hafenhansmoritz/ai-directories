@@ -15,7 +15,7 @@ export function IdeeBox() {
                 <p className="herz-box-titel">Was braucht hier noch mehr Herz?</p>
                 <p>Eine Idee, ein Wunsch, ein Fehler oder einfach ein Hallo: Jean liest jede Nachricht selbst.</p>
                 <a className="button button-small" href="#anfrage-sonstiges">
-                    Idee an Jean schicken ✉️
+                    Idee an Jean schicken <span aria-hidden="true">✉️</span>
                 </a>
             </div>
         </aside>
@@ -24,11 +24,11 @@ export function IdeeBox() {
 
 export function Weitersagen() {
     const url = SITE_URL + '/'
-    const danke = () => verleihe('Botschafter-Abzeichen')
+    const danke = () => verleihe('Botschafter-Abzeichen', { auto: false })
     const kopieren = async () => {
         try {
             await navigator.clipboard.writeText(`${TEXT} ${url}`)
-            if (!verleihe('Botschafter-Abzeichen')) toast('Kopiert. Danke fürs Weitersagen!', '💌')
+            if (!verleihe('Botschafter-Abzeichen', { auto: false })) toast('Kopiert. Danke fürs Weitersagen!', '💌')
         } catch {}
     }
     return (
@@ -42,6 +42,9 @@ export function Weitersagen() {
                 <p className="herz-box-knoepfe">
                     <a className="button button-small" href={`mailto:?subject=${encodeURIComponent('Tipp: AIGeddon')}&body=${encodeURIComponent(`${TEXT}\n\n${url}`)}`} onClick={danke}>
                         Per E-Mail
+                    </a>
+                    <a className="button button-small" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" onClick={danke}>
+                        Per LinkedIn
                     </a>
                     <a className="button button-small" href={`https://wa.me/?text=${encodeURIComponent(`${TEXT} ${url}`)}`} target="_blank" rel="noopener" onClick={danke}>
                         Per WhatsApp

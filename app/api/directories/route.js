@@ -1,30 +1,11 @@
-import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs'
+import path from 'node:path'
 
-export async function GET() {
-  try {
-    // Construct the path to the JSON file
-    const filePath = path.join(process.cwd(), 'db', 'directories.json');
+export const dynamic = 'force-static'
 
-    // Read the JSON file
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-
-    // Return the parsed data
-    return new NextResponse(JSON.stringify({ data }), {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-  } catch (e) {
-    console.error(e);
-    // Return an error response
-    return new NextResponse(JSON.stringify({ error: 'Internal Server Error' }), {
-      status: 500,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-  }
+// Alte Adresse aus dem Upstream-Projekt, bleibt für bestehende Links. Der statische Export schreibt sie ohne Endung,
+// deshalb liefert GitHub Pages sie nicht als JSON aus. Neue Links bitte auf /api/directories.json setzen.
+export function GET() {
+    const data = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'db', 'directories.json'), 'utf8'))
+    return Response.json({ data })
 }

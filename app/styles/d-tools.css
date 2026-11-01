@@ -1,0 +1,62 @@
+/* Paket D: Tools, KI-Tool-Datenbank, Tool-Finder, Tool-Vergleiche. Klassen mit eigenem Präfix, damit nichts kollidiert. */
+
+.partner-hinweis {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin: 12px 0;
+}
+
+.partner-hinweis sup {
+    font-weight: 800;
+}
+
+.dt-leer {
+    display: grid;
+    gap: 10px;
+    justify-items: start;
+    padding: 16px 0;
+}
+
+.dt-leer p {
+    margin: 0;
+}
+
+.dt-leer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+}
+
+.dt-anbieter-zeile td {
+    vertical-align: top;
+}
+
+.dt-anbieter-zeile .button {
+    white-space: nowrap;
+}
+
+.dt-teilen {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin: 16px 0 0;
+}
+
+.dt-steckbrief-hinweis {
+    margin: 16px 0;
+}
+
+.finder-q:focus {
+    outline: none;
+}
+
+.finder-q:focus-visible {
+    outline: 3px solid var(--pop, currentColor);
+    outline-offset: 4px;
+}
+
+.kb-laden {
+    color: var(--muted);
+    font-size: 0.9rem;
+}

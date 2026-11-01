@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import konfetti from '../../lib/konfetti'
-import { lies, schreib, sitzung, toast, verleihe, feiertag, nachts, ruhig } from '../../lib/herz'
+import { lies, schreib, sitzung, toast, verleihe, feiertag, nachts, ruhig, kuerzelAus, setzeKuerzel } from '../../lib/herz'
 
 // Kleine Aufmerksamkeiten für Besucher. Alles läuft lokal im Browser, nichts wird gezählt oder gesendet.
 const KUERZEL = [
@@ -91,16 +91,13 @@ export default function Herzstuecke() {
             if (nachts(jetzt)) {
                 setTimeout(() => {
                     toast('Nachteule! Schön, dass du da bist. Denk dran: Schlaf ist auch ein Produktivitäts-Tool.', '🌙', true)
+                    // Abzeichen still ins Sammelalbum, die Meldung oben reicht.
                     verleihe('Nachteulen-Abzeichen')
                 }, 1200)
             }
             if (anzahl === 2) setTimeout(() => toast('Schön, dass du wieder da bist!', '👋', true), 1500)
-            else if ([5, 10, 25, 50, 100].includes(anzahl)) {
-                setTimeout(() => {
-                    toast(`Das ist dein ${anzahl}. Besuch. Danke für deine Treue!`, '🎉', true)
-                    konfetti(80)
-                }, 1500)
-            }
+            // Kein Konfetti beim Laden einer Seite: Es würde den Inhalt verdecken, den du gerade suchst.
+            else if ([5, 10, 25, 50, 100].includes(anzahl)) setTimeout(() => toast(`Das ist dein ${anzahl}. Besuch. Danke für deine Treue!`, '🎉', true), 1500)
             // Für Entwickler, die neugierig in die Konsole schauen.
             console.log(
                 '%c☢️ AIGeddon%c\nHallo du neugierige Seele! Der Code ist Open Source: https://github.com/jmp-collab/ai-directories\nPull Requests werden mit Konfetti empfangen.',
@@ -115,7 +112,7 @@ export default function Herzstuecke() {
     useEffect(() => {
         const kopiert = () => {
             const text = String(window.getSelection() || '')
-            if (text.length > 40 && !sitzung('aigeddon-kopiert')) toast('Gut kopiert! Wenn du es teilst, freut sich ein Link zurück.', '📋')
+            if (text.length > 40 && !sitzung('aigeddon-kopiert')) toast('Gut kopiert! Wenn du es teilst, freut sich ein Link zurück.', '📋', true)
         }
         let timer
         const titel = { alt: '' }
@@ -158,12 +155,16 @@ export default function Herzstuecke() {
         const gelesen = new Set(lies('aigeddon-gelesen', []) || [])
         if (gelesen.has(pfad)) return () => clearTimeout(verlaufTimer)
         const start = Date.now()
+        let wartet = false
         const scroll = () => {
+            if (wartet) return
+            wartet = true
+            requestAnimationFrame(() => (wartet = false))
             const ende = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight * 0.92
             if (ende && Date.now() - start > 30000) {
                 gelesen.add(pfad)
                 schreib('aigeddon-gelesen', [...gelesen])
-                if (!verleihe('Leseratten-Abzeichen')) toast(`Respekt, ganz durchgelesen! Das war Artikel Nr. ${gelesen.size} für dich. Kaffee verdient.`, '🏅')
+                if (!verleihe('Leseratten-Abzeichen')) toast(`Respekt, ganz durchgelesen! Das war Artikel Nr. ${gelesen.size} für dich. Kaffee verdient.`, '🏅', true)
                 window.removeEventListener('scroll', scroll)
             }
         }
@@ -191,7 +192,7 @@ export default function Herzstuecke() {
                         icon.classList.add('logo-wirbel')
                         setTimeout(() => icon.classList.remove('logo-wirbel'), 1300)
                     }
-                    if (!verleihe('Atomkern-Abzeichen')) toast('Wusch! Der Atomkern dreht sich für dich.', '☢️')
+                    if (!verleihe('Atomkern-Abzeichen', { auto: false, konfetti: true })) toast('Wusch! Der Atomkern dreht sich für dich.', '☢️')
                 }
             }
             if (ziel.closest('.moped-strecke')) {
@@ -203,11 +204,11 @@ export default function Herzstuecke() {
                     strecke.classList.add('moped-hupt')
                 }
                 toast(['Möp möp!', 'Möööp!', 'Platz da, hier kommt die Liebe!'][(hupen - 1) % 3], '🛵')
-                if (hupen >= 3) verleihe('Hupkonzert-Abzeichen')
+                if (hupen >= 3) verleihe('Hupkonzert-Abzeichen', { auto: false, konfetti: true })
             }
             const link = ziel.closest('a[href$=".zip"]')
             if (link && link.getAttribute('href').includes('/skills-dl/')) {
-                if (!verleihe('Skill-Sammler-Abzeichen')) toast('Viel Spaß mit deinem neuen Skill!', '🧩')
+                if (!verleihe('Skill-Sammler-Abzeichen', { auto: false })) toast('Viel Spaß mit deinem neuen Skill!', '🧩')
             }
         }
         document.addEventListener('click', klick)
@@ -215,31 +216,59 @@ export default function Herzstuecke() {
     }, [])
 
     // Tastenkürzel: ? zeigt die Hilfe, Buchstaben springen in Bereiche, t nach oben.
+    // Ein-Buchstaben-Kürzel lassen sich in der Hilfe und im Footer abschalten (WCAG 2.1.4).
+    const [kuerzelAn, setKuerzelAn] = useState(true)
+    const hilfeKnopf = useRef(null)
+    const vorherFokus = useRef(null)
+    useEffect(() => {
+        setKuerzelAn(!kuerzelAus())
+        const wechsel = (e) => setKuerzelAn(e.detail.an)
+        const zeigen = () => setHilfe(true)
+        window.addEventListener('aigeddon-kuerzel', wechsel)
+        window.addEventListener('aigeddon-kuerzel-hilfe', zeigen)
+        return () => {
+            window.removeEventListener('aigeddon-kuerzel', wechsel)
+            window.removeEventListener('aigeddon-kuerzel-hilfe', zeigen)
+        }
+    }, [])
+
+    // Fokus in die Hilfe setzen und beim Schließen dorthin zurückgeben, wo er vorher war.
+    useEffect(() => {
+        if (hilfe) {
+            vorherFokus.current = document.activeElement
+            hilfeKnopf.current?.focus()
+        } else if (vorherFokus.current) {
+            vorherFokus.current.focus?.()
+            vorherFokus.current = null
+        }
+    }, [hilfe])
+
     useEffect(() => {
         let folge = []
         let wort = ''
         const taste = (e) => {
+            if (e.key === 'Escape') return setHilfe(false)
             if (e.ctrlKey || e.metaKey || e.altKey) return
+            if (kuerzelAus()) return
             const ziel = e.target
             if (ziel.closest && ziel.closest('input, textarea, select, [contenteditable="true"]')) return
             folge = [...folge, e.key].slice(-KONAMI.length)
             if (folge.join() === KONAMI.join()) {
                 folge = []
-                konfetti(120)
-                if (!verleihe('Geheimagenten-Abzeichen')) toast('Code erkannt. Du hast es immer noch drauf!', '🎮')
+                if (!ruhig()) konfetti(120)
+                if (!verleihe('Geheimagenten-Abzeichen', { auto: false })) toast('Code erkannt. Du hast es immer noch drauf!', '🎮')
             }
             wort = (wort + (e.key.length === 1 ? e.key.toLowerCase() : ' ')).slice(-5)
             if (wort === 'liebe') {
                 wort = ''
                 herzRegen(window.innerWidth / 2, window.innerHeight / 2, 16)
-                if (!verleihe('Liebesbrief-Abzeichen')) toast('Liebe zurück! Mit Zinsen.', '💘')
+                if (!verleihe('Liebesbrief-Abzeichen', { auto: false })) toast('Liebe zurück! Mit Zinsen.', '💘')
             }
             if (e.key === '?') {
                 e.preventDefault()
                 setHilfe((h) => !h)
                 return
             }
-            if (e.key === 'Escape') return setHilfe(false)
             if (e.key === 't') return window.scrollTo({ top: 0, behavior: 'smooth' })
             const k = KUERZEL.find(([key]) => key === e.key)
             if (k) {
@@ -259,10 +288,16 @@ export default function Herzstuecke() {
                 </span>
             )}
             {hilfe && (
-                <div className="kuerzel-overlay" role="dialog" aria-modal="false" aria-labelledby="kuerzel-titel">
+                <div className="kuerzel-overlay" role="dialog" aria-modal="false" aria-labelledby="kuerzel-titel" aria-describedby="kuerzel-schalter-text">
                     <div className="kuerzel-karte">
                         <p className="kuerzel-titel" id="kuerzel-titel">
-                            ⌨️ Tastenkürzel für Schnelle
+                            <span aria-hidden="true">⌨️</span> Tastenkürzel für Schnelle
+                        </p>
+                        <p className="a-kuerzel-schalter" id="kuerzel-schalter-text">
+                            {kuerzelAn ? 'Die Kürzel sind an.' : 'Die Kürzel sind aus. Tippen löst nichts mehr aus.'}{' '}
+                            <button type="button" className="ruhe-knopf" aria-pressed={!kuerzelAn} onClick={() => setzeKuerzel(!kuerzelAn)}>
+                                {kuerzelAn ? 'Tastenkürzel ausschalten' : 'Tastenkürzel einschalten'}
+                            </button>
                         </p>
                         <ul>
                             {KUERZEL.map(([k, , label]) => (
@@ -278,10 +313,10 @@ export default function Herzstuecke() {
                             </li>
                         </ul>
                         <p className="kuerzel-geheim">
-                            🤫 Psst: Hier sind ein paar Geheimnisse versteckt. Hinweise stehen im Sammelalbum deiner Merkliste.
+                            <span aria-hidden="true">🤫</span> Psst: Hier sind ein paar Geheimnisse versteckt. Hinweise stehen im Sammelalbum deiner Merkliste.
                         </p>
-                        <button type="button" className="button button-small" onClick={() => setHilfe(false)}>
-                            Alles klar 👍
+                        <button type="button" className="button button-small" ref={hilfeKnopf} onClick={() => setHilfe(false)}>
+                            Alles klar <span aria-hidden="true">👍</span>
                         </button>
                     </div>
                 </div>

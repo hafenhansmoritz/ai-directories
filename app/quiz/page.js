@@ -4,13 +4,14 @@ import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import JsonLd from '../components/JsonLd'
 import { getDirectories } from '../../lib/data'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import { ogMeta, OG_BILDER } from '../../lib/og-meta'
 
 export const metadata = {
     title: 'Quiz: Welche KI-Verzeichnisse passen zu deinem Launch?',
     description:
         'Drei Fragen zu Budget, Ziel und Geduld, danach fünf KI-Verzeichnisse, die zu deinem Tool-Launch passen. Mit Jean-Score und ehrlicher Einschätzung.',
     alternates: { canonical: '/quiz' },
-    openGraph: { url: '/quiz' },
+    openGraph: ogMeta({ url: '/quiz', bild: OG_BILDER.quiz, alt: 'Quiz auf AIGeddon' }),
 }
 
 function QuizPage() {

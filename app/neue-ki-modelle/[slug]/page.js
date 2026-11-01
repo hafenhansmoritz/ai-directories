@@ -8,6 +8,9 @@ import { getTool } from '../../../lib/tools'
 import { absoluteUrl } from '../../../lib/site'
 import Kurzantwort from '../../components/Kurzantwort'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import { ogMeta, OG_BILDER, publisherRef } from '../../../lib/og-meta'
+import { autorRef } from '../../../lib/autor'
+import { dateiStand } from '../../../lib/stand'
 
 export const dynamicParams = false
 
@@ -19,7 +22,7 @@ const host = (u) => u.replace(/^https?:\/\/(www\.)?/, '').split('/')[0]
 
 export function generateMetadata({ params }) {
     const f = getFamilie(params.slug)
-    if (f) return { title: f.seoTitle, description: f.description, alternates: { canonical: `/neue-ki-modelle/${f.slug}` }, openGraph: { url: `/neue-ki-modelle/${f.slug}`, type: 'article' } }
+    if (f) return { title: f.seoTitle, description: f.description, alternates: { canonical: `/neue-ki-modelle/${f.slug}` }, openGraph: ogMeta({ url: `/neue-ki-modelle/${f.slug}`, type: 'article', bild: OG_BILDER.modelle, alt: f.titel }) }
     const m = getModell(params.slug)
     if (!m) return {}
     const title = `${m.name}: Start, Preis und Fakten`.length <= 60 ? `${m.name}: Start, Preis und Fakten` : `${m.name}: Fakten und Preis`
@@ -27,7 +30,7 @@ export function generateMetadata({ params }) {
         title,
         description: `${m.kurz} Start: ${m.datumText}.${m.preis ? ' Mit API-Preis laut Anbieter.' : ''}`.slice(0, 300),
         alternates: { canonical: `/neue-ki-modelle/${m.slug}` },
-        openGraph: { url: `/neue-ki-modelle/${m.slug}`, type: 'article' },
+        openGraph: ogMeta({ url: `/neue-ki-modelle/${m.slug}`, type: 'article', bild: OG_BILDER.modelle, alt: m.name }),
     }
 }
 
@@ -109,9 +112,11 @@ function ModellPage({ params }) {
                         headline: fam ? fam.titel : `${m.name}: Start, Preis und Fakten`,
                         description: fam ? fam.description : m.kurz,
                         inLanguage: 'de-DE',
-                        dateModified: '2026-10-25',
+                        dateModified: dateiStand('lib/modelle.js').toISOString().slice(0, 10),
                         url: absoluteUrl(`/neue-ki-modelle/${item.slug}`),
-                        author: { '@type': 'Person', name: 'Jean Maurice Port', url: absoluteUrl('/ueber-jean') },
+                        author: autorRef(),
+                        publisher: publisherRef(),
+                        image: absoluteUrl(OG_BILDER.modelle),
                     },
                     faqSchema(faq),
                 ]}
