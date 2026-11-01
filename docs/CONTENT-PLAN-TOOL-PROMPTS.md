@@ -19,7 +19,7 @@ Prompt-Technik nach der Recherche vom 2026-11-01 (Bericht im Scratchpad): Kontex
 
 ## Cluster A: Prompts pro Tool (neue Route /prompts/tool/[slug])
 
-Technik: neue Seite je Tool, die alle Prompts mit diesem Slug im Feld `tools` zeigt, plus 5 bis 10 tool-spezifische neue Prompts. Steckbrief und Vergleich verlinken zurück ("Prompts für X").
+Technik: neues Feld `fuer` in `lib/prompts.js` (Liste von Tool-Slugs), das angibt, in welches Tool der Prompt eingegeben wird. Das bestehende Feld `tools` bleibt, was es ist: Werkzeuge, mit denen man das Ergebnis umsetzt (Partnerlinks unter "Damit setzt du das Ergebnis um"). Die Seite `/prompts/tool/[slug]` zeigt nur Prompts mit dem Slug in `fuer`, nie nach `tools` gefiltert. Bestehende Prompts bekommen `fuer` nur, wenn sie wirklich für dieses Tool geschrieben oder darin getestet sind (allgemeine Chat-Prompts z. B. für chatgpt, claude, google-gemini, microsoft-copilot nach Test). Dazu 5 bis 10 neue tool-spezifische Prompts je Seite. Steckbrief und Vergleich verlinken zurück ("Prompts für X").
 
 | Prio | Seite | Keyword | Volumen | KD | Neue Prompts |
 |---|---|---|---|---|---|
@@ -102,7 +102,7 @@ Statt neuer Seiten: Abschnitt "So startest du" plus "Prompts für X" in den vorh
 
 Nicht verfolgen: "prompt generator" (3.600, KD 65, die Suche will ein Tool, das wir mit dem Prompt-Baukasten nur teilweise abdecken; später prüfen), "suno ai" (74.000) und "kling ai" (40.500) und "notebooklm" (110.000) als Hauptkeyword (Navigationssuche nach dem Anbieter).
 
-## Reihenfolge (16 Wochen, höchstens 3 Stücke pro Woche)
+## Reihenfolge (16 Wochen ab 2026-11-02, höchstens 3 Stücke pro Woche, je Woche ein „fällig ab“-Datum in docs/TASKS.md)
 
 | Woche | Stücke |
 |---|---|
@@ -130,4 +130,4 @@ Summe: 17 Prompt-Tool-Seiten (8 Haupt-Tools mit 66 neuen Prompts, 9 Long-Tail-To
 - Partnerlinks: in `db/partners.json` ist noch kein Programm aktiv. Die Verlinkung läuft trotzdem über die Helfer und schaltet automatisch um.
 - Vergleiche brauchen eigene Praxistests (gleiche Prompts in beiden Tools, Datum, Ergebnis). Keine erfundenen Testwerte.
 - Menüpfade und Funktionsumfang zu Verlauf, Memory, Projekten und Export ändern sich häufig: vor jeder Veröffentlichung in der offiziellen Hilfe prüfen.
-- Messung relativ zur Veröffentlichung: Jede Sitzung, die ein Stück veröffentlicht, trägt in `docs/TASKS.md` unter "Wartet auf Jean" zwei Mess-Aufgaben ein, mit "fällig ab" (Veröffentlichung plus 4 Wochen und plus 8 Wochen), nach Datum sortiert. Search Console ist nur mit Jeans Login zugänglich (`docs/FUER-JEAN.md`), deshalb: Jean legt zum Fälligkeitsdatum den Leistungsbericht als CSV unter `docs/gsc/JJJJ-MM-TT.csv` ab. Erst dann ist die Aufgabe automatisch abzuarbeiten (Titel, Beschreibung und Inhalt anhand der Daten nachschärfen). Ohne CSV bleibt sie stehen, Zahlen werden nie geschätzt.
+- Messung relativ zur Veröffentlichung: Jede Sitzung, die ein Stück veröffentlicht, trägt in `docs/TASKS.md` im automatischen Abschnitt zwei Mess-Aufgaben ein (Veröffentlichung plus 4 Wochen und plus 8 Wochen), jeweils mit „fällig ab“ und „braucht Datei docs/gsc/JJJJ-MM-TT.csv“. Search Console ist nur mit Jeans Login zugänglich (`docs/FUER-JEAN.md`, Abschnitt 2): Jean legt zum Fälligkeitsdatum den Leistungsbericht als CSV unter diesem Pfad ab. Sobald Datum erreicht und Datei vorhanden ist, nimmt die nächste Sitzung die Aufgabe automatisch (Titel, Beschreibung und Inhalt anhand der Daten nachschärfen). Ohne Datei bleibt sie stehen, Zahlen werden nie geschätzt.
