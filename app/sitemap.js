@@ -35,6 +35,8 @@ const STATISCH = {
     '/mein-stack': ['app/mein-stack/MeinStack.js', 'lib/stack.js', 'lib/abo-preise.js'],
     '/tool-vergleiche': ['lib/comparisons.js'],
     '/top-50': ['db/directories.json'],
+    '/verzeichnis': ['app/verzeichnis/page.js', 'db/directories.json'],
+    '/liste': ['app/liste/page.js', 'lib/data.js'],
     '/prompts': ['lib/prompts.js'],
     '/skills': ['lib/skills.js', 'db/skills.json'],
     ...(KONTO_AKTIV ? { '/forum': ['app/forum/page.js'], '/community-regeln': ['app/community-regeln/page.js'] } : {}),

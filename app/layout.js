@@ -168,7 +168,6 @@ export const metadata = {
     // Großes Vorschaubild: Die Bilder sind 1200 x 630. Das Bild selbst übernimmt Next.js aus og:image.
     twitter: { card: 'summary_large_image' },
     robots: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
-    icons: { icon: '/favicon.ico' },
     ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } } : {}),
 }
 
