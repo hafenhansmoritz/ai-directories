@@ -31,7 +31,17 @@ Technik: neue Seite je Tool, die alle Prompts mit diesem Slug im Feld `tools` ze
 | 2 | Claude-Prompts | claude prompts | 170 | 22 | 8 (Projekte, Artefakte, lange Dokumente) |
 | 3 | NotebookLM-Prompts | notebooklm prompts | 90 | 34 | 6 |
 | 3 | Canva Magic Write | canva magic write | 170 | 34 | 6 |
-| 4 | Gamma, HeyGen, Perplexity, ElevenLabs, Leonardo, Ideogram, Runway, Kling, InVideo (je eigene Seite) | je 20 bis 50 | | 0 | je 5 |
+| 4 | Gamma-Prompts | gamma prompts / gamma prompt | 30 / 20 | 0 / 0 | 5 |
+| 4 | HeyGen-Prompts | heygen prompts | 30 | 0 | 5 |
+| 4 | Perplexity-Prompts | perplexity prompts | 30 | 0 | 5 |
+| 4 | ElevenLabs-Prompts | elevenlabs prompts | 20 | 0 | 5 |
+| 4 | Leonardo AI-Prompts | leonardo ai prompts | 20 | 0 | 5 |
+| 4 | Ideogram-Prompts | ideogram prompts | 20 | 0 | 5 |
+| 4 | Runway-Prompts | runway prompts | 20 | 0 | 5 |
+| 4 | Kling-Prompts | kling ai prompts | 20 | 0 | 5 |
+| 4 | InVideo-Prompts | invideo ai prompts | 20 | 0 | 5 |
+
+KD 0 bei den Long-Tail-Zeilen ist der von Semrush gemeldete Wert (zu wenig Daten für eine Schwierigkeit), keine Schätzung.
 
 Wichtig: Bei Suno, Midjourney, Kling, Runway und ElevenLabs ist ein "Prompt" etwas anderes als im Chat (Stil-Tags, Parameter, Sprechanweisungen). Die Prompts pro Tool basieren deshalb auf der offiziellen Doku des Anbieters, nicht auf Chat-Mustern.
 
@@ -92,7 +102,7 @@ Statt neuer Seiten: Abschnitt "So startest du" plus "Prompts für X" in den vorh
 
 Nicht verfolgen: "prompt generator" (3.600, KD 65, die Suche will ein Tool, das wir mit dem Prompt-Baukasten nur teilweise abdecken; später prüfen), "suno ai" (74.000) und "kling ai" (40.500) und "notebooklm" (110.000) als Hauptkeyword (Navigationssuche nach dem Anbieter).
 
-## Reihenfolge (12 Wochen, 2 bis 3 Stücke pro Woche)
+## Reihenfolge (16 Wochen, höchstens 3 Stücke pro Woche)
 
 | Woche | Stücke |
 |---|---|
@@ -103,11 +113,15 @@ Nicht verfolgen: "prompt generator" (3.600, KD 65, die Suche will ein Tool, das 
 | 5 | Descript-Steckbrief-Ausbau; Copilot-Prompts; ChatGPT- vs. Claude-Projekte |
 | 6 | Midjourney-Prompts; Perplexity vs. ChatGPT; Chats exportieren und umziehen |
 | 7 | Claude-Prompts; ChatGPT und Excel; Runway-Ausbau |
-| 8 | ChatGPT Agent erklärt; Writesonic- und Surfer-Ausbau |
-| 9 | Wordtune-, Leonardo-, Rytr-Ausbau; ChatGPT Memory |
+| 8 | ChatGPT Agent erklärt; Writesonic-Ausbau; Surfer-Ausbau |
+| 9 | Wordtune-Ausbau; Leonardo-Ausbau; ChatGPT Memory |
 | 10 | NotebookLM-Prompts; Canva Magic Write; SEO-Prompts für ChatGPT |
-| 11 | Make-, n8n-, ElevenLabs-, HeyGen-Ausbau; GPTs erstellen |
-| 12 | Long-Tail-Seiten (Gamma, HeyGen, Perplexity, ElevenLabs, Leonardo, Ideogram, Runway, Kling, InVideo); Prompt-Engineering-Pillar; Zwischenmessung der Stücke aus Woche 1 bis 8 |
+| 11 | Rytr-Ausbau; Make-Ausbau; GPTs erstellen |
+| 12 | n8n-Ausbau; ElevenLabs-Ausbau; HeyGen-Ausbau |
+| 13 | Prompt-Engineering-Pillar; Gamma-Prompts |
+| 14 | HeyGen-Prompts; Perplexity-Prompts; ElevenLabs-Prompts |
+| 15 | Leonardo-AI-Prompts; Ideogram-Prompts; Runway-Prompts |
+| 16 | Kling-Prompts; InVideo-Prompts |
 
 Summe: 17 Prompt-Tool-Seiten (8 Haupt-Tools mit 66 neuen Prompts, 9 Long-Tail-Tools mit je 5, zusammen 111 neue Prompts), 5 Chat-Verlauf-Stücke, 3 Vergleiche, 12 Steckbrief-Ausbauten, 8 Anwendungsfall-Hubs.
 
@@ -116,4 +130,4 @@ Summe: 17 Prompt-Tool-Seiten (8 Haupt-Tools mit 66 neuen Prompts, 9 Long-Tail-To
 - Partnerlinks: in `db/partners.json` ist noch kein Programm aktiv. Die Verlinkung läuft trotzdem über die Helfer und schaltet automatisch um.
 - Vergleiche brauchen eigene Praxistests (gleiche Prompts in beiden Tools, Datum, Ergebnis). Keine erfundenen Testwerte.
 - Menüpfade und Funktionsumfang zu Verlauf, Memory, Projekten und Export ändern sich häufig: vor jeder Veröffentlichung in der offiziellen Hilfe prüfen.
-- Messung relativ zur Veröffentlichung: Jede Sitzung, die ein Stück veröffentlicht, ergänzt in `docs/TASKS.md` zwei Mess-Aufgaben mit festem Datum (Veröffentlichung plus 4 Wochen und plus 8 Wochen): Search Console für das Ziel-Keyword prüfen, Titel, Beschreibung und Inhalt nachschärfen. Die Messung in Woche 12 deckt nur Stücke ab, die bis dahin mindestens 4 Wochen live sind.
+- Messung relativ zur Veröffentlichung: Jede Sitzung, die ein Stück veröffentlicht, trägt in `docs/TASKS.md` unter "Wartet auf Jean" zwei Mess-Aufgaben ein, mit "fällig ab" (Veröffentlichung plus 4 Wochen und plus 8 Wochen), nach Datum sortiert. Search Console ist nur mit Jeans Login zugänglich (`docs/FUER-JEAN.md`), deshalb: Jean legt zum Fälligkeitsdatum den Leistungsbericht als CSV unter `docs/gsc/JJJJ-MM-TT.csv` ab. Erst dann ist die Aufgabe automatisch abzuarbeiten (Titel, Beschreibung und Inhalt anhand der Daten nachschärfen). Ohne CSV bleibt sie stehen, Zahlen werden nie geschätzt.

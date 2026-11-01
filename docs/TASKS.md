@@ -13,6 +13,7 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
 7. PR mit Vorlage aus `PULL_REQUEST_TEMPLATE`, mergen, GitHub-Pages-Lauf abwarten, Live-Seite prüfen.
 8. Hier die Aufgabe nach „Erledigt“ verschieben (Datum, PR-Nummer, ein Satz Ergebnis) und neu entdeckte Aufgaben unten in „Offen“ ergänzen.
 9. Keine Registrierungen, Käufe, E-Mails oder Posts im Namen von Jean.
+10. Aufgaben mit „fällig ab JJJJ-MM-TT“ überspringen, solange das Datum in der Zukunft liegt. Solche Aufgaben stehen nach Fälligkeit sortiert.
 
 ## Offen
 
@@ -27,7 +28,7 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
 - [ ] **Netlify-Projekt löschen** (alte Kopie). *wartet auf Jean*
 
 ### Automatisch abzuarbeiten (Reihenfolge = Priorität)
-- Content-Plan Tool-Prompts (`docs/CONTENT-PLAN-TOOL-PROMPTS.md`): eine Woche pro Sitzung, von oben. Verlinkungsregel aus dem Plan beachten. Nach jeder Veröffentlichung zwei Mess-Aufgaben (plus 4 und plus 8 Wochen) mit Datum hier unten ergänzen.
+- Content-Plan Tool-Prompts (`docs/CONTENT-PLAN-TOOL-PROMPTS.md`): eine Woche pro Sitzung, von oben. Verlinkungsregel aus dem Plan beachten. Nach jeder Veröffentlichung zwei Mess-Aufgaben unter „Wartet auf Jean“ eintragen (Regel im Plan, Abschnitt „Abhängigkeiten“).
   - [ ] **Content-Plan Woche 1**: Route /prompts/tool/[slug] bauen; ChatGPT-Prompts; Claude vs. ChatGPT
   - [ ] **Content-Plan Woche 2**: ChatGPT-Verlauf löschen; Gemini vs. ChatGPT; Gemini-Prompts
   - [ ] **Content-Plan Woche 3**: Claude Memory; Suno-Prompts; ChatGPT für die Bewerbung
@@ -35,11 +36,15 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
   - [ ] **Content-Plan Woche 5**: Descript-Steckbrief-Ausbau; Copilot-Prompts; ChatGPT- vs. Claude-Projekte
   - [ ] **Content-Plan Woche 6**: Midjourney-Prompts; Perplexity vs. ChatGPT; Chats exportieren und umziehen
   - [ ] **Content-Plan Woche 7**: Claude-Prompts; ChatGPT und Excel; Runway-Ausbau
-  - [ ] **Content-Plan Woche 8**: ChatGPT Agent erklärt; Writesonic- und Surfer-Ausbau
-  - [ ] **Content-Plan Woche 9**: Wordtune-, Leonardo-, Rytr-Ausbau; ChatGPT Memory
+  - [ ] **Content-Plan Woche 8**: ChatGPT Agent erklärt; Writesonic-Ausbau; Surfer-Ausbau
+  - [ ] **Content-Plan Woche 9**: Wordtune-Ausbau; Leonardo-Ausbau; ChatGPT Memory
   - [ ] **Content-Plan Woche 10**: NotebookLM-Prompts; Canva Magic Write; SEO-Prompts für ChatGPT
-  - [ ] **Content-Plan Woche 11**: Make-, n8n-, ElevenLabs-, HeyGen-Ausbau; GPTs erstellen
-  - [ ] **Content-Plan Woche 12**: Long-Tail-Seiten (Gamma, HeyGen, Perplexity, ElevenLabs, Leonardo, Ideogram, Runway, Kling, InVideo); Prompt-Engineering-Pillar; Zwischenmessung der Stücke aus Woche 1 bis 8
+  - [ ] **Content-Plan Woche 11**: Rytr-Ausbau; Make-Ausbau; GPTs erstellen
+  - [ ] **Content-Plan Woche 12**: n8n-Ausbau; ElevenLabs-Ausbau; HeyGen-Ausbau
+  - [ ] **Content-Plan Woche 13**: Prompt-Engineering-Pillar; Gamma-Prompts
+  - [ ] **Content-Plan Woche 14**: HeyGen-Prompts; Perplexity-Prompts; ElevenLabs-Prompts
+  - [ ] **Content-Plan Woche 15**: Leonardo-AI-Prompts; Ideogram-Prompts; Runway-Prompts
+  - [ ] **Content-Plan Woche 16**: Kling-Prompts; InVideo-Prompts
 Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die angegebene Menge). Ton immer nach `docs/BRAND-VOICE.md`, Fakten nur mit offizieller Quelle, Unikat-Texte in `db/texte/*.json`.
 - [ ] **Vergleich Lovable vs. Bolt.new vs. v0** in `lib/comparisons.js` mit Picks, 5 Unterschieden, 3 FAQ, Quellen (Daten aus `db/tools.json`, Preise vorher auf den Preisseiten prüfen).
 - [ ] **Vergleich GitHub Copilot vs. Cursor vs. Replit** (wie oben).
