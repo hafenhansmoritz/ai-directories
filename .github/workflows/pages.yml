@@ -1,10 +1,12 @@
 # Statische Fassung der Seite auf GitHub Pages: https://jmp-collab.github.io/ai-directories/
 # Einmalig nötig: Settings → Pages → Source „GitHub Actions“.
+# Pull Requests laufen durch Build und alle Prüfungen, deployt wird nur von main (Push, täglicher Lauf, Handstart).
 name: GitHub Pages
 
 on:
     push:
         branches: [main]
+    pull_request:
     # Täglicher Neubau: Deal und Tool des Tages wechseln, Datumsangaben bleiben frisch.
     schedule:
         - cron: '17 4 * * *'
@@ -12,11 +14,10 @@ on:
 
 permissions:
     contents: read
-    pages: write
-    id-token: write
 
+# Deploys auf main laufen nacheinander; ein Pull Request bricht nur seinen eigenen älteren Lauf ab.
 concurrency:
-    group: pages
+    group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'pages' }}
     cancel-in-progress: true
 
 jobs:
@@ -35,7 +36,7 @@ jobs:
             # Erst auf 1 setzen, wenn der AV-Vertrag mit Supabase unterschrieben ist. Ohne diese Variable bleiben Konten aus.
             NEXT_PUBLIC_KONTO_AVV: ${{ vars.KONTO_AVV }}
         steps:
-            # Volle Historie, damit die Sitemap echte Änderungsdaten aus Git lesen kann (lib/stand.js)
+            # Volle Historie, damit die Sitemap echte Änderungsdaten aus Git lesen kann (lib/stand.js, lib/eintrag-stand.js)
             - uses: actions/checkout@v4
               with:
                   fetch-depth: 0
@@ -46,29 +47,60 @@ jobs:
             - run: npm ci
             # Partner-Register prüfen: falscher Slug oder kaputter Link bricht den Build ab
             - run: npm run partners
-            # Next.js 14 kann Vorschaubilder unter [slug] nicht statisch exportieren;
-            # die Detailseiten nutzen in dieser Fassung das allgemeine Vorschaubild.
-            - run: rm "app/verzeichnis/[slug]/opengraph-image.js"
-            - run: npx next build
-            # Interne Verlinkung aus den fertigen Seiten neu berechnen; hat sich das Netz geändert
-            # (neue Seiten, neue Inhalte), noch einmal bauen, damit „Passt dazu“ aktuell ist.
-            - id: netz
+            # Generierte Dateien müssen zum Stand im Repo passen (sonst Generator lokal laufen lassen und committen)
+            - name: Generierte Dateien aktuell
               run: |
-                  cp db/vernetzung.json "$RUNNER_TEMP/netz-alt.json"
-                  node utils/vernetzung/build.mjs out
-                  if cmp -s db/vernetzung.json "$RUNNER_TEMP/netz-alt.json"; then echo "neu=0" >> "$GITHUB_OUTPUT"; else echo "neu=1" >> "$GITHUB_OUTPUT"; fi
-            - if: steps.netz.outputs.neu == '1'
-              run: npx next build
-            # Vorschaubilder als .png und doppelten basePath in og:image korrigieren
-            - run: node utils/export/fix-og.js
-            - run: touch out/.nojekyll
-            - uses: actions/upload-pages-artifact@v3
+                  npm run skills
+                  git diff --exit-code -- db/skills.json public/skills-dl docs/PARTNERLINKS.md
+            # Layer A: neue Zeilen ohne Gedankenstriche und unsichtbare Zeichen (Altlasten stören nicht)
+            - name: Layer A (geänderte Zeilen)
+              if: github.event_name != 'schedule' && github.event_name != 'workflow_dispatch'
+              run: node utils/check/layer-a.mjs --diff "${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}"
+            - name: Layer A (ganze Quellordner, unsichtbare Zeichen)
+              run: node utils/check/layer-a.mjs
+            - name: ESLint (Fehler brechen ab, Warnungen nicht)
+              run: npm run lint
+            # Kompletter Build wie lokal: Vorschaubild-Workaround, Vernetzung, zweiter Build, fix-og, .nojekyll
+            - run: npm run build:pages
+            - name: Linkcheck über out/
+              run: npm run check:links
+            - name: Layer A (gebaute Seiten, unsichtbare Zeichen)
+              run: node utils/check/layer-a.mjs --out out
+            - if: github.event_name != 'pull_request'
+              uses: actions/upload-pages-artifact@v3
               with:
                   path: out
 
+    # Supabase-Migrationen und RLS-Tests in einem leeren Postgres (supabase/tests/run.sh)
+    supabase-tests:
+        runs-on: ubuntu-latest
+        services:
+            postgres:
+                image: postgres:16
+                env:
+                    POSTGRES_PASSWORD: postgres
+                ports:
+                    - 5432:5432
+                options: >-
+                    --health-cmd pg_isready
+                    --health-interval 5s
+                    --health-timeout 5s
+                    --health-retries 10
+        env:
+            PGPASSWORD: postgres
+        steps:
+            - uses: actions/checkout@v4
+            - run: psql --version
+            - run: sh supabase/tests/run.sh "-h localhost -p 5432 -U postgres"
+
     deploy:
+        if: github.event_name != 'pull_request'
+        # Bewusst nur der Build: Die Datenbank-Tests sind ein eigener Haken und halten den Seiten-Deploy nicht auf.
         needs: build
         runs-on: ubuntu-latest
+        permissions:
+            pages: write
+            id-token: write
         environment:
             name: github-pages
             url: ${{ steps.deployment.outputs.page_url }}

@@ -27,11 +27,20 @@ const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 const doppelt = BASE ? `(?:${esc(BASE)})?` : ''
 const muster = new RegExp(`${doppelt}${esc(BASE)}/((?:[\\w-]+/)*)opengraph-image\\?[0-9a-f]+`, 'g')
 
+// Ab Next.js 14.2.x setzt das icons-Feld der Metadaten (app/layout.js) den Pfad ohne basePath ein.
+// Das Favicon liegt aber unter BASE, deshalb hier wie beim Vorschaubild nachziehen (HTML und RSC-Daten).
+const favicon = (s) =>
+    BASE
+        ? s
+              .replace(/(<link rel="icon" href=")\/favicon\.ico"/g, `$1${BASE}/favicon.ico"`)
+              .replace(/(\\?"rel\\?":\\?"icon\\?",\\?"href\\?":\\?")\/favicon\.ico/g, `$1${BASE}/favicon.ico`)
+        : s
+
 let geaendert = 0
 for (const f of files) {
     if (!/\.(html|txt)$/.test(f)) continue
     const alt = fs.readFileSync(f, 'utf8')
-    const neu = alt.replace(muster, `${BASE}/$1opengraph-image.png`)
+    const neu = favicon(alt.replace(muster, `${BASE}/$1opengraph-image.png`))
     if (neu !== alt) {
         fs.writeFileSync(f, neu)
         geaendert++

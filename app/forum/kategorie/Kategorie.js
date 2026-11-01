@@ -25,29 +25,42 @@ export default function Kategorie() {
         setThemen(null)
         if (!KONTO_AKTIV || !/^[a-z0-9-]{2,40}$/.test(k)) return setKat(null)
         setKat(undefined)
+        // Späte Antworten einer vorherigen Kategorie verwerfen.
+        let aktiv = true
         supabase()
             .then(async (sb) => {
                 const { data } = await sb.from('forum_kategorien').select('*').eq('id', k).maybeSingle()
+                if (!aktiv) return
                 setKat(data || null)
                 if (data) document.title = `${data.name} | KI-Forum | AIGeddon`
             })
-            .catch(() => setKat(null))
+            .catch(() => aktiv && setKat(null))
+        return () => {
+            aktiv = false
+        }
     }, [k])
 
     useEffect(() => {
         if (!kat) return
-        supabase().then(async (sb) => {
-            let q = sb
-                .from('forum_themen')
-                .select(`id, titel, kategorie_id, antworten, letzte_aktivitaet, erstellt, angepinnt, geschlossen, geloest_beitrag_id, ${AUTOR_FELDER}`)
-                .eq('kategorie_id', kat.id)
-                .order('angepinnt', { ascending: false })
-            if (sort === 'neu') q = q.order('erstellt', { ascending: false })
-            else q = q.order('letzte_aktivitaet', { ascending: false })
-            if (sort === 'offen') q = q.is('geloest_beitrag_id', null)
-            const { data } = await q.limit(100)
-            setThemen(data || [])
-        })
+        // Wechselt Sortierung oder Kategorie schnell, gilt nur die letzte Antwort.
+        let aktiv = true
+        supabase()
+            .then(async (sb) => {
+                let q = sb
+                    .from('forum_themen')
+                    .select(`id, titel, kategorie_id, antworten, letzte_aktivitaet, erstellt, angepinnt, geschlossen, geloest_beitrag_id, ${AUTOR_FELDER}`)
+                    .eq('kategorie_id', kat.id)
+                    .order('angepinnt', { ascending: false })
+                if (sort === 'neu') q = q.order('erstellt', { ascending: false })
+                else q = q.order('letzte_aktivitaet', { ascending: false })
+                if (sort === 'offen') q = q.is('geloest_beitrag_id', null)
+                const { data, error } = await q.limit(100)
+                if (aktiv) setThemen(error ? [] : data || [])
+            })
+            .catch(() => aktiv && setThemen([]))
+        return () => {
+            aktiv = false
+        }
     }, [kat, sort])
 
     if (kat === undefined) return <p className="widget-note">Lade Kategorie …</p>

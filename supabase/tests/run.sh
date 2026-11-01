@@ -8,4 +8,5 @@ psql $VERB -q -c 'drop database if exists aigeddon_test' -c 'create database aig
 ARGS="-f $DIR/tests/auth-stub.sql"
 for m in "$DIR"/migrations/*.sql; do ARGS="$ARGS -f $m"; done
 for t in "$DIR"/tests/*_test.sql; do ARGS="$ARGS -f $t"; done
-psql $VERB -d aigeddon_test -q -t -A $ARGS
+# ON_ERROR_STOP auch für die Migrationen: ein Fehler dort bricht ab, statt die Tests auf halbem Schema laufen zu lassen.
+psql $VERB -d aigeddon_test -v ON_ERROR_STOP=1 -q -t -A $ARGS

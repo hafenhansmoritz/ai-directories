@@ -71,3 +71,11 @@ Plan und Stand: `docs/TRAUMSEITE-30.md`. Alles ist gebaut, aber unsichtbar, bis 
 2. Authentication, URL Configuration: Site URL `https://jmp-collab.github.io/ai-directories`, Redirect URL `https://jmp-collab.github.io/ai-directories/**`.
 3. Authentication, SMTP: eigenen Mailversand eintragen (z. B. Brevo, 300 Mails pro Tag gratis). Ohne eigenen Versand schickt Supabase nur sehr wenige Login-Mails pro Stunde.
 4. Einschalten: GitHub, Settings, Secrets and variables, Actions, Variables: `KONTO` mit Wert `1` und, erst nachdem der AV-Vertrag unterschrieben ist, `KONTO_AVV` mit Wert `1`. Konten werden nur sichtbar, wenn beide gesetzt sind. Danach den Pages-Workflow neu starten.
+5. Vor `KONTO_AVV=1`: Abschnitt „Benutzerkonto“ in `app/datenschutz/page.js` mit dem unterschriebenen DPA abgleichen (Sitz Supabase Inc. USA, Grundlage für Übermittlungen, Mailversand über eigenes SMTP oder Supabase). Der Text nennt bewusst keine Details, die erst im DPA stehen.
+6. Migration `supabase/migrations/0006_moderation_start.sql` einspielen: Links von Konten unter 7 Tagen oder unter 10 Punkten und Treffer der Wortfilter-Startliste warten auf die Moderation. Die Startliste bitte einmal durchsehen (Tabelle `wortfilter`).
+7. Optional nach dem Einschalten: `supabase/seed/startthemen.sql` lesen, Texte anpassen und einmal im SQL-Editor ausführen. Legt fünf angepinnte Startthemen unter deinem Admin-Konto an.
+
+## Zum Gegenprüfen
+
+- Cursor-Steckbrief (`db/tools.json`, Preis „$8/Monat … Teil von The X Subscription“): weicht stark von den übrigen Coding-Tools ab und fließt in den Abo-Rechner. Bitte die Preisseite von Cursor einmal selbst öffnen und das Datum notieren (Audit CON-12). Nichts geändert.
+- Datenschutzerklärung: Abschnitt Widerspruchsrecht, Speicherdauer der Hosting-Logs (Verweis auf GitHub) und Löschaussage wurden ergänzt. Endfassung bitte rechtlich prüfen lassen; die ladungsfähige Anschrift fehlt weiter (Punkt 4).

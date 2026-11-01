@@ -17,6 +17,8 @@ export default function Profil() {
     useEffect(() => {
         if (!KONTO_AKTIV || !/^[a-z0-9_]{3,24}$/.test(handle)) return setDaten(null)
         setDaten(undefined)
+        // Wechselt Handle oder Anmeldung, zählt nur die letzte Antwort.
+        let aktiv = true
         supabase()
             .then(async (sb) => {
                 const { data: profil } = await sb
@@ -24,6 +26,7 @@ export default function Profil() {
                     .select('id, handle, anzeigename, avatar_pfad, banner_pfad, banner_verlauf, oeffentlich, rolle, punkte, erstellt')
                     .eq('handle', handle)
                     .maybeSingle()
+                if (!aktiv) return
                 if (!profil) return setDaten(null)
                 const [{ data: details }, { data: abzeichen }, { data: themen }, { data: kommentare }] = await Promise.all([
                     sb.from('profil_details').select('bio, beruf, pronomen, links').eq('id', profil.id).maybeSingle(),
@@ -36,10 +39,14 @@ export default function Profil() {
                         ? sb.from('comments').select('id, pfad, text, erstellt').eq('user_id', profil.id).eq('status', 'sichtbar').order('erstellt', { ascending: false }).limit(5)
                         : Promise.resolve({ data: [] }),
                 ])
+                if (!aktiv) return
                 document.title = `${profil.anzeigename} (@${profil.handle}) | AIGeddon`
                 setDaten({ profil, details, abzeichen: abzeichen || [], themen: themen || [], kommentare: kommentare || [] })
             })
-            .catch(() => setDaten(null))
+            .catch(() => aktiv && setDaten(null))
+        return () => {
+            aktiv = false
+        }
     }, [handle, user])
 
     if (daten === undefined) return <p className="widget-note">Lade Profil …</p>

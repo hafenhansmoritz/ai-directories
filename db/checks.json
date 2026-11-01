@@ -1,6 +1,6 @@
 {
  "alternativeto": {
-  "approval": "kostenlos: kein Termin, Warteschlange meist Monate; kostenpflichtiger Priority Review meist 1–2 Werktage (bis zu einer Woche)",
+  "approval": "kostenlos: kein Termin, Warteschlange meist Monate; kostenpflichtiger Priority Review meist 1 bis 2 Werktage (bis zu einer Woche)",
   "link_type": null,
   "quote": "Priority submissions are usually reviewed within 1-2 business days, and up to a week over holidays or busy periods.",
   "source": "https://alternativeto.net/faq/",
@@ -156,7 +156,7 @@
  "ai-top-tools": {
   "approval": "Standard-Einreichungen meist in 2-5 Werktagen geprüft, bezahlte Featured-Einträge innerhalb von 24 Stunden",
   "link_type": "dofollow",
-  "quote": "Standard submissions are typically reviewed within 2–5 business days. Paid featured listings are reviewed within 24 hours. | with do-follow backlinks from DR 55+ sites",
+  "quote": "Standard submissions are typically reviewed within 2-5 business days. Paid featured listings are reviewed within 24 hours. | with do-follow backlinks from DR 55+ sites",
   "source": "https://aitoptools.com/help/",
   "status": null
  },
@@ -177,7 +177,7 @@
  "toolfolio": {
   "approval": "Freigabe meist innerhalb von 24-48 Stunden",
   "link_type": "dofollow (laut Boost-Seite)",
-  "quote": "Approval usually takes 24–48 hours | Get Listed within 24 hours - Do-follow link",
+  "quote": "Approval usually takes 24-48 hours | Get Listed within 24 hours - Do-follow link",
   "source": "https://toolfolio.io/boosts",
   "status": null
  },
@@ -274,9 +274,9 @@
   "status": null
  },
  "ebool": {
-  "approval": "Kostenlos: rund 6 Monate; Premium, Pro und Super: 2–3 Werktage",
+  "approval": "Kostenlos: rund 6 Monate; Premium, Pro und Super: 2 bis 3 Werktage",
   "link_type": null,
-  "quote": "Free submissions enter a standard review queue with a waiting time of around 6 months. Premium, Pro, and Super listings are reviewed and approved within 2–3 business days",
+  "quote": "Free submissions enter a standard review queue with a waiting time of around 6 months. Premium, Pro, and Super listings are reviewed and approved within 2-3 business days",
   "source": "https://www.ebool.com/submit",
   "status": null
  },
@@ -288,7 +288,7 @@
   "status": null
  },
  "aura-plus-plus": {
-  "approval": "Meist 24–48 Stunden, Premium wird bevorzugt geprüft",
+  "approval": "Meist 24 bis 48 Stunden, Premium wird bevorzugt geprüft",
   "link_type": "dofollow garantiert nur bei Premium",
   "quote": "Most projects are reviewed and approved within 24-48 hours. Premium and Premium Plus projects receive priority review.",
   "source": "https://auraplusplus.com/faq",
@@ -374,7 +374,7 @@
   "status": "Kein eigener Eintrag mehr: /submit verkauft nur noch Einreichungen bei anderen Verzeichnissen."
  },
  "appscribed": {
-  "approval": "Nur bezahlt: 24–48 Stunden nach redaktioneller Prüfung, bei Ablehnung Erstattung",
+  "approval": "Nur bezahlt: 24 bis 48 Stunden nach redaktioneller Prüfung, bei Ablehnung Erstattung",
   "link_type": null,
   "quote": "When will my tool get listed? Within 24-48 hours. If the tool doesn’t fit our needs, we will issue a refund within 48 hours.",
   "source": "https://appscribed.com/product-list/",
@@ -388,7 +388,7 @@
   "status": null
  },
  "botsfloor": {
-  "approval": "Bezahlt: meist 24–48 Stunden (die Seite heißt inzwischen BotStash)",
+  "approval": "Bezahlt: meist 24 bis 48 Stunden (die Seite heißt inzwischen BotStash)",
   "link_type": null,
   "quote": "How quickly will my product be listed? Most paid submissions are reviewed and published within 24-48 hours.",
   "source": "https://botsfloor.com/submit",
@@ -466,7 +466,7 @@
   "status": null
  },
  "startup-buffer": {
-  "approval": "Kostenlos: 1–2 Monate wegen hoher Nachfrage",
+  "approval": "Kostenlos: 1 bis 2 Monate wegen hoher Nachfrage",
   "link_type": null,
   "quote": "How long does review take? Reviews can take 1-2 months due to high demand. We'll email you when it's processed.",
   "source": "https://startupbuffer.com/site/contact",
@@ -482,7 +482,7 @@
  "digitalsamaritan": {
   "approval": null,
   "link_type": null,
-  "quote": "BADAK178 | Orchard – Smartphone Refurbished Berkualitas | Hemat Hingga 70%",
+  "quote": "BADAK178 | Orchard - Smartphone Refurbished Berkualitas | Hemat Hingga 70%",
   "source": "https://www.digitalsamaritan.co/add-your-product",
   "status": "Die Einreichungsseite zeigt einen fremden Smartphone-Shop (vermutlich gekapert), kein Formular."
  },
@@ -572,7 +572,7 @@
   "status": null
  },
  "tipseason": {
-  "approval": "Kostenlos: Warteschlange über 90 Tage; bezahlt (ab 49 $) in 24–48 Stunden",
+  "approval": "Kostenlos: Warteschlange über 90 Tage; bezahlt (ab 49 $) in 24 bis 48 Stunden",
   "link_type": "dofollow beim bezahlten Eintrag beworben",
   "quote": "Get maximum visibility for your AI tool, reach thousands of potential customers, and rank better on Google with a sponsored post and do-follow backlink.",
   "source": "https://tipseason.com/ai-tools/submit",
@@ -609,7 +609,7 @@
  "startup-spotlight": {
   "approval": "Nur per bezahltem Gebot (ab 10 $), danach sofort live",
   "link_type": null,
-  "quote": "Bids start at $10. Bidding keeps the bar high — it filters out spam and low-effort submissions",
+  "quote": "Bids start at $10. Bidding keeps the bar high - it filters out spam and low-effort submissions",
   "source": "https://www.startupspotlight.co/submit",
   "status": null
  }

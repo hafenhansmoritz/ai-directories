@@ -7,7 +7,7 @@ insert into auth.users (id, email) values
 update public.profiles set handle = 'dora' where id = 'd0000000-0000-0000-0000-000000000001';
 update public.profiles set handle = 'emil' where id = 'd0000000-0000-0000-0000-000000000002';
 update public.profiles set handle = 'moni', rolle = 'moderator' where id = 'd0000000-0000-0000-0000-000000000003';
-insert into public.wortfilter values ('casino');
+insert into public.wortfilter values ('casino') on conflict do nothing;
 insert into auth.users (id, email) values ('d0000000-0000-0000-0000-000000000004', 'neu@x.de');
 update public.konten set regeln_akzeptiert = now() where id <> 'd0000000-0000-0000-0000-000000000004';
 

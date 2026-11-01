@@ -13,17 +13,17 @@ Noch keine. Sobald ein Eintrag `status: "aktiv"` mit `partner_link` oder einen `
 | Programm | Status | Netzwerk | Provision | Cookie | Anmeldung | Dein Link |
 |---|---|---|---|---|---|---|
 | Systeme.io | nicht registriert | eigenes Programm | 60 % lebenslang wiederkehrend | lebenslang | https://systeme.io/affiliate-program | – |
-| Semrush | nicht registriert | Impact | $100–300 pro Verkauf (bis $450), $10 pro Testkonto | 120 Tage | https://www.semrush.com/lp/affiliate-program/en/ | – |
-| Kit (ConvertKit) | nicht registriert | PartnerStack | 50 % für 12 Monate, danach 10–20 % ab Bronze | unbekannt | https://kit.com/affiliate | – |
+| Semrush | nicht registriert | Impact | $100 bis 300 pro Verkauf (bis $450), $10 pro Testkonto | 120 Tage | https://www.semrush.com/lp/affiliate-program/en/ | – |
+| Kit (ConvertKit) | nicht registriert | PartnerStack | 50 % für 12 Monate, danach 10 bis 20 % ab Bronze | unbekannt | https://kit.com/affiliate | – |
 | beehiiv | nicht registriert | Dub | bis 60 % für 12 Monate | 60 Tage | https://www.beehiiv.com/partners | – |
 | Webflow | nicht registriert | PartnerStack | 50 % für bis zu 12 Monate | 90 Tage | https://dash.partnerstack.com/application?company=webflow&group=webflowaffiliates | – |
 | Framer | nicht registriert | Dub | 50 % der Abozahlungen für 12 Monate | 90 Tage | https://www.framer.com/creators | – |
-| GetResponse | nicht registriert | PartnerStack | 40 % für 12 Monate, 50–60 % ab 50/100 Verkäufen | unbekannt | https://www.getresponse.com/affiliate-programs | – |
+| GetResponse | nicht registriert | PartnerStack | 40 % für 12 Monate, 50 bis 60 % ab 50/100 Verkäufen | unbekannt | https://www.getresponse.com/affiliate-programs | – |
 | Make | nicht registriert | eigenes Programm | 35 % für 12 Monate | 30 Tage | https://www.make.com/en/affiliate | – |
 | n8n | nicht registriert | eigenes Programm | 30 % im ersten Jahr | unbekannt | https://n8n.io/affiliates/ | – |
 | ElevenLabs | nicht registriert | PartnerStack | 22 % für 12 Monate | 90 Tage | https://elevenlabs.io/affiliates | – |
 | SE Ranking | nicht registriert | eigenes Programm | 30 % (laut Seite wiederkehrend) | 120 Tage | https://seranking.com/affiliate-program.html | – |
-| Surfer SEO | nicht registriert | PartnerStack | 75–125 % der ersten Monatszahlung oder 15–25 % Jahresabo, einmalig | 90 Tage | https://surferseo.com/affiliate-program/ | – |
+| Surfer SEO | nicht registriert | PartnerStack | 75 bis 125 % der ersten Monatszahlung oder 15 bis 25 % Jahresabo, einmalig | 90 Tage | https://surferseo.com/affiliate-program/ | – |
 | Synthesia | nicht registriert | Rewardful | 25 % für 12 Monate | 60 Tage | https://synthesia.getrewardful.com/signup | – |
 | HeyGen | nicht registriert | Rewardful | 35 % für 3 Monate | 30 Tage | https://heygen.getrewardful.com/ | – |
 | Murf | nicht registriert | PartnerStack | 20 % für 24 Monate | 90 Tage | https://murf.ai/partner-with-us/affiliate | – |

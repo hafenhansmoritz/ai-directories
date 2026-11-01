@@ -2,7 +2,8 @@ import Link from 'next/link'
 import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import JsonLd from '../components/JsonLd'
 import { SITE_NAME } from '../../lib/site'
-import { LEAD_EMAIL } from '../../lib/monetization'
+import { LEAD_EMAIL, NEWSLETTER_EMBED, NEWSLETTER_NAME, NEWSLETTER_URL } from '../../lib/monetization'
+import { getGuides } from '../../lib/guides'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import { KONTO_AKTIV } from '../../lib/konto'
 
@@ -13,7 +14,7 @@ export const metadata = {
     robots: { index: false, follow: true },
 }
 
-const STAND = '25. Oktober 2026'
+const STAND = '1. November 2026'
 
 const ABSCHNITTE = [
     [
@@ -35,6 +36,7 @@ const ABSCHNITTE = [
         [
             'Die Website liegt bei GitHub Pages (GitHub, Inc., USA, eine Tochter der Microsoft Corporation). Beim Aufruf verarbeitet GitHub technisch notwendige Daten wie IP-Adresse, Zeitpunkt und aufgerufene Adresse, um die Seite auszuliefern und vor Missbrauch zu schützen.',
             'Rechtsgrundlage ist unser berechtigtes Interesse an einer sicheren und schnellen Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO). Für Übermittlungen in die USA stützt sich GitHub auf das EU-US Data Privacy Framework und Standardvertragsklauseln. Details stehen im GitHub Privacy Statement.',
+            'Wie lange GitHub diese Zugriffsdaten aufbewahrt, legt GitHub selbst fest und beschreibt es im GitHub Privacy Statement. Wir selbst bekommen keine Zugriffsprotokolle und werten keine aus.',
         ],
     ],
     [
@@ -48,7 +50,7 @@ const ABSCHNITTE = [
     [
         'Speicherung in deinem Browser',
         [
-            'Einige Werkzeuge merken sich Eingaben nur in deinem eigenen Browser (localStorage oder sessionStorage), zum Beispiel deine Bewertungen im KI-Test, den Fortschritt im Launch-Kit, ob ein Hinweis schon angezeigt wurde, deine Merkliste, deinen KI-Stack, die zuletzt angesehenen Seiten, wie weit du einen Artikel gelesen hast, den Zeitpunkt deines letzten Besuchs (für den Hinweis auf neue KI-News), verschenkte Herzen, Abzeichen, die gewählte Farbe und den Ruhe-Modus. Ohne Anmeldung verlassen diese Daten deinen Browser nicht und lassen sich über die Browser-Einstellungen löschen.',
+            'Einige Werkzeuge merken sich Eingaben nur in deinem eigenen Browser (localStorage oder sessionStorage), zum Beispiel deine Bewertungen im KI-Test, den Fortschritt im Launch-Kit, ob ein Hinweis schon angezeigt wurde, deine Merkliste, deinen KI-Stack, deinen Launch-Tracker (Status, Notizen und Erinnerungen je Verzeichnis), die zuletzt angesehenen Seiten, wie weit du einen Artikel gelesen hast, den Zeitpunkt deines letzten Besuchs (für den Hinweis auf neue KI-News), verschenkte Herzen, Abzeichen, die gewählte Farbe und den Ruhe-Modus. Ohne Anmeldung verlassen diese Daten deinen Browser nicht und lassen sich über die Browser-Einstellungen löschen.',
             ...(KONTO_AKTIV ? ['Wenn du dich mit einem Konto anmeldest, werden Merkliste, Herzen, gelesene Artikel, Verlauf und Abzeichen zusätzlich in deinem Konto gespeichert, damit du sie auf allen Geräten hast (siehe Abschnitt Benutzerkonto). Beim Abmelden entfernen wir sie aus dem Browser.'] : []),
         ],
     ],
@@ -58,10 +60,34 @@ const ABSCHNITTE = [
                   'Benutzerkonto, Profil und Community',
                   [
                       'Für ein Konto brauchen wir nur deine E-Mail-Adresse. Die Anmeldung läuft ohne Passwort über einen Link per E-Mail. Gespeichert werden außerdem, was du selbst anlegst: Profil (Anzeigename, Handle, Bio, Beruf, Pronomen, Links, Profilbild und Banner), deine Sammlung (Merkliste, Herzen, gelesene Artikel, Verlauf, Abzeichen), dein Launch-Tracker (Status, Notizen und Erinnerungsdaten je Verzeichnis), dein KI-Stack (Tools, Tarife und Beträge, die du einträgst), Kommentare und Forumsbeiträge sowie deine Einwilligungen mit Datum.',
-                      'Die Daten liegen bei Supabase Inc. auf Servern in Frankfurt am Main (EU). Mit Supabase besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Bilder werden vor dem Hochladen in deinem Browser neu gespeichert, dabei gehen Standort- und Kameradaten (EXIF) verloren.',
-                      'Rechtsgrundlage für Konto, Profil und Community ist der Nutzungsvertrag (Art. 6 Abs. 1 lit. b DSGVO). Newsletter und persönliche Empfehlungen schicken wir nur mit deiner gesonderten Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die du jederzeit in deinem Konto widerrufen kannst.',
+                      'Die Daten liegen bei Supabase Inc. auf Servern in Frankfurt am Main (EU). Mit Supabase besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Supabase Inc. hat seinen Sitz in den USA, ein Zugriff von dort (etwa für Wartung und Support) ist deshalb nicht ganz auszuschließen. Wie solche Übermittlungen abgesichert sind, regelt der Vertrag zur Auftragsverarbeitung mit Supabase.',
+                      'Die E-Mails mit dem Anmelde-Link verschickt Supabase in unserem Auftrag an die Adresse, die du eingibst.',
+                      'Bilder, die du über den Bild-Editor im Profil hochlädst, werden vorher in deinem Browser neu gespeichert. Dabei gehen Standort- und Kameradaten (EXIF) verloren.',
+                      'Rechtsgrundlage für Konto, Profil und Community ist der Nutzungsvertrag (Art. 6 Abs. 1 lit. b DSGVO). Newsletter und persönliche Empfehlungen schicken wir nur mit deiner gesonderten Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die du jederzeit in deinem Konto widerrufen kannst. Jede Einwilligung und jeden Widerruf speichern wir mit Datum als Nachweis.',
                       'Öffentlich sichtbar sind Handle, Anzeigename, Profilbild und deine Beiträge. Bio, Beruf, Pronomen, Links und Abzeichen siehst nur du, wenn du dein Profil auf privat stellst. Deine E-Mail-Adresse zeigen wir nie öffentlich.',
-                      'Im Konto kannst du alle Daten jederzeit als Datei herunterladen und dein Konto selbst löschen. Dann löschen wir Profil, Bilder, Sammlung, Launch-Tracker und KI-Stack sofort; Forumsbeiträge bleiben ohne Namen stehen, damit Diskussionen verständlich bleiben.',
+                      'Im Konto kannst du alle Daten jederzeit als Datei herunterladen und dein Konto selbst löschen. Dann löschen wir Profil, Bilder, Sammlung, Launch-Tracker, KI-Stack und den Nachweis deiner Einwilligungen sofort.',
+                      'Kommentare, Forenthemen, Forenbeiträge und Meldungen, die du geschrieben hast, bleiben nach dem Löschen ohne Namen stehen, damit Diskussionen verständlich bleiben. Willst du das nicht, ziehe deine Beiträge vor dem Löschen einzeln zurück, dann ersetzen wir ihren Text.',
+                  ],
+              ],
+          ]
+        : []),
+    ...(NEWSLETTER_URL || NEWSLETTER_EMBED
+        ? [
+              [
+                  'Newsletter',
+                  [
+                      `Für den Newsletter nutzen wir ${NEWSLETTER_NAME}. Anmeldung, Bestätigung deiner Adresse und Abmeldung laufen direkt beim Anbieter, nach dessen Datenschutzregeln. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die du mit dem Abmeldelink in jeder Ausgabe widerrufen kannst.`,
+                      ...(NEWSLETTER_EMBED ? ['Das eingebettete Anmeldeformular lädt der Anbieter selbst. Dabei erfährt er wie bei jedem Seitenaufruf deine IP-Adresse.'] : []),
+                  ],
+              ],
+          ]
+        : []),
+    ...(getGuides().length
+        ? [
+              [
+                  'Guides zum Herunterladen',
+                  [
+                      'Für einen Guide fragen wir deine E-Mail-Adresse ab. Sie geht wie beim Kontaktformular über FormSubmit per E-Mail an Jean. Ob du zusätzlich Neuigkeiten per Mail möchtest, entscheidest du mit einem eigenen Häkchen; ohne dieses Häkchen schreiben wir dir keine Werbung.',
                   ],
               ],
           ]
@@ -77,6 +103,13 @@ const ABSCHNITTE = [
         'Deine Rechte',
         [
             'Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Eine formlose E-Mail genügt.',
+            'Eine Einwilligung kannst du jederzeit mit Wirkung für die Zukunft widerrufen. Was bis dahin passiert ist, bleibt rechtmäßig.',
+        ],
+    ],
+    [
+        'Widerspruchsrecht nach Art. 21 DSGVO',
+        [
+            'Verarbeiten wir Daten auf Grundlage berechtigter Interessen (Art. 6 Abs. 1 lit. f DSGVO), etwa beim Hosting, kannst du dieser Verarbeitung aus Gründen, die sich aus deiner besonderen Situation ergeben, jederzeit widersprechen. Wir verarbeiten die Daten dann nicht mehr, es sei denn, es gibt zwingende schutzwürdige Gründe, die deine Interessen überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen. Eine formlose E-Mail genügt.',
         ],
     ],
 ]
