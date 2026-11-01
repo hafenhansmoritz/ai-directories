@@ -2,6 +2,8 @@
 
 Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, nimmt **die erste offene Aufgabe von oben**, die nicht auf Jean wartet, erledigt sie vollständig und hakt sie ab.
 
+- [ ] **Content-Plan KI-Comics, Hörspiel, Shorts, Verteilung** abarbeiten: `docs/CONTENT-PLAN-KI-COMICS-AUDIO.md` (Welle 0: Partnerprogramme anmelden, dann #1 Nano Banana Pro)
+
 ## Regeln für jede automatische Sitzung
 
 1. Branch frisch von `main`: `git fetch origin main && git checkout -B <Sitzungs-Branch> origin/main`.
