@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from './NavLink'
 import NETZ from '../../db/vernetzung.json'
 import KLAPP from '../../db/texte/klapp.json'
 import { KI_GLOSSAR, glossarSlug } from '../../lib/ki-glossar'
@@ -47,7 +47,7 @@ const marke = (p) => TYPEN[typVon(p)] || ['📌', 'Seite']
 const hash = (s) => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7)
 const INTRO = [
     'Diese Seiten hat mein Algorithmus aus Kaffee und Textvergleich für dich rausgesucht.',
-    'Wer hier gelandet ist, klickt erfahrungsgemäß als Nächstes auf eins davon.',
+    'Thematisch am nächsten dran, ausgewählt per Textvergleich.',
     'Thematisch verwandt, handverlesen von einem Skript mit gutem Geschmack.',
     'Falls du noch nicht genug hast: Hier geht es inhaltlich direkt weiter.',
     'Nachbarseiten mit dem meisten gemeinsamen Thema. Kein Zufall, reine Statistik.',

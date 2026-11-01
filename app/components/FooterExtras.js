@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { lies, schreib, toast } from '../../lib/herz'
+import { lies, schreib, toast, setzeRuhe, kuerzelAus, setzeKuerzel } from '../../lib/herz'
 
-// Farbwahl, Ruhe-Modus und ein Gruß zum Wochentag im Footer.
+// Farbwahl, Ruhe-Modus, Tastenkürzel-Schalter und ein Gruß zum Wochentag im Footer.
 const FARBEN = [
     ['', 'Pink', '#b3164f'],
     ['blau', 'Blau', '#1d4ed8'],
@@ -24,11 +24,22 @@ export default function FooterExtras() {
     const [akzent, setAkzent] = useState('')
     const [still, setStill] = useState(false)
     const [gruss, setGruss] = useState('')
+    const [kuerzel, setKuerzel] = useState(true)
 
     useEffect(() => {
         setAkzent(lies('aigeddon-akzent', '') || '')
         setStill(Boolean(lies('aigeddon-ruhig')))
+        setKuerzel(!kuerzelAus())
         setGruss(WOCHE[new Date().getDay()])
+        // Andere Schalter (Kopfzeile, Tastenkürzel-Hilfe) melden ihre Änderungen.
+        const ruheWechsel = (e) => setStill(e.detail.an)
+        const kuerzelWechsel = (e) => setKuerzel(e.detail.an)
+        window.addEventListener('aigeddon-ruhe', ruheWechsel)
+        window.addEventListener('aigeddon-kuerzel', kuerzelWechsel)
+        return () => {
+            window.removeEventListener('aigeddon-ruhe', ruheWechsel)
+            window.removeEventListener('aigeddon-kuerzel', kuerzelWechsel)
+        }
     }, [])
 
     const farbe = (wert, name) => {
@@ -41,9 +52,7 @@ export default function FooterExtras() {
     const ruhe = () => {
         const neu = !still
         setStill(neu)
-        schreib('aigeddon-ruhig', neu)
-        if (neu) document.documentElement.dataset.ruhig = 'an'
-        else delete document.documentElement.dataset.ruhig
+        setzeRuhe(neu)
         toast(neu ? 'Ruhe-Modus an: keine Animationen, kein Konfetti.' : 'Ruhe-Modus aus. Es darf wieder wackeln.', neu ? '🌙' : '✨')
     }
 
@@ -71,11 +80,14 @@ export default function FooterExtras() {
                     ))}
                 </div>
                 <button type="button" className="ruhe-knopf" aria-pressed={still} onClick={ruhe}>
-                    {still ? '🌙 Ruhe-Modus an' : '✨ Ruhe-Modus'}
+                    <span aria-hidden="true">{still ? '🌙' : '✨'}</span> {still ? 'Ruhe-Modus an' : 'Ruhe-Modus'}
                 </button>
-                <a className="ruhe-knopf" href="#" onClick={(e) => (e.preventDefault(), window.dispatchEvent(new KeyboardEvent('keydown', { key: '?' })))}>
-                    ⌨️ Tastenkürzel (?)
-                </a>
+                <button type="button" className="ruhe-knopf" onClick={() => window.dispatchEvent(new CustomEvent('aigeddon-kuerzel-hilfe'))}>
+                    <span aria-hidden="true">⌨️</span> Tastenkürzel{kuerzel ? ' (?)' : ''}
+                </button>
+                <button type="button" className="ruhe-knopf" aria-pressed={!kuerzel} onClick={() => setzeKuerzel(!kuerzel)}>
+                    Tastenkürzel aus
+                </button>
             </div>
         </div>
     )
