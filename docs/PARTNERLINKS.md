@@ -1,31 +1,73 @@
 # Partnerlinks AIGeddon
 
-Automatisch erzeugt aus `db/partners.json` (Programme, Stand 2026-10-27) und der zentralen Sammlung `db/affiliate-links.json` (eigene Links und Codes, Stand 2026-11-01) mit `npm run partners`. Nicht von Hand bearbeiten.
+Automatisch erzeugt aus `db/partners.json` (Programme, Stand 2026-11-01) und der zentralen Sammlung `db/affiliate-links.json` (eigene Links und Codes, Stand 2026-11-01) mit `npm run partners`. Nicht von Hand bearbeiten.
 
 **Alle eigenen Affiliate-Links aller Projekte:** 6 Einträge in `db/affiliate-links.json`.
 
-**Stand:** 98 Programme · aktiv 0 · beantragt 0 · nicht registriert 51 · Code anfragen 22 · Code angefragt 0 · abgelehnt 0
+**Stand:** 110 Programme · aktiv 4 · beantragt 0 · nicht registriert 59 · Code anfragen 22 · Code angefragt 0 · abgelehnt 0
 
 ## Live auf der Website
 
-Noch keine. Sobald in `db/affiliate-links.json` ein Link oder Code mit passender id steht, nutzt die Seite ihn beim nächsten Build.
+| Programm | Partnerlink | Code |
+|---|---|---|
+| Systeme.io | https://systeme.io/de?sa=sa0174191115fa520c2f58a4c2498f7d364a1799d4 | – |
+| Okara AI | https://okara.ai/?via=jean | – |
+| Kaiber AI (Superstudio) | https://kaiber.ai/?via=jean-maurice | – |
+| GoHighLevel (HighLevel) | https://www.gohighlevel.com/?fp_ref=3w6dr | – |
+| Tiiny Host | https://tiiny.cello.so/VSfOsTdniC6 | – |
+
+## Schnell anmelden (sofort oder in wenigen Tagen freigeschaltet)
+
+Programme ohne Mindest-Traffic und ohne Einladung, laut offizieller Seite geprüft. „sofort“: Link direkt nach der Anmeldung, „schnell“: Selbstanmeldung mit kurzer Prüfung.
+
+| Programm | Anmeldung | Provision | Cookie | Netzwerk | Anmelden | Geprüft |
+|---|---|---|---|---|---|---|
+| beehiiv | sofort | bis 60 % für 12 Monate | 60 Tage | Dub | https://www.beehiiv.com/partners | 2026-11-01 |
+| Bolt.new | sofort | „you earn 15% of what they pay Bolt, up to $50 per referral“ | unbekannt | Cello | https://bolt.new/platform/referral | 2026-11-01 |
+| ElevenLabs | sofort | 22 % für 12 Monate | 90 Tage | PartnerStack | https://elevenlabs.io/affiliates | 2026-11-01 |
+| Fireflies.ai | sofort | „up to 30% recurring commissions per sale for 12 months“, Einstieg mit 10 % | 90 Tage | Rewardful (fireflies.getrewardful.com), zusätzlich PartnerStack | https://fireflies.getrewardful.com/ | 2026-11-01 |
+| GetResponse | sofort | 40 % für 12 Monate, 50 bis 60 % ab 50/100 Verkäufen | unbekannt | PartnerStack | https://www.getresponse.com/affiliate-programs | 2026-11-01 |
+| Higgsfield AI | sofort | bis zu 25 % wiederkehrend bis 12 Monate | – | eigenes Programm | https://higgsfield.ai/affiliate | 2026-11-01 |
+| Make | sofort | 35 % für 12 Monate | 30 Tage | eigenes Programm | https://www.make.com/en/affiliate | 2026-11-01 |
+| Merlin AI | sofort | 30 % wiederkehrend bis 12 Monate (Jahresplan einmalig 30 %) | 90 Tage | Tapfiliate | https://merlin.tapfiliate.com/ | 2026-11-01 |
+| SE Ranking | sofort | 30 % (laut Seite wiederkehrend) | 120 Tage | eigenes Programm | https://seranking.com/affiliate-program.html | 2026-11-01 |
+| Submagic | sofort | 30 % lebenslang wiederkehrend | – | – | https://affiliate.submagic.co/ | 2026-11-01 |
+| Tally | sofort | 20 % des Abos, max. $150 | unbekannt | im Tally-Konto | https://tally.so/help/referral-program | 2026-11-01 |
+| tl;dv | sofort | „earn 25% of all referred payments with no limit“, Geworbene erhalten 30 % Rabatt auf Pro | unbekannt | eigenes Programm | https://tldv.io/partner-programs/ | 2026-11-01 |
+| AppSumo | schnell | 100 % des Kaufs bis $50 bei Neukunden | 7 Tage | Impact | https://appsumo.com/p/affiliates | 2026-11-01 |
+| Elephas | schnell | 25 % wiederkehrend solange das Abo läuft | – | Gumroad | https://elephas.app/become-an-affiliate | 2026-11-01 |
+| Fliki | schnell | „30% lifetime commission on every sale“ | 30 Tage | Rewardful | https://affiliates.fliki.ai/signup | 2026-11-01 |
+| InVideo AI | schnell | 50 % Monats- bzw. 25 % Jahresabo, erste Abrechnung | 120 Tage | Impact | https://invideo.io/make/affiliate-program/ | 2026-11-01 |
+| Jenni AI | schnell | bis zu 30 % | – | Rewardful | https://jenni-ai.getrewardful.com/signup | 2026-11-01 |
+| LALAL.AI | schnell | 30 % im ersten Monat, danach 20 % bis insgesamt 6 Monate | 180 Tage | FirstPromoter | https://www.lalal.ai/affiliate-program/ | 2026-11-01 |
+| Murf | schnell | 20 % für 24 Monate | 90 Tage | PartnerStack | https://murf.ai/partner-with-us/affiliate | 2026-11-01 |
+| OpusClip | schnell | „Earn 25% recurring commission through the first year of each new subscriber“ | unbekannt | Rewardful | https://www.opus.pro/affiliate | 2026-11-01 |
+| PeerPush | schnell | 50 % auf „Launch Now“ | 30 Tage | eigenes Programm | https://peerpush.com/affiliates | 2026-11-01 |
+| Pictory | schnell | bis 50 % wiederkehrend | unbekannt | eigenes Programm | https://partners.pictory.ai/signup/40690 | 2026-11-01 |
+| QuillBot | schnell | „10% for monthly plans, 15% for semi-annual plans, and 20% for annual plans“, bis 20 $ je Abo | 30 Tage | PartnerStack | https://quillbot.com/affiliates | 2026-11-01 |
+| Rytr | schnell | 30 % wiederkehrend für 12 Monate, 15 $ Startbonus | 60 Tage | eigenes Programm | https://rytr.me/affiliates | 2026-11-01 |
+| SciSpace | schnell | 25 % auf jedes neue Abo (erste Zahlung) | 90 Tage | – | https://scispace.com/influencer-program | 2026-11-01 |
+| SOUNDRAW | schnell | bis zu 25 USD pro erfolgreicher Empfehlung | – | – | https://affiliates.soundraw.io/ | 2026-11-01 |
+| Synthesia | schnell | 25 % für 12 Monate | 60 Tage | Rewardful | https://synthesia.getrewardful.com/signup | 2026-11-01 |
+| Uneed | schnell | 50 % auf „Skip the Waiting Line“ | 30 Tage | eigenes Programm | https://www.uneed.best/affiliates | 2026-11-01 |
+| Writesonic | schnell | 20 % für 12 Monate | 60 Tage | FirstPromoter | https://affiliates.writesonic.com/ | 2026-11-01 |
 
 ## Zentrale Sammlung (alle Projekte)
 
 | id | Programm | Link | Code | Projekte | Bestätigt | Notiz |
 |---|---|---|---|---|---|---|
-| gohighlevel | GoHighLevel | https://www.gohighlevel.com/?fp_ref=3w6dr | – | racing-planet-framework | nein, bitte prüfen | FirstPromoter-ID 3w6dr, Inhaber nicht belegt: von Jean bestätigen. |
-| insighto-ai | Insighto AI | https://insighto.ai?aff=2pOWs06wWLEn | – | racing-planet-framework | nein, bitte prüfen | aff-ID, Inhaber nicht belegt: von Jean bestätigen. |
-| kaiber-ai | Kaiber AI | https://kaiber.ai/?via=jean-maurice | – | racing-planet-framework | nein, bitte prüfen | via-Parameter mit Namen jean-maurice, sehr wahrscheinlich eigener Link. |
-| okara-ai | Okara AI | https://okara.ai/?via=jean | – | racing-planet-framework | nein, bitte prüfen | Rewardful-typischer via-Parameter mit Namen jean, sehr wahrscheinlich eigener Link. |
-| systeme-io-skills | Systeme.io | https://systeme.io/de?sa=sa0174191115fa520c2f58a4c2498f7d364a1799d4 | – | racing-planet-framework | nein, bitte prüfen | Systeme.io-Partner-ID, Inhaber nicht belegt: von Jean bestätigen. In db/partners.json steht Systeme.io als nicht registriert. |
-| tiiny-host | Tiiny Host | https://tiiny.cello.so/VSfOsTdniC6 | – | racing-planet-framework | nein, bitte prüfen | Cello-Empfehlungslink, Inhaber nicht belegt: von Jean bestätigen. |
+| gohighlevel | GoHighLevel | https://www.gohighlevel.com/?fp_ref=3w6dr | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
+| insighto-ai | Insighto AI | https://insighto.ai?aff=2pOWs06wWLEn | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
+| kaiber-ai | Kaiber AI | https://kaiber.ai/?via=jean-maurice | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
+| okara-ai | Okara AI | https://okara.ai/?via=jean | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
+| systeme-io | Systeme.io | https://systeme.io/de?sa=sa0174191115fa520c2f58a4c2498f7d364a1799d4 | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
+| tiiny-host | Tiiny Host | https://tiiny.cello.so/VSfOsTdniC6 | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
 
 ## Werkzeug-Partnerprogramme
 
 | Programm | Status | Netzwerk | Provision | Cookie | Anmeldung | Dein Link |
 |---|---|---|---|---|---|---|
-| Systeme.io | nicht registriert | eigenes Programm | 60 % lebenslang wiederkehrend | lebenslang | https://systeme.io/affiliate-program | – |
+| Systeme.io | nicht registriert | eigenes Programm | 60 % lebenslang wiederkehrend | lebenslang | https://systeme.io/affiliate-program | https://systeme.io/de?sa=sa0174191115fa520c2f58a4c2498f7d364a1799d4 |
 | Semrush | nicht registriert | Impact | $100 bis 300 pro Verkauf (bis $450), $10 pro Testkonto | 120 Tage | https://www.semrush.com/lp/affiliate-program/en/ | – |
 | Kit (ConvertKit) | nicht registriert | PartnerStack | 50 % für 12 Monate, danach 10 bis 20 % ab Bronze | unbekannt | https://kit.com/affiliate | – |
 | beehiiv | nicht registriert | Dub | bis 60 % für 12 Monate | 60 Tage | https://www.beehiiv.com/partners | – |
@@ -89,6 +131,18 @@ Noch keine. Sobald in `db/affiliate-links.json` ein Link oder Code mit passender
 | Lovable | nicht registriert | – | „Earn up to $100 for each first-time subscriber you refer.“ | unbekannt | https://lovable.dev/partners/affiliates | – |
 | Bolt.new | nicht registriert | Cello | „you earn 15% of what they pay Bolt, up to $50 per referral“ | unbekannt | https://bolt.new/platform/referral | – |
 | v0 | kein Programm | Dub | früher Credits, eingestellt am 15.7.2026 | unbekannt | – | – |
+| Okara AI | aktiv | Rewardful | 20 % wiederkehrend für 6 Monate | 60 Tage | https://okara.ai/affiliates | https://okara.ai/?via=jean |
+| Kaiber AI (Superstudio) | aktiv | Rewardful | 10 % auf jede Zahlung, wiederkehrend solange Abo läuft | – | https://kaiber.getrewardful.com/signup | https://kaiber.ai/?via=jean-maurice |
+| GoHighLevel (HighLevel) | aktiv | FirstPromoter | 40 % wiederkehrend, plus 5 % auf Tier 2 | – | https://www.gohighlevel.com/joinaffiliate/ | https://www.gohighlevel.com/?fp_ref=3w6dr |
+| Tiiny Host | aktiv | Cello (Referral Programm) | 30 % des Umsatzes, max. 50 USD pro Empfehlung | – | https://tiiny.host/affiliates | https://tiiny.cello.so/VSfOsTdniC6 |
+| Submagic | nicht registriert | – | 30 % lebenslang wiederkehrend | – | https://affiliate.submagic.co/ | – |
+| Jenni AI | nicht registriert | Rewardful | bis zu 30 % | – | https://jenni-ai.getrewardful.com/signup | – |
+| LALAL.AI | nicht registriert | FirstPromoter | 30 % im ersten Monat, danach 20 % bis insgesamt 6 Monate | 180 Tage | https://www.lalal.ai/affiliate-program/ | – |
+| SciSpace | nicht registriert | – | 25 % auf jedes neue Abo (erste Zahlung) | 90 Tage | https://scispace.com/influencer-program | – |
+| SOUNDRAW | nicht registriert | – | bis zu 25 USD pro erfolgreicher Empfehlung | – | https://affiliates.soundraw.io/ | – |
+| Merlin AI | nicht registriert | Tapfiliate | 30 % wiederkehrend bis 12 Monate (Jahresplan einmalig 30 %) | 90 Tage | https://merlin.tapfiliate.com/ | – |
+| Elephas | nicht registriert | Gumroad | 25 % wiederkehrend solange das Abo läuft | – | https://elephas.app/become-an-affiliate | – |
+| Higgsfield AI | nicht registriert | eigenes Programm | bis zu 25 % wiederkehrend bis 12 Monate | – | https://higgsfield.ai/affiliate | – |
 
 ## Verzeichnisse: Partnerprogramme und eigene Codes
 

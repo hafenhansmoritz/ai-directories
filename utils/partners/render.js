@@ -19,6 +19,9 @@ const dirsDb = require(path.join(root, 'db/directories.json'))
 const dirs = new Set((dirsDb.data || dirsDb).map((d) => slugify(d.name)))
 
 const errors = []
+// Auto-Verlinkung von Tool-Namen (lib/tool-links.js): jeder Slug braucht einen Steckbrief in db/tools.json.
+const toolLinks = fs.readFileSync(path.join(root, 'lib/tool-links.js'), 'utf8')
+for (const [, slug] of toolLinks.matchAll(/\[\s*'[^']+',\s*'([a-z0-9-]+)'\s*\]/g)) if (!tools.has(slug)) errors.push(`lib/tool-links.js: ${slug} fehlt in db/tools.json`)
 const ids = new Set()
 for (const p of register.programme) {
     if (ids.has(p.id)) errors.push(`${p.id}: doppelte id`)
@@ -26,6 +29,7 @@ for (const p of register.programme) {
     if (p.tool_slug && !tools.has(p.tool_slug)) errors.push(`${p.id}: tool_slug ${p.tool_slug} fehlt in db/tools.json`)
     if (p.directory_slug && !dirs.has(p.directory_slug)) errors.push(`${p.id}: directory_slug ${p.directory_slug} fehlt in db/directories.json`)
     if (!register.status_werte.includes(p.status)) errors.push(`${p.id}: unbekannter Status ${p.status}`)
+    if (p.anmeldung && !(register.anmeldung_werte || []).includes(p.anmeldung)) errors.push(`${p.id}: unbekannte Anmeldung ${p.anmeldung}`)
 }
 const sids = new Set()
 for (const l of sammlung.links) {
@@ -34,8 +38,9 @@ for (const l of sammlung.links) {
     sids.add(l.id)
     if (!l.link && !l.code) errors.push(`affiliate-links: ${l.id} braucht link oder code`)
     if (l.link && !/^https:\/\//.test(l.link)) errors.push(`affiliate-links: ${l.id}: link muss mit https:// beginnen`)
-    const fuerUns = l.bestaetigt !== false && (!l.projekte?.length || l.projekte.includes('aigeddon'))
-    if (fuerUns && !ids.has(l.id)) errors.push(`affiliate-links: ${l.id} fehlt in db/partners.json (für AIGeddon nötig, sonst projekte ohne 'aigeddon' setzen)`)
+    // Ausdrücklich für AIGeddon gedacht, aber ohne Programm im Register: Fehler. Für alle Projekte ohne Programm: nur Hinweis.
+    if (l.projekte?.includes('aigeddon') && !ids.has(l.id)) errors.push(`affiliate-links: ${l.id} fehlt in db/partners.json`)
+    else if (!l.projekte?.length && !ids.has(l.id)) console.log(`Hinweis: ${l.id} gilt für alle Projekte, auf AIGeddon fehlt noch das Programm in db/partners.json`)
 }
 if (errors.length) {
     console.error(errors.join('\n'))
@@ -58,6 +63,15 @@ Automatisch erzeugt aus \`db/partners.json\` (Programme, Stand ${register.stand}
 ## Live auf der Website
 
 ${live.length ? table(live, [['Programm', (p) => p.name], ['Partnerlink', (p) => p.partner_link], ['Code', (p) => p.coupon && `${p.coupon.code} (${p.coupon.text})`]]) : 'Noch keine. Sobald in `db/affiliate-links.json` ein Link oder Code mit passender id steht, nutzt die Seite ihn beim nächsten Build.'}
+
+## Schnell anmelden (sofort oder in wenigen Tagen freigeschaltet)
+
+Programme ohne Mindest-Traffic und ohne Einladung, laut offizieller Seite geprüft. „sofort“: Link direkt nach der Anmeldung, „schnell“: Selbstanmeldung mit kurzer Prüfung.
+
+${table(
+    register.programme.filter((p) => ['sofort', 'schnell'].includes(p.anmeldung) && !p.partner_link).sort((a, b) => (a.anmeldung === b.anmeldung ? a.name.localeCompare(b.name) : a.anmeldung === 'sofort' ? -1 : 1)),
+    [['Programm', (p) => p.name], ['Anmeldung', (p) => p.anmeldung], ['Provision', (p) => p.commission], ['Cookie', (p) => p.cookie], ['Netzwerk', (p) => p.network], ['Anmelden', (p) => p.signup_url], ['Geprüft', (p) => p.geprueft]]
+)}
 
 ## Zentrale Sammlung (alle Projekte)
 
