@@ -20,9 +20,11 @@ export function generateMetadata({ params }) {
     const list = getList(params.slug)
     if (!list) return {}
     return {
-        title: list.title.length > 45 ? list.title : `${list.title}: ${list.items.length} Einträge`,
+        title: list.title.length > 45 || list.items.length === 0 ? list.title : `${list.title}: ${list.items.length} Einträge`,
         description: list.description(list.items.length),
         alternates: { canonical: `/liste/${list.slug}` },
+        // Eine leere Liste (z. B. noch keine eigenen Rabattcodes) bleibt erreichbar, aber aus dem Index.
+        ...(list.items.length === 0 && { robots: { index: false, follow: true } }),
         openGraph: { url: `/liste/${list.slug}`, images: [{ url: absoluteUrl('/opengraph-image.png'), width: 1200, height: 630 }] },
     }
 }
@@ -72,7 +74,16 @@ function ListPage({ params }) {
                 </p>
             </section>
 
-            {list.slug === 'rabattcodes' && (
+            {list.slug === 'rabattcodes' && list.items.length === 0 && (
+                <>
+                    <p>
+                        Gerade gibt es hier keinen Code. Sobald AIGeddon mit einem Verzeichnis einen eigenen Rabatt vereinbart hat, steht er hier und auf der Seite des Verzeichnisses. Bis dahin lohnt der Blick auf die{' '}
+                        <Link href="/liste/kostenlos">kostenlosen KI-Verzeichnisse</Link>.
+                    </p>
+                    <LeadBox title="Deal-Alarm 🚨" text="Sobald es eigene Rabattcodes gibt, landen sie zuerst im Newsletter." />
+                </>
+            )}
+            {list.slug === 'rabattcodes' && list.items.length > 0 && (
                 <>
                     <DealCards directories={list.items} />
                     <LeadBox
@@ -82,7 +93,7 @@ function ListPage({ params }) {
                     <h2>Alle Codes als Tabelle</h2>
                 </>
             )}
-            <DirectoryTable directories={tabellenZeilen(list.items)} caption={`${list.title}: ${list.items.length} Einträge`} />
+            {list.items.length > 0 && <DirectoryTable directories={tabellenZeilen(list.items)} caption={`${list.title}: ${list.items.length} Einträge`} />}
 
             <section aria-labelledby="weitere">
                 <h2 id="weitere">Weitere Listen, weil du noch nicht genug hast 📚</h2>

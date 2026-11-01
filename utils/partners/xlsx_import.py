@@ -1,4 +1,5 @@
-# Übernimmt Partnerlinks, Status und Rabattcodes aus docs/partnerprogramme.xlsx nach db/partners.json.
+# Übernimmt Status und Programmdaten aus docs/partnerprogramme.xlsx nach db/partners.json und eigene Partnerlinks
+# und Rabattcodes in die zentrale Sammlung db/affiliate-links.json.
 # Aufruf: python3 utils/partners/xlsx_import.py [pfad/zur/datei.xlsx]
 # Danach: npm run partners (prüft das Register und schreibt docs/PARTNERLINKS.md), dann bauen.
 #
@@ -14,9 +15,13 @@ from openpyxl import load_workbook
 ROOT = Path(__file__).resolve().parents[2]
 XLSX = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / 'docs' / 'partnerprogramme.xlsx'
 REG = ROOT / 'db' / 'partners.json'
+SAMMLUNG = ROOT / 'db' / 'affiliate-links.json'
 
 register = json.loads(REG.read_text())
 by_id = {p['id']: p for p in register['programme']}
+sammlung = json.loads(SAMMLUNG.read_text())
+links_by_id = {l['id']: l for l in sammlung['links']}
+sammlung_geaendert = False
 STATUS = register['status_werte']
 
 
@@ -55,8 +60,6 @@ def eintrag(pid, name, kind, **felder):
             'cookie': '',
             'signup_url': '',
             'status': 'nicht registriert',
-            'partner_link': '',
-            'coupon': None,
             'notes': '',
         }
         register['programme'].append(p)
@@ -119,10 +122,12 @@ for blatt, (idspalte, kind, feld) in BLAETTER.items():
         if bestehend and bestehend['id'] in erledigt:
             continue  # schon über ein vorheriges Blatt geändert (z. B. Tools vor „Alle Domains“)
         alt_status = bestehend['status'] if bestehend else 'nicht registriert'
-        alt_code = ((bestehend or {}).get('coupon') or {}).get('code', '')
+        alt = links_by_id.get(bestehend['id']) if bestehend else None
+        alt_link = (alt or {}).get('link', '')
+        alt_code = (alt or {}).get('code', '')
         # Nur übernehmen, was in der Tabelle neu oder anders ist als im Register (die Tabelle ist damit vorbefüllt).
         if not (
-            (link and link != (bestehend or {}).get('partner_link'))
+            (link and link != alt_link)
             or (code and code != alt_code)
             or (notiz and notiz != (bestehend or {}).get('notes'))
             or (status and status != alt_status)
@@ -138,12 +143,8 @@ for blatt, (idspalte, kind, feld) in BLAETTER.items():
         felder = {} if (bestehend and feld == 'host' and (bestehend.get('tool_slug') or bestehend.get('directory_slug'))) else {feld: key}
         if status:
             felder['status'] = status
-        if link:
-            felder['partner_link'] = link
-            if status in ('', 'nicht registriert', 'beantragt', 'kein Programm'):
-                felder['status'] = 'aktiv'
-        if code:
-            felder['coupon'] = {'code': code, 'text': rabatt or 'discount'}
+        if link and status in ('', 'nicht registriert', 'beantragt', 'kein Programm'):
+            felder['status'] = 'aktiv'
         if notiz:
             felder['notes'] = notiz
         for spalte, ziel in (('Anmeldung (Registrierungslink)', 'signup_url'), ('Netzwerk', 'network'), ('Provision', 'commission'), ('Cookie', 'cookie')):
@@ -153,14 +154,32 @@ for blatt, (idspalte, kind, feld) in BLAETTER.items():
         vorher = json.dumps(by_id.get(pid), sort_keys=True)
         p = eintrag(pid, text(z.get('Name')) or key, kind, **felder)
         erledigt.add(p['id'])
+        if link or code:
+            l = links_by_id.get(p['id']) or {'id': p['id'], 'programm': p['name'], 'projekte': ['aigeddon']}
+            if link:
+                l['link'] = link
+            if code:
+                l['code'], l['rabatt'] = code, rabatt or 'discount'
+            if p.get('network'):
+                l.setdefault('netzwerk', p['network'])
+            if l is not links_by_id.get(p['id']):
+                sammlung['links'].append(l)
+                links_by_id[p['id']] = l
+            sammlung_geaendert = True
         if json.dumps(p, sort_keys=True) != vorher:
-            geaendert.append(f'{blatt}: {p["name"]} -> {p["status"]}{" mit Link" if p.get("partner_link") else ""}')
+            geaendert.append(f'{blatt}: {p["name"]} -> {p["status"]}{" mit Link" if link else ""}')
 
 if geaendert:
     from datetime import date
 
     register['stand'] = date.today().isoformat()
     REG.write_text(json.dumps(register, ensure_ascii=False, indent=1) + '\n')
+if sammlung_geaendert:
+    from datetime import date
+
+    sammlung['stand'] = date.today().isoformat()
+    sammlung['links'].sort(key=lambda l: l['id'])
+    SAMMLUNG.write_text(json.dumps(sammlung, ensure_ascii=False, indent=1) + '\n')
 print(f'{len(geaendert)} Einträge geändert')
 for g in geaendert:
     print(' ', g)

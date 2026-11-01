@@ -15,7 +15,7 @@ import '../styles/c-start.css'
 export const metadata = {
     title: 'Top 50 KI-Verzeichnisse 2026: die besten AI Directories',
     description:
-        'Die 50 besten KI-Verzeichnisse nach Jean-Score, ohne gesperrte Einreichungen und ohne aufgeblasenes Domain Rating. Mit Freischaltdauer, Link-Typ und Rabattcode, als CSV zum Abarbeiten.',
+        'Die 50 besten KI-Verzeichnisse nach Jean-Score, ohne gesperrte Einreichungen und ohne aufgeblasenes Domain Rating. Mit Freischaltdauer und Link-Typ, als CSV zum Abarbeiten.',
     alternates: { canonical: '/top-50' },
 }
 

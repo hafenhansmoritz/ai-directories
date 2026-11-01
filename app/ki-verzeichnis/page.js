@@ -21,7 +21,7 @@ const FAQ = [
     },
     {
         q: 'Was kostet ein Eintrag?',
-        a: 'Viele Verzeichnisse sind kostenlos, manche verlangen eine Gebühr für den Eintrag oder einen hervorgehobenen Platz. In der AIGeddon-Liste siehst du Preis, Domain Rating und Rabattcodes je Verzeichnis.',
+        a: 'Viele Verzeichnisse sind kostenlos, manche verlangen eine Gebühr für den Eintrag oder einen hervorgehobenen Platz. In der AIGeddon-Liste siehst du Preis und Domain Rating je Verzeichnis, dazu eigene Rabattcodes, wo wir welche vereinbart haben.',
     },
     {
         q: 'Wie viele KI-Verzeichnisse gibt es?',

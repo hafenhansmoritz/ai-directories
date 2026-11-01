@@ -119,8 +119,6 @@ export const directories: Directory[] = [
         "monthly_visits": 7100,
         "submission_experience": "Good",
         "pricing": "Free",
-        "dealCode": "DIRECTORY50",
-        "dealText": "50% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1792492898237214720/FcPQ01Bi_400x400.jpg"
     },
     {

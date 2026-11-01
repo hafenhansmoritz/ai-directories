@@ -45,8 +45,6 @@ export const directories: Directory[] = [
         "monthly_visits": 4000,
         "submission_experience": "Good",
         "pricing": "Free",
-        "dealCode": "AIDIRECTORIES30",
-        "dealText": "30% discount",
         "icon": "https://aibest.tools/favicon.ico"
     },
     {
@@ -300,8 +298,6 @@ export const directories: Directory[] = [
         "monthly_visits": 3500,
         "submission_experience": "Good",
         "pricing": "Free",
-        "dealCode": "AIDIRVIP",
-        "dealText": "50% Discount",
         "icon": "https://aitooltrek.com/images/favicon.svg"
     },
     {
@@ -384,8 +380,6 @@ export const directories: Directory[] = [
         "monthly_visits": 30000,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "AIDIR20",
-        "dealText": "20% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1755562365028909056/w9z8YTEW_400x400.jpg"
     },
     {
@@ -441,8 +435,6 @@ export const directories: Directory[] = [
         "monthly_visits": 260000,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "AID20",
-        "dealText": "20% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1749843669824274432/Hobf7v6D_400x400.jpg"
     },
     {
@@ -480,8 +472,6 @@ export const directories: Directory[] = [
         "monthly_visits": 100000,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "aidirectories50",
-        "dealText": "50% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1755998314158333952/VD6sKjta_400x400.jpg"
     },
     {
@@ -519,9 +509,7 @@ export const directories: Directory[] = [
         "domain_rating": 38,
         "monthly_visits": 1000,
         "submission_experience": "Good",
-        "pricing": "Free",
-        "dealCode": "AIDIRECTORIES50",
-        "dealText": "50% Discount"
+        "pricing": "Free"
     },
     {
         "name": "aitools.fyi",
@@ -530,9 +518,7 @@ export const directories: Directory[] = [
         "domain_rating": 44,
         "monthly_visits": 790000,
         "submission_experience": "Good",
-        "pricing": "Paid",
-        "dealCode": "AID30",
-        "dealText": "30% Discount"
+        "pricing": "Paid"
     },
     {
         "name": "AIX Collection",
@@ -641,9 +627,7 @@ export const directories: Directory[] = [
         "domain_rating": 39,
         "monthly_visits": 2000,
         "submission_experience": "Good",
-        "pricing": "Free",
-        "dealCode": "AIDIRECTORISERG70",
-        "dealText": "70% Discount"
+        "pricing": "Free"
     },
     {
         "name": "Amaete AI",
@@ -689,8 +673,6 @@ export const directories: Directory[] = [
         "monthly_visits": 60000,
         "submission_experience": "Good",
         "pricing": "Paid",
-        "dealCode": "TOOL10",
-        "dealText": "10% Discount",
         "icon": "https://pbs.twimg.com/profile_images/1854512086170406913/hGo5Uyrr_400x400.jpg"
     },
     {
@@ -719,8 +701,6 @@ export const directories: Directory[] = [
         "monthly_visits": 5000,
         "submission_experience": "Good",
         "pricing": "Free",
-        "dealCode": "50AIDIRECTORIES",
-        "dealText": "50% Discount",
         "icon": "https://cdn.aidirectori.es/icons/aura.png"
     },
 ]

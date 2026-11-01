@@ -15,7 +15,6 @@ Stand: September 2026 · **Live:** [jmp-collab.github.io/ai-directories](https:/
 - [Warum KI-Verzeichnisse?](#warum-ki-verzeichnisse)
 - [Top 10 nach Domain Rating](#top-10-nach-domain-rating)
 - [Top 10: kostenlos und reibungslos](#top-10-kostenlos-und-reibungslos)
-- [Rabattcodes für bezahlte Einträge](#rabattcodes-für-bezahlte-einträge)
 - [Alle 256 KI-Verzeichnisse](#alle-ki-verzeichnisse)
 - [So liest du die Tabelle](#so-liest-du-die-tabelle)
 - [Häufige Fragen](#häufige-fragen)
@@ -58,39 +57,6 @@ Mein Startpunkt, wenn das Budget bei null liegt: kostenlos, Einreichung ohne Sto
 | [Crunchbase](https://www.crunchbase.com/) | [Eintragen](https://www.crunchbase.com/add-new/) | 80 | 10.000.000 | **🟢 Reibungslos** | **🟢 Kostenlos** |
 | [AlternativeTo](https://alternativeto.net/) | [Eintragen](https://alternativeto.net/manage-item/) | 80 | 1.300.000 | **🟢 Reibungslos** | **🟢 Kostenlos** |
 | [Stackshare](https://stackshare.io/) | [Eintragen](https://stackshare.io/submit/) | 79 | 1.600.000 | **🟢 Reibungslos** | **🟢 Kostenlos** |
-
-
-## Rabattcodes für bezahlte Einträge
-
-25 Verzeichnisse geben auf bezahlte Einträge einen Rabatt. Code beim Checkout eintragen, ob er noch gilt, entscheidet der Anbieter.
-
-| Verzeichnis | Code | Vorteil | Domain Rating |
-|---|---|---|---|
-| [LaunchIgniter](https://launchigniter.com/) | `AIDIRECTORIES30` | 30 % Rabatt | 68 |
-| [Uneed Best](https://www.uneed.best) | `AIDIRECTORIES` | 20 % Rabatt | 66 |
-| [Open Tools](https://opentools.ai/) | `DIRECTORIES20` | 20 % Rabatt | 64 |
-| [PeerPush](https://peerpush.net) | `AIDIRECTORIES10` | 10 % Rabatt | 63 |
-| [Aura ++](https://auraplusplus.com/) | `50AIDIRECTORIES` | 50 % Rabatt | 57 |
-| [Top AI Tools](https://topai.tools/) | `Q3ODY5NA` | 10 % Rabatt | 53 |
-| [Dokey AI](https://dokeyai.com/) | `DIRECTORY50` | 50 % Rabatt | 53 |
-| [AI Top Tools](https://aitoptools.com) | `AID20` | 20 % Rabatt | 48 |
-| [BasedTools](https://basedtools.ai) | `SERG20` | 70 % Rabatt | 46 |
-| [Tiny Startups](https://www.tinystartups.co/) | `Buy 1 take 2` | 2 Einträge zum Preis von 1 | 46 |
-| [AI Best Tools](https://aibest.tools/) | `AIDIRECTORIES30` | 30 % Rabatt | 45 |
-| [aitools.fyi](https://aitools.fyi/) | `AID30` | 30 % Rabatt | 44 |
-| [Appscribed](https://appscribed.com/) | `TOOL10` | 10 % Rabatt | 44 |
-| [AI Tool Trek](https://aitooltrek.com/) | `AIDIRVIP` | 50 % Rabatt | 44 |
-| [That AI Collection](https://www.thataicollection.com/) | `AZNJUYMQ` | 10 % Rabatt | 41 |
-| [OpenAlternative](https://openalternative.co/) | `AIDIR20` | 20 % Rabatt | 40 |
-| [Toolio AI](https://toolio.ai/) | `TOOLIO48` | 48 % Rabatt | 40 |
-| [AlterOpen](https://alteropen.com/) | `AIDIRECTORISERG70` | 70 % Rabatt | 39 |
-| [AIStage](https://aistage.net) | `AIDIRECTORIES50` | 50 % Rabatt | 38 |
-| [Toolfolio](https://toolfolio.io/) | `TF10` | 10 % Rabatt | 37 |
-| [AI Tools One](https://aitoolsone.com) | `AIDIR20` | 20 % Rabatt | 32 |
-| [AI Zones](https://aizones.io/) | `aidirectories50` | 50 % Rabatt | 30 |
-| [Startup Spotlight](https://www.startupspotlight.co) | `Buy 1 take 2` | 2 Einträge zum Preis von 1 | 25 |
-| [SEOFAI](https://seofai.com/) | `AIDirectories10` | 10 % Rabatt | 17 |
-| [GetByte](https://getbyte.tech) | `AIDIR40` | 40 % Rabatt | 14 |
 
 
 ## Alle KI-Verzeichnisse
@@ -382,7 +348,7 @@ Aktuell 164 von 256. Bei 158 davon ist die Einreichung außerdem reibungslos. Di
 Halte Name, Einzeiler, Beschreibung (100 bis 300 Wörter), Logo, 3 bis 5 Screenshots, Kategorie und Preismodell bereit, dann dauert ein Eintrag 5 bis 10 Minuten. Nutz überall denselben Namen und dieselbe Kurzbeschreibung. Das hilft Suchmaschinen und KI-Systemen, dein Tool als eine Marke zu erkennen.
 
 ### Lohnen sich bezahlte Einträge?
-Manchmal. Zahl nur, wenn das Verzeichnis echten Traffic aus deiner Zielgruppe hat und der Link dofollow ist. 25 Verzeichnisse der Liste geben Rabattcodes zwischen 10 und 70 Prozent.
+Manchmal. Zahl nur, wenn das Verzeichnis echten Traffic aus deiner Zielgruppe hat und der Link dofollow ist. Rabattcodes zeigen wir nur, wenn wir sie selbst vereinbart haben.
 
 ### Wie aktuell sind die Daten?
 Domain Rating und Besuche sind Momentaufnahmen und ändern sich. Die Liste ist Open Source auf GitHub: Wenn dir ein toter Link oder ein veralteter Wert auffällt, reicht ein Pull Request.

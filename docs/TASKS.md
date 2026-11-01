@@ -11,7 +11,7 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
 3. Fakten nur von offiziellen Seiten der Anbieter, mit Quelle. Nichts erfinden; unbekannt bleibt `null` bzw. „keine Angabe“.
 4. Sperren (Status „nicht eintragbar“) und `free_dofollow: false` nur setzen, wenn die Quelle selbst geprüft wurde.
 5. Vor dem Commit: `npx next build` ohne Fehler, keine unsichtbaren Unicode-Zeichen (U+200B–U+200F, U+2060–U+2064, U+FEFF, U+00AD, U+202A–U+202E) in geänderten Dateien.
-6. Partnerlinks immer mit `rel="sponsored"` und *-Kennzeichnung (passiert automatisch über `db/partners.json` → `lib/partners.js`). Nach jeder Änderung am Register `npm run partners` laufen lassen und `docs/PARTNERLINKS.md` mit committen.
+6. Partnerlinks immer mit `rel="sponsored"` und *-Kennzeichnung (passiert automatisch über `db/affiliate-links.json` und `db/partners.json` → `lib/partners.js`). Nach jeder Änderung am Register `npm run partners` laufen lassen und `docs/PARTNERLINKS.md` mit committen.
 7. PR mit Vorlage aus `PULL_REQUEST_TEMPLATE`, mergen, GitHub-Pages-Lauf abwarten, Live-Seite prüfen.
 8. Hier die Aufgabe nach „Erledigt“ verschieben (Datum, PR-Nummer, ein Satz Ergebnis) und neu entdeckte Aufgaben unten in „Offen“ ergänzen.
 9. Keine Registrierungen, Käufe, E-Mails oder Posts im Namen von Jean.
