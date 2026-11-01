@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { getScore, scoreLabel } from '../../lib/score'
+import { submitRel } from '../../lib/monetization'
+import '../styles/c-start.css'
 import { dealLabel, experienceLabel, formatRating, formatVisits, pricingLabel } from '../../utils/i18n-de'
 
 const DEFAULTS = ['product-hunt', 'futurepedia', 'theres-an-ai-for-that']
@@ -10,7 +11,8 @@ const PRICE_RANK = { Free: 2, '': 1, Paid: 0 }
 const EXP_RANK = { Good: 2, '': 1, Bad: 0 }
 
 const ROWS = [
-    ['Jean-Score', (d) => `${getScore(d).total} (${scoreLabel(getScore(d).total)})`, (d) => getScore(d).total],
+    // score und scoreLabel kommen fertig vom Server (app/vergleich/page.js).
+    ['Jean-Score', (d) => `${d.score} (${d.scoreLabel})`, (d) => d.score],
     ['Domain Rating', (d) => formatRating(d.domain_rating), (d) => d.domain_rating],
     ['Besuche/Monat', (d) => formatVisits(d.monthly_visits), (d) => d.monthly_visits],
     ['Preis', (d) => pricingLabel(d.pricing), (d) => PRICE_RANK[d.pricing] ?? 1],
@@ -50,6 +52,7 @@ export default function Vergleich({ options }) {
             {chosen.length > 0 && (
                 <div className="table-scroll">
                     <table>
+                        <caption className="sr-only">Vergleich der gewählten KI-Verzeichnisse</caption>
                         <thead>
                             <tr>
                                 <th scope="col">
@@ -78,6 +81,26 @@ export default function Vergleich({ options }) {
                                     </tr>
                                 )
                             })}
+                            <tr className="c-vergleich-eintragen">
+                                <th scope="row">Eintragen</th>
+                                {chosen.map((d) => (
+                                    <td key={d.slug}>
+                                        {d.blocked ? (
+                                            <span className="submit-closed">gerade zu</span>
+                                        ) : (
+                                            <a className="button" href={d.submission_link} target="_blank" rel={submitRel(d)}>
+                                                Eintragen ↗{d.affiliate && <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup>}
+                                                <span className="sr-only"> bei {d.name} (öffnet in neuem Tab)</span>
+                                            </a>
+                                        )}
+                                        {d.dealCode && !d.blocked && (
+                                            <span className="c-vergleich-code">
+                                                Code <code>{d.dealCode}</code>
+                                            </span>
+                                        )}
+                                    </td>
+                                ))}
+                            </tr>
                         </tbody>
                     </table>
                 </div>

@@ -9,6 +9,8 @@ import { getTop50 } from '../../lib/top50'
 import { formatRating, formatVisits, pricingLabel, dealLabel } from '../../utils/i18n-de'
 import { submitRel } from '../../lib/monetization'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import { dateiStand } from '../../lib/stand'
+import '../styles/c-start.css'
 
 export const metadata = {
     title: 'Top 50 KI-Verzeichnisse 2026: die besten AI Directories',
@@ -34,6 +36,7 @@ function Top50Page() {
         },
     ]
     const withCheck = top.filter((d) => d.check?.approval).length
+    const stand = dateiStand('db/directories.json', 'db/checks.json', 'db/fresh-semrush.json')
     return (
         <>
             <JsonLd data={schema} />
@@ -45,6 +48,13 @@ function Top50Page() {
                     Die 50 Verzeichnisse mit dem höchsten Jean-Score. Rausgeflogen ist, wer gerade keine Einreichungen annimmt
                     oder ein Domain Rating hat, das frisch gemessen nicht stimmen kann. Bei {withCheck} von 50 steht dazu, wie
                     lange die Freischaltung laut Verzeichnis dauert.
+                </p>
+                <p className="c-stand">
+                    Daten zuletzt aktualisiert:{' '}
+                    <time dateTime={stand.toISOString().slice(0, 10)}>
+                        {new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }).format(stand)}
+                    </time>
+                    . <Link href="/so-pruefen-wir">So prüfen wir →</Link>
                 </p>
                 <p className="cta-row">
                     <a className="button" href={withBase('/top-50.csv')} download>
@@ -74,7 +84,8 @@ function Top50Page() {
                             {i < 10 && d.check?.approval && <p className="widget-note">Freischaltung laut Verzeichnis: {d.check.approval}</p>}
                         </div>
                         <a className="submit-link" href={d.submission_link} target="_blank" rel={submitRel(d)}>
-                            Eintragen ↗{d.affiliate && <sup>*</sup>}
+                            Eintragen ↗{d.affiliate && <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup>}
+                            <span className="sr-only"> bei {d.name} (öffnet in neuem Tab)</span>
                         </a>
                     </li>
                 ))}

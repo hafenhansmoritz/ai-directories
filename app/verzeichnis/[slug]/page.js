@@ -5,7 +5,7 @@ import Faq, { faqSchema } from '../../components/Faq'
 import Breadcrumbs, { breadcrumbSchema } from '../../components/Breadcrumbs'
 import { PriceBadge, ExperienceBadge } from '../../components/Badges'
 import DirectoryTable from '../../components/DirectoryTable'
-import { getDirectories, getDirectory, getRank, getVisitsPercentile, getAlternatives, LISTS } from '../../../lib/data'
+import { getDirectories, getDirectory, getRank, getVisitsPercentile, getAlternatives, tabellenZeilen, LISTS } from '../../../lib/data'
 import { Band } from '../../components/Deko'
 import { getVerdict } from '../../../lib/verdict'
 import { jeanLine } from '../../../lib/score'
@@ -16,6 +16,8 @@ import FreshBox from '../../components/FreshBox'
 import CheckBox from '../../components/CheckBox'
 import { getCheck, hasStatusIssue } from '../../../lib/checks'
 import { absoluteUrl } from '../../../lib/site'
+import { autorRef } from '../../../lib/autor'
+import { dateiStand } from '../../../lib/stand'
 import { submitRel } from '../../../lib/monetization'
 import { dealLabel, formatRating, formatVisits, pricingLabel } from '../../../utils/i18n-de'
 import TEXTE from '../../../db/texte/verzeichnisse.json'
@@ -35,7 +37,8 @@ export function generateMetadata({ params }) {
         title: `${d.name} eintragen: Kosten & Domain Rating`,
         description: `${d.name} im Check: ${price}, Domain Rating ${formatRating(d.domain_rating)}, ca. ${formatVisits(d.monthly_visits)} Besuche im Monat. So trägst du dein KI-Tool ein, plus Alternativen.`,
         alternates: { canonical: `/verzeichnis/${d.slug}` },
-        openGraph: { url: `/verzeichnis/${d.slug}` },
+        // Bild ausdrücklich mitgeben: ein eigenes openGraph-Objekt ersetzt sonst das geerbte Vorschaubild.
+        openGraph: { url: `/verzeichnis/${d.slug}`, images: [{ url: absoluteUrl('/opengraph-image.png'), width: 1200, height: 630 }] },
     }
 }
 
@@ -91,6 +94,22 @@ function staerken(d) {
     return s
 }
 
+// Überschrift aus den Daten, damit jede Seite ihr Unterscheidungsmerkmal in der H1 trägt.
+function ueberschrift(d) {
+    if (hasStatusIssue(d.slug)) return `${d.name} eintragen: gerade zu, was jetzt?`
+    const merkmale = []
+    if (d.pricing === 'Free') merkmale.push('kostenlos')
+    else if (d.pricing === 'Paid') merkmale.push(d.dealCode ? 'kostenpflichtig, mit Rabattcode' : 'kostenpflichtig')
+    if (d.domain_rating) merkmale.push(`DR ${formatRating(d.domain_rating)}`)
+    if (d.submission_experience === 'Good') merkmale.push('reibungslos')
+    else if (d.submission_experience === 'Bad') merkmale.push('hakelig')
+    return merkmale.length ? `${d.name} eintragen (${merkmale.join(', ')}): lohnt sich das?` : `${d.name} eintragen: lohnt sich das?`
+}
+
+// Stand der Zahlen: letzte Änderung der Datendateien, aus denen die Seite entsteht.
+const STAND = dateiStand('db/directories.json', 'db/checks.json', 'db/fresh-semrush.json')
+const STAND_TEXT = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }).format(STAND)
+
 function DirectoryPage({ params }) {
     const d = getDirectory(params.slug)
     if (!d) notFound()
@@ -105,6 +124,7 @@ function DirectoryPage({ params }) {
     const listen = Object.entries(LISTS).filter(([, l]) => l.filter(d))
     const crumbs = [
         { name: 'AIGeddon', path: '/' },
+        { name: 'KI-Verzeichnisse', path: '/verzeichnis' },
         { name: d.name, path: `/verzeichnis/${d.slug}` },
     ]
 
@@ -117,6 +137,9 @@ function DirectoryPage({ params }) {
             url: absoluteUrl(`/verzeichnis/${d.slug}`),
             inLanguage: 'de-DE',
             about: { '@type': 'WebSite', name: d.name, url: d.link },
+            dateModified: STAND.toISOString().slice(0, 10),
+            // Geprüft heißt hier: Angaben beim Verzeichnis selbst nachgeschlagen (db/checks.json).
+            ...(check && { reviewedBy: autorRef() }),
         },
         faqSchema(faq),
     ]
@@ -128,12 +151,24 @@ function DirectoryPage({ params }) {
 
             <header className="detail-header">
                 <div>
-                    <h1>{d.name} eintragen: lohnt sich das? Wir haben nachgerechnet (halbwegs)</h1>
+                    <h1>{ueberschrift(d)}</h1>
                     <p className="badges">
                         <PriceBadge value={d.pricing} /> <ExperienceBadge value={d.submission_experience} blocked={hasStatusIssue(d.slug)} />
                     </p>
                 </div>
             </header>
+
+            <p className="cta-row">
+                <a className="button" href={hasStatusIssue(d.slug) ? d.link : d.submission_link} target="_blank" rel={hasStatusIssue(d.slug) ? 'nofollow noopener noreferrer' : submitRel(d)}>
+                    {hasStatusIssue(d.slug) ? `Website von ${d.name} ansehen ↗` : `Jetzt bei ${d.name} eintragen 🚀`}
+                    {d.affiliate && !hasStatusIssue(d.slug) && <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup>}
+                    <span className="sr-only"> (öffnet in neuem Tab)</span>
+                </a>
+                <a href={d.link} target="_blank" rel="nofollow noopener noreferrer">
+                    Erst mal die Website bestaunen ↗<span className="sr-only"> (öffnet in neuem Tab)</span>
+                </a>
+                <CopyButton label="Link zu dieser Seite kopieren 🔗" done="Link kopiert ✓" />
+            </p>
 
             <div className={`verdict verdict-${verdict.tone}`}>
                 <p className="verdict-label">Jeans Urteil: {verdict.short}</p>
@@ -152,17 +187,6 @@ function DirectoryPage({ params }) {
                     <p>{TEXTE[d.slug].take}</p>
                 </section>
             )}
-
-            <p className="cta-row">
-                <a className="button" href={hasStatusIssue(d.slug) ? d.link : d.submission_link} target="_blank" rel={hasStatusIssue(d.slug) ? 'nofollow noopener noreferrer' : submitRel(d)}>
-                    {hasStatusIssue(d.slug) ? `Website von ${d.name} ansehen ↗` : `Jetzt bei ${d.name} eintragen 🚀`}
-                    {d.affiliate && !hasStatusIssue(d.slug) && <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup>}
-                </a>
-                <a href={d.link} target="_blank" rel="nofollow noopener noreferrer">
-                    Erst mal die Website bestaunen ↗
-                </a>
-                <CopyButton label="Link zu dieser Seite kopieren 🔗" done="Link kopiert ✓" />
-            </p>
 
             <section aria-labelledby="zahlen">
                 <h2 id="zahlen">{d.name} in Zahlen 🔢</h2>
@@ -192,6 +216,14 @@ function DirectoryPage({ params }) {
                         </dd>
                     </div>
                 </dl>
+                <p className="c-stand">
+                    Stand der Zahlen: <time dateTime={STAND.toISOString().slice(0, 10)}>{STAND_TEXT}</time>. Domain Rating laut Ahrefs, Besuche
+                    geschätzt.{' '}
+                    {check
+                        ? 'Freischaltdauer und Link-Typ hat Jean beim Verzeichnis selbst nachgeschlagen, siehe unten.'
+                        : `Freischaltdauer und Link-Typ hat Jean bei ${d.name} noch nicht nachgeschlagen.`}{' '}
+                    <Link href="/so-pruefen-wir">So prüfen wir →</Link>
+                </p>
                 <FreshBox directory={d} />
                 <CheckBox slug={d.slug} />
             </section>
@@ -272,7 +304,7 @@ function DirectoryPage({ params }) {
                     {d.pricing === 'Free' ? 'Ebenfalls kostenlos' : d.pricing === 'Paid' ? 'Ebenfalls kostenpflichtig' : 'Ähnlich eingestuft'} und
                     mit ähnlichem Domain Rating wie {d.name}.
                 </p>
-                <DirectoryTable directories={alternatives} interactive={false} />
+                <DirectoryTable directories={tabellenZeilen(alternatives)} interactive={false} caption={`Alternativen zu ${d.name}`} />
             </section>
 
             <section aria-labelledby="faq">
@@ -281,7 +313,7 @@ function DirectoryPage({ params }) {
             </section>
 
             <p>
-                <Link href="/">← Zurück zu allen {total} KI-Verzeichnissen, das Karussell wartet</Link>
+                <Link href="/#alle">← Zurück zu allen {total} KI-Verzeichnissen, das Karussell wartet</Link>
             </p>
         </article>
     )
