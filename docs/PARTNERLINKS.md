@@ -8,24 +8,26 @@ Automatisch erzeugt aus `db/partners.json` (Programme, Stand 2026-10-27) und der
 
 ## Live auf der Website
 
-Noch keine. Sobald in `db/affiliate-links.json` ein Link oder Code mit passender id steht, nutzt die Seite ihn beim nächsten Build.
+| Programm | Partnerlink | Code |
+|---|---|---|
+| Systeme.io | https://systeme.io/de?sa=sa0174191115fa520c2f58a4c2498f7d364a1799d4 | – |
 
 ## Zentrale Sammlung (alle Projekte)
 
 | id | Programm | Link | Code | Projekte | Bestätigt | Notiz |
 |---|---|---|---|---|---|---|
-| gohighlevel | GoHighLevel | https://www.gohighlevel.com/?fp_ref=3w6dr | – | racing-planet-framework | nein, bitte prüfen | FirstPromoter-ID 3w6dr, Inhaber nicht belegt: von Jean bestätigen. |
-| insighto-ai | Insighto AI | https://insighto.ai?aff=2pOWs06wWLEn | – | racing-planet-framework | nein, bitte prüfen | aff-ID, Inhaber nicht belegt: von Jean bestätigen. |
-| kaiber-ai | Kaiber AI | https://kaiber.ai/?via=jean-maurice | – | racing-planet-framework | nein, bitte prüfen | via-Parameter mit Namen jean-maurice, sehr wahrscheinlich eigener Link. |
-| okara-ai | Okara AI | https://okara.ai/?via=jean | – | racing-planet-framework | nein, bitte prüfen | Rewardful-typischer via-Parameter mit Namen jean, sehr wahrscheinlich eigener Link. |
-| systeme-io-skills | Systeme.io | https://systeme.io/de?sa=sa0174191115fa520c2f58a4c2498f7d364a1799d4 | – | racing-planet-framework | nein, bitte prüfen | Systeme.io-Partner-ID, Inhaber nicht belegt: von Jean bestätigen. In db/partners.json steht Systeme.io als nicht registriert. |
-| tiiny-host | Tiiny Host | https://tiiny.cello.so/VSfOsTdniC6 | – | racing-planet-framework | nein, bitte prüfen | Cello-Empfehlungslink, Inhaber nicht belegt: von Jean bestätigen. |
+| gohighlevel | GoHighLevel | https://www.gohighlevel.com/?fp_ref=3w6dr | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
+| insighto-ai | Insighto AI | https://insighto.ai?aff=2pOWs06wWLEn | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
+| kaiber-ai | Kaiber AI | https://kaiber.ai/?via=jean-maurice | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
+| okara-ai | Okara AI | https://okara.ai/?via=jean | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
+| systeme-io | Systeme.io | https://systeme.io/de?sa=sa0174191115fa520c2f58a4c2498f7d364a1799d4 | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
+| tiiny-host | Tiiny Host | https://tiiny.cello.so/VSfOsTdniC6 | – | alle | ja | Von Jean am 2026-11-01 als eigener Link bestätigt. |
 
 ## Werkzeug-Partnerprogramme
 
 | Programm | Status | Netzwerk | Provision | Cookie | Anmeldung | Dein Link |
 |---|---|---|---|---|---|---|
-| Systeme.io | nicht registriert | eigenes Programm | 60 % lebenslang wiederkehrend | lebenslang | https://systeme.io/affiliate-program | – |
+| Systeme.io | nicht registriert | eigenes Programm | 60 % lebenslang wiederkehrend | lebenslang | https://systeme.io/affiliate-program | https://systeme.io/de?sa=sa0174191115fa520c2f58a4c2498f7d364a1799d4 |
 | Semrush | nicht registriert | Impact | $100 bis 300 pro Verkauf (bis $450), $10 pro Testkonto | 120 Tage | https://www.semrush.com/lp/affiliate-program/en/ | – |
 | Kit (ConvertKit) | nicht registriert | PartnerStack | 50 % für 12 Monate, danach 10 bis 20 % ab Bronze | unbekannt | https://kit.com/affiliate | – |
 | beehiiv | nicht registriert | Dub | bis 60 % für 12 Monate | 60 Tage | https://www.beehiiv.com/partners | – |

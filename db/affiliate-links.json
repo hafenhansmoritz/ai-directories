@@ -1,78 +1,102 @@
 {
  "stand": "2026-11-01",
- "hinweis": "Zentrale Sammlung aller eigenen Affiliate-Links und Rabattcodes von Jean, für alle Projekte. Nur hier eintragen, nirgends sonst. Fremde Referral-Links und fremde Rabattcodes gehören in kein Repo. Jeder Eintrag: id (bei AIGeddon gleich der id in db/partners.json), programm, link (https://), optional code und rabatt (englisch, z. B. '20% discount'), projekte (leer = alle Projekte), netzwerk, seit (JJJJ-MM-TT), notiz. Rohlink: https://github.com/jmp-collab/ai-directories/blob/main/db/affiliate-links.json bestaetigt: false heißt gefunden, aber noch nicht von Jean als eigener Link bestätigt; solche Einträge nutzt keine Website, bis Jean bestätigt und das Projekt einträgt.",
+ "hinweis": "Zentrale Sammlung aller eigenen Affiliate-Links und Rabattcodes von Jean, für alle Projekte. Nur hier eintragen, nirgends sonst. Fremde Referral-Links und fremde Rabattcodes gehören in kein Repo. Jeder Eintrag: id (bei AIGeddon gleich der id in db/partners.json), programm, link (https://), optional code und rabatt (englisch, z. B. '20% discount'), projekte (leer = alle Projekte), netzwerk, seit (JJJJ-MM-TT), notiz. Optional: kategorie und keywords (für die Link-Injektion im Repo jmp-collab/skills, das racing_planet_framework/affiliates.json täglich aus dieser Datei abgleicht). Rohlink: https://github.com/jmp-collab/ai-directories/blob/main/db/affiliate-links.json bestaetigt: false heißt gefunden, aber noch nicht von Jean als eigener Link bestätigt; solche Einträge nutzt keine Website, bis Jean bestätigt und das Projekt einträgt.",
  "links": [
   {
    "id": "gohighlevel",
    "programm": "GoHighLevel",
    "link": "https://www.gohighlevel.com/?fp_ref=3w6dr",
-   "projekte": [
-    "racing-planet-framework"
-   ],
-   "bestaetigt": false,
+   "projekte": [],
+   "bestaetigt": true,
    "quelle": "jmp-collab/skills: racing_planet_framework/affiliates.json",
    "seit": "2026-11-01",
-   "notiz": "FirstPromoter-ID 3w6dr, Inhaber nicht belegt: von Jean bestätigen."
+   "notiz": "Von Jean am 2026-11-01 als eigener Link bestätigt.",
+   "kategorie": "marketing_crm",
+   "keywords": [
+    "crm",
+    "automation",
+    "agency software"
+   ]
   },
   {
    "id": "insighto-ai",
    "programm": "Insighto AI",
    "link": "https://insighto.ai?aff=2pOWs06wWLEn",
-   "projekte": [
-    "racing-planet-framework"
-   ],
-   "bestaetigt": false,
+   "projekte": [],
+   "bestaetigt": true,
    "quelle": "jmp-collab/skills: racing_planet_framework/affiliates.json",
    "seit": "2026-11-01",
-   "notiz": "aff-ID, Inhaber nicht belegt: von Jean bestätigen."
+   "notiz": "Von Jean am 2026-11-01 als eigener Link bestätigt.",
+   "kategorie": "chatbots",
+   "keywords": [
+    "chatbot",
+    "voice agent",
+    "customer support"
+   ]
   },
   {
    "id": "kaiber-ai",
    "programm": "Kaiber AI",
    "link": "https://kaiber.ai/?via=jean-maurice",
-   "projekte": [
-    "racing-planet-framework"
-   ],
-   "bestaetigt": false,
+   "projekte": [],
+   "bestaetigt": true,
    "quelle": "jmp-collab/skills: racing_planet_framework/affiliates.json",
    "seit": "2026-11-01",
-   "notiz": "via-Parameter mit Namen jean-maurice, sehr wahrscheinlich eigener Link."
+   "notiz": "Von Jean am 2026-11-01 als eigener Link bestätigt.",
+   "kategorie": "ki_content_creation",
+   "keywords": [
+    "ai animation",
+    "video art",
+    "music video"
+   ]
   },
   {
    "id": "okara-ai",
    "programm": "Okara AI",
    "link": "https://okara.ai/?via=jean",
-   "projekte": [
-    "racing-planet-framework"
-   ],
-   "bestaetigt": false,
+   "projekte": [],
+   "bestaetigt": true,
    "quelle": "jmp-collab/skills: racing_planet_framework/affiliates.json",
    "seit": "2026-11-01",
-   "notiz": "Rewardful-typischer via-Parameter mit Namen jean, sehr wahrscheinlich eigener Link."
+   "notiz": "Von Jean am 2026-11-01 als eigener Link bestätigt.",
+   "kategorie": "ki_content_creation",
+   "keywords": [
+    "video generation",
+    "ai video",
+    "content creation"
+   ]
   },
   {
-   "id": "systeme-io-skills",
+   "id": "systeme-io",
    "programm": "Systeme.io",
    "link": "https://systeme.io/de?sa=sa0174191115fa520c2f58a4c2498f7d364a1799d4",
-   "projekte": [
-    "racing-planet-framework"
-   ],
-   "bestaetigt": false,
+   "projekte": [],
+   "bestaetigt": true,
    "quelle": "jmp-collab/skills: racing_planet_framework/affiliates.json",
    "seit": "2026-11-01",
-   "notiz": "Systeme.io-Partner-ID, Inhaber nicht belegt: von Jean bestätigen. In db/partners.json steht Systeme.io als nicht registriert."
+   "notiz": "Von Jean am 2026-11-01 als eigener Link bestätigt.",
+   "kategorie": "marketing_crm",
+   "keywords": [
+    "funnel builder",
+    "all-in-one marketing",
+    "email marketing"
+   ]
   },
   {
    "id": "tiiny-host",
    "programm": "Tiiny Host",
    "link": "https://tiiny.cello.so/VSfOsTdniC6",
-   "projekte": [
-    "racing-planet-framework"
-   ],
-   "bestaetigt": false,
+   "projekte": [],
+   "bestaetigt": true,
    "quelle": "jmp-collab/skills: racing_planet_framework/affiliates.json",
    "seit": "2026-11-01",
-   "notiz": "Cello-Empfehlungslink, Inhaber nicht belegt: von Jean bestätigen."
+   "notiz": "Von Jean am 2026-11-01 als eigener Link bestätigt.",
+   "kategorie": "hosting_landing_pages",
+   "keywords": [
+    "micro hosting",
+    "landing page",
+    "static site"
+   ]
   }
  ]
 }

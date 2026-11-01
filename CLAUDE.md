@@ -14,7 +14,8 @@
   - Verzeichnisse: `lib/data.js` (nutzt `AFFILIATES`, eigene Rabattcodes über `OWN_DEALS`).
   - Alle anderen Anbieter, z. B. die 705 Tools der KI-Tool-Datenbank: `HOST_AFFILIATES[domain]` bzw. `t.affiliate` aus `lib/kb.js`.
 - Ein Link wird genutzt, sobald er in `db/affiliate-links.json` mit passender id steht (Projekt leer oder `aigeddon`, nicht `bestaetigt: false`). Partnerlinks bekommen sichtbar ein `*` und `rel="sponsored"` (siehe /transparenz).
-- Neue Seiten oder neue Tool-Erwähnungen (News, Ratgeber, Vergleiche, Prompts): vorhandene aktive Partnerlinks einbauen, wo das Tool genannt und verlinkt wird. Für andere Webprojekte von Jean gilt dieselbe Sammlung als Quelle: https://github.com/jmp-collab/ai-directories/blob/main/db/affiliate-links.json
+- Monetarisierung wo immer möglich: In neuen und überarbeiteten Inhalten (News, Ratgeber, Vergleiche, Prompts, Tutorials) relevante eigene Partnerlinks einbauen, wo das Tool genannt wird. Fließtext über `GlossarText` verlinkt Tool-Namen aus `lib/tool-links.js` automatisch beim ersten Vorkommen auf den Steckbrief (der den Partnerlink trägt); neue Tools mit Steckbrief dort ergänzen.
+- Die Datei `racing_planet_framework/affiliates.json` im Repo jmp-collab/skills bleibt immer aktuell: der Workflow `sync-affiliates.yml` gleicht sie täglich mit `db/affiliate-links.json` ab. Neue Links mit `kategorie` und `keywords` eintragen, damit die Link-Injektion dort sie findet. Läuft der Abgleich nicht, reparieren. Für andere Webprojekte von Jean gilt dieselbe Sammlung als Quelle: https://github.com/jmp-collab/ai-directories/blob/main/db/affiliate-links.json
 - Bei Programmen ohne Anmeldung (`programm: "nein"`, `"pausiert/geschlossen"`) keinen Link erfinden. Neue Programme nur mit offizieller Quelle eintragen.
 
 ## Skills

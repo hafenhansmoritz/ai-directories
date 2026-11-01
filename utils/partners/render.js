@@ -19,6 +19,9 @@ const dirsDb = require(path.join(root, 'db/directories.json'))
 const dirs = new Set((dirsDb.data || dirsDb).map((d) => slugify(d.name)))
 
 const errors = []
+// Auto-Verlinkung von Tool-Namen (lib/tool-links.js): jeder Slug braucht einen Steckbrief in db/tools.json.
+const toolLinks = fs.readFileSync(path.join(root, 'lib/tool-links.js'), 'utf8')
+for (const [, slug] of toolLinks.matchAll(/\[\s*'[^']+',\s*'([a-z0-9-]+)'\s*\]/g)) if (!tools.has(slug)) errors.push(`lib/tool-links.js: ${slug} fehlt in db/tools.json`)
 const ids = new Set()
 for (const p of register.programme) {
     if (ids.has(p.id)) errors.push(`${p.id}: doppelte id`)
@@ -34,8 +37,9 @@ for (const l of sammlung.links) {
     sids.add(l.id)
     if (!l.link && !l.code) errors.push(`affiliate-links: ${l.id} braucht link oder code`)
     if (l.link && !/^https:\/\//.test(l.link)) errors.push(`affiliate-links: ${l.id}: link muss mit https:// beginnen`)
-    const fuerUns = l.bestaetigt !== false && (!l.projekte?.length || l.projekte.includes('aigeddon'))
-    if (fuerUns && !ids.has(l.id)) errors.push(`affiliate-links: ${l.id} fehlt in db/partners.json (für AIGeddon nötig, sonst projekte ohne 'aigeddon' setzen)`)
+    // Ausdrücklich für AIGeddon gedacht, aber ohne Programm im Register: Fehler. Für alle Projekte ohne Programm: nur Hinweis.
+    if (l.projekte?.includes('aigeddon') && !ids.has(l.id)) errors.push(`affiliate-links: ${l.id} fehlt in db/partners.json`)
+    else if (!l.projekte?.length && !ids.has(l.id)) console.log(`Hinweis: ${l.id} gilt für alle Projekte, auf AIGeddon fehlt noch das Programm in db/partners.json`)
 }
 if (errors.length) {
     console.error(errors.join('\n'))
