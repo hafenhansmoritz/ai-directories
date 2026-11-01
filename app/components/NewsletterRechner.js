@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { RechnerStatus, RechnungTeilen, useHashZustand } from './RechnerHelfer'
 
 const fmt = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 })
 
@@ -22,6 +23,16 @@ export default function NewsletterRechner() {
     }, [abos, oeffnung, klick, abschluss, wert, ausgaben])
 
     const max = Math.max(abos, 1)
+
+    useHashZustand({
+        abos: { wert: abos, setzen: setAbos, min: 100, max: 50000 },
+        oeff: { wert: oeffnung, setzen: setOeffnung, min: 10, max: 80 },
+        klick: { wert: klick, setzen: setKlick, min: 0.5, max: 20 },
+        kauf: { wert: abschluss, setzen: setAbschluss, min: 0.5, max: 20 },
+        wert: { wert, setzen: setWert, min: 1, max: 500 },
+        ausg: { wert: ausgaben, setzen: setAusgaben, min: 1, max: 12 },
+    })
+    const zusammenfassung = `Ertrag pro Monat ${fmt.format(r.monat)} Euro bei ${fmt.format(abos)} Abonnenten.`
 
     return (
         <div className="rechner">
@@ -63,7 +74,8 @@ export default function NewsletterRechner() {
                     <input type="range" min="1" max="12" value={ausgaben} onChange={(e) => setAusgaben(Number(e.target.value))} />
                 </label>
             </div>
-            <div className="rechner-output is-good" aria-live="polite">
+            <div className="rechner-output is-good">
+                <RechnerStatus text={zusammenfassung} />
                 <p className="rechner-urteil">
                     <span aria-hidden="true">📬</span> Dein Newsletter-Trichter
                 </p>
@@ -94,6 +106,7 @@ export default function NewsletterRechner() {
                     </div>
                 </dl>
                 <p className="rechner-hinweis">Alle Raten sind deine Annahmen. Starte konservativ und ersetze sie nach den ersten Ausgaben durch echte Zahlen aus deinem Newsletter-Tool.</p>
+                <RechnungTeilen titel="Was bringt mein Newsletter?" text={`Meine Newsletter-Rechnung auf AIGeddon: ${zusammenfassung}`} />
             </div>
         </div>
     )

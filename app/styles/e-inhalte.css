@@ -51,27 +51,39 @@ input[aria-invalid='true'] {
 }
 
 /* Regler mit gekoppeltem Zahlenfeld (API-Kostenrechner) */
+.rechner-input .e-rechner-feld {
+    margin-bottom: 14px;
+}
+
+.rechner-input .e-rechner-feld > label {
+    margin-bottom: 0;
+}
+
 .e-regler-zeile {
     display: flex;
     align-items: center;
     gap: 0.75rem;
 }
 
-.e-regler-zeile input[type='range'] {
-    flex: 1 1 auto;
+.rechner-input .e-regler-zeile input[type='range'] {
+    flex: 1 1 8rem;
+    width: auto;
     min-width: 0;
 }
 
-.e-regler-zeile input[type='number'] {
+.rechner-input .e-regler-zeile input[type='number'] {
     flex: 0 0 7.5rem;
     width: 7.5rem;
     min-height: 2.5rem;
-    padding: 0.3rem 0.5rem;
-    border: 2px solid var(--border);
-    border-radius: 8px;
-    background: var(--surface);
-    color: var(--text);
-    font: inherit;
+}
+
+.e-regler-zeile + .e-feld-fehler,
+.e-regler-zeile .e-feld-fehler {
+    flex-basis: 100%;
+}
+
+.e-regler-zeile {
+    flex-wrap: wrap;
 }
 
 /* Teilen-Leiste unter Ergebnissen (Quiz, Rechner) */

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import CopyButton from '../components/CopyButton'
+import '../styles/e-inhalte.css'
 
 const KEY = 'kiv-launch-kit'
 
@@ -115,17 +116,29 @@ const OUTPUTS = [
 ]
 
 export default function LaunchKit({ directories }) {
-    const [f, setF] = useState(EXAMPLE)
+    // Leer starten: Beispielwerte stehen nur als Platzhalter in den Feldern, damit niemand fremde Texte kopiert.
+    const [f, setF] = useState(EMPTY)
     const [dir, setDir] = useState('product-hunt')
 
     useEffect(() => {
         try {
             const saved = JSON.parse(localStorage.getItem(KEY) || 'null')
-            setF(saved || EXAMPLE)
+            setF(saved ? { ...EMPTY, ...saved } : EMPTY)
         } catch {
-            setF(EXAMPLE)
+            setF(EMPTY)
         }
     }, [])
+
+    const leer = Object.entries(f).every(([k, v]) => v === EMPTY[k])
+    const unvollstaendig = !f.name.trim() || !f.benefit.trim()
+    const leeren = () => {
+        if (leer) return
+        let ok = true
+        try {
+            ok = window.confirm('Alle Eingaben im Launch-Kit löschen? Das lässt sich nicht rückgängig machen.')
+        } catch {}
+        if (ok) setF(EMPTY)
+    }
 
     useEffect(() => {
         try {
@@ -158,10 +171,19 @@ export default function LaunchKit({ directories }) {
                     </select>
                 </label>
                 <p className="kit-actions">
-                    <button type="button" className="button button-small" onClick={() => setF(EXAMPLE)}>
+                    <button type="button" className="button button-small" onClick={() => {
+                            let ok = true
+                            if (!leer) {
+                                try {
+                                    ok = window.confirm('Deine Eingaben durch das Beispiel RechnungsRadar ersetzen?')
+                                } catch {}
+                            }
+                            if (ok) setF(EXAMPLE)
+                        }}
+                    >
                         Beispiel laden
                     </button>
-                    <button type="button" className="copy-button" onClick={() => setF(EMPTY)}>
+                    <button type="button" className="copy-button" onClick={leeren} disabled={leer}>
                         Alles leeren
                     </button>
                 </p>
@@ -169,21 +191,29 @@ export default function LaunchKit({ directories }) {
 
             <section aria-labelledby="texte" className="kit-out">
                 <h2 id="texte">Deine Texte</h2>
+                {unvollstaendig && (
+                    <p className="e-kit-leer-hinweis">
+                        Trag oben mindestens Name und „Was macht es?“ ein. Bis dahin stehen hier nur Platzhalter, die du nicht einreichen solltest.
+                    </p>
+                )}
                 {OUTPUTS.map(([key, label]) => {
                     const text = out[key]
                     const limit = LIMITS[key]
                     const over = limit && text.length > limit
+                    const lang = key.endsWith('En') ? 'en' : undefined
                     return (
-                        <div key={key} className="kit-block">
+                        <div key={key} className={unvollstaendig ? 'kit-block e-kit-leer' : 'kit-block'}>
                             <div className="kit-block-head">
-                                <strong>{label}</strong>
+                                <strong lang={lang}>{label}</strong>
                                 <span className={over ? 'kit-count over' : 'kit-count'}>
                                     {text.length} Zeichen{limit ? ` / max. ${limit}` : ''}
                                     {key === 'langDe' ? ` · ${words} Wörter` : ''}
                                 </span>
                                 <CopyButton value={text} label="Kopieren" />
                             </div>
-                            <p className="kit-text">{text}</p>
+                            <p className="kit-text" lang={lang}>
+                                {text}
+                            </p>
                             {over && <p className="kit-warn">Zu lang für viele Formulare. Kürze den Nutzen oder den Namen.</p>}
                         </div>
                     )

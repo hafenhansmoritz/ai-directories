@@ -80,7 +80,7 @@
   "jean": "Ein Steckdosenadapter für hundert Modelle."
  },
  "ai-music-generator": {
-  "take": "Laut Kurzbeschreibung erstellst du hier mühelos Songs mit KI. Für Hobbymusiker und Videomacher, die schnell einen Track brauchen. Die Angaben sind extrem dünn, zu Rechten, Qualität und Preis steht nichts, also hör dir erst Beispiele an, bevor du etwas veröffentlichst.",
+  "take": "Laut Kurzbeschreibung erstellst du hier Songs mit KI. Für Hobbymusiker und Videomacher, die schnell einen Track brauchen. Die Angaben sind extrem dünn, zu Rechten, Qualität und Preis steht nichts, also hör dir erst Beispiele an, bevor du etwas veröffentlichst.",
   "jean": "Ein Song auf Knopfdruck, aber wem gehört er dann?"
  },
  "ai-photo-forge": {
@@ -1544,7 +1544,7 @@
   "jean": "Stimmen aus dem Rechenzentrum, mit Krawatte und Firmenausweis."
  },
  "microsoft-designer": {
-  "take": "Microsoft Designer verspricht beeindruckende Designs im Handumdrehen. Interessant für alle, die Social-Media-Grafiken oder Einladungen ohne Grafikprogramm brauchen. Zwei Community-Listen machen hier mit. Die Beschreibung ist sehr knapp, also teste selbst, wie gut deutsche Texte im Design aussehen und welche Rechte du an den Bildern hast.",
+  "take": "Microsoft Designer erstellt laut Beschreibung Grafiken per KI aus deiner Texteingabe. Interessant für alle, die Social-Media-Grafiken oder Einladungen ohne Grafikprogramm brauchen. Zwei Community-Listen machen hier mit. Die Beschreibung ist sehr knapp, also teste selbst, wie gut deutsche Texte im Design aussehen und welche Rechte du an den Bildern hast.",
   "jean": "Schnell schick. Ob es schick bleibt, zeigt der zweite Blick."
  },
  "midjourney": {
@@ -1624,7 +1624,7 @@
   "jean": "230 Experten im Karton. Die meisten bleiben vermutlich im Regal."
  },
  "msty": {
-  "take": "Msty ist eine Oberfläche für lokale und Online-Modelle, die laut Eintrag schlicht und trotzdem leistungsstark sein will. Für Leute, die zwischen Ollama und Cloud-Modellen hin und her springen, nur Preise und Plattformen nennt die Liste nicht, also lad es runter, häng ein kleines Modell dran und schau, ob dir die Bedienung liegt.",
+  "take": "Msty ist eine Oberfläche für lokale und Online-Modelle. Für Leute, die zwischen Ollama und Cloud-Modellen hin und her springen, nur Preise und Plattformen nennt die Liste nicht, also lad es runter, häng ein kleines Modell dran und schau, ob dir die Bedienung liegt.",
   "jean": "Ein Cockpit für alle Modelle, ohne dass du Pilot sein musst."
  },
  "mu": {
@@ -2748,7 +2748,7 @@
   "jean": "Fehlersuche wie in der Werkstatt: Liste abhaken, Teil für Teil."
  },
  "whisper": {
-  "take": "Whisper ist OpenAIs quelloffenes Spracherkennungsmodell, robust dank Training mit großflächiger schwacher Überwachung. Kostenlos und Grundlage für einige andere Einträge in dieser Datenbank. Für Entwickler ideal; wer keine Kommandozeile mag, greift eher zu einer fertigen App, die Whisper unter der Haube nutzt.",
+  "take": "Whisper ist OpenAIs quelloffenes Spracherkennungsmodell. Kostenlos und Grundlage für einige andere Einträge in dieser Datenbank. Für Entwickler ideal; wer keine Kommandozeile mag, greift eher zu einer fertigen App, die Whisper unter der Haube nutzt.",
   "jean": "Der Motor, den viele Transkriptions-Tools verbaut haben."
  },
  "whisper-api": {

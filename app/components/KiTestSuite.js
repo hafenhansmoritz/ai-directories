@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import SendToAI from './SendToAI'
 import konfetti from '../../lib/konfetti'
 import { BEWERTUNG, TEST_KIS } from '../../lib/kitests'
+import '../styles/e-inhalte.css'
 
 const KEY = 'aigeddon-kitest-v1'
 const PUNKTE = Object.fromEntries(BEWERTUNG.map(([k, , p]) => [k, p]))
@@ -24,6 +25,9 @@ export default function KiTestSuite({ tests, kategorien }) {
     const [geladen, setGeladen] = useState(false)
     const [geteilt, setGeteilt] = useState(null)
     const [kopiert, setKopiert] = useState(false)
+    // Nur geöffnete Aufgaben bekommen Senden- und Bewertungsknöpfe; das hält die Seite bei 50 Tests schlank.
+    const [offen, setOffen] = useState(() => new Set(tests.slice(0, 3).map((t) => t.id)))
+    const oeffnen = (id) => setOffen((o) => new Set(o).add(id))
 
     useEffect(() => {
         // Geteiltes Ergebnis aus dem Link: #ergebnis=claude:90:10,chatgpt:83:10
@@ -39,8 +43,17 @@ export default function KiTestSuite({ tests, kategorien }) {
         const s = load()
         if (s) {
             if (Array.isArray(s.kis) && s.kis.length) setKis(s.kis)
-            if (s.noten) setNoten(s.noten)
+            if (s.noten) {
+                setNoten(s.noten)
+                // Schon bewertete Aufgaben bleiben offen.
+                const bewertet = Object.keys(s.noten)
+                    .filter((k) => s.noten[k])
+                    .map((k) => k.split(':')[0])
+                if (bewertet.length) setOffen((o) => new Set([...o, ...bewertet]))
+            }
         }
+        const ziel = window.location.hash.match(/^#test-([\w-]+)/)
+        if (ziel) setOffen((o) => new Set(o).add(ziel[1]))
         setGeladen(true)
     }, [])
 
@@ -156,8 +169,16 @@ export default function KiTestSuite({ tests, kategorien }) {
                                 <span>Aufgabe {n + 1}</span>
                             </p>
                             <h3>{t.titel}</h3>
-                            <pre>{t.prompt}</pre>
-                            <SendToAI prompt={t.prompt} />
+                            <pre tabIndex={0} role="region" aria-label={`Prompt: ${t.titel}`}>{t.prompt}</pre>
+                            {offen.has(t.id) ? (
+                                <SendToAI prompt={t.prompt} />
+                            ) : (
+                                <p className="e-kitest-zu">
+                                    <button type="button" className="button button-small" onClick={() => oeffnen(t.id)} aria-label={`Aufgabe ${n + 1} öffnen: an KIs senden und bewerten`}>
+                                        Aufgabe öffnen: senden und bewerten
+                                    </button>
+                                </p>
+                            )}
                             <details className="kitest-kriterien">
                                 <summary>Woran du eine gute Antwort erkennst {t.loesung ? '(mit Lösung)' : ''}</summary>
                                 <ul>
@@ -171,8 +192,8 @@ export default function KiTestSuite({ tests, kategorien }) {
                                     </p>
                                 )}
                             </details>
-                            <div className="kitest-rate">
-                                {kis.map((ki) => (
+                            <div className="kitest-rate" hidden={!offen.has(t.id)}>
+                                {offen.has(t.id) && kis.map((ki) => (
                                     <div key={ki} className="kitest-rate-row">
                                         <span>{TEST_KIS.find((x) => x.id === ki).name}</span>
                                         <div role="group" aria-label={`Bewertung ${TEST_KIS.find((x) => x.id === ki).name}`}>

@@ -38,14 +38,14 @@ function GuidesSeite() {
             name: 'Gratis-Guides von AIGeddon',
             itemListElement: GUIDES.map((g, i) => ({ '@type': 'ListItem', position: i + 1, name: g.titel, url: absoluteUrl(`/guides#${g.id}`) })),
         },
-        faqSchema(FAQ),
+        ...(GUIDES.length ? [faqSchema(FAQ)] : []),
     ]
     return (
         <>
             <JsonLd data={schema} />
             <Breadcrumbs items={crumbs} />
             <section className="hero">
-                <p className="eyebrow">📥 {GUIDES.length} Gratis-Guides · PDF · sofort zum Download</p>
+                <p className="eyebrow">{GUIDES.length ? `📥 ${GUIDES.length} Gratis-Guides · PDF · sofort zum Download` : '📥 Gratis-Guides als PDF, in Arbeit'}</p>
                 <h1>Gratis-Guides: KI im Alltag, ohne Bullshit-Bingo</h1>
                 <p className="lead">Kompakte PDFs zum Ausdrucken, Abhaken und Weitergeben. E-Mail eintragen, Guide herunterladen, loslegen.</p>
                 <Jean>Ein Guide ist wie ein Werkstatthandbuch: nicht spannend zu lesen, aber unbezahlbar, wenn es klemmt.</Jean>
@@ -73,10 +73,12 @@ function GuidesSeite() {
                     </div>
                 </article>
             ))}
-            <section aria-labelledby="faq">
-                <h2 id="faq">Häufige Fragen 🙋</h2>
-                <Faq items={FAQ} />
-            </section>
+            {GUIDES.length > 0 && (
+                <section aria-labelledby="faq">
+                    <h2 id="faq">Häufige Fragen 🙋</h2>
+                    <Faq items={FAQ} />
+                </section>
+            )}
             <p>
                 Mehr zum Mitnehmen: <Link href="/downloads">Prompt-Spickzettel und Tabellen</Link> · <Link href="/skills">KI-Skills zum Installieren</Link>
             </p>

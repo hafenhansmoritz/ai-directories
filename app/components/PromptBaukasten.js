@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import SendToAI from './SendToAI'
+import { RechnerStatus } from './RechnerHelfer'
 
 const FORMATE = ['Fließtext', 'Stichpunkte', 'Tabelle', 'Schritt-für-Schritt-Anleitung', 'E-Mail', 'Social-Media-Post', 'Code mit Erklärung', 'JSON']
 const TOENE = ['sachlich', 'locker und direkt', 'freundlich', 'überzeugend', 'humorvoll', 'wie ein Lehrer', 'kritisch']
@@ -64,9 +65,12 @@ export default function PromptBaukasten() {
     return (
         <div className="prompt-runner">
             <div className="prompt-fields">
+                <p className="e-pflicht-hinweis">Felder mit * sind Pflicht, alle anderen machen den Prompt besser.</p>
                 <label>
-                    <span>Aufgabe *</span>
-                    <textarea rows={3} value={v.aufgabe} onChange={set('aufgabe')} placeholder="z. B. Schreibe eine Produktbeschreibung für unseren neuen E-Bike-Akku" />
+                    <span>
+                        Aufgabe <span aria-hidden="true">*</span>
+                    </span>
+                    <textarea rows={3} aria-required="true" required value={v.aufgabe} onChange={set('aufgabe')} placeholder="z. B. Schreibe eine Produktbeschreibung für unseren neuen E-Bike-Akku" />
                 </label>
                 <label>
                     <span>Rolle der KI</span>
@@ -125,6 +129,7 @@ export default function PromptBaukasten() {
                 </fieldset>
             </div>
             <div className="prompt-preview">
+                <RechnerStatus text={`Prompt-Score ${score} von 100, ${stufe.replace(' ☢️', '')}.`} />
                 <div className="prompt-score" style={{ '--score': score }}>
                     <p>
                         <strong>Prompt-Score: {score}/100</strong> · {stufe}
@@ -135,7 +140,7 @@ export default function PromptBaukasten() {
                     {naechster && <p className="prompt-score-tipp">Nächster Hebel: {TIPPS[naechster]}</p>}
                 </div>
                 <p className="send-to-ai-label">Dein Prompt</p>
-                <pre>{prompt}</pre>
+                <pre tabIndex={0} role="region" aria-label="Prompt-Text">{prompt}</pre>
                 <SendToAI prompt={prompt} />
             </div>
         </div>

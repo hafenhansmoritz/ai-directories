@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { ABO_PREISE, breakEvenMonate } from '../../lib/abo-preise'
+import { RechnerStatus, RechnungTeilen, useHashZustand } from './RechnerHelfer'
 
 const usd = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 })
 
@@ -24,6 +25,11 @@ export default function AboRechner() {
     const summeOptimal = gewaehlt.reduce((s, z) => s + Math.min(z.mtl, z.jhr), 0)
     const summeMonatlich = gewaehlt.reduce((s, z) => s + z.mtl, 0)
     const summeJaehrlich = gewaehlt.reduce((s, z) => s + z.jhr, 0)
+    useHashZustand({
+        n: { wert: monate, setzen: setMonate, min: 1, max: 12 },
+        tools: { wert: aktiv, setzen: setAktiv, liste: true, erlaubt: ABO_PREISE.map((a) => a.slug) },
+    })
+    const urteilText = gewaehlt.length ? `Bestmöglich: ${usd.format(summeOptimal)} im Jahr` : 'Wähle mindestens ein Tool'
     const toggle = (slug) => setAktiv((x) => (x.includes(slug) ? x.filter((s) => s !== slug) : [...x, slug]))
 
     return (
@@ -47,9 +53,10 @@ export default function AboRechner() {
                     ))}
                 </fieldset>
             </div>
-            <div className={`rechner-output ${summeMonatlich - summeOptimal > 0.005 || summeJaehrlich - summeOptimal > 0.005 ? 'is-top' : 'is-good'}`} aria-live="polite">
+            <div className={`rechner-output ${summeMonatlich - summeOptimal > 0.005 || summeJaehrlich - summeOptimal > 0.005 ? 'is-top' : 'is-good'}`}>
+                <RechnerStatus text={urteilText} />
                 <p className="rechner-urteil">
-                    <span aria-hidden="true">🧾</span> {gewaehlt.length ? `Bestmöglich: ${usd.format(summeOptimal)} im Jahr` : 'Wähle mindestens ein Tool'}
+                    <span aria-hidden="true">🧾</span> {urteilText}
                 </p>
                 {gewaehlt.length > 0 && (
                     <dl className="rechner-zahlen">
@@ -75,6 +82,7 @@ export default function AboRechner() {
                         </li>
                     ))}
                 </ul>
+                {gewaehlt.length > 0 && <RechnungTeilen titel="Monatlich oder jährlich?" text={`Meine Abo-Rechnung auf AIGeddon: ${urteilText} bei ${monate} Monaten Nutzung.`} />}
             </div>
         </div>
     )
