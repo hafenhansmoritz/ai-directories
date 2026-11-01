@@ -6,7 +6,7 @@ import SchicksalsWuerfel from './components/SchicksalsWuerfel'
 import Jean, { HELLO } from './components/Jean'
 import ToolPartners from './components/ToolPartners'
 import { Band, Trenner } from './components/Deko'
-import { kbStats, getKbTools, kbIndexierbar } from '../lib/kb'
+import { kbStats, getKbTools, kbIndexierbar, kbPfad, kbPrimary } from '../lib/kb'
 import { getPrompts, promptsByKategorie } from '../lib/prompts'
 import { getComparisons } from '../lib/comparisons'
 import { getAlternativenHubs } from '../lib/alternativen'
@@ -63,7 +63,8 @@ function Home() {
         },
     ]
     const beliebt = getKbTools()
-        .filter((t) => t.konsens === 3 && kbIndexierbar(t))
+        // Tools mit Steckbrief zählen mit und verlinken direkt auf den Steckbrief.
+        .filter((t) => t.konsens === 3 && kbPrimary(t).slug === t.slug && (kbIndexierbar(t) || t.profil))
         .slice(0, 12)
     // Echtes Änderungsdatum der Verzeichnisdaten statt Baudatum (der Build läuft täglich).
     const stand = dateiStand('db/directories.json', 'db/checks.json', 'db/fresh-semrush.json')
@@ -174,6 +175,7 @@ function Home() {
                         name: d.name,
                         slug: d.slug,
                         submission_link: d.submission_link,
+                        affiliate: Boolean(d.affiliate),
                     }))}
                 />
                 <ul className="quick-links">
@@ -344,7 +346,7 @@ function Home() {
                 <p className="kb-hero-chips">
                     <span>Beliebt:</span>
                     {beliebt.map((t) => (
-                        <Link key={t.slug} href={`/ki-tools/tool/${t.slug}`}>
+                        <Link key={t.slug} href={kbPfad(t)}>
                             {t.name}
                         </Link>
                     ))}

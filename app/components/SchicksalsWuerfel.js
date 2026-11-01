@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import konfetti from '../../lib/konfetti'
+import { submitRel } from '../../lib/monetization'
 
 const SPRUECHE = [
     (d) => `Ich sag: ${d.name}. Und ich lieg selten daneben, höchstens beim Tippen.`,
@@ -47,8 +48,8 @@ export default function SchicksalsWuerfel({ options }) {
                                 <strong>{result.d.name}</strong> im Detail
                             </Link>{' '}
                             ·{' '}
-                            <a href={result.d.submission_link} target="_blank" rel="nofollow noopener noreferrer">
-                                direkt eintragen ↗
+                            <a href={result.d.submission_link} target="_blank" rel={submitRel(result.d)}>
+                                direkt eintragen ↗{result.d.affiliate && <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup>}
                             </a>
                         </p>
                         {rolls >= 5 && <p className="dice-note">{rolls}-mal gewürfelt. Du könntest in der Zeit längst eingetragen sein.</p>}

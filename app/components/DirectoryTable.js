@@ -9,6 +9,7 @@ import useTracker, { RANKS } from './useTracker'
 import konfetti from '../../lib/konfetti'
 import { submitRel } from '../../lib/monetization'
 import '../styles/c-start.css'
+import { kuerzelAus } from '../../lib/herz'
 
 // Erwartet schlanke Zeilen aus tabellenZeilen() (lib/data.js): Score und Sperre kommen fertig vom Server.
 const SORTS = {
@@ -110,7 +111,7 @@ export default function DirectoryTable({ directories, interactive = true, defaul
         if (!interactive) return
         const onKey = (e) => {
             const tag = document.activeElement?.tagName
-            if (e.key !== '/' || tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return
+            if (e.key !== '/' || kuerzelAus() || tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return
             // Nur die erste Suche auf der Seite reagiert.
             if (document.querySelector('.filters input[type=search]') !== searchRef.current) return
             e.preventDefault()
