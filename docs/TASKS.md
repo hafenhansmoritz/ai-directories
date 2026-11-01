@@ -15,6 +15,7 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
 7. PR mit Vorlage aus `PULL_REQUEST_TEMPLATE`, mergen, GitHub-Pages-Lauf abwarten, Live-Seite prüfen.
 8. Hier die Aufgabe nach „Erledigt“ verschieben (Datum, PR-Nummer, ein Satz Ergebnis) und neu entdeckte Aufgaben unten in „Offen“ ergänzen.
 9. Keine Registrierungen, Käufe, E-Mails oder Posts im Namen von Jean.
+10. Aufgaben mit „fällig ab JJJJ-MM-TT“ überspringen, solange das Datum in der Zukunft liegt. Aufgaben mit „braucht Datei PFAD“ überspringen, solange die Datei im Repo fehlt. Solche Aufgaben stehen nach Fälligkeit sortiert.
 
 ## Offen
 
@@ -29,6 +30,23 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
 - [ ] **Netlify-Projekt löschen** (alte Kopie). *wartet auf Jean*
 
 ### Automatisch abzuarbeiten (Reihenfolge = Priorität)
+- Content-Plan Tool-Prompts (`docs/CONTENT-PLAN-TOOL-PROMPTS.md`): eine Woche pro Sitzung, von oben. Verlinkungsregel aus dem Plan beachten. Höchstens eine Woche pro Kalenderwoche, gesteuert über „fällig ab“. Nach jeder Veröffentlichung zwei Mess-Aufgaben direkt unter dieser Liste eintragen, nach Fälligkeit sortiert, Format: `- [ ] **Messung <Stück>** (fällig ab JJJJ-MM-TT, braucht Datei docs/gsc/JJJJ-MM-TT.csv): Ziel-Keyword, URL`.
+  - [ ] **Content-Plan Woche 1** (fällig ab 2026-11-02): Route /prompts/tool/[slug] bauen; ChatGPT-Prompts; Claude vs. ChatGPT
+  - [ ] **Content-Plan Woche 2** (fällig ab 2026-11-09): ChatGPT-Verlauf löschen; Gemini vs. ChatGPT; Gemini-Prompts
+  - [ ] **Content-Plan Woche 3** (fällig ab 2026-11-16): Claude Memory; Suno-Prompts; ChatGPT für die Bewerbung
+  - [ ] **Content-Plan Woche 4** (fällig ab 2026-11-23): Gamma-Steckbrief-Ausbau; Mit ChatGPT übersetzen; Prompt-Vorlagen-Hub
+  - [ ] **Content-Plan Woche 5** (fällig ab 2026-11-30): Descript-Steckbrief-Ausbau; Copilot-Prompts; ChatGPT- vs. Claude-Projekte
+  - [ ] **Content-Plan Woche 6** (fällig ab 2026-12-07): Midjourney-Prompts; Perplexity vs. ChatGPT; Chats exportieren und umziehen
+  - [ ] **Content-Plan Woche 7** (fällig ab 2026-12-14): Claude-Prompts; ChatGPT und Excel; Runway-Ausbau
+  - [ ] **Content-Plan Woche 8** (fällig ab 2026-12-21): ChatGPT Agent erklärt; Writesonic-Ausbau; Surfer-Ausbau
+  - [ ] **Content-Plan Woche 9** (fällig ab 2026-12-28): Wordtune-Ausbau; Leonardo-Ausbau; ChatGPT Memory
+  - [ ] **Content-Plan Woche 10** (fällig ab 2027-01-04): NotebookLM-Prompts; Canva Magic Write; SEO-Prompts für ChatGPT
+  - [ ] **Content-Plan Woche 11** (fällig ab 2027-01-11): Rytr-Ausbau; Make-Ausbau; GPTs erstellen
+  - [ ] **Content-Plan Woche 12** (fällig ab 2027-01-18): n8n-Ausbau; ElevenLabs-Ausbau; HeyGen-Ausbau
+  - [ ] **Content-Plan Woche 13** (fällig ab 2027-01-25): Prompt-Engineering-Pillar; Gamma-Prompts
+  - [ ] **Content-Plan Woche 14** (fällig ab 2027-02-01): HeyGen-Prompts; Perplexity-Prompts; ElevenLabs-Prompts
+  - [ ] **Content-Plan Woche 15** (fällig ab 2027-02-08): Leonardo-AI-Prompts; Ideogram-Prompts; Runway-Prompts
+  - [ ] **Content-Plan Woche 16** (fällig ab 2027-02-15): Kling-Prompts; InVideo-Prompts
 Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die angegebene Menge). Ton immer nach `docs/BRAND-VOICE.md`, Fakten nur mit offizieller Quelle, Unikat-Texte in `db/texte/*.json`.
 - [ ] **Vergleich Lovable vs. Bolt.new vs. v0** in `lib/comparisons.js` mit Picks, 5 Unterschieden, 3 FAQ, Quellen (Daten aus `db/tools.json`, Preise vorher auf den Preisseiten prüfen).
 - [ ] **Vergleich GitHub Copilot vs. Cursor vs. Replit** (wie oben).

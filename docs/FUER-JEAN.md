@@ -17,6 +17,7 @@ Die Anfragen gehen an die in `lib/monetization.js` hinterlegte Adresse (am 26.10
 2. Methode „HTML-Tag“ wählen und nur den Wert aus `content="…"` kopieren.
 3. Als Repository-Variable `GSC_VERIFICATION` eintragen, dann unter Actions den Workflow „Deploy“ neu starten (oder auf den nächsten Merge warten).
 4. In der Search Console bestätigen und die Sitemap `sitemap.xml` einreichen.
+5. Für die Mess-Aufgaben des Content-Plans (`docs/TASKS.md`, „Messung …“): zum Fälligkeitsdatum unter Leistung → Suchergebnisse den Zeitraum der letzten 28 Tage wählen, Tab „Seiten“ bzw. „Suchanfragen“ exportieren (CSV) und als `docs/gsc/JJJJ-MM-TT.csv` ins Repo legen. Danach übernimmt die nächste automatische Sitzung.
 
 ## 3. Website-Feld im GitHub-Repo
 
