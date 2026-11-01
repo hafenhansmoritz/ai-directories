@@ -5,6 +5,12 @@ import { SITE_NAME, SITE_URL, absoluteUrl } from '../../../lib/site'
 // Abonnierte Kalender holen die Datei regelmäßig neu, neue Fristen landen so automatisch beim Leser.
 export const dynamic = 'force-static'
 
+// Kurzer, stabiler Hash (FNV-1a), damit die UID nicht von der Reihenfolge der Fristen abhängt.
+const kurzHash = (s) => {
+    let h = 0x811c9dc5
+    for (const c of String(s)) h = Math.imul(h ^ c.codePointAt(0), 0x01000193) >>> 0
+    return h.toString(36)
+}
 const kompakt = (iso) => iso.replace(/-/g, '')
 const naechsterTag = (iso) => {
     const d = new Date(`${iso}T00:00:00Z`)
@@ -37,11 +43,11 @@ function falten(zeile) {
 export function GET() {
     const stempel = `${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`
     const domain = SITE_URL.replace(/^https?:\/\//, '').split('/')[0]
-    const events = getFristen().flatMap((f, i) => {
+    const events = getFristen().flatMap((f) => {
         const url = absoluteUrl(`/ki-news/${f.slug}`)
         return [
             'BEGIN:VEVENT',
-            `UID:${kompakt(f.datum)}-${f.slug}-${i}@${domain}`,
+            `UID:${kompakt(f.datum)}-${f.slug}-${kurzHash(f.was)}@${domain}`,
             `DTSTAMP:${stempel}`,
             `DTSTART;VALUE=DATE:${kompakt(f.datum)}`,
             `DTEND;VALUE=DATE:${naechsterTag(f.datum)}`,

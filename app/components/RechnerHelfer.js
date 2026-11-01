@@ -21,7 +21,7 @@ const hashAus = (felder) => {
 let letzterHash = ''
 
 // Liest beim Laden #k=v&k2=v2 und spiegelt spätere Änderungen in den Hash (ohne neuen Verlaufseintrag).
-// felder: { name: { wert, setzen, min, max } } für Zahlen oder { wert, setzen, liste: true, erlaubt: [] } für Listen.
+// felder: { name: { wert, setzen, min, max } } für Zahlen oder { wert, setzen, liste: true, erlaubt: [], mindestens? } für Listen.
 export function useHashZustand(felder) {
     const ersterLauf = useRef(true)
     const geladen = useRef(false)
@@ -32,7 +32,8 @@ export function useHashZustand(felder) {
             const roh = p.get(name)
             if (f.liste) {
                 const werte = roh.split(',').filter((x) => !f.erlaubt || f.erlaubt.includes(x))
-                if (werte.length) f.setzen(werte)
+                // Eine ausdrücklich leere Liste (z. B. tools=) gilt auch, sofern das Feld keine Mindestanzahl hat.
+                if (werte.length ? werte.length >= (f.mindestens || 0) : roh === '' && !f.mindestens) f.setzen(werte)
             } else if (f.janein) {
                 f.setzen(roh === '1')
             } else if (f.text) {

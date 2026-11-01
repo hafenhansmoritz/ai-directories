@@ -24,7 +24,8 @@ export default function ApiRechner() {
     const [text, setText] = useState('')
     const [auswahl, setAuswahl] = useState(API_MODELLE.map((m) => m.id))
 
-    const geschaetzt = text.trim() ? Math.round(text.trim().length / 3.5) : null
+    // Geschätzte Tokens liegen im selben Bereich wie Regler und Link, damit Rechnung und geteilter Stand gleich sind.
+    const geschaetzt = text.trim() ? begrenze(Math.round(text.trim().length / 3.5), 50, 50000) : null
 
     const liste = useMemo(() => {
         const inp = geschaetzt ?? input
@@ -42,9 +43,9 @@ export default function ApiRechner() {
     useHashZustand({
         n: { wert: anfragen, setzen: setAnfragen, min: 10, max: 100000 },
         // Aus einem Beispieltext geschätzte Tokens landen im Link, damit Empfänger dieselbe Rechnung sehen.
-        in: { wert: begrenze(geschaetzt ?? input, 50, 50000), setzen: setInput, min: 50, max: 50000 },
+        in: { wert: geschaetzt ?? input, setzen: setInput, min: 50, max: 50000 },
         out: { wert: output, setzen: setOutput, min: 50, max: 8000 },
-        m: { wert: auswahl, setzen: setAuswahl, liste: true, erlaubt: API_MODELLE.map((m) => m.id) },
+        m: { wert: auswahl, setzen: setAuswahl, liste: true, mindestens: 1, erlaubt: API_MODELLE.map((m) => m.id) },
     })
 
     const guenstigstes = liste[0]
