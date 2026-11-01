@@ -4,12 +4,13 @@ import JsonLd from '../components/JsonLd'
 import Jean from '../components/Jean'
 import { ARTIKEL } from '../../lib/ratgeber'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import { ogMeta, OG_BILDER } from '../../lib/og-meta'
 
 export const metadata = {
     title: 'Ratgeber: KI-Tools richtig in Verzeichnisse eintragen',
     description: 'Anleitungen und ehrliche Einordnungen rund um KI-Verzeichnisse, Backlinks, SEO und Product-Hunt-Launches. Auf Deutsch, mit Humor.',
     alternates: { canonical: '/ratgeber' },
-    openGraph: { url: '/ratgeber' },
+    openGraph: ogMeta({ url: '/ratgeber', bild: OG_BILDER.ratgeber, alt: 'Ratgeber auf AIGeddon' }),
 }
 
 function RatgeberIndex() {

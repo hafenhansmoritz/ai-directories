@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { RechnerStatus, RechnungTeilen, useHashZustand } from './RechnerHelfer'
 
 const fmt = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 1 })
 
@@ -18,6 +19,14 @@ export default function LaunchRechner({ gratis, reibungslos, gesamt }) {
         const tage = Math.ceil(anzahl / Math.max(1, proTag))
         return { total, tage, stunden: total / 60, ersparnis: paket ? anzahl * 15 - 20 : 0 }
     }, [anzahl, minuten, proTag, paket])
+
+    useHashZustand({
+        n: { wert: anzahl, setzen: setAnzahl, min: 5, max: gesamt },
+        min: { wert: minuten, setzen: setMinuten, min: 3, max: 30 },
+        tag: { wert: proTag, setzen: setProTag, min: 1, max: 30 },
+        kit: { wert: paket, setzen: setPaket, janein: true },
+    })
+    const zusammenfassung = `${anzahl} Verzeichnisse: ${fmt.format(r.stunden)} Stunden Arbeit in ${r.tage} Tagen.`
 
     return (
         <div className="rechner">
@@ -47,7 +56,8 @@ export default function LaunchRechner({ gratis, reibungslos, gesamt }) {
                     <input type="checkbox" checked={paket} onChange={(e) => setPaket(e.target.checked)} /> Texte vorher einmal mit dem Launch-Kit vorbereitet
                 </label>
             </div>
-            <div className="rechner-output is-good" aria-live="polite">
+            <div className="rechner-output is-good">
+                <RechnerStatus text={zusammenfassung} />
                 <p className="rechner-urteil">
                     <span aria-hidden="true">🗓️</span> Dein Launch-Plan
                 </p>
@@ -66,6 +76,7 @@ export default function LaunchRechner({ gratis, reibungslos, gesamt }) {
                     </div>
                 </dl>
                 <p className="rechner-hinweis">Annahme: Ohne vorbereitete Texte kostet jeder Eintrag rund 15 Minuten extra fürs Formulieren; die Vorbereitung dauert einmalig etwa 20 Minuten.</p>
+                <RechnungTeilen titel="Mein Launch-Plan" text={`Mein Launch-Plan laut AIGeddon: ${zusammenfassung}`} />
             </div>
         </div>
     )

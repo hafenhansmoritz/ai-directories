@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import SendToAI from './SendToAI'
+import { RechnerStatus } from './RechnerHelfer'
 
 // \b kennt keine Umlaute, deshalb Wortgrenzen über Unicode-Buchstaben.
 const w = (src) => new RegExp(`(?<![\\p{L}])(?:${src})(?![\\p{L}])`, 'iu')
@@ -58,7 +59,7 @@ export default function PromptCheck() {
                 </label>
                 <p className="prompt-fields-actions">
                     <span>
-                        {r.zeichen} Zeichen · {r.woerter} Wörter · ca. {r.tokMin}–{r.tokMax} Tokens (Schätzung)
+                        {r.zeichen} Zeichen · {r.woerter} Wörter · ca. {r.tokMin} bis {r.tokMax} Tokens (Schätzung)
                     </span>
                     <button type="button" className="copy-button" onClick={() => setText('Schreib mir einen Text über E-Bikes, der gut ist.')}>
                         Beispiel laden
@@ -66,6 +67,7 @@ export default function PromptCheck() {
                 </p>
             </div>
             <div className="prompt-preview">
+                <RechnerStatus text={`Prompt-Score ${r.score} von 100, ${stufe.replace(/\s*\S+$/u, '')}.`} />
                 <div className="prompt-score" style={{ '--score': r.score }}>
                     <p>
                         <strong>Prompt-Score: {r.score}/100</strong> · {stufe}

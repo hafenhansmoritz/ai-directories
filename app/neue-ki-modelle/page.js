@@ -5,12 +5,14 @@ import Jean from '../components/Jean'
 import Faq, { faqSchema } from '../components/Faq'
 import { FAMILIEN, GERUECHTE, MODELLE_STAND, ANBIETER, modelleNachDatum } from '../../lib/modelle'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import NeuMarke from '../components/NeuMarke'
+import { ogMeta, OG_BILDER } from '../../lib/og-meta'
 
 export const metadata = {
     title: 'Neue KI-Modelle 2026: GPT-6, Gemini 4, Claude 5.5',
     description: `Alle neuen KI-Modelle im Überblick: GPT-6, Gemini 4 Argon, Claude Opus 5.5, Grok 4.7, Mistral Large 4 und mehr. Starttermine, API-Preise von offiziellen Seiten und ein Gerüchte-Check. Stand ${MODELLE_STAND}.`,
     alternates: { canonical: '/neue-ki-modelle' },
-    openGraph: { url: '/neue-ki-modelle' },
+    openGraph: ogMeta({ url: '/neue-ki-modelle', bild: OG_BILDER.modelle, alt: 'Neue KI-Modelle auf AIGeddon' }),
 }
 
 function NeueModelle() {
@@ -62,7 +64,7 @@ function NeueModelle() {
                                 <strong>{m.name}</strong>
                             </Link>
                             <span>
-                                {m.anbieter} · {m.art} · {m.datumText}
+                                {m.anbieter} · {m.art} · {m.datumText} <NeuMarke datum={m.datum} />
                             </span>
                             <span>{m.kurz}</span>
                             {m.preis && <span>API-Preis: {m.preis}</span>}

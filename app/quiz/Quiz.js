@@ -1,11 +1,12 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { getScore, jeanLine } from '../../lib/score'
 import { formatRating, formatVisits, pricingLabel } from '../../utils/i18n-de'
 import konfetti from '../../lib/konfetti'
 import { verleihe } from '../../lib/herz'
+import TeilenKnopf from '../components/TeilenKnopf'
 
 const QUESTIONS = [
     {
@@ -51,19 +52,64 @@ function recommend(options, answers) {
         .slice(0, 5)
 }
 
+// Antworten im Hash, damit das Ergebnis teilbar ist und Neuladen übersteht: #a=zero,links,none
+const ausHash = (hash) => {
+    const m = hash.match(/(?:^#|&)a=([a-z,]+)/)
+    if (!m) return null
+    const werte = m[1].split(',')
+    const antworten = {}
+    QUESTIONS.forEach((q, i) => {
+        if (q.a.some(([v]) => v === werte[i])) antworten[q.id] = werte[i]
+    })
+    return QUESTIONS.every((q) => antworten[q.id]) ? antworten : null
+}
+const hashSetzen = (antworten) => {
+    try {
+        const ziel = antworten ? `#a=${QUESTIONS.map((q) => antworten[q.id]).join(',')}` : window.location.pathname + window.location.search
+        window.history.replaceState(null, '', ziel)
+    } catch {}
+}
+
 export default function Quiz({ options }) {
     const [answers, setAnswers] = useState({})
+    const ergebnisRef = useRef(null)
+    const fokusNachher = useRef(false)
     const finished = QUESTIONS.every((q) => answers[q.id])
     const results = useMemo(() => (finished ? recommend(options, answers) : []), [finished, options, answers])
+
+    useEffect(() => {
+        const geteilt = ausHash(window.location.hash)
+        if (geteilt) {
+            fokusNachher.current = true
+            setAnswers(geteilt)
+        }
+    }, [])
+
+    useEffect(() => {
+        if (!finished) return
+        hashSetzen(answers)
+        if (fokusNachher.current && ergebnisRef.current) {
+            fokusNachher.current = false
+            ergebnisRef.current.focus()
+        }
+    }, [finished, answers])
 
     const choose = (id, value) => {
         const next = { ...answers, [id]: value }
         setAnswers(next)
         if (QUESTIONS.every((q) => next[q.id]) && !finished) {
+            fokusNachher.current = true
             konfetti()
             verleihe('Detektiv-Abzeichen')
         }
     }
+
+    const neustart = () => {
+        hashSetzen(null)
+        setAnswers({})
+    }
+
+    const teilText = `Meine passenden KI-Verzeichnisse laut AIGeddon-Quiz:\n${results.map((d, i) => `${i + 1}. ${d.name}`).join('\n')}\n\nSelbst ausprobieren:`
 
     return (
         <div className="quiz">
@@ -90,7 +136,9 @@ export default function Quiz({ options }) {
 
             {finished && (
                 <section aria-labelledby="ergebnis" className="quiz-result">
-                    <h2 id="ergebnis">Deine Top 5 🎯</h2>
+                    <h2 id="ergebnis" tabIndex={-1} ref={ergebnisRef}>
+                        Deine Top 5 🎯
+                    </h2>
                     {results.length === 0 ? (
                         <p>Mit diesen Antworten bleibt nichts übrig. Gönn dir etwas mehr Budget oder Geduld.</p>
                     ) : (
@@ -109,8 +157,11 @@ export default function Quiz({ options }) {
                             ))}
                         </ol>
                     )}
-                    <p>
-                        <button type="button" className="button button-small" onClick={() => setAnswers({})}>
+                    <p className="e-teilen">
+                        {results.length > 0 && (
+                            <TeilenKnopf titel="Mein Quiz-Ergebnis" text={teilText} link={() => window.location.href} />
+                        )}
+                        <button type="button" className="button button-small" onClick={neustart}>
                             Nochmal von vorn
                         </button>
                     </p>

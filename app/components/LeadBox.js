@@ -12,7 +12,7 @@ const SPRUECHE = [
     'Hier zerlegt Jean KI-Tools wie andere Leute Vergaser. Mit Schraubenzieher und Humor.',
     'Prompts live ausprobiert, Fehler inklusive. Lernen durch Zuschauen war nie entspannter.',
     'Weniger Hype, mehr Handgriffe: KI-Videos für Leute, die Ergebnisse wollen.',
-    'Wenn ein neues Modell rauskommt, sitzt Jean schon vor der Kamera. Meistens mit Kaffee.',
+    'Neues Modell draußen? Auf dem Kanal ordnet Jean ein, was es wirklich kann.',
     'KI erklärt wie in der Werkstatt: erst anschauen, dann anfassen, dann verstehen.',
     'Tool-Duelle, Launch-Tipps und Prompt-Tricks. Kurz genug für die Mittagspause.',
     'Der Kanal für alle, die KI nutzen wollen, ohne einen Doktortitel nachzureichen.',
@@ -21,7 +21,7 @@ const SPRUECHE = [
     'Zwischen zwei Launches erklärt Jean, was sich wirklich lohnt. Abonnieren tut nicht weh.',
     'KI-Wissen in kleinen Portionen. Wie Tapas, nur mit mehr Prompts.',
     'Für Gründer, Neugierige und Skeptiker: KI-Videos mit Haltung und Herz.',
-    'Jede Woche ein Stück KI-Alltag, ehrlich eingeordnet. Die Tests sind echt, die Witze auch.',
+    'KI-Alltag, ehrlich eingeordnet. Die Witze sind echt.',
     'Videos über KI, die man nicht dreimal anschauen muss, um sie zu verstehen.',
     'Hier geht es um Werkzeuge, nicht um Wunder. KI-Videos mit Bodenhaftung.',
     'Wenn du lieber zuschaust als liest: Jeans Kanal hat die bewegten Bilder dazu.',
@@ -29,7 +29,7 @@ const SPRUECHE = [
     'Prompts, Pannen und Praxis. Der YouTube-Kanal zu dieser Seite und allen anderen.',
     'KI-Videos mit Schrauber-Mentalität: auseinandernehmen, verstehen, wieder zusammenbauen.',
     'Der Kanal für KI-Neuigkeiten, ohne dass du dafür zehn Newsletter brauchst.',
-    'Jean redet über KI wie über Mopeds: mit Leidenschaft und ohne Fachchinesisch.',
+    'KI erklärt mit Schrauber-Vergleichen und ohne Fachchinesisch.',
 ]
 
 const hash = (s) => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7)

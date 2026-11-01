@@ -38,7 +38,7 @@ export default function PromptRunner({ vorlage, felder }) {
             </div>
             <div className="prompt-preview">
                 <p className="send-to-ai-label">Dein Prompt</p>
-                <pre>{prompt}</pre>
+                <pre tabIndex={0} role="region" aria-label="Prompt-Text">{prompt}</pre>
                 <SendToAI prompt={prompt} />
             </div>
         </div>
