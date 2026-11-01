@@ -20,7 +20,7 @@ function ToolsPage() {
     const categories = getCategories()
     const crumbs = [
         { name: SITE_NAME, path: '/' },
-        { name: 'KI-Tools', path: '/tools' },
+        { name: 'Tool-Steckbriefe', path: '/tools' },
     ]
     const schema = [
         breadcrumbSchema(crumbs),
@@ -37,8 +37,8 @@ function ToolsPage() {
             <JsonLd data={schema} />
             <Breadcrumbs items={crumbs} />
             <section className="hero">
-                <p className="eyebrow">Neu: Tool-Verzeichnis 🧰</p>
-                <h1>{tools.length} KI-Tools für Launch, Marketing und Alltag</h1>
+                <p className="eyebrow">Tool-Steckbriefe 🧰</p>
+                <h1>{tools.length} Tool-Steckbriefe: KI-Tools für Launch, Marketing und Alltag mit Preisen</h1>
                 <p className="lead">
                     Sortiert nach Anwendungsfall, mit Einstiegspreis und Gratis-Tarif laut Anbieter (Stand {TOOLS_STAND}).
                     Kein Tool steht hier, weil es bezahlt hat.
@@ -52,7 +52,7 @@ function ToolsPage() {
                 <strong>Was kosten deine Abos?</strong> <Link href="/mein-stack">Mein KI-Stack: Kosten zusammenrechnen und Spar-Hinweise bekommen →</Link>
             </p>
             <p className="service-hint">
-                <strong>Mehr Auswahl?</strong> <Link href="/ki-tools">KI-Tool-Datenbank mit über 700 Tools aus den größten Community-Listen →</Link>
+                <strong>Mehr Auswahl oder Suche?</strong> <Link href="/ki-tools">KI-Tool-Datenbank mit über 700 Tools, Suche und Filtern →</Link>
             </p>
             <ul className="quick-links">
                 {categories.map((c) => (
@@ -83,7 +83,7 @@ function ToolsPage() {
                 </section>
             ))}
             <p className="source">
-                Preise ändern sich oft. Maßgeblich ist immer die Preisseite des Anbieters. Partnerlinks sind mit * markiert,{' '}
+                Preise ändern sich oft. Maßgeblich ist immer die Preisseite des Anbieters. Partnerlinks in den Steckbriefen sind mit * markiert,{' '}
                 <Link href="/transparenz">mehr dazu</Link>.
             </p>
         </>

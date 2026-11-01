@@ -8,6 +8,7 @@ import LeadMagnetBox from '../components/LeadMagnetBox'
 import { Band, Trenner } from '../components/Deko'
 import { SITE_NAME } from '../../lib/site'
 import { getKbRubriken, kbStats, KB_STAND } from '../../lib/kb'
+import { datumDe } from '../../lib/text'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 
 const FAQ = [
@@ -52,7 +53,7 @@ function BesteKiTools() {
             <JsonLd data={schema} />
             <Breadcrumbs items={crumbs} />
             <section className="hero">
-                <p className="eyebrow">Stand {KB_STAND} · {rubriken.length} Aufgaben</p>
+                <p className="eyebrow">Stand {datumDe(KB_STAND)} · {rubriken.length} Aufgaben</p>
                 <h1>Die besten KI-Tools 2026, sortiert nach Aufgabe</h1>
                 <p className="lead">
                     Kein bezahltes Ranking: Pro Aufgabe stehen hier die Tools, die <strong>mehrere unabhängige Community-Listen</strong> empfehlen. Darunter findest du jeweils alle Alternativen.
