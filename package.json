@@ -10,21 +10,28 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:pages": "node utils/export/build.mjs",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint --no-eslintrc -c utils/check/eslint.json --ext .js,.mjs app lib",
     "update-db": "ts-node utils/db/update-db.js",
     "update-readme": "ts-node utils/readme/update-readme.js",
     "partners": "node utils/partners/render.js",
     "kb:import": "node utils/kb/import.js",
-    "skills": "node utils/skills/build.mjs"
+    "skills": "node utils/skills/build.mjs",
+    "check:links": "node utils/check/links.mjs out",
+    "check:layer-a": "node utils/check/layer-a.mjs",
+    "test:db": "sh supabase/tests/run.sh"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
-    "eslint": "^8.56.0",
-    "next": "^14.2.4",
-    "prettier": "^3.2.2",
+    "next": "^14.2.35",
     "react": "^18",
-    "react-dom": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.2.35",
+    "prettier": "^3.2.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3"
