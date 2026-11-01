@@ -8,7 +8,7 @@ import Toc from '../../../components/Toc'
 import LeadMagnetBox from '../../../components/LeadMagnetBox'
 import { Band } from '../../../components/Deko'
 import { SITE_NAME } from '../../../../lib/site'
-import { getKbTool } from '../../../../lib/kb'
+import { getKbTool, kbPfad } from '../../../../lib/kb'
 import { getPrompt } from '../../../../lib/prompts'
 import { getTutorial } from '../../../../lib/tutorials'
 import { RECHNER } from '../../../../lib/rechner'
@@ -87,7 +87,7 @@ function ZielgruppePage({ params }) {
                                 <p>{text}</p>
                                 <p className="zg-tools">
                                     {tools.map(getKbTool).filter(Boolean).map((t) => (
-                                        <Link key={t.slug} href={`/ki-tools/tool/${t.slug}`}>
+                                        <Link key={t.slug} href={kbPfad(t)}>
                                             {t.name}
                                         </Link>
                                     ))}

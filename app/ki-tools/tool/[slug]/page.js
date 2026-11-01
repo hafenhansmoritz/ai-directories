@@ -2,8 +2,11 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import JsonLd from '../../../components/JsonLd'
 import Breadcrumbs, { breadcrumbSchema } from '../../../components/Breadcrumbs'
-import { SITE_NAME } from '../../../../lib/site'
-import { getKbTools, getKbTool, kbAlternativen, kbIndexierbar, kbPreis, kbPrimary, KB_RUBRIKEN, KB_SOURCES, KB_STAND } from '../../../../lib/kb'
+import { SITE_NAME, absoluteUrl } from '../../../../lib/site'
+import { toolHref, toolRel } from '../../../../lib/tools'
+import { kuerzen, datumDe } from '../../../../lib/text'
+import PartnerHinweis from '../../../components/PartnerHinweis'
+import { getKbTools, getKbTool, kbAlternativen, kbIndexierbar, kbPfad, kbPreis, kbPrimary, KB_RUBRIKEN, KB_SOURCES, KB_STAND } from '../../../../lib/kb'
 import TEXTE from '../../../../db/texte/kb.json'
 import { getPrompt } from '../../../../lib/prompts'
 import { getTutorial } from '../../../../lib/tutorials'
@@ -21,11 +24,16 @@ export function generateMetadata({ params }) {
     if (!t) return {}
     const r = KB_RUBRIKEN[t.rubrik]
     const alt = kbAlternativen(t, 3).map((a) => a.name)
+    // Doppelte Einträge (gleicher Name, schwächerer Slug) verweisen nur per Canonical auf die Hauptseite, wenn die
+    // indexierbar ist. Sonst noindex, follow mit eigenem Canonical, nie beides gemischt (widersprüchliches Signal).
+    const primary = kbPrimary(t)
+    const aufPrimary = primary.slug !== t.slug && kbIndexierbar(primary)
     return {
         title: t.name.length > 18 ? `${t.name}: Was ist das?` : `${t.name}: Was ist das? Alternativen & Einordnung`,
-        description: `${t.beschreibung} Rubrik: ${r.name}.${alt.length ? ` Alternativen: ${alt.join(', ')}.` : ''}`.slice(0, 300),
-        alternates: { canonical: `/ki-tools/tool/${kbPrimary(t).slug}` },
-        robots: kbIndexierbar(t) ? undefined : { index: false, follow: true },
+        description: kuerzen(`${t.beschreibung} Rubrik: ${r.name}.${alt.length ? ` Alternativen: ${alt.join(', ')}.` : ''}`),
+        alternates: { canonical: `/ki-tools/tool/${aufPrimary ? primary.slug : t.slug}` },
+        // robots nur bei noindex setzen, sonst gilt das Layout (max-snippet, max-image-preview)
+        ...(kbIndexierbar(t) || aufPrimary ? {} : { robots: { index: false, follow: true } }),
     }
 }
 
@@ -48,15 +56,16 @@ function KbToolPage({ params }) {
     ]
     const schema = [
         breadcrumbSchema(crumbs),
+        // Kein SoftwareApplication-Knoten: ohne offizielle Preise und Bewertungen wäre er für Google ungültig.
+        // Die Seite beschreibt das Tool, darum WebPage mit about.
         {
             '@context': 'https://schema.org',
-            '@type': 'SoftwareApplication',
+            '@type': 'WebPage',
             name: t.name,
-            url: t.url,
-            applicationCategory: r.name,
-            operatingSystem: 'Web',
+            url: absoluteUrl(`/ki-tools/tool/${t.slug}`),
             description: t.beschreibung,
             inLanguage: 'de-DE',
+            about: { '@type': 'Thing', name: t.name, url: t.url, description: t.beschreibung },
         },
     ]
     return (
@@ -70,12 +79,19 @@ function KbToolPage({ params }) {
                 <h1>{t.name}</h1>
                 <p className="lead">{t.beschreibung}</p>
                 <p className="cta-row">
-                    <a className="button" href={t.affiliate || t.url} target="_blank" rel={t.affiliate ? 'sponsored nofollow noopener noreferrer' : 'nofollow noopener noreferrer'}>
+                    <a className="button" href={toolHref(t)} target="_blank" rel={toolRel(t)}>
                         {t.name} öffnen ↗{t.affiliate && <sup>*</sup>}
                     </a>
                     {t.profil && <Link href={`/tools/${t.profil.slug}`}>🧔 Steckbrief mit Preisen →</Link>}
                 </p>
+                <PartnerHinweis zeigen={Boolean(t.affiliate)} />
             </section>
+            {t.profil && (
+                <p className="service-hint dt-steckbrief-hinweis">
+                    <strong>Mehr Details?</strong> Zu {t.name} gibt es einen Tool-Steckbrief mit Preisen, Gratis-Tarif und FAQ:{' '}
+                    <Link href={`/tools/${t.profil.slug}`}>{t.profil.name}: Preis und Gratis-Tarif →</Link>
+                </p>
+            )}
             <dl className="facts facts-klein">
                 <div>
                     <dt>Rubrik</dt>
@@ -123,7 +139,7 @@ function KbToolPage({ params }) {
                     <ul className="link-cards">
                         {alternativen.map((a) => (
                             <li key={a.slug}>
-                                <Link href={`/ki-tools/tool/${a.slug}`}>
+                                <Link href={kbPfad(a)}>
                                     <strong>{a.name}</strong>
                                 </Link>
                                 <span>{a.beschreibung}</span>
@@ -176,7 +192,7 @@ function KbToolPage({ params }) {
                 </section>
             )}
             <p className="source">
-                Stand {KB_STAND} · <Link href="/ki-tools/quellen">Quellen und Lizenzen</Link> ·{' '}
+                Stand {datumDe(KB_STAND)} · <Link href="/ki-tools/quellen">Quellen und Lizenzen</Link> ·{' '}
                 <Link href="/tool-finder">Tool-Finder</Link> · <Link href="/ki-tools">← KI-Tool-Datenbank</Link>
             </p>
         </>
