@@ -5,7 +5,8 @@ import Breadcrumbs, { breadcrumbSchema } from '../../components/Breadcrumbs'
 import DirectoryTable from '../../components/DirectoryTable'
 import DealCards from '../../components/DealCards'
 import LeadBox from '../../components/LeadBox'
-import { LISTS, getList } from '../../../lib/data'
+import { LISTS, getList, tabellenZeilen } from '../../../lib/data'
+import { dateiStand } from '../../../lib/stand'
 import { absoluteUrl } from '../../../lib/site'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 
@@ -22,7 +23,7 @@ export function generateMetadata({ params }) {
         title: list.title.length > 45 ? list.title : `${list.title}: ${list.items.length} Einträge`,
         description: list.description(list.items.length),
         alternates: { canonical: `/liste/${list.slug}` },
-        openGraph: { url: `/liste/${list.slug}` },
+        openGraph: { url: `/liste/${list.slug}`, images: [{ url: absoluteUrl('/opengraph-image.png'), width: 1200, height: 630 }] },
     }
 }
 
@@ -32,6 +33,7 @@ function ListPage({ params }) {
 
     const crumbs = [
         { name: 'AIGeddon', path: '/' },
+        { name: 'Listen', path: '/liste' },
         { name: list.title, path: `/liste/${list.slug}` },
     ]
 
@@ -52,6 +54,7 @@ function ListPage({ params }) {
     ]
 
     const others = Object.entries(LISTS).filter(([slug]) => slug !== list.slug)
+    const stand = dateiStand('db/directories.json', 'db/checks.json', 'db/fresh-semrush.json')
 
     return (
         <>
@@ -60,6 +63,13 @@ function ListPage({ params }) {
             <section className="hero">
                 <h1>{list.h1(list.items.length)}</h1>
                 <p className="lead">{list.lead}</p>
+                <p className="c-stand">
+                    Daten zuletzt aktualisiert:{' '}
+                    <time dateTime={stand.toISOString().slice(0, 10)}>
+                        {new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }).format(stand)}
+                    </time>
+                    . <Link href="/so-pruefen-wir">So prüfen wir →</Link>
+                </p>
             </section>
 
             {list.slug === 'rabattcodes' && (
@@ -72,7 +82,7 @@ function ListPage({ params }) {
                     <h2>Alle Codes als Tabelle</h2>
                 </>
             )}
-            <DirectoryTable directories={list.items} />
+            <DirectoryTable directories={tabellenZeilen(list.items)} caption={`${list.title}: ${list.items.length} Einträge`} />
 
             <section aria-labelledby="weitere">
                 <h2 id="weitere">Weitere Listen, weil du noch nicht genug hast 📚</h2>
@@ -83,7 +93,7 @@ function ListPage({ params }) {
                         </li>
                     ))}
                     <li>
-                        <Link href="/">Zurück zum Buffet: alle KI-Verzeichnisse →</Link>
+                        <Link href="/#alle">Zurück zum Buffet: alle KI-Verzeichnisse →</Link>
                     </li>
                 </ul>
             </section>
