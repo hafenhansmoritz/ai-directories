@@ -96,9 +96,12 @@ export default function ToolFinder({ quelle }) {
         frageRef.current?.focus({ preventScroll: true })
     }, [schritt])
 
+    // Vorwärts legt einen Verlaufseintrag an und zählt die Tiefe mit. Zurück geht im Verlauf zurück,
+    // statt einen neuen Eintrag anzulegen; so führt die Zurück-Taste des Browsers nicht wieder nach vorn.
     const setze = (neu) => {
         setAntw(neu)
-        window.history.pushState(window.history.state, '', zuUrl(neu))
+        const tiefe = (window.history.state?.tfTiefe || 0) + 1
+        window.history.pushState({ ...window.history.state, tfTiefe: tiefe }, '', zuUrl(neu))
     }
 
     const waehle = (feld, wert) => {
@@ -108,7 +111,12 @@ export default function ToolFinder({ quelle }) {
         if (neu.aufgabe && neu.budget && neu.technik) verleihe('Detektiv-Abzeichen')
     }
 
-    const zurueck = () => setze(schritt === 3 ? { ...antw, technik: null } : schritt === 2 ? { ...antw, budget: null } : LEER)
+    const zurueck = () => {
+        if (window.history.state?.tfTiefe > 0) return window.history.back()
+        const neu = schritt === 3 ? { ...antw, technik: null } : schritt === 2 ? { ...antw, budget: null } : LEER
+        setAntw(neu)
+        window.history.replaceState(window.history.state, '', zuUrl(neu))
+    }
 
     const treffer = useMemo(() => {
         if (schritt < 3 || !tools) return []

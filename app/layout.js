@@ -298,7 +298,7 @@ export default function RootLayout({ children }) {
                         </p>
                         <p>
                             Open Source auf <a href={REPO_URL}>GitHub</a> (Pull Requests werden mit Konfetti empfangen) · Rohdaten als{' '}
-                            <a href={withBase('/api/directories')}>JSON-API</a> · Für KI-Assistenten, die auch mal lachen wollen:{' '}
+                            <a href={withBase('/api/directories.json')}>JSON-API</a> · Für KI-Assistenten, die auch mal lachen wollen:{' '}
                             <a href={withBase('/llms.txt')}>llms.txt</a> · Neues per RSS: <a href={withBase('/feed.xml')}>Gesamt-Feed</a> ·{' '}
                             <a href={withBase('/ki-news/feed.xml')}>KI-News-Feed</a>
                         </p>

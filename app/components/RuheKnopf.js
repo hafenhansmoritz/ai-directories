@@ -19,7 +19,7 @@ export default function RuheKnopf() {
     }
     return (
         <button type="button" className="a-ruhe" aria-pressed={still} onClick={umschalten}>
-            <span aria-hidden="true">{still ? '▶' : '⏸'}</span> Animationen anhalten
+            <span aria-hidden="true">{still ? '▶' : '⏸'}</span> {still ? 'Animationen fortsetzen' : 'Animationen anhalten'}
         </button>
     )
 }

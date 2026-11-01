@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { API_MODELLE } from '../../lib/preise'
-import { RechnerStatus, RechnungTeilen, ZahlFeld, useHashZustand } from './RechnerHelfer'
+import { RechnerStatus, RechnungTeilen, ZahlFeld, begrenze, useHashZustand } from './RechnerHelfer'
 
 // Regler für Anfragen pro Tag logarithmisch (10 bis 100.000), damit kleine Werte genauso gut treffbar sind wie große.
 const LOG_MIN = 1
@@ -41,7 +41,8 @@ export default function ApiRechner() {
 
     useHashZustand({
         n: { wert: anfragen, setzen: setAnfragen, min: 10, max: 100000 },
-        in: { wert: input, setzen: setInput, min: 50, max: 50000 },
+        // Aus einem Beispieltext geschätzte Tokens landen im Link, damit Empfänger dieselbe Rechnung sehen.
+        in: { wert: begrenze(geschaetzt ?? input, 50, 50000), setzen: setInput, min: 50, max: 50000 },
         out: { wert: output, setzen: setOutput, min: 50, max: 8000 },
         m: { wert: auswahl, setzen: setAuswahl, liste: true, erlaubt: API_MODELLE.map((m) => m.id) },
     })

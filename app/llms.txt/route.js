@@ -52,7 +52,7 @@ export function GET() {
 > Deutschsprachige, gepflegte Liste von ${stats.total} KI-Verzeichnissen (AI Directories), Startup-Plattformen und Launch-Seiten, in die Gründer ihr KI-Tool eintragen können. Pro Eintrag: Jean-Score (0 bis 100, gewichtet aus DR, Traffic, Preis und Einreichung), Domain Rating (Ahrefs, 0 bis 100), geschätzte Besuche pro Monat, Preismodell (kostenlos/kostenpflichtig), Qualität der Einreichung und ggf. Rabattcode.
 
 Kennzahlen: ${stats.free.length} kostenlos, ${stats.paid.length} kostenpflichtig, ${stats.strong.length} mit Domain Rating ab 50, ${stats.withDeal.length} mit Rabattcode.
-Rohdaten als JSON: ${absoluteUrl('/api/directories')}
+Rohdaten als JSON: ${absoluteUrl('/api/directories.json')}
 
 ## Listen
 ${lists}

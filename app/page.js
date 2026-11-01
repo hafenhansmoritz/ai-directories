@@ -84,7 +84,7 @@ function Home() {
             distribution: {
                 '@type': 'DataDownload',
                 encodingFormat: 'application/json',
-                contentUrl: absoluteUrl('/api/directories'),
+                contentUrl: absoluteUrl('/api/directories.json'),
             },
         },
         {

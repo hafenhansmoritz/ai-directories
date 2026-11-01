@@ -85,8 +85,8 @@ export default function FooterExtras() {
                 <button type="button" className="ruhe-knopf" onClick={() => window.dispatchEvent(new CustomEvent('aigeddon-kuerzel-hilfe'))}>
                     <span aria-hidden="true">⌨️</span> Tastenkürzel{kuerzel ? ' (?)' : ''}
                 </button>
-                <button type="button" className="ruhe-knopf" aria-pressed={!kuerzel} onClick={() => setzeKuerzel(!kuerzel)}>
-                    Tastenkürzel aus
+                <button type="button" className="ruhe-knopf" onClick={() => setzeKuerzel(!kuerzel)}>
+                    {kuerzel ? 'Tastenkürzel ausschalten' : 'Tastenkürzel einschalten'}
                 </button>
             </div>
         </div>

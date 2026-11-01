@@ -10,6 +10,16 @@ import '../styles/e-inhalte.css'
 const zahl = (v) => (typeof v === 'number' ? v : Number(String(v).replace(',', '.')))
 export const begrenze = (v, min, max) => Math.min(max, Math.max(min, v))
 
+// Hash aus dem aktuellen Stand, sofort verfügbar (der Hash in der Adresszeile wird erst verzögert geschrieben).
+const hashAus = (felder) => {
+    const p = new URLSearchParams()
+    Object.entries(felder).forEach(([name, f]) => {
+        p.set(name, f.liste ? f.wert.join(',') : f.janein ? (f.wert ? '1' : '0') : String(f.wert))
+    })
+    return p.toString().replace(/%2C/g, ',')
+}
+let letzterHash = ''
+
 // Liest beim Laden #k=v&k2=v2 und spiegelt spätere Änderungen in den Hash (ohne neuen Verlaufseintrag).
 // felder: { name: { wert, setzen, min, max } } für Zahlen oder { wert, setzen, liste: true, erlaubt: [] } für Listen.
 export function useHashZustand(felder) {
@@ -36,6 +46,7 @@ export function useHashZustand(felder) {
         // Nur beim ersten Laden aus dem Hash lesen.
     }, [])
     const schluessel = JSON.stringify(Object.fromEntries(Object.entries(felder).map(([k, f]) => [k, f.wert])))
+    letzterHash = hashAus(felder)
     useEffect(() => {
         if (ersterLauf.current) {
             ersterLauf.current = false
@@ -43,12 +54,8 @@ export function useHashZustand(felder) {
         }
         if (!geladen.current) return
         const t = setTimeout(() => {
-            const p = new URLSearchParams()
-            Object.entries(felder).forEach(([name, f]) => {
-                p.set(name, f.liste ? f.wert.join(',') : f.janein ? (f.wert ? '1' : '0') : String(f.wert))
-            })
             try {
-                window.history.replaceState(null, '', `#${p.toString().replace(/%2C/g, ',')}`)
+                window.history.replaceState(null, '', `#${hashAus(felder)}`)
             } catch {}
         }, 400)
         return () => clearTimeout(t)
@@ -133,5 +140,7 @@ export function RechnerStatus({ text }) {
 
 // Knopf „Rechnung teilen“: teilt die aktuelle Adresse samt Eingaben im Hash.
 export function RechnungTeilen({ titel, text }) {
-    return <TeilenKnopf titel={titel} text={text} link={() => window.location.href} label="Rechnung teilen" />
+    // Link aus dem aktuellen Stand bauen, nicht aus der Adresszeile, die noch den vorherigen Stand zeigen kann.
+    const link = () => (letzterHash ? `${window.location.origin}${window.location.pathname}${window.location.search}#${letzterHash}` : window.location.href)
+    return <TeilenKnopf titel={titel} text={text} link={link} label="Rechnung teilen" />
 }
