@@ -7,6 +7,7 @@ import ToolCards from '../../../components/ToolCards'
 import { Band } from '../../../components/Deko'
 import { SITE_NAME } from '../../../../lib/site'
 import { KB_RUBRIKEN, KB_STAND } from '../../../../lib/kb'
+import { datumDe } from '../../../../lib/text'
 import { ALTERNATIVEN, getAlternativenHub, getAlternativenHubs, alternativenFaq } from '../../../../lib/alternativen'
 import Vernetzt, { seitenPfad } from '../../../components/Vernetzt'
 
@@ -119,7 +120,7 @@ function AlternativenPage({ params }) {
                 </ul>
             </section>
             <p className="source">
-                Stand {KB_STAND}. Auswahl aus der KI-Tool-Datenbank, Empfehlungen aus drei offenen GitHub-Listen. <Link href="/ki-tools/quellen">Quellen und Lizenzen</Link>
+                Stand {datumDe(KB_STAND)}. Auswahl aus der KI-Tool-Datenbank, Empfehlungen aus drei offenen GitHub-Listen. <Link href="/ki-tools/quellen">Quellen und Lizenzen</Link>
             </p>
         </>
     )

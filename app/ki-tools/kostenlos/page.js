@@ -10,6 +10,8 @@ import { SITE_NAME } from '../../../lib/site'
 import { getKbTools, KB_RUBRIKEN, KB_STAND } from '../../../lib/kb'
 import { getTools, toolHref, toolRel, TOOLS_STAND } from '../../../lib/tools'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import PartnerHinweis, { hatPartnerlink } from '../../components/PartnerHinweis'
+import { datumDe } from '../../../lib/text'
 
 const FAQ = [
     {
@@ -62,7 +64,7 @@ function KostenlosPage() {
                             </Link>
                             <span>{t.summary_de}</span>
                             <span>
-                                {t.category} · bezahlt ab {t.price_from || 'k. A.'} ·{' '}
+                                {t.category} · bezahlt ab {t.price_from || 'keine Angabe'} ·{' '}
                                 <a href={toolHref(t)} target="_blank" rel={toolRel(t)}>
                                     ansehen ↗{t.affiliate && <sup>*</sup>}
                                 </a>
@@ -71,6 +73,7 @@ function KostenlosPage() {
                     ))}
                 </ul>
                 <p className="source">Laut Anbieter, Stand {TOOLS_STAND}.</p>
+                <PartnerHinweis zeigen={hatPartnerlink(gratisTarif)} />
             </Band>
             <h2>🔓 Open-Source-KI-Tools nach Aufgabe</h2>
             {rubriken.map((r) => (
@@ -84,7 +87,7 @@ function KostenlosPage() {
                 <Faq items={FAQ} />
             </Band>
             <p className="source">
-                Open-Source-Einträge aus der <Link href="/ki-tools">KI-Tool-Datenbank</Link>, Stand {KB_STAND}.
+                Open-Source-Einträge aus der <Link href="/ki-tools">KI-Tool-Datenbank</Link>, Stand {datumDe(KB_STAND)}.
             </p>
         </>
     )

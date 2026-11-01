@@ -5,7 +5,9 @@ import JeanIcon from '../components/JeanIcon'
 import KbExplorer from '../components/KbExplorer'
 import LeadMagnetBox from '../components/LeadMagnetBox'
 import { SITE_NAME } from '../../lib/site'
-import { getKbTools, getKbRubriken, kbStats, kbForClient, KB_SOURCES, KB_STAND } from '../../lib/kb'
+import { getKbTools, getKbRubriken, kbStats, kbForClient, kbSortKonsens, KB_SOURCES, KB_STAND } from '../../lib/kb'
+import { KB_DATEN } from '../../lib/kb-client'
+import { datumDe } from '../../lib/text'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 
 const stats = kbStats()
@@ -85,7 +87,7 @@ function KiToolsPage() {
                     <dd>
                         {stats.profile}
                         <small>
-                            <Link href="/tools">geprüft mit Preisen</Link>
+                            <Link href="/tools">Tool-Steckbriefe mit Preisen</Link>
                         </small>
                     </dd>
                 </div>
@@ -101,7 +103,13 @@ function KiToolsPage() {
                     </li>
                 ))}
             </ul>
-            <KbExplorer tools={kbForClient(getKbTools())} rubriken={rubriken.map((r) => ({ key: r.key, name: r.name, count: r.tools.length }))} />
+            {/* Erste 48 Einträge im HTML, die volle Liste lädt KbExplorer erst beim Suchen, Filtern oder Weiterblättern. */}
+            <KbExplorer
+                tools={kbForClient(getKbTools()).sort(kbSortKonsens).slice(0, 48)}
+                quelle={KB_DATEN}
+                gesamt={stats.gesamt}
+                rubriken={rubriken.map((r) => ({ key: r.key, name: r.name, count: r.tools.length }))}
+            />
             <LeadMagnetBox id="prompt-spickzettel" />
             <p className="source">
                 Quellen: {KB_SOURCES.map((s, i) => (
@@ -110,7 +118,7 @@ function KiToolsPage() {
                         <a href={s.url} rel="noopener">{s.repo}</a> ({s.license})
                     </span>
                 ))}{' '}
-                · Stand {KB_STAND} · <Link href="/ki-tools/quellen">Lizenzen und Methode</Link>. Beschreibungen in Englisch aus der jeweiligen Liste; Konsens und Rubriken von AIGeddon.
+                · Stand {datumDe(KB_STAND)} · <Link href="/ki-tools/quellen">Lizenzen und Methode</Link>. Beschreibungen in Englisch aus der jeweiligen Liste; Konsens und Rubriken von AIGeddon.
             </p>
         </>
     )

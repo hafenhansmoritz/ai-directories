@@ -12,6 +12,8 @@ import Kurzantwort from '../../components/Kurzantwort'
 import { autorRef } from '../../../lib/autor'
 import Pruefer from '../../components/Pruefer'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import PartnerHinweis from '../../components/PartnerHinweis'
+import { kuerzen, datumDe } from '../../../lib/text'
 
 export const dynamicParams = false
 
@@ -19,15 +21,33 @@ export function generateStaticParams() {
     return getComparisons().map((c) => ({ slug: c.slug }))
 }
 
-// Meta-Description höchstens 300 Zeichen, am Satzende gekürzt.
-const kuerzen = (d) => (d.length <= 300 ? d : d.slice(0, d.lastIndexOf('.', 298) + 1))
+// „Jean sagt“ je Vergleich, nur aus den Angaben auf der jeweiligen Seite (BRAND-VOICE: pro Seite einzigartig).
+const JEAN_SAGT = {
+    'make-vs-zapier-vs-n8n': 'Zwei Apps verheiraten: Zapier. Einen Kabelbaum verlegen: Make. Daten in der eigenen Garage lassen: n8n.',
+    'semrush-vs-se-ranking-vs-surfer-seo': 'Kauf nicht den ganzen Werkzeugwagen, wenn du nur Artikel schreibst. Dafür reicht Surfer, für alles andere vergleich Semrush mit SE Ranking.',
+    'beehiiv-vs-kit-vs-getresponse-vs-brevo': 'Alle vier lassen dich gratis rein. Entscheide nach deinem Geschäftsmodell, nicht nach der hübscheren Oberfläche.',
+    'framer-vs-webflow-vs-hostinger': 'Lies bei Hostinger das Kleingedruckte zur Laufzeit, bevor dich der Einstiegspreis verführt.',
+    'synthesia-vs-heygen-vs-invideo-vs-pictory': 'Schulung, Übersetzung, Social Clip oder Blog-Recycling: Das sind vier Werkstätten, also kläre erst den Auftrag.',
+    'claude-vs-perplexity': 'Gleicher Preis im Jahresabo, andere Aufgabe: Zum Schreiben nimmst du Claude, zum Nachschlagen mit Beleg Perplexity.',
+    'elevenlabs-vs-murf': 'Zum Ausprobieren ist ElevenLabs mit Gratis-Tarif der leichtere Einstieg. Murf lohnt den Blick, wenn deine Folien eine Stimme brauchen.',
+    'tally-vs-typeform': 'Für die meisten Formulare reicht Tally gratis. Typeform holst du, wenn sich das Formular wie ein Gespräch anfühlen soll.',
+    'descript-vs-pictory': 'Hast du schon Aufnahmen, nimm Descript. Hast du nur Text, nimm Pictory.',
+    'gamma-vs-canva': 'Nur Folien? Gamma. Folien plus Flyer, Posts und Videos? Canva.',
+    'rytr-vs-writesonic': 'Für kurze Texte zahlst du bei Rytr wenig. Writesonic lohnt sich erst, wenn du wissen willst, ob die KI über dich spricht.',
+    'midjourney-vs-leonardo-ai': 'Kläre vor dem ersten Bild, wer deine Ergebnisse sehen darf. Im Gratis-Tarif von Leonardo ist das jeder.',
+    'wordtune-vs-rytr': 'Englisch glätten: Wordtune. Deutsch neu schreiben: Rytr. Das ist die ganze Weiche.',
+    'runway-vs-invideo-ai': 'Für das eine scharfe Video nimm Runway, für den wöchentlichen Upload-Rhythmus InVideo AI.',
+    'otter-ai-vs-descript': 'Willst du ein Protokoll oder einen fertigen Schnitt? Die Antwort entscheidet, nicht der Preis.',
+    'systeme-io-vs-kit': 'Willst du den ganzen Laden aus einer Hand, nimm Systeme.io. Lebt dein Geschäft vom Newsletter, nimm Kit.',
+    'surfer-seo-vs-writesonic': 'Wer nur Artikel poliert, ist bei Surfer richtig. Wer Audits und KI-Artikel dazu will, testet Writesonic erst 7 Tage.',
+}
 
 export function generateMetadata({ params }) {
     const c = getComparison(params.slug)
     if (!c) return {}
     return {
         title: c.title.length > 46 ? c.title : c.title.length > 30 ? `${c.title} im Vergleich` : `${c.title}: Vergleich & Empfehlung`,
-        description: kuerzen(`${c.intro} Preise, Gratis-Tarife und welches Tool für welchen Zweck passt (Stand ${TOOLS_STAND}).`),
+        description: kuerzen(`${c.intro} Preise, Gratis-Tarife und welches Tool für welchen Zweck passt (Stand ${TOOLS_STAND}).`, 160),
         alternates: { canonical: `/tool-vergleiche/${c.slug}` },
     }
 }
@@ -37,7 +57,7 @@ const yesNo = (v) => (v === true ? 'Ja' : v === false ? 'Nein' : 'keine Angabe')
 const ROWS = [
     ['Am besten für', (t) => t.best_for_de],
     ['Gratis-Tarif', (t) => yesNo(t.free_plan)],
-    ['Testphase', (t) => t.free_trial || '–'],
+    ['Testphase', (t) => t.free_trial || 'keine Angabe'],
     ['Bezahlt ab', (t) => t.price_from || 'keine Angabe'],
     ['Oberfläche auf Deutsch', (t) => yesNo(t.german_ui)],
 ]
@@ -50,23 +70,17 @@ function ComparisonPage({ params }) {
         { name: 'Tool-Vergleiche', path: '/tool-vergleiche' },
         { name: c.title, path: `/tool-vergleiche/${c.slug}` },
     ]
-    const faq = {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: c.picks.map(([question, slug, why]) => ({
-            '@type': 'Question',
-            name: `Welches Tool passt, wenn gilt: ${question}?`,
-            acceptedAnswer: { '@type': 'Answer', text: `${getTool(slug)?.name}. ${why}` },
-        })),
-    }
-    for (const [q, a] of c.faq || []) faq.mainEntity.push({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })
+    // FAQ-Markup nur für die sichtbaren Fragen (Abschnitt „Häufige Fragen“), nicht für die Empfehlungen je Fall.
+    const faq = c.faq?.length
+        ? { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }
+        : null
     const anyAffiliate = c.items.some((t) => t.affiliate)
     return (
         <>
             <JsonLd
                 data={[
                     breadcrumbSchema(crumbs),
-                    faq,
+                    ...(faq ? [faq] : []),
                     {
                         '@context': 'https://schema.org',
                         '@type': 'Article',
@@ -86,7 +100,7 @@ function ComparisonPage({ params }) {
                 <p className="eyebrow">{c.topic} im Vergleich ⚖️</p>
                 <h1>{c.title}</h1>
                 <p className="lead">{c.intro}</p>
-                <Jean>Kurzfassung: Es gibt kein bestes Tool, nur das beste für deinen Zweck. Deshalb unten pro Fall eine klare Ansage.</Jean>
+                <Jean>{JEAN_SAGT[c.slug] || 'Kurzfassung: Es gibt kein bestes Tool, nur das beste für deinen Zweck. Deshalb unten pro Fall eine klare Ansage.'}</Jean>
                 <Kurzantwort frage={`${c.items.map((t) => t.name).join(c.items.length > 2 ? ', ' : ' oder ').replace(/, ([^,]*)$/, ' oder $1')}: was ist besser?`}>
                     {`Kommt auf deinen Einsatz an. ${c.picks.map(([frage, slug]) => `${frage.replace(/[.!?]$/, '')}: ${getTool(slug)?.name}`).join('. ')}.`}
                 </Kurzantwort>
@@ -139,18 +153,23 @@ function ComparisonPage({ params }) {
                                     ))}
                                 </tr>
                             ))}
+                            <tr className="dt-anbieter-zeile">
+                                <th scope="row">Zum Anbieter</th>
+                                {c.items.map((t) => (
+                                    <td key={t.slug}>
+                                        <a className="button button-small" href={toolHref(t)} target="_blank" rel={toolRel(t)}>
+                                            {t.name} ↗{t.affiliate && <sup>*</sup>}
+                                        </a>
+                                    </td>
+                                ))}
+                            </tr>
                         </tbody>
                     </table>
                 </div>
                 <p className="source">
                     Angaben laut Anbieter, Stand {TOOLS_STAND}. Maßgeblich ist die jeweilige Preisseite.
-                    {anyAffiliate && (
-                        <>
-                            {' '}
-                            * Partnerlink, <Link href="/transparenz">mehr dazu</Link>.
-                        </>
-                    )}
                 </p>
+                <PartnerHinweis zeigen={anyAffiliate} />
             </section>
             {c.unterschiede?.length > 0 && (
                 <section aria-labelledby="unterschiede">
@@ -174,7 +193,7 @@ function ComparisonPage({ params }) {
             {c.quellen?.length > 0 && (
                 <section aria-labelledby="quellen" className="quellen-block">
                     <h2 id="quellen">Quellen und Stand 🔎</h2>
-                    <p>Unterschiede und Antworten wurden {c.geprueft ? `am ${new Date(c.geprueft).toLocaleDateString('de-DE')} ` : ''}auf den Seiten der Anbieter geprüft.</p>
+                    <p>Unterschiede und Antworten wurden {c.geprueft ? `am ${datumDe(c.geprueft)} ` : ''}auf den Seiten der Anbieter geprüft.</p>
                     <ul className="quellen">
                         {c.quellen.map((q) => (
                             <li key={q.url}>

@@ -11,7 +11,9 @@ import { RUBRIK_RATGEBER } from '../../../lib/rubrik-ratgeber'
 import Quellen from '../../components/Quellen'
 import { getArtikel } from '../../../lib/ratgeber'
 import { SITE_NAME } from '../../../lib/site'
-import { getKbRubrik, getKbRubriken, kbForClient, KB_STAND } from '../../../lib/kb'
+import { getKbRubrik, getKbRubriken, kbForClient, kbPfad, KB_STAND } from '../../../lib/kb'
+import { kuerzen, datumDe } from '../../../lib/text'
+import PartnerHinweis, { hatPartnerlink } from '../../components/PartnerHinweis'
 import { getPrompt } from '../../../lib/prompts'
 import { getTutorial } from '../../../lib/tutorials'
 import { getTools, toolHref, toolRel } from '../../../lib/tools'
@@ -29,7 +31,7 @@ export function generateMetadata({ params }) {
     const top = r.tools.filter((t) => t.konsens > 1).slice(0, 4).map((t) => t.name)
     return {
         title: `${r.name}: ${r.tools.length} Tools im Überblick`,
-        description: `${r.intro} ${top.length ? `Konsens-Favoriten: ${top.join(', ')}.` : ''}`.slice(0, 300),
+        description: kuerzen(`${r.intro} ${top.length ? `Konsens-Favoriten: ${top.join(', ')}.` : ''}`),
         alternates: { canonical: `/ki-tools/${r.key}` },
     }
 }
@@ -84,7 +86,7 @@ function RubrikPage({ params }) {
                     <ol className="podium">
                         {favoriten.map((t) => (
                             <li key={t.slug}>
-                                <Link href={`/ki-tools/tool/${t.slug}`}>
+                                <Link href={kbPfad(t)}>
                                     <strong>{t.name}</strong>
                                 </Link>
                                 <span>{t.konsens === 3 ? '🏆 in allen 3 Listen' : '🥈 in 2 von 3 Listen'}</span>
@@ -135,6 +137,7 @@ function RubrikPage({ params }) {
                             </li>
                         ))}
                     </ul>
+                    <PartnerHinweis zeigen={hatPartnerlink(partner)} />
                 </section>
             )}
             <h2 id="alle">Alle {r.tools.length} Tools</h2>
@@ -171,7 +174,7 @@ function RubrikPage({ params }) {
             {rat && <Quellen quellen={rat.quellen} geprueft={rat.geprueft} text="Auswahlkriterien und Antworten wurden mit diesen Quellen abgeglichen" />}
             <LeadMagnetBox id="prompt-paket" />
             <p className="source">
-                Stand {KB_STAND}. Einträge aus drei offenen GitHub-Listen, deutsche Kurzbeschreibungen auf Basis der Quellenangaben. <Link href="/ki-tools/quellen">Quellen und Lizenzen</Link> ·{' '}
+                Stand {datumDe(KB_STAND)}. Einträge aus drei offenen GitHub-Listen, deutsche Kurzbeschreibungen auf Basis der Quellenangaben. <Link href="/ki-tools/quellen">Quellen und Lizenzen</Link> ·{' '}
                 <Link href="/ki-tools">← alle Rubriken</Link>
             </p>
         </>

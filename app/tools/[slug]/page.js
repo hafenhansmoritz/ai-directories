@@ -20,6 +20,8 @@ import { autorRef } from '../../../lib/autor'
 import Pruefer from '../../components/Pruefer'
 import { dateiStand } from '../../../lib/stand'
 import Kurzantwort from '../../components/Kurzantwort'
+import PartnerHinweis from '../../components/PartnerHinweis'
+import { kuerzen } from '../../../lib/text'
 
 export const dynamicParams = false
 
@@ -30,11 +32,43 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
     const t = getTool(params.slug)
     if (!t) return {}
+    // Steckbrief = Preis-Intent; „Alternativen“ gehört dem Hub /ki-tools/alternativen/… (keine Kannibalisierung).
+    // Preis-Info zuerst in der Description, damit sie im Snippet nicht abgeschnitten wird.
+    const preis = [t.free_plan === true ? 'gratis nutzbar' : '', t.price_from ? `bezahlt ab ${preisKurz(t.price_from)}` : ''].filter(Boolean).join(', ')
     return {
-        title: t.name.length > 18 ? `${t.name}: Preis & Alternativen` : `${t.name}: Preis, Gratis-Tarif & Alternativen`,
-        description: `${t.summary_de} ${t.free_plan ? 'Mit Gratis-Tarif. ' : ''}${t.price_from ? `Bezahlt ab ${t.price_from}. ` : ''}Dazu Alternativen aus ${t.category}.`.slice(0, 300),
+        title: t.name.length > 18 ? `${t.name}: Preis & Gratis-Tarif` : `${t.name}: Preis, Gratis-Tarif & Kosten`,
+        description: kuerzen(`${t.name}${preis ? `: ${preis}` : ''}. ${t.summary_de}`),
         alternates: { canonical: `/tools/${t.slug}` },
     }
+}
+
+// Kurzform des Einstiegspreises für Meta-Angaben: nur der erste Betrag samt Einheit, Klammerzusatz weg.
+const preisKurz = (p) => p.split(/\s*[(;]|\s+bzw\.\s/)[0].trim()
+
+// Angebot fürs Schema nur aus den offiziellen Feldern (price_from, free_plan). Erster Betrag und Währung werden aus
+// dem Text gelesen, nichts geschätzt. Ohne erkennbaren Betrag gibt es kein bezahltes Angebot.
+function schemaOffers(t) {
+    const offers = []
+    const m = t.price_from && t.price_from.match(/(?:US)?\$\s?(\d[\d.,]*)|(\d[\d.,]*)\s?€/)
+    let waehrung = null
+    if (m) {
+        waehrung = m[1] ? 'USD' : 'EUR'
+        const roh = m[1] || m[2]
+        const betrag = Number(/,\d{1,2}$/.test(roh) ? roh.replace(/\./g, '').replace(',', '.') : roh.replace(/,/g, ''))
+        const rest = t.price_from.slice(m.index + m[0].length)
+        const einheit = /^\s*\/\s*(Nutzer\/)?Monat/.test(rest) ? 'MONTH' : /^\s*\/\s*Jahr/.test(rest) ? 'YEAR' : null
+        if (betrag > 0)
+            offers.push({
+                '@type': 'Offer',
+                price: betrag,
+                priceCurrency: waehrung,
+                description: `Einstiegspreis laut Anbieter: ${t.price_from}`,
+                ...(t.pricing_url ? { url: t.pricing_url } : {}),
+                ...(einheit ? { priceSpecification: { '@type': 'UnitPriceSpecification', price: betrag, priceCurrency: waehrung, unitCode: einheit === 'MONTH' ? 'MON' : 'ANN' } } : {}),
+            })
+    }
+    if (t.free_plan === true) offers.unshift({ '@type': 'Offer', price: 0, priceCurrency: waehrung || 'EUR', description: 'Gratis-Tarif laut Anbieter', ...(t.pricing_url ? { url: t.pricing_url } : {}) })
+    return offers
 }
 
 const yesNo = (v) => (v === true ? 'Ja' : v === false ? 'Nein' : 'keine Angabe')
@@ -95,9 +129,10 @@ function ToolPage({ params }) {
         ? ZIELGRUPPEN.flatMap((z) => z.aufgaben.filter(([, , , tools]) => tools.includes(kb.slug)).map(([emoji, aufgabe]) => ({ z, emoji, aufgabe })))
         : []
     const faq = toolFaq(t, alternatives, abo)
+    const offers = schemaOffers(t)
     const crumbs = [
         { name: SITE_NAME, path: '/' },
-        { name: 'KI-Tools', path: '/tools' },
+        { name: 'Tool-Steckbriefe', path: '/tools' },
         { name: t.name, path: `/tools/${t.slug}` },
     ]
     const schema = [
@@ -105,11 +140,13 @@ function ToolPage({ params }) {
         {
             '@context': 'https://schema.org',
             '@type': 'SoftwareApplication',
+            '@id': `${absoluteUrl(`/tools/${t.slug}`)}#software`,
             name: t.name,
             applicationCategory: t.category,
             operatingSystem: 'Web',
             url: t.url,
             description: t.summary_de,
+            ...(offers.length ? { offers: offers.length === 1 ? offers[0] : offers } : {}),
         },
         faqSchema(faq),
         {
@@ -120,7 +157,7 @@ function ToolPage({ params }) {
             inLanguage: 'de-DE',
             reviewedBy: autorRef(),
             lastReviewed: dateiStand('db/tools.json', 'db/texte/tools.json').toISOString().slice(0, 10),
-            about: { '@type': 'SoftwareApplication', name: t.name, url: t.url },
+            about: { '@id': `${absoluteUrl(`/tools/${t.slug}`)}#software` },
         },
     ]
     return (
@@ -134,22 +171,26 @@ function ToolPage({ params }) {
                 <p>
                     <strong>Am besten für:</strong> {t.best_for_de}
                 </p>
+                <p className="cta-row">
+                    <a className="button" href={toolHref(t)} target="_blank" rel={toolRel(t)}>
+                        {t.name} ansehen ↗{t.affiliate && <sup>*</sup>}
+                    </a>
+                    {t.pricing_url && (
+                        <span className="source">
+                            Quelle der Preise:{' '}
+                            <a href={t.pricing_url} target="_blank" rel="nofollow noopener noreferrer">
+                                Preisseite von {t.name} ↗
+                            </a>
+                        </span>
+                    )}
+                </p>
+                <PartnerHinweis zeigen={Boolean(t.affiliate)} />
                 <Kurzantwort frage={`Was kostet ${t.name}, und für wen lohnt es sich?`}>
                     {t.free_plan === true ? `${t.name} lässt sich laut Anbieter kostenlos nutzen.` : t.free_plan === false ? `${t.name} hat laut Anbieter keinen dauerhaften Gratis-Tarif${t.free_trial ? `, aber eine Testphase (${t.free_trial})` : ''}.` : `Ob ${t.name} einen Gratis-Tarif hat, nennt die Preisseite nicht eindeutig.`}{' '}
                     {t.price_from ? `Bezahlt geht es ab ${t.price_from} los (Stand ${TOOLS_STAND}).` : 'Einen festen Einstiegspreis nennt der Anbieter nicht.'} Am besten geeignet für: {t.best_for_de.replace(/\.$/, '')}.
                     {alternatives.length > 0 && ` Bekannte Alternativen: ${alternatives.slice(0, 3).map((a) => a.name).join(', ')}.`}
                 </Kurzantwort>
                 {TEXTE[t.slug]?.jean && <Jean>{TEXTE[t.slug].jean}</Jean>}
-                <p className="cta-row">
-                    <a className="button" href={toolHref(t)} target="_blank" rel={toolRel(t)}>
-                        {t.name} ansehen ↗{t.affiliate && <sup>*</sup>}
-                    </a>
-                    {t.pricing_url && (
-                        <a href={t.pricing_url} target="_blank" rel="noopener noreferrer">
-                            Preisseite ↗
-                        </a>
-                    )}
-                </p>
             </section>
             <dl className="facts">
                 <div>
@@ -158,13 +199,22 @@ function ToolPage({ params }) {
                 </div>
                 <div>
                     <dt>Testphase</dt>
-                    <dd>{t.free_trial || '–'}</dd>
+                    <dd>{t.free_trial || 'keine Angabe'}</dd>
                 </div>
                 <div>
                     <dt>Bezahlt ab</dt>
                     <dd>
-                        {t.price_from || 'keine Angabe'}
-                        <small>laut Anbieter, {TOOLS_STAND}</small>
+                        {t.price_from ? (
+                            <>
+                                {t.price_from}
+                                <small>laut Anbieter, {TOOLS_STAND}</small>
+                            </>
+                        ) : (
+                            <>
+                                nicht öffentlich
+                                <small>Einen festen Preis nennt der Anbieter nicht, Stand {TOOLS_STAND}</small>
+                            </>
+                        )}
                     </dd>
                 </div>
                 <div>
@@ -175,7 +225,6 @@ function ToolPage({ params }) {
             {t.source && (
                 <p className="source">
                     Quelle: <a href={t.source} target="_blank" rel="nofollow noopener noreferrer">{new URL(t.source).hostname}</a>
-                    {t.affiliate && <> · * Partnerlink, <Link href="/transparenz">mehr dazu</Link></>}
                 </p>
             )}
             {TEXTE[t.slug] && (
@@ -215,6 +264,11 @@ function ToolPage({ params }) {
                           ? `${t.name} hat keinen dauerhaften Gratis-Tarif${t.free_trial ? `, aber eine Testphase (${t.free_trial})` : ''}.`
                           : `Ob es einen Gratis-Tarif gibt, verrät die Preisseite nicht eindeutig.`}{' '}
                     {t.price_from ? `Bezahlt geht es laut Anbieter ab ${t.price_from} los.` : 'Einen festen Einstiegspreis nennt der Anbieter nicht.'}
+                </p>
+                <p>
+                    <a className="button button-small" href={toolHref(t)} target="_blank" rel={toolRel(t)}>
+                        Zum Anbieter {t.name} ↗{t.affiliate && <sup>*</sup>}
+                    </a>
                 </p>
                 {abo && (
                     <p>
@@ -311,7 +365,7 @@ function ToolPage({ params }) {
             </section>
             <Pruefer datum={dateiStand('db/tools.json', 'db/texte/tools.json')} />
             <p className="cta-row">
-                <Link href="/tools">← Alle KI-Tools mit Preisen</Link>
+                <Link href="/tools">← Alle Tool-Steckbriefe mit Preisen</Link>
                 {kb && <Link href={`/ki-tools/tool/${kb.slug}`}>{t.name} in der KI-Tool-Datenbank</Link>}
                 {kb && hatAlternativenHub(kb.slug) && <Link href={`/ki-tools/alternativen/${kb.slug}`}>Alle Alternativen zu {t.name}</Link>}
                 {rubrik && <Link href={`/ki-tools/${rubrik.key}`}>Rubrik {rubrik.name}</Link>}
