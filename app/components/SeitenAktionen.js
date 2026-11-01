@@ -33,6 +33,8 @@ export default function SeitenAktionen() {
     const [gemerkt, setGemerkt] = useState(false)
     const [bereit, setBereit] = useState(false)
     const [einladen, setEinladen] = useState(false)
+    const [teilenOffen, setTeilenOffen] = useState(false)
+    const [ziel, setZiel] = useState({ url: '', titel: '' })
     const { user } = useKonto()
 
     useEffect(() => {
@@ -42,6 +44,7 @@ export default function SeitenAktionen() {
         }
         lesen()
         setBereit(true)
+        setTeilenOffen(false)
         window.addEventListener('aigeddon-sync', lesen)
         return () => window.removeEventListener('aigeddon-sync', lesen)
     }, [pfad])
@@ -57,7 +60,7 @@ export default function SeitenAktionen() {
             alle.add(pfad)
             setHerz(true)
             herzRegen(e.currentTarget)
-            if (alle.size === 5) verleihe('Herzensmensch-Abzeichen')
+            if (alle.size === 5) verleihe('Herzensmensch-Abzeichen', { auto: false })
             else toast(alle.size === 1 ? 'Dein erstes Herz! Danke, das freut uns wirklich.' : 'Danke für dein Herz!', '❤️')
         }
         schreib('aigeddon-herzen', [...alle])
@@ -73,22 +76,34 @@ export default function SeitenAktionen() {
             schreib('aigeddon-merkliste', [{ pfad, titel: sauber(document.title), zeit: Date.now() }, ...liste].slice(0, 100))
             setGemerkt(true)
             if (liste.length + 1 >= 3) setEinladen(true)
-            toast('Gemerkt! Du findest die Seite unter Merkliste (Taste m).', '⭐')
+            toast('Gemerkt! Du findest die Seite oben unter dem Stern und in deiner Merkliste.', '⭐')
         }
     }
 
+    // Mit Web-Share (meist auf dem Handy) das Teilen-Menü des Geräts, sonst ein kleines Menü mit
+    // LinkedIn, WhatsApp, E-Mail und Kopieren. Alles normale Links, kein Tracking-Skript.
     const teilen = async () => {
         const url = window.location.href.split('#')[0]
-        try {
-            if (navigator.share) {
-                await navigator.share({ title: sauber(document.title), url })
-                verleihe('Botschafter-Abzeichen')
-                return
-            }
-            await navigator.clipboard.writeText(url)
-            if (!verleihe('Botschafter-Abzeichen')) toast('Link kopiert. Danke fürs Weitersagen!', '🔗')
-        } catch {}
+        const titel = sauber(document.title)
+        if (navigator.share) {
+            try {
+                await navigator.share({ title: titel, url })
+                verleihe('Botschafter-Abzeichen', { auto: false })
+            } catch {}
+            return
+        }
+        setZiel({ url, titel })
+        setTeilenOffen((o) => !o)
     }
+    const kopieren = async () => {
+        try {
+            await navigator.clipboard.writeText(ziel.url)
+            if (!verleihe('Botschafter-Abzeichen', { auto: false })) toast('Link kopiert. Danke fürs Weitersagen!', '🔗')
+        } catch {}
+        setTeilenOffen(false)
+    }
+    const geteilt = () => verleihe('Botschafter-Abzeichen', { auto: false })
+    const u = encodeURIComponent(ziel.url)
 
     return (
         <div className="seiten-aktionen" aria-label="Seite bewerten, merken oder teilen" role="group">
@@ -100,9 +115,25 @@ export default function SeitenAktionen() {
             <button type="button" className={`aktion-knopf${gemerkt ? ' an' : ''}`} aria-pressed={bereit ? gemerkt : undefined} onClick={merkKlick}>
                 <span aria-hidden="true">{gemerkt ? '⭐' : '☆'}</span> {gemerkt ? 'Gemerkt' : 'Merken'}
             </button>
-            <button type="button" className="aktion-knopf" onClick={teilen}>
+            <button type="button" className="aktion-knopf" onClick={teilen} aria-expanded={teilenOffen} aria-controls="a-teilen-menue">
                 <span aria-hidden="true">💌</span> Teilen
             </button>
+            {teilenOffen && (
+                <span className="a-teilen" id="a-teilen-menue" role="group" aria-label="Seite teilen">
+                    <a className="aktion-knopf" href={`https://www.linkedin.com/sharing/share-offsite/?url=${u}`} target="_blank" rel="noopener noreferrer" onClick={geteilt}>
+                        LinkedIn
+                    </a>
+                    <a className="aktion-knopf" href={`https://wa.me/?text=${encodeURIComponent(`${ziel.titel} ${ziel.url}`)}`} target="_blank" rel="noopener noreferrer" onClick={geteilt}>
+                        WhatsApp
+                    </a>
+                    <a className="aktion-knopf" href={`mailto:?subject=${encodeURIComponent(ziel.titel)}&body=${u}`} onClick={geteilt}>
+                        E-Mail
+                    </a>
+                    <button type="button" className="aktion-knopf" onClick={kopieren}>
+                        Link kopieren
+                    </button>
+                </span>
+            )}
             <span className="seiten-aktionen-hinweis">
                 {user ? 'Wird in deinem Konto gespeichert, damit du es auf allen Geräten hast.' : 'Bleibt nur in deinem Browser, wir zählen nichts.'}
             </span>

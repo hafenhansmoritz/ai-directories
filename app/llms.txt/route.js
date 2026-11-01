@@ -13,6 +13,11 @@ import { getTutorials } from '../../lib/tutorials'
 import { getKbRubriken, kbStats, KB_SOURCES } from '../../lib/kb'
 import { TESTS, getTestKategorien } from '../../lib/kitests'
 import { RECHNER } from '../../lib/rechner'
+import { getComparisons } from '../../lib/comparisons'
+import { MODELLE, FAMILIEN } from '../../lib/modelle'
+import { KI_GLOSSAR, glossarSlug } from '../../lib/ki-glossar'
+import { getAlternativenHubs } from '../../lib/alternativen'
+import { ZIELGRUPPEN } from '../../lib/zielgruppen'
 import { experienceLabel, pricingLabel, dealLabel, formatRating, formatVisits } from '../../utils/i18n-de'
 
 export const dynamic = 'force-static'
@@ -54,7 +59,7 @@ ${lists}
 - [Deutsche KI-Verzeichnisse](${absoluteUrl('/deutsche-ki-verzeichnisse')})
 - [Neu entdeckte KI-Verzeichnisse, geprüft im Oktober 2026](${absoluteUrl('/neu-entdeckt')})
 - [Neue KI-Modelle 2026: GPT-6, Gemini 4 Argon, Claude 5.5 mit Quellen und Preisen](${absoluteUrl('/neue-ki-modelle')})
-- [KI-News: aktuelle Meldungen mit Quellen, Handlungsempfehlung und Fristen-Kalender](${absoluteUrl('/ki-news')}) · RSS: ${absoluteUrl('/ki-news/feed.xml')}
+- [KI-News: aktuelle Meldungen mit Quellen, Handlungsempfehlung und Fristen-Kalender](${absoluteUrl('/ki-news')}) · RSS: ${absoluteUrl('/ki-news/feed.xml')} · Gesamt-Feed (News, Ratgeber, neue Verzeichnisse): ${absoluteUrl('/feed.xml')}
 ${NEWS.map((n) => `- [${n.titel}](${absoluteUrl(`/ki-news/${n.slug}`)}): ${n.description}`).join('\n')}
 
 ## Werkzeuge und Ratgeber
@@ -80,6 +85,27 @@ ${RECHNER.map((r) => `- [${r.titel}](${absoluteUrl(`/rechner/${r.slug}`)}): ${r.
 - [Alternativen zu bekannten KI-Tools](${absoluteUrl('/ki-tools/alternativen')})
 - [KI-Tools nach Zielgruppe](${absoluteUrl('/ki-tools/fuer')})
 - [KI-Verzeichnis: Was es ist und welche sich lohnen](${absoluteUrl('/ki-verzeichnis')})
+
+## Tool-Vergleiche
+
+${getComparisons().map((c) => `- [${c.items.map((t) => t.name).join(' vs. ')}](${absoluteUrl(`/tool-vergleiche/${c.slug}`)})`).join('\n')}
+
+## Neue KI-Modelle
+
+${FAMILIEN.map((f) => `- [${f.titel || f.name}](${absoluteUrl(`/neue-ki-modelle/${f.slug}`)}): ${f.description || ''}`).join('\n')}
+${MODELLE.map((m) => `- [${m.name} (${m.anbieter}, ${m.datumText})](${absoluteUrl(`/neue-ki-modelle/${m.slug}`)}): ${m.kurz}`).join('\n')}
+
+## Alternativen zu bekannten KI-Tools
+
+${getAlternativenHubs().map((h) => `- [${h.tool.name}-Alternativen](${absoluteUrl(`/ki-tools/alternativen/${h.slug || h.tool.slug}`)}): ${h.liste.slice(0, 5).map((t) => t.name).join(', ')}`).join('\n')}
+
+## KI-Tools nach Zielgruppe
+
+${ZIELGRUPPEN.map((z) => `- [${z.titel}](${absoluteUrl(`/ki-tools/fuer/${z.slug}`)}): ${z.intro}`).join('\n')}
+
+## KI-Glossar
+
+${KI_GLOSSAR.map(([term, text]) => `- [${term}](${absoluteUrl(`/glossar/${glossarSlug(term)}`)}): ${text}`).join('\n')}
 
 ## KI-Test
 

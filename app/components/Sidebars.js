@@ -1,24 +1,14 @@
-import Link from 'next/link'
+import Link from './NavLink'
 import JeanIcon from './JeanIcon'
 import TrackerMini from './TrackerMini'
-import CopyButton from './CopyButton'
 import { getDirectories } from '../../lib/data'
 import { getScore } from '../../lib/score'
 import { hasStatusIssue } from '../../lib/checks'
 import { isDrSuspect } from '../../lib/fresh'
-import { getTools } from '../../lib/tools'
-import { dealLabel } from '../../utils/i18n-de'
-import { NEWSLETTER_URL, YOUTUBE_SUBSCRIBE_URL, submitRel } from '../../lib/monetization'
-import { getPrompts } from '../../lib/prompts'
 import { getGuides } from '../../lib/guides'
 import ToolRoulette from './ToolRoulette'
 import { Mutmacher, Glueckskeks } from './HerzWidgets'
-
-// Tageswechsel ohne Server: Die Seite wird täglich neu gebaut, der Tag des Jahres wählt Deal und Tool.
-const dayIndex = () => {
-    const now = new Date()
-    return Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000)
-}
+import { HeuteSeitenleiste } from './HeuteWidgets'
 
 const KOMPASS = [
     ['/#alle', 'Alle Verzeichnisse', 'lupe', false],
@@ -98,103 +88,55 @@ export function SidebarLeft() {
     )
 }
 
+// Rechte Seitenleiste. Deal, Prompt und Tool des Tages kommen aus /heute.json (siehe HeuteWidgets), damit das HTML stabil bleibt.
+// Kein eigener YouTube-Kasten: Die Abo-Box steht schon unter jedem Inhalt (LeadBox), eine pro Seite reicht.
 export function SidebarRight() {
-    const day = dayIndex()
-    const deals = getDirectories().filter((d) => d.dealCode && !hasStatusIssue(d.slug))
-    const deal = deals[day % deals.length]
-    const tools = getTools()
-    const tool = tools[day % tools.length]
-    const hasNewsletter = Boolean(NEWSLETTER_URL)
     return (
         <>
-            <Widget icon={hasNewsletter ? 'post' : 'play'} cool title={hasNewsletter ? 'PromptGott-Newsletter' : 'AIGeddon auf YouTube'}>
-                <p>{hasNewsletter ? 'Neue Verzeichnisse, Sperren und Deals einmal pro Woche.' : 'KI-Use-Cases, Prompts und Tutorials als Video.'}</p>
-                <a className="button button-small" href={hasNewsletter ? `${NEWSLETTER_URL.replace(/\/$/, '')}/subscribe` : YOUTUBE_SUBSCRIBE_URL} target="_blank" rel="noopener">
-                    {hasNewsletter ? 'Abonnieren →' : 'Kanal abonnieren →'}
-                </a>
-            </Widget>
-            {deal && (
-                <Widget icon="deal" title="Deal des Tages">
-                    <p>
-                        <strong>{dealLabel(deal.dealText)}</strong> bei <Link href={`/verzeichnis/${deal.slug}`}>{deal.name}</Link>
-                    </p>
-                    <p className="widget-code">
-                        <code>{deal.dealCode}</code> <CopyButton value={deal.dealCode} label="Kopieren" />
-                    </p>
-                    <p className="widget-note">
-                        <a href={deal.submission_link} target="_blank" rel={submitRel(deal)}>
-                            Einlösen ↗{deal.affiliate && <sup>*</sup>}
-                        </a>{' '}
-                        · <Link href="/liste/rabattcodes">alle Deals</Link>
-                    </p>
-                </Widget>
-            )}
-            {(() => {
-                const prompts = getPrompts()
-                const pt = prompts[day % prompts.length]
-                return (
-                    <Widget icon="prompt" cool title="Prompt des Tages">
-                        <p>
-                            <Link href={`/prompts/${pt.slug}`}>
-                                <strong>{pt.title}</strong>
-                            </Link>
-                        </p>
-                        <p className="widget-note">{pt.ziel}</p>
-                        <Link className="button button-small" href={`/prompts/${pt.slug}`}>
-                            Ausprobieren →
-                        </Link>
-                    </Widget>
-                )
-            })()}
+            <HeuteSeitenleiste />
             <Widget icon="herz" cool title="Mutmacher des Tages">
                 <Mutmacher />
             </Widget>
             <Widget icon="strahlung" title="KI-Tool-Roulette">
                 <ToolRoulette />
             </Widget>
-            {tool && (
-                <Widget icon="werkzeug" title="Tool des Tages">
-                    <p>
-                        <Link href={`/tools/${tool.slug}`}>
-                            <strong>{tool.name}</strong>
-                        </Link>{' '}
-                        <span className="widget-note">{tool.category}</span>
-                    </p>
-                    <p className="widget-note">{tool.free_plan ? 'Mit Gratis-Tarif. ' : ''}{tool.price_from ? `Bezahlt ab ${tool.price_from}.` : ''}</p>
-                </Widget>
-            )}
             <Widget icon="pokal" title="Dein Glückskeks">
                 <Glueckskeks />
             </Widget>
             <Widget icon="rakete" title="Launch-Service">
                 <p>Keine Zeit für 50 Formulare? Wir tragen dein Tool ein.</p>
                 <Link className="button button-small" href="/werben">
-                    Ansehen →
+                    Eintrags-Service und Preise ansehen →
                 </Link>
             </Widget>
         </>
     )
 }
 
+// Schnellzugriff unten auf Handy und Tablet. Die Merkliste statt des Abo-Links: Gespeichertes muss mit einem Tipp erreichbar sein.
 export function MobileDock() {
     return (
-        <nav className="mobile-dock" aria-label="Schnellzugriff">
+        <nav className="mobile-dock a-dock" aria-label="Schnellzugriff">
             <Link href="/#alle">
                 <JeanIcon badge="lupe" size={28} />
                 <span>Liste</span>
             </Link>
-            <Link href="/tools">
+            <Link href="/ki-tools">
                 <JeanIcon badge="werkzeug" size={28} />
-                <span>Tools</span>
+                <span>KI-Tools</span>
             </Link>
             <Link href="/prompts">
                 <JeanIcon badge="prompt" size={28} />
                 <span>Prompts</span>
             </Link>
-            <a href={NEWSLETTER_URL ? `${NEWSLETTER_URL.replace(/\/$/, '')}/subscribe` : YOUTUBE_SUBSCRIBE_URL} target="_blank" rel="noopener">
-                <JeanIcon cool badge={NEWSLETTER_URL ? 'post' : 'play'} size={28} />
-                <span>Abo</span>
-            </a>
+            <Link href="/launch-kit">
+                <JeanIcon badge="rakete" size={28} />
+                <span>Launch</span>
+            </Link>
+            <Link href="/merkliste">
+                <JeanIcon cool badge="herz" size={28} />
+                <span>Merkliste</span>
+            </Link>
         </nav>
     )
 }
