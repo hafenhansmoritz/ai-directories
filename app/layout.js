@@ -241,12 +241,17 @@ export default function RootLayout({ children }) {
                     </div>
                 </header>
                 <div className="ticker a-ticker">
-                    <div className="ticker-track" aria-hidden="true">
-                        {TICKER.map((t) => (
-                            <span key={t}>{t}</span>
-                        ))}
+                    <div className="a-ticker-ruhe-wrap">
+                        <RuheKnopf />
                     </div>
-                    <RuheKnopf />
+                    <div className="ticker-viewport">
+                        <div className="ticker-track" aria-hidden="true">
+                            {TICKER.map((t) => (
+                                <span key={t}>{t}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="a-ticker-schutz-rechts" aria-hidden="true" />
                 </div>
                 <div className="page-grid">
                     <aside className="sidebar sidebar-left" aria-label="Jeans Kompass">

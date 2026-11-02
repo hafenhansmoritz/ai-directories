@@ -28,7 +28,7 @@ Jeder automatische Lauf (alle 10 Minuten) wählt die **erste offene Aufgabe (`- 
   Das Dark-Theme existiert bisher nur über `@media (prefers-color-scheme: dark)`. Baue einen charmanten Schalter (☀️ / 🌙 mit lokalem Speicher `mentat-theme` und kurzer Jean-Reaktion) in Header und FooterExtras ein und unterstütze `data-theme="dark"` / `data-theme="light"` in `app/globals.css`.
 - [x] **Task 8: Dark-Mode-Kontrast der oberen Header-Leiste optimieren**
   Im Dark Mode wirkt das grelle Hellblau der oberen `.site-header`-Leiste zu hart und mindert den Kontrast zum weißen Subtitel. Gib `.site-header` im Dark Mode einen edlen dunklen Slate-Ton mit leuchtendem Cyan-Rahmen und optimalem Textkontrast.
-- [ ] **Task 9: Überlappung im Top-Ticker auf Desktop beheben**
+- [x] **Task 9: Überlappung im Top-Ticker auf Desktop beheben**
   Auf Desktop (`1440px`) liegt der Button „⏸ Animationen anhalten" links direkt über dem laufenden Ticker-Text, und rechts ragt „Na, produktiv? 🛠️" in den Ticker hinein. Gib dem Ticker einen sauberen linken/rechten Schutzbereich (Flex-Layout statt Überlagerung), sodass kein Text abgeschnitten wird.
 - [ ] **Task 10: „Na, produktiv? 🛠️"-Badge interaktiv und liebenswert machen**
   Das Badge rechts am Header wirkt wie ein klickbares Element, tut aber nichts. Mach es klickbar: Beim Klick wechselt Jean durch 8 trockene, motivierende Kurz-Sprüche für Indie-Hacker (und vergibt beim 3. Klick ein kleines Easter-Egg-Abzeichen oder Toast).
