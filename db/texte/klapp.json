@@ -1,1 +1,164 @@
-{}
+{
+ "/tools/chatgpt/": [
+  [
+   "Werden meine Chats zum Training genutzt?",
+   "Das steuerst du in den Datenkontrollen über den Schalter „Improve the model for everyone“. Temporäre Chats nutzt OpenAI laut Hilfe nicht zum Training.",
+   [
+    "/tool-vergleiche/claude-vs-chatgpt/",
+    "Claude vs. ChatGPT"
+   ]
+  ],
+  [
+   "Gibt es ChatGPT im Jahresabo?",
+   "Für Go, Plus und Pro laut OpenAI nicht, abgerechnet wird monatlich. Jahrespläne gibt es nur für Business und Enterprise."
+  ]
+ ],
+ "/tools/claude/": [
+  [
+   "Nutzt Anthropic meine Chats zum Training?",
+   "Laut Anthropic nur, wenn du es erlaubst. Inkognito-Chats werden nie genutzt. Mit Zustimmung werden Daten bis zu 5 Jahre aufbewahrt, sonst 30 Tage.",
+   [
+    "/tool-vergleiche/claude-vs-chatgpt/",
+    "Claude vs. ChatGPT"
+   ]
+  ],
+  [
+   "Was kommt nach Max?",
+   "Ultra für 200 USD im Monat, ohne 5-Stunden-Limit und mit zehnfacher Pro-Nutzung pro Woche (Stand November 2026)."
+  ]
+ ],
+ "/tools/lovable/": [
+  [
+   "Komme ich an meinen Code?",
+   "Ja. Der Zwei-Wege-Sync mit GitHub läuft laut Lovable in allen Plänen, den Download der Codebasis gibt es nur in Bezahlplänen.",
+   [
+    "/tool-vergleiche/lovable-vs-bolt-new-vs-v0/",
+    "Lovable vs. Bolt.new vs. v0"
+   ]
+  ]
+ ],
+ "/tools/bolt-new/": [
+  [
+   "Welche Datenbank nutzt Bolt?",
+   "Bolt Database ist in jedem Plan Standard. Supabase verbinden oder die Datenbank dorthin umziehen geht laut Bolt ab Pro.",
+   [
+    "/tool-vergleiche/lovable-vs-bolt-new-vs-v0/",
+    "Lovable vs. Bolt.new vs. v0"
+   ]
+  ]
+ ],
+ "/tools/v0/": [
+  [
+   "Welche Datenbanken kann ich an v0 anschließen?",
+   "Laut v0-Doku Neon, Supabase, Upstash und Vercel Blob.",
+   [
+    "/tool-vergleiche/lovable-vs-bolt-new-vs-v0/",
+    "Lovable vs. Bolt.new vs. v0"
+   ]
+  ]
+ ],
+ "/tools/github-copilot/": [
+  [
+   "Wie rechnet Copilot seit Juni 2026 ab?",
+   "Nach KI-Credits statt Premium Requests. Ein Credit entspricht laut GitHub 0,01 USD; Pro enthält 1.500 Credits im Monat.",
+   [
+    "/tool-vergleiche/github-copilot-vs-cursor-vs-replit/",
+    "Copilot vs. Cursor vs. Replit"
+   ]
+  ]
+ ],
+ "/tools/cursor/": [
+  [
+   "Welche Modelle stecken im Plus-Tarif?",
+   "Laut Preisseite nur Grok-Modelle. Modelle anderer Anbieter werden zusätzlich zum API-Listenpreis abgerechnet.",
+   [
+    "/tool-vergleiche/github-copilot-vs-cursor-vs-replit/",
+    "Copilot vs. Cursor vs. Replit"
+   ]
+  ]
+ ],
+ "/tools/replit/": [
+  [
+   "Was passiert mit Apps aus dem Gratis-Tarif?",
+   "Im Starter-Tarif ist eine veröffentlichte App möglich, die laut Replit nach 30 Tagen offline geht. Ab Core sind veröffentlichte Apps unbegrenzt.",
+   [
+    "/tool-vergleiche/github-copilot-vs-cursor-vs-replit/",
+    "Copilot vs. Cursor vs. Replit"
+   ]
+  ]
+ ],
+ "/tools/fireflies-ai/": [
+  [
+   "Wo speichert Fireflies meine Meetings?",
+   "Standardmäßig in den USA. EU-Speicherung gibt es laut Fireflies nur mit Private Storage im Enterprise-Tarif, die Verarbeitung bleibt in den USA.",
+   [
+    "/tutorials/meeting-notizen-mit-ki-dsgvo/",
+    "Meeting-Notizen DSGVO-sauber"
+   ]
+  ]
+ ],
+ "/tools/tldv/": [
+  [
+   "Wo liegen die Daten bei tl;dv?",
+   "Betreiber ist die Tldx Solutions GmbH, gehostet wird laut Anbieter im EWR, unter anderem bei Hetzner in Deutschland.",
+   [
+    "/tutorials/meeting-notizen-mit-ki-dsgvo/",
+    "Meeting-Notizen DSGVO-sauber"
+   ]
+  ],
+  [
+   "Gelten die Grenzen des Gratis-Tarifs jeden Monat neu?",
+   "Nein. Die vollen KI-Notizen für die ersten 10 Meetings gelten laut tl;dv einmalig für das Konto."
+  ]
+ ],
+ "/tools/otter-ai/": [
+  [
+   "Kann der Otter-Notetaker unsichtbar teilnehmen?",
+   "Nein, laut Otter-Hilfe tritt er immer sichtbar als Teilnehmer bei.",
+   [
+    "/tutorials/meeting-notizen-mit-ki-dsgvo/",
+    "Meeting-Notizen DSGVO-sauber"
+   ]
+  ]
+ ],
+ "/tools/deepl/": [
+  [
+   "Nutzt DeepL meine Texte zum Training?",
+   "Texte aus der Gratis-Version zeitlich begrenzt ja, Pro-Texte werden laut DeepL nach der Übersetzung gelöscht und nie zum Training genutzt.",
+   [
+    "/tool-vergleiche/deepl-vs-grammarly-vs-quillbot/",
+    "DeepL vs. Grammarly vs. QuillBot"
+   ]
+  ]
+ ],
+ "/tools/grammarly/": [
+  [
+   "Ist das Training mit meinen Texten an?",
+   "Bei Free und Pro für Einzelnutzer laut Grammarly standardmäßig ja, du kannst es in den Einstellungen abschalten.",
+   [
+    "/tool-vergleiche/deepl-vs-grammarly-vs-quillbot/",
+    "DeepL vs. Grammarly vs. QuillBot"
+   ]
+  ]
+ ],
+ "/tools/quillbot/": [
+  [
+   "In wie vielen Sprachen formuliert QuillBot um?",
+   "Laut Anbieter in 23 Sprachen, die Grammatikprüfung gibt es in 6 Sprachen.",
+   [
+    "/tool-vergleiche/deepl-vs-grammarly-vs-quillbot/",
+    "DeepL vs. Grammarly vs. QuillBot"
+   ]
+  ]
+ ],
+ "/prompts/tool/chatgpt/": [
+  [
+   "Wie alt sind die Vorlagen?",
+   "Die zehn ChatGPT-Vorlagen sind am 2. November 2026 entstanden. Funktionen wie Projekte, Deep Research und eigene GPTs hängen vom Tarif ab, das steht auf der Preisseite von OpenAI.",
+   [
+    "/tools/chatgpt/",
+    "Steckbrief ChatGPT"
+   ]
+  ]
+ ]
+}
