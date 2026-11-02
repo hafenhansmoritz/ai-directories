@@ -612,5 +612,110 @@
   "quote": "Bids start at $10. Bidding keeps the bar high - it filters out spam and low-effort submissions",
   "source": "https://www.startupspotlight.co/submit",
   "status": null
+ },
+ "ai-tools-up": {
+  "approval": "kostenlos innerhalb von 30 Tagen; Fast Track (19 $ einmalig) ohne Warteschlange innerhalb von 24 Stunden",
+  "link_type": "dofollow",
+  "quote": "Free ✔ Listed within 30 days ✔ Basic tool submission ✔ Do-Follow SEO backlink",
+  "source": "https://aitoolsup.com/submit-tool/",
+  "status": null
+ },
+ "ai-toolz-dir": {
+  "approval": "kostenlos innerhalb von 48 Stunden, nur mit Backlink auf deiner Seite; bezahlt (25 $ einmalig) innerhalb von 24 Stunden ohne Backlink",
+  "link_type": "dofollow",
+  "quote": "Free listing $0 … DR 63 do-follow backlink … Backlink on your site required … Listed within 48 hours",
+  "source": "https://www.aitoolzdir.com/submit",
+  "status": null
+ },
+ "apps-and-websites": {
+  "approval": "üblicherweise 3 bis 5 Tage nach Prüfung",
+  "link_type": null,
+  "quote": "we normally publish approved listings to the directory in 3-5 days.",
+  "source": "https://landing.mycloudmedia.co.uk/apps-and-websites-submit-ai-or-saas-tool/new-submission.html",
+  "status": null
+ },
+ "best-ai-to": {
+  "approval": "Fast Track (49 $ einmalig) ohne Warteschlange innerhalb von 24 Stunden",
+  "link_type": "dofollow",
+  "quote": "No queue, listed within 24hrs … The link to your tool will be Do-follow, and can be a valuable backlink to your SEO.",
+  "source": "https://bestaito.com/submit-a-ai-tool/",
+  "status": null
+ },
+ "bestwebdesigntools": {
+  "approval": "kostenlos im Schnitt 14 bis 30 Tage; Fast Approval (19 $ einmalig) 24 bis 48 Stunden",
+  "link_type": null,
+  "quote": "One average, it takes 14-30 days to get listed on our website. But, you can skip all lines and get listed fast using this plan.",
+  "source": "https://bestwebdesigntools.com/submit",
+  "status": null
+ },
+ "detectortools-ai": {
+  "approval": "üblicherweise 5 bis 7 Werktage, jede Einreichung wird manuell geprüft",
+  "link_type": null,
+  "quote": "we'll publish your submitted tool as soon as possible, usually within 5-7 business days.",
+  "source": "https://detectortools.ai/submit-tool/",
+  "status": null
+ },
+ "easy-save-ai": {
+  "approval": "innerhalb von 24 bis 48 Stunden",
+  "link_type": "dofollow",
+  "quote": "Go live within 24-48hrs our platform Get do-follow backlinks for your SEO",
+  "source": "https://easysaveai.com/pages/submit-your-ai-tool",
+  "status": null
+ },
+ "every-ai": {
+  "approval": "kostenlos geprüft und live innerhalb von 48 Stunden; Featured (49 $) innerhalb von 30 Minuten nach Zahlung",
+  "link_type": null,
+  "quote": "Standard Free listing Reviewed and live within 48 hours",
+  "source": "https://every-ai.com/submit",
+  "status": null
+ },
+ "fazier": {
+  "approval": "kostenlos innerhalb von 30 Tagen, nur mit Backlink (Badge) auf deiner Startseite oder im Footer; bezahlte Launches sofort oder zum gewählten Termin",
+  "link_type": "dofollow beim Premium-Launch genannt",
+  "quote": "Reviewed & listed within 30 days … A backlink to our site is required (on your homepage or footer)",
+  "source": "https://fazier.com/submit",
+  "status": null
+ },
+ "free-ai-apps": {
+  "approval": null,
+  "link_type": null,
+  "quote": "Note: (Feb 2025) We’ve temporarily paused adding apps for now.",
+  "source": "https://freeappsai.com/add/",
+  "status": "Aufnahme neuer Apps laut Free AI Apps seit Februar 2025 vorübergehend pausiert."
+ },
+ "nextpedia": {
+  "approval": "kostenlos, Prüfung angestrebt innerhalb von 7 Tagen",
+  "link_type": null,
+  "quote": "It’s free and takes less than a minute. We try to review all tools within 7 days and add it to the directory.",
+  "source": "https://nextpedia.io/submit-tool/",
+  "status": null
+ },
+ "toolscout": {
+  "approval": "kostenlos eine Woche oder länger; Boost und Featured innerhalb von 24 bis 48 Stunden",
+  "link_type": null,
+  "quote": "Free listings take a week or more to review; Boost and Featured submissions are fast-tracked and reviewed within 24 to 48 hours.",
+  "source": "https://toolscout.ai/submit",
+  "status": null
+ },
+ "victrays": {
+  "approval": "Standard meist innerhalb von 72 Stunden; Priority innerhalb von 36 Stunden",
+  "link_type": null,
+  "quote": "Standard submissions are usually reviewed within 72 hours. Priority submissions are reviewed within 36 hours.",
+  "source": "https://victrays.com/submit-ai-tool/",
+  "status": null
+ },
+ "startup-base": {
+  "approval": "Hinweis auf eigener Seite: „Sign ups are closed until January 31st“ (ohne Jahr, nur über Exa sichtbar). Ende Januar erneut prüfen.",
+  "link_type": null,
+  "quote": "We’re launching the new StartupBase platform soon. Sign ups are closed until January 31st.",
+  "source": "https://startupbase.io/submissions/start",
+  "status": null
+ },
+ "tool-pilot": {
+  "approval": "kostenloser Eintrag nur mit Rücklink (Badge oder Logo) auf deiner Seite, der Rücklink beschleunigt auch die Prüfung",
+  "link_type": null,
+  "quote": "A link back to our site is now mandatory for all free listings.",
+  "source": "https://www.toolpilot.ai/pages/submit-your-ai-tool",
+  "status": null
  }
 }

@@ -4,7 +4,7 @@
     "link": "https://launchboosts.com/",
     "submission_link": "https://launchboosts.com/submit",
     "pricing": null,
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "launch",
     "badge": false,
     "hinweis": "Dein Eintrag geht ohne Prüfung sofort live, einen Dofollow-Link gibt es nur für die Top 3 im wöchentlichen Launch Race."
@@ -14,7 +14,7 @@
     "link": "https://www.aikaptan.com/",
     "submission_link": "https://www.aikaptan.com/submit",
     "pricing": "Paid",
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "allgemein",
     "badge": false,
     "hinweis": "Eintrag kostet einmalig 5 $ statt 20 $ (Rabattaktion), Prüfung dauert 1 bis 2 Werktage, dazu gibt es ein tägliches Launch-Ranking."
@@ -24,7 +24,7 @@
     "link": "https://bestaibrands.com/",
     "submission_link": "https://bestaibrands.com/submit",
     "pricing": "Paid",
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "allgemein",
     "badge": false,
     "hinweis": "Kein kostenloser Eintrag: ab 10 $, ein Dofollow-Backlink ab 100 $, jede Einreichung wird manuell freigegeben."
@@ -34,17 +34,17 @@
     "link": "https://www.indietools.app/",
     "submission_link": "https://www.indietools.app/dashboard/products/new",
     "pricing": "Free",
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "allgemein",
     "badge": true,
-    "hinweis": "Kostenloser Plan für beliebig viele Produkte mit manueller Prüfung, Dofollow-Link nur mit optionalem Verified-Badge auf deiner Website."
+    "hinweis": "Kostenloser Plan für beliebig viele Produkte, aber nur mit verifiziertem Badge auf deiner Website und manueller Prüfung; ohne Badge kostet Standard einmalig 20 $ mit dauerhaftem Dofollow-Link."
   },
   {
     "name": "FoundrList",
     "link": "https://www.foundrlist.com/",
     "submission_link": "https://www.foundrlist.com/submit",
     "pricing": "Free",
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "launch",
     "badge": true,
     "hinweis": "Gratis-Launch geht nach ca. 4 Wochen live, nofollow, mit Badge oder 3 Upvotes plus Kommentar; für 29 $ einmalig gibt es einen dauerhaften Dofollow-Link."
@@ -54,17 +54,17 @@
     "link": "https://www.betterlaunch.co/",
     "submission_link": "https://www.betterlaunch.co/pricing",
     "pricing": "Free",
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "launch",
     "badge": true,
-    "hinweis": "Gratis-Launch frühestens 45 Tage später an einem Montag, Dofollow nur mit Badge; Starter 19 $, Pro 49 $, Login nötig, Zahlen laut Betreiber."
+    "hinweis": "Gratis-Launch an einem Montag frühestens 30 Tage später, Dofollow nur mit Badge; Starter 19 $, Pro 49 $, Ultra 119 $ jeweils einmalig, Login nötig, Zahlen laut Betreiber."
   },
   {
     "name": "Launch List",
     "link": "https://www.launch-list.org/",
     "submission_link": "https://www.launch-list.org/submit",
     "pricing": "Free",
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "launch",
     "badge": true,
     "hinweis": "Gratis-Launch über eine Warteschlange, Dofollow erst mit Badge; Featured kostet 9 $ (sonst 19 $), Premium 19 $ (sonst 39 $)."
@@ -74,17 +74,17 @@
     "link": "https://builtbyme.io/",
     "submission_link": "https://builtbyme.io/submit",
     "pricing": "Free",
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "launch",
     "badge": false,
-    "hinweis": "Gratis nur 5 Plätze pro Woche mit Nofollow-Link; 9 $ für Fast-Track, 19 $ einmalig für sofortigen Dofollow-Link, Login nötig."
+    "hinweis": "Gratis nur 5 Plätze pro Woche mit Nofollow-Link; für 9 $ pro Launch ohne Warteschlange mit Dofollow-Link, Sponsor-Platz für 30 Tage 19 $ einmalig, Login nötig."
   },
   {
     "name": "Smol Launch",
     "link": "https://smollaunch.com/",
     "submission_link": "https://smollaunch.com/submit",
     "pricing": "Free",
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "launch",
     "badge": false,
     "hinweis": "Wöchentliche Launch-Kohorten, kostenlos möglich, jeder Launch wird vor dem Livegang geprüft, Einreichung auch per MCP-Server."
@@ -92,19 +92,19 @@
   {
     "name": "AI Parabellum",
     "link": "https://aiparabellum.com/",
-    "submission_link": null,
-    "pricing": null,
-    "verified_on": "2026-10-25",
+    "submission_link": "https://aiparabellum.com/submit-your-ai-tool/",
+    "pricing": "Paid",
+    "verified_on": "2026-11-02",
     "typ": "allgemein",
     "badge": false,
-    "hinweis": "KI-Tool-Verzeichnis mit News, die Submit-Seite ist nur ein bezahlter Gastartikel ab 55 $, eine Tool-Einreichung wurde nicht gefunden."
+    "hinweis": "Kein kostenloser Eintrag: Basic einmalig 39 $ (sonst 99 $), Featured 89 $ (sonst 199 $), Prüfung innerhalb von 24 Stunden, sonst volle Erstattung."
   },
   {
     "name": "ProductCool",
     "link": "https://www.productcool.com/",
     "submission_link": "https://www.productcool.com/submit",
     "pricing": null,
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "launch",
     "badge": false,
     "hinweis": "Tägliche Produkt-Discovery, Einreichen nur mit Login, Preise sind ohne Anmeldung nicht sichtbar."
@@ -114,17 +114,17 @@
     "link": "https://agenthivex.com/",
     "submission_link": "https://agenthivex.com/submit",
     "pricing": "Free",
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "agenten",
     "badge": false,
-    "hinweis": "Verzeichnis für KI-Tools und Agenten mit kostenlosen Einträgen, Prüfung laut Suchergebnis in 3 bis 5 Werktagen."
+    "hinweis": "Verzeichnis für KI-Tools und Agenten mit kostenlosen Einträgen, Prüfung laut Einreichungsseite in 3 bis 5 Werktagen, Featured-Platz separat über Advertise."
   },
   {
     "name": "HyzenPro",
     "link": "https://hyzenpro.com/",
     "submission_link": "https://hyzenpro.com/submit-ai-tool/",
     "pricing": "Free",
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "allgemein",
     "badge": false,
     "hinweis": "Kostenlos und ohne bezahltes Ranking, jede Einreichung liest ein Redakteur, dein Produkt muss schon live sein."
@@ -134,7 +134,7 @@
     "link": "https://aiagentsdirectory.com/",
     "submission_link": "https://aiagentsdirectory.com/submit-agent",
     "pricing": null,
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "agenten",
     "badge": false,
     "hinweis": "Nische KI-Agenten, Einreichformular ist online, Preise waren auf der Seite nicht sichtbar."
@@ -144,7 +144,7 @@
     "link": "https://aiagents.directory/",
     "submission_link": "https://aiagents.directory/submit/",
     "pricing": null,
-    "verified_on": "2026-10-25",
+    "verified_on": "2026-11-02",
     "typ": "agenten",
     "badge": false,
     "hinweis": "Nische KI-Agenten, einfaches Formular mit E-Mail, Website und Beschreibung, das Team prüft vor der Freischaltung."
