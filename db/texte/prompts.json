@@ -526,5 +526,41 @@
   "tipp": "Nutze für die Prüfung einen neuen Chat oder ein anderes Modell. Wer seinen eigenen Text prüft, übersieht gern dieselben Fehler.",
   "fehler": "Die Prüfung selbst wieder ungeprüft glauben.",
   "jean": "Zweite Meinung kostet nichts, falsche Fakten schon."
+ },
+ "code-review-ki": {
+  "intro": "Die KI hat dir eine Funktion geschrieben, sie läuft, alles gut? Vielleicht. Dieser Prompt lässt einen zweiten, kritischen Blick drüberlaufen und listet Lücken mit Fundstelle und Schwere auf.",
+  "tipp": "Nutze für die Prüfung einen neuen Chat oder ein anderes Modell als das, das den Code geschrieben hat. Wer seine eigene Arbeit prüft, ist betriebsblind, auch als KI.",
+  "fehler": "Die Prüfung überspringen, weil die Vorschau funktioniert. Funktionieren und sicher sein sind zwei verschiedene Dinge.",
+  "jean": "Läuft heißt nicht dicht."
+ },
+ "app-idee-zu-bauplan": {
+  "intro": "Ein Riesenprompt erzeugt eine Riesen-App, die keiner versteht. Dieser Prompt zerlegt deine Idee in kleine Schritte, die du nacheinander in Lovable, Bolt oder v0 gibst.",
+  "tipp": "Arbeite den Plan wirklich Schritt für Schritt ab und speicher nach jedem Schritt in GitHub. So weißt du immer, welche Änderung was kaputt gemacht hat.",
+  "fehler": "Alle Schritte auf einmal einfügen, weil es schneller geht.",
+  "jean": "Kleine Schritte, großer Fortschritt."
+ },
+ "bildserie-einheitlicher-stil": {
+  "intro": "Sechs Bilder, sechs Stile: Das sieht auf deinem Profil aus wie ein Flohmarkt. Mit einem festen Stil-Block passt die ganze Serie zusammen.",
+  "tipp": "Speichere den Stil-Block als Notiz und häng ihn an jede künftige Bildbeschreibung. So bleibt dein Auftritt auch in drei Monaten einheitlich.",
+  "fehler": "Bei jedem Bild den Stil neu beschreiben, mit anderen Worten.",
+  "jean": "Ein Stil, viele Bilder."
+ },
+ "vertrag-verstehen": {
+  "intro": "Zehn Seiten Kleingedrucktes, und irgendwo versteckt sich die automatische Verlängerung um zwei Jahre. Dieser Prompt holt Fristen, Kosten und Stolperstellen nach oben.",
+  "tipp": "Entferne vorher Namen, Adressen und Kontodaten. Für das Verständnis braucht die KI sie nicht.",
+  "fehler": "Die Zusammenfassung als rechtliche Prüfung behandeln. Bei hohen Beträgen oder langen Laufzeiten gehört der Vertrag zu jemandem vom Fach.",
+  "jean": "Verstehen vor unterschreiben."
+ },
+ "verein-mitgliederbrief": {
+  "intro": "Jedes Jahr dieselbe Einladung, jedes Jahr Kopfzerbrechen. Dieser Prompt schreibt den Brief aus deinen Stichpunkten, gleich in einer Fassung für E-Mail und einer für die WhatsApp-Gruppe.",
+  "tipp": "Prüf Datum, Uhrzeit und Fristen gegen die Satzung, bevor du verschickst. Bei der Einladung zur Versammlung entscheidet die Form manchmal darüber, ob Beschlüsse gelten.",
+  "fehler": "Die KI Fristen oder Tagesordnungspunkte ergänzen lassen, die nicht abgestimmt sind.",
+  "jean": "Ehrenamt braucht Zeit. Der Brief nicht."
+ },
+ "agentur-kundenbriefing": {
+  "intro": "Nach dem Erstgespräch hast du drei Seiten Notizen und kein Briefing. Dieser Prompt sortiert sie in feste Abschnitte und markiert, was noch fehlt.",
+  "tipp": "Schick das Briefing zur Freigabe, bevor du anfängst. Eine Unterschrift unter dem Umfang spart später lange Diskussionen.",
+  "fehler": "Mit der Arbeit beginnen, bevor Ziel und Budget schriftlich stehen.",
+  "jean": "Ein gutes Briefing ist die halbe Kampagne."
  }
 }

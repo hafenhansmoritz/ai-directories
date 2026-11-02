@@ -52,9 +52,7 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
   - [ ] **Content-Plan Woche 16** (fällig ab 2027-02-15): Kling-Prompts; InVideo-Prompts
 Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die angegebene Menge). Ton immer nach `docs/BRAND-VOICE.md`, Fakten nur mit offizieller Quelle, Unikat-Texte in `db/texte/*.json`.
 - [ ] **Vergleich ChatGPT vs. Claude vs. Google Gemini** als Tool-Vergleich (Tarife aus `db/tools.json`, Modelle aus `lib/modelle.js`).
-- [ ] **Ratgeber „Vibe Coding: Apps bauen mit Lovable, Bolt und v0“** (8 bis 10 Abschnitte, FAQ, Quellen, `geprueft`).
 - [ ] **Ratgeber „KI-Musik und Rechte: was das GEMA-Urteil gegen Suno bedeutet“** (LG München I, 42 O 763/25, nur belegte Fakten, Hinweis keine Rechtsberatung).
-- [ ] **Tutorial „Mit KI programmieren, ohne dass es knallt“** (Vibe Coding sicher: Tests, Secrets, Code lesen).
 - [ ] **Zielgruppe Agenturen** und **Zielgruppe Vereine und Ehrenamt** in `lib/zielgruppen.js` (je 5 Aufgaben-Karten, Warnbox, FAQ mit Quellen).
 - [ ] **Steckbriefe** je Runde 5 weitere Tools aus den Konsens-Tools (3/3 und 2/3) der KI-Tool-Datenbank in `db/tools.json`, dazu Jeans Meinung in `db/texte/tools.json`.
 - [ ] **Prompts** je Runde 6 neue in `lib/prompts.js` (Coding, Bild, Recht und Verträge, Vereinsarbeit, Agenturen), dazu Intro/Tipp/Fehler in `db/texte/prompts.json`.
@@ -103,6 +101,8 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - **Täglich (GitHub Actions, 04:17 UTC):** Neubau der Seite, damit Deal und Tool des Tages wechseln. Danach berechnet `utils/vernetzung/build.mjs` die interne Verlinkung neu; hat sie sich geändert, baut der Workflow ein zweites Mal.
 
 ## Erledigt
+
+- 2026-11-02 · Ratgeber „Vibe Coding: Apps bauen mit Lovable, Bolt und v0“, Tutorial „Mit KI programmieren, ohne dass es knallt“ (6 Schritte, 3 Quizfragen), Prompt-Runde mit 6 neuen Vorlagen (Code-Review, App-Bauplan, Bildserie, Vertrag verstehen, Vereinsbrief, Agentur-Briefing).
 
 - 2026-11-02 · Tote Tools aus der KI-Tool-Datenbank entfernt: 29 Domains (gelöscht, nicht auflösbar, Vercel abgeschaltet, Fremdinhaber) in `db/kb-tot.json` mit Grund und Datum, Import filtert sie, Datenbank von 705 auf 676 Tools.
 
