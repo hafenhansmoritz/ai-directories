@@ -1,6 +1,6 @@
 {
  "stand": "2026-10-23",
- "anzahl": 705,
+ "anzahl": 676,
  "tools": [
   {
    "slug": "chatgpt",
@@ -546,25 +546,6 @@
     "mahseema"
    ],
    "open_source": false
-  },
-  {
-   "slug": "chatbot-ui",
-   "name": "Chatbot UI",
-   "url": "https://www.chatbotui.com/",
-   "domain": "chatbotui.com",
-   "rubrik": "chatbots",
-   "rubriken": [
-    "chatbots",
-    "produktivitaet"
-   ],
-   "beschreibung": "An open source ChatGPT UI. #opensource.",
-   "beschreibung_quelle": "steven2358",
-   "preis": null,
-   "quellen": [
-    "steven2358",
-    "mahseema"
-   ],
-   "open_source": true
   },
   {
    "slug": "chatgpt-for-jupyter",
@@ -2970,23 +2951,6 @@
    "open_source": false
   },
   {
-   "slug": "ainterview-space",
-   "name": "AInterview.space",
-   "url": "https://ainterview.space",
-   "domain": "ainterview.space",
-   "rubrik": "audio",
-   "rubriken": [
-    "audio"
-   ],
-   "beschreibung": "Create AI-hosted podcast interviews. Choose a topic, and Joe (the AI host) will research, host the interview, and generate your episode as audio or video.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "aipdf",
    "name": "aiPDF",
    "url": "https://aipdf.ai",
@@ -3608,23 +3572,6 @@
     "produktivitaet"
    ],
    "beschreibung": "AI based calling agents for outbound and inbound phone calls.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "callstack-ai-pr-reviewer",
-   "name": "Callstack.ai PR Reviewer",
-   "url": "https://callstack.ai/pr-reviewer",
-   "domain": "callstack.ai",
-   "rubrik": "coding",
-   "rubriken": [
-    "coding"
-   ],
-   "beschreibung": "Automated Code Reviews: Find Bugs, Fix Security Issues, and Speed Up Performance.",
    "beschreibung_quelle": "mahseema",
    "preis": null,
    "quellen": [
@@ -4331,23 +4278,6 @@
    "open_source": false
   },
   {
-   "slug": "coqui",
-   "name": "Coqui",
-   "url": "https://coqui.ai/",
-   "domain": "coqui.ai",
-   "rubrik": "audio",
-   "rubriken": [
-    "audio"
-   ],
-   "beschreibung": "Generative AI for Voice.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "cortex",
    "name": "Cortex",
    "url": "https://github.com/cortex-docs/cortex",
@@ -4535,23 +4465,6 @@
    "open_source": false
   },
   {
-   "slug": "debuild",
-   "name": "Debuild",
-   "url": "https://debuild.app/",
-   "domain": "debuild.app",
-   "rubrik": "coding",
-   "rubriken": [
-    "coding"
-   ],
-   "beschreibung": "AI-powered low-code tool for web apps.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "deepinfer",
    "name": "DeepInfer",
    "url": "https://github.com/deepseek-ai/DeepInfer",
@@ -4705,23 +4618,6 @@
    "open_source": true
   },
   {
-   "slug": "diffusiondb",
-   "name": "DiffusionDB",
-   "url": "https://diffusiondb.com/",
-   "domain": "diffusiondb.com",
-   "rubrik": "bild",
-   "rubriken": [
-    "bild"
-   ],
-   "beschreibung": "A list of all public apps, developer tools, guides and plugins for Stable Diffusion. Airtable version.",
-   "beschreibung_quelle": "steven2358",
-   "preis": null,
-   "quellen": [
-    "steven2358"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "dify",
    "name": "Dify",
    "url": "https://dify.ai/",
@@ -4737,23 +4633,6 @@
     "ikaijua"
    ],
    "open_source": true
-  },
-  {
-   "slug": "dittto-ai",
-   "name": "Dittto.ai",
-   "url": "https://dittto.ai",
-   "domain": "dittto.ai",
-   "rubrik": "schreiben",
-   "rubriken": [
-    "schreiben"
-   ],
-   "beschreibung": "Fix your hero copy with an AI trained on top SaaS websites.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
   },
   {
    "slug": "dmwithme",
@@ -5233,23 +5112,6 @@
    "open_source": true
   },
   {
-   "slug": "galactica",
-   "name": "Galactica",
-   "url": "https://galactica.org/",
-   "domain": "galactica.org",
-   "rubrik": "recherche",
-   "rubriken": [
-    "recherche"
-   ],
-   "beschreibung": "A large language model for science. Can summarize academic literature, solve math problems, generate Wiki articles, write scientific code, annotate molecules and proteins, and more. Model API.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "gali-chat",
    "name": "Gali Chat",
    "url": "https://www.galichat.com/",
@@ -5599,23 +5461,6 @@
     "modelle"
    ],
    "beschreibung": "Gopher by DeepMind is a 280 billion parameter language model.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "gosh",
-   "name": "GOSH",
-   "url": "https://gosh.app",
-   "domain": "gosh.app",
-   "rubrik": "produktivitaet",
-   "rubriken": [
-    "produktivitaet"
-   ],
-   "beschreibung": "Free AI Price Tracker - Track any price of any product at any store using AI",
    "beschreibung_quelle": "mahseema",
    "preis": null,
    "quellen": [
@@ -6186,23 +6031,6 @@
    "open_source": false
   },
   {
-   "slug": "imgsys",
-   "name": "imgsys",
-   "url": "https://imgsys.org/rankings",
-   "domain": "imgsys.org",
-   "rubrik": "modelle",
-   "rubriken": [
-    "modelle"
-   ],
-   "beschreibung": "A generative image model arena by fal.ai.",
-   "beschreibung_quelle": "steven2358",
-   "preis": null,
-   "quellen": [
-    "steven2358"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "immersive-translate",
    "name": "immersive-translate",
    "url": "https://github.com/immersive-translate/immersive-translate/",
@@ -6403,23 +6231,6 @@
    "preis": "Free/Paid",
    "quellen": [
     "ikaijua"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "kazimir-ai",
-   "name": "Kazimir.ai",
-   "url": "https://kazimir.ai/",
-   "domain": "kazimir.ai",
-   "rubrik": "suche",
-   "rubriken": [
-    "suche"
-   ],
-   "beschreibung": "A search engine designed to search AI-generated images.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
    ],
    "open_source": false
   },
@@ -6951,23 +6762,6 @@
    "open_source": false
   },
   {
-   "slug": "listomatic",
-   "name": "Listomatic",
-   "url": "https://listomatic.app",
-   "domain": "listomatic.app",
-   "rubrik": "schreiben",
-   "rubriken": [
-    "schreiben"
-   ],
-   "beschreibung": "Free and fully configurable real estate listing description generator.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "livecodebench",
    "name": "LiveCodeBench",
    "url": "https://livecodebench.github.io/leaderboard.html",
@@ -7202,23 +6996,6 @@
    "preis": null,
    "quellen": [
     "steven2358"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "lovo-ai",
-   "name": "Lovo.ai",
-   "url": "https://www.lovo.ai/",
-   "domain": "lovo.ai",
-   "rubrik": "audio",
-   "rubriken": [
-    "audio"
-   ],
-   "beschreibung": "Review - A compelling choice for creative professionals, especially useful in ads and explainer videos.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
    ],
    "open_source": false
   },
@@ -7801,23 +7578,6 @@
    "open_source": true
   },
   {
-   "slug": "mocha",
-   "name": "Mocha",
-   "url": "https://getmocha.com",
-   "domain": "getmocha.com",
-   "rubrik": "produktivitaet",
-   "rubriken": [
-    "produktivitaet"
-   ],
-   "beschreibung": "AI app builder",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "model-context-protocol",
    "name": "Model Context Protocol",
    "url": "https://modelcontextprotocol.io/",
@@ -7848,40 +7608,6 @@
    "preis": "Free",
    "quellen": [
     "ikaijua"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "modyfi",
-   "name": "modyfi",
-   "url": "https://www.modyfi.com/",
-   "domain": "modyfi.com",
-   "rubrik": "bild",
-   "rubriken": [
-    "bild"
-   ],
-   "beschreibung": "A browser-based design platform with AI-powered image generation, animation, and real-time collaboration.",
-   "beschreibung_quelle": "steven2358",
-   "preis": null,
-   "quellen": [
-    "steven2358"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "modyfi-modyfi-io",
-   "name": "modyfi",
-   "url": "https://www.modyfi.io/",
-   "domain": "modyfi.io",
-   "rubrik": "bild",
-   "rubriken": [
-    "bild"
-   ],
-   "beschreibung": "The image editor you've always wanted. AI-powered creative tools in your browser. Real-time collaboration.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
    ],
    "open_source": false
   },
@@ -8073,23 +7799,6 @@
    "open_source": true
   },
   {
-   "slug": "mutableai",
-   "name": "MutableAI",
-   "url": "https://mutable.ai/",
-   "domain": "mutable.ai",
-   "rubrik": "coding",
-   "rubriken": [
-    "coding"
-   ],
-   "beschreibung": "AI Accelerated Software Development.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "mutahunterai",
    "name": "MutahunterAI",
    "url": "https://github.com/codeintegrity-ai/mutahunter",
@@ -8218,23 +7927,6 @@
     "schreiben"
    ],
    "beschreibung": "Maximize Your Interview Chances with AI-Powered LinkedIn Messaging.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "nexus-ai",
-   "name": "Nexus AI",
-   "url": "https://mynexusai.com/",
-   "domain": "mynexusai.com",
-   "rubrik": "schreiben",
-   "rubriken": [
-    "schreiben"
-   ],
-   "beschreibung": "Nexus AI is a generative cutting-edge AI Platform for writing, coding, voiceovers, research, image creation and beyond.",
    "beschreibung_quelle": "mahseema",
    "preis": null,
    "quellen": [
@@ -8974,23 +8666,6 @@
    "open_source": true
   },
   {
-   "slug": "pawtrait",
-   "name": "Pawtrait",
-   "url": "https://www.pawtrait.art/",
-   "domain": "pawtrait.art",
-   "rubrik": "bild",
-   "rubriken": [
-    "bild"
-   ],
-   "beschreibung": "AI Pet Portraits",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "pentagi",
    "name": "PentAGI",
    "url": "https://pentagi.com",
@@ -9006,40 +8681,6 @@
     "ikaijua"
    ],
    "open_source": true
-  },
-  {
-   "slug": "perch-reader",
-   "name": "Perch Reader",
-   "url": "https://perch.app/",
-   "domain": "perch.app",
-   "rubrik": "produktivitaet",
-   "rubriken": [
-    "produktivitaet"
-   ],
-   "beschreibung": "Free blog and newsletter aggregator with AI summaries and text-to-speech",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "personaforce",
-   "name": "PersonaForce",
-   "url": "https://personaforce.ai/",
-   "domain": "personaforce.ai",
-   "rubrik": "marketing",
-   "rubriken": [
-    "marketing"
-   ],
-   "beschreibung": "Create and chat with AI buyer personas for smarter marketing",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
   },
   {
    "slug": "phi-4",
@@ -9263,23 +8904,6 @@
    "open_source": false
   },
   {
-   "slug": "pixvify-ai",
-   "name": "Pixvify AI",
-   "url": "https://pixvify.com/",
-   "domain": "pixvify.com",
-   "rubrik": "bild",
-   "rubriken": [
-    "bild"
-   ],
-   "beschreibung": "Free realistic AI photo generator platform",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "plantphotoai",
    "name": "PlantPhotoAI",
    "url": "https://www.plantphotoai.com/",
@@ -9314,23 +8938,6 @@
    "open_source": false
   },
   {
-   "slug": "play-ht",
-   "name": "Play.ht",
-   "url": "https://play.ht/",
-   "domain": "play.ht",
-   "rubrik": "audio",
-   "rubriken": [
-    "audio"
-   ],
-   "beschreibung": "AI Voice Generator. Generate realistic Text to Speech voice over online with AI. Convert text to audio.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "playground",
    "name": "Playground",
    "url": "https://playground.com/",
@@ -9357,40 +8964,6 @@
     "bild"
    ],
    "beschreibung": "Playground AI is a free-to-use online AI image creator. Use it to create art, social media posts, presentations, posters, videos, logos and more.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "podcast-ai",
-   "name": "podcast.ai",
-   "url": "https://podcast.ai/",
-   "domain": "podcast.ai",
-   "rubrik": "audio",
-   "rubriken": [
-    "audio"
-   ],
-   "beschreibung": "A podcast that is entirely generated by artificial intelligence, powered by Play.ht text-to-voice AI.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "ponzu",
-   "name": "Ponzu",
-   "url": "https://www.ponzu.ai/",
-   "domain": "ponzu.ai",
-   "rubrik": "bild",
-   "rubriken": [
-    "bild"
-   ],
-   "beschreibung": "Ponzu is your free AI logo generator. Build your brand with creatively designed logos in seconds, using only your imagination.",
    "beschreibung_quelle": "mahseema",
    "preis": null,
    "quellen": [
@@ -10317,23 +9890,6 @@
    "open_source": true
   },
   {
-   "slug": "rysa-ai",
-   "name": "Rysa AI",
-   "url": "https://www.rysa.ai",
-   "domain": "rysa.ai",
-   "rubrik": "coding",
-   "rubriken": [
-    "coding"
-   ],
-   "beschreibung": "AI GTM Automation Agent",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "salesagent-chat",
    "name": "SalesAgent Chat",
    "url": "https://www.salesagent.chat",
@@ -10585,23 +10141,6 @@
    "preis": "Free",
    "quellen": [
     "ikaijua"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "shortvideogen",
-   "name": "ShortVideoGen",
-   "url": "https://shortgen.video/",
-   "domain": "shortgen.video",
-   "rubrik": "video",
-   "rubriken": [
-    "video"
-   ],
-   "beschreibung": "Create short videos with audio using text prompts.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
    ],
    "open_source": false
   },
@@ -10997,23 +10536,6 @@
    "open_source": false
   },
   {
-   "slug": "stockphotoai-net",
-   "name": "StockPhotoAI.net",
-   "url": "https://www.stockphotoai.net/",
-   "domain": "stockphotoai.net",
-   "rubrik": "bild",
-   "rubriken": [
-    "bild"
-   ],
-   "beschreibung": "Great stock photos, made for you.",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
-   ],
-   "open_source": false
-  },
-  {
    "slug": "storm",
    "name": "STORM",
    "url": "https://storm.genie.stanford.edu/",
@@ -11214,23 +10736,6 @@
    "preis": "Free",
    "quellen": [
     "ikaijua"
-   ],
-   "open_source": false
-  },
-  {
-   "slug": "tailortask",
-   "name": "TailorTask",
-   "url": "https://wwww.tailortask.ai",
-   "domain": "wwww.tailortask.ai",
-   "rubrik": "produktivitaet",
-   "rubriken": [
-    "produktivitaet"
-   ],
-   "beschreibung": "Automate any boring and repetitive task, without having to learn a new tool",
-   "beschreibung_quelle": "mahseema",
-   "preis": null,
-   "quellen": [
-    "mahseema"
    ],
    "open_source": false
   },

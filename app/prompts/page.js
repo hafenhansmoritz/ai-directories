@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { getToolPromptSeiten } from '../../lib/prompt-tools'
 import JsonLd from '../components/JsonLd'
 import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import JeanIcon from '../components/JeanIcon'
@@ -33,6 +34,11 @@ function PromptsPage() {
                         Eigenen Prompt bauen →
                     </Link>
                     <Link href="/prompts/archiv">103 Rollen-Prompts im Archiv</Link>
+                    {getToolPromptSeiten().map((x) => (
+                        <Link key={x.slug} href={`/prompts/tool/${x.slug}`}>
+                            {x.tool.name}-Prompts
+                        </Link>
+                    ))}
                     <Link href="/prompt-check">Prompt prüfen</Link>
                     <Link href="/tutorials/prompt-engineering-in-15-minuten">Grundkurs in 15 Minuten</Link>
                 </p>

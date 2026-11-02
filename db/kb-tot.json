@@ -1,0 +1,150 @@
+{
+ "hinweis": "Tote Tool-Domains. utils/kb/import.js übernimmt diese Domains nicht. Prüfen mit DNS, HTTP und WHOIS; Einträge mit Grund und Datum. Lebt eine Seite wieder, Eintrag hier löschen und neu importieren.",
+ "eintraege": [
+  {
+   "domain": "ainterview.space",
+   "grund": "Domain gelöscht und wieder frei (DomainKits bulk_available)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "kazimir.ai",
+   "grund": "Domain gelöscht und wieder frei (DomainKits bulk_available)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "personaforce.ai",
+   "grund": "Domain gelöscht und wieder frei (DomainKits bulk_available)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "tailortask.ai",
+   "grund": "Domain gelöscht und wieder frei (DomainKits bulk_available)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "shortgen.video",
+   "grund": "Domain in Redemption, läuft aus (WHOIS)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "stockphotoai.net",
+   "grund": "am 2026-06-12 neu registriert, fremder Inhaber (WHOIS)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "debuild.app",
+   "grund": "Domain löst nicht auf (DNS), Seite nicht erreichbar",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "diffusiondb.com",
+   "grund": "Domain löst nicht auf (DNS), Seite nicht erreichbar",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "gosh.app",
+   "grund": "Domain löst nicht auf (DNS), Seite nicht erreichbar",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "imgsys.org",
+   "grund": "Domain löst nicht auf (DNS), Seite nicht erreichbar",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "getmocha.com",
+   "grund": "Domain löst nicht auf (DNS), Seite nicht erreichbar",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "modyfi.io",
+   "grund": "Domain löst nicht auf (DNS), Seite nicht erreichbar",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "mutable.ai",
+   "grund": "Domain löst nicht auf (DNS), Seite nicht erreichbar",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "play.ht",
+   "grund": "Domain löst nicht auf (DNS), Seite nicht erreichbar",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "podcast.ai",
+   "grund": "Domain löst nicht auf (DNS), Seite nicht erreichbar",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "lovo.ai",
+   "grund": "Vercel DEPLOYMENT_DISABLED (HTTP 402)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "ponzu.ai",
+   "grund": "Vercel DEPLOYMENT_DISABLED (HTTP 402)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "mynexusai.com",
+   "grund": "Vercel DEPLOYMENT_DISABLED (HTTP 402)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "pawtrait.art",
+   "grund": "Vercel DEPLOYMENT_DISABLED (HTTP 402)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "chatbotui.com",
+   "grund": "Vercel DEPLOYMENT_NOT_FOUND (HTTP 404)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "coqui.ai",
+   "grund": "GitHub Pages „Site not found“ (HTTP 404)",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "dittto.ai",
+   "grund": "Startseite liefert HTTP 404",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "modyfi.com",
+   "grund": "Startseite liefert HTTP 404",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "perch.app",
+   "grund": "Startseite liefert HTTP 404",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "rysa.ai",
+   "grund": "Startseite liefert HTTP 404",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "listomatic.app",
+   "grund": "Bubble domain_not_supported",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "callstack.ai",
+   "grund": "Cloudflare HTTP 530, Server nicht erreichbar",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "galactica.org",
+   "grund": "Cloudflare HTTP 530, Server nicht erreichbar",
+   "geprueft": "2026-11-02"
+  },
+  {
+   "domain": "pixvify.com",
+   "grund": "Cloudflare HTTP 521, Server nicht erreichbar",
+   "geprueft": "2026-11-02"
+  }
+ ]
+}

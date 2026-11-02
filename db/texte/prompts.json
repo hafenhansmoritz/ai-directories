@@ -526,5 +526,101 @@
   "tipp": "Füge statt des bloßen Titels lieber die drei wichtigsten Absätze oder Zahlen aus deinem Artikel ein, damit die Beiträge echte Substanz statt leerer Ankündigungen enthalten.",
   "fehler": "Den Entwurf eins zu eins ohne eigene Haltung und ohne echte Erfahrungswerte veröffentlichen.",
   "jean": "Teile die beste Erkenntnis direkt im Post, statt nur auf den Link zu verweisen."
+ },
+ "chatgpt-projekt-anweisungen": {
+  "intro": "Du erklärst ChatGPT jede Woche wieder, wer deine Zielgruppe ist und wie du schreibst? Dafür gibt es Projekte mit eigenen Anweisungen. Dieser Prompt schreibt sie dir so, dass jeder neue Chat im Projekt schon Bescheid weiß.",
+  "tipp": "Halte die Anweisungen kurz und konkret. Lieber fünf klare Regeln als eine Seite Wunschzettel, die ChatGPT dann halb befolgt.",
+  "fehler": "Alles in die Anweisungen packen, auch Dinge, die nur einmal gelten.",
+  "jean": "Ein Projekt ist wie eine eingerichtete Werkbank: Werkzeug liegt da, wo du es suchst."
+ },
+ "chatgpt-agent-auftrag": {
+  "intro": "ChatGPT Work erledigt längere Aufgaben in mehreren Schritten selbstständig. Das spart Zeit, solange klar ist, was erlaubt ist und was nicht. Dieser Prompt setzt die Leitplanken, bevor es losgeht. Laut OpenAI hat Work den früheren ChatGPT-Agenten abgelöst.",
+  "tipp": "Schreib die Grenzen ausdrücklich hin, auch wenn sie dir selbstverständlich erscheinen. Für den Agenten ist nichts selbstverständlich.",
+  "fehler": "Einen offenen Auftrag losschicken und hinterher wundern, was alles passiert ist.",
+  "jean": "Erst Leitplanken, dann Gas geben."
+ },
+ "chatgpt-bild-erstellen": {
+  "intro": "„Mach mal ein schönes Bild“ führt zu Bildern, die keiner bestellt hat. Mit Motiv, Zweck, Stil und Textwunsch trifft ChatGPT meist schon beim ersten Versuch.",
+  "tipp": "Sag dazu, wofür das Bild ist. Ein Titelbild braucht Platz für die Überschrift, ein Social Post ein anderes Format.",
+  "fehler": "Echte Marken oder Personen ins Bild wünschen und sich über Rechte erst hinterher Gedanken machen.",
+  "jean": "Ein gutes Bild beginnt mit einer guten Bestellung."
+ },
+ "chatgpt-excel-tabelle-auswerten": {
+  "intro": "Du lädst eine Tabelle hoch und bekommst eine Auswertung, deren Zahlen du nicht nachvollziehen kannst? Dieser Prompt verlangt den Rechenweg und eine Selbstprüfung, bevor du dich auf das Ergebnis verlässt.",
+  "tipp": "Entferne vor dem Hochladen Spalten mit personenbezogenen Daten, die für die Auswertung nicht nötig sind.",
+  "fehler": "Das Ergebnis ungeprüft in die Präsentation übernehmen.",
+  "jean": "Vertrauen ist gut, nachgerechnet ist besser."
+ },
+ "chatgpt-uebersetzen-mit-glossar": {
+  "intro": "Fachbegriffe, die in jedem Absatz anders übersetzt werden, fallen Kundschaft sofort auf. Mit festem Glossar bleibt ChatGPT bei deinen Begriffen und zeigt dir, wo es frei übersetzt hat.",
+  "tipp": "Pflege dein Glossar in einer Datei und kopier es jedes Mal mit. Einmal sauber angelegt, sparst du dir viele Korrekturschleifen.",
+  "fehler": "Rechtstexte oder Sicherheitshinweise ohne Prüfung durch eine Muttersprachlerin veröffentlichen.",
+  "jean": "Ein Begriff, eine Übersetzung. Immer."
+ },
+ "chatgpt-deep-research-auftrag": {
+  "intro": "Deep Research liest viele Seiten und schreibt einen Bericht. Ohne Eingrenzung wird der lang und landet bei Quellen, die du nicht willst. Dieser Prompt legt Frage, Quellen und Umfang fest.",
+  "tipp": "Nenne die zulässigen Quellen ausdrücklich. Bei Förderung, Recht und Steuern zählen nur offizielle Seiten.",
+  "fehler": "Den Bericht als Beleg nehmen, ohne die verlinkten Quellen selbst zu öffnen.",
+  "jean": "Ein Bericht ist so gut wie seine Quellen."
+ },
+ "chatgpt-memory-steckbrief": {
+  "intro": "ChatGPT kann sich Dinge über dich merken. Gut, wenn es das Richtige ist. Dieser Prompt hilft dir, einen knappen Steckbrief zu formulieren und Sensibles draußen zu lassen.",
+  "tipp": "Schau nach einigen Wochen in die Einstellungen, was gespeichert ist, und räum auf.",
+  "fehler": "Gesundheitsdaten oder Kundennamen dauerhaft im Gedächtnis ablegen.",
+  "jean": "Merken lassen, was hilft. Vergessen lassen, was niemanden etwas angeht."
+ },
+ "chatgpt-canvas-text-ueberarbeiten": {
+  "intro": "Bei langen Texten schreibt ChatGPT gern alles neu, und plötzlich klingt dein Text nicht mehr nach dir. Dieser Prompt erzwingt erst eine Diagnose und dann Änderungen Abschnitt für Abschnitt.",
+  "tipp": "Gib das Okay nur für die Punkte, die dir wirklich wichtig sind. Weniger Änderungen, mehr von deiner Stimme.",
+  "fehler": "„Mach den Text besser“ ohne Ziel schreiben.",
+  "jean": "Überarbeiten heißt nicht austauschen."
+ },
+ "chatgpt-custom-gpt-bauplan": {
+  "intro": "Ein eigener Assistent ist schnell eingerichtet, aber ohne Plan antwortet er beliebig. Dieser Prompt liefert Anweisungen, Startfragen, Dateiliste und Testfragen in einem Rutsch. Hinweis: Laut OpenAI werden Custom GPTs am 11. Dezember 2026 abgeschaltet, private Konten können keine neuen mehr anlegen. Der Bauplan passt genauso für ein Projekt oder ein Plugin.",
+  "tipp": "Teste mit Fragen, deren Antwort nicht in den Dateien steht. Ein guter Assistent sagt dann „steht nicht drin“.",
+  "fehler": "Interne Preislisten oder Kundendaten in einen Assistenten laden, den andere nutzen können.",
+  "jean": "Erst der Bauplan, dann das Werkzeug."
+ },
+ "chatgpt-antwort-gegenpruefen": {
+  "intro": "ChatGPT klingt immer sicher, auch wenn es danebenliegt. Dieser Prompt zerlegt eine Antwort in einzelne Behauptungen und zeigt, welche du prüfen musst.",
+  "tipp": "Nutze für die Prüfung einen neuen Chat oder ein anderes Modell. Wer seinen eigenen Text prüft, übersieht gern dieselben Fehler.",
+  "fehler": "Die Prüfung selbst wieder ungeprüft glauben.",
+  "jean": "Zweite Meinung kostet nichts, falsche Fakten schon."
+ },
+ "code-review-ki": {
+  "intro": "Die KI hat dir eine Funktion geschrieben, sie läuft, alles gut? Vielleicht. Dieser Prompt lässt einen zweiten, kritischen Blick drüberlaufen und listet Lücken mit Fundstelle und Schwere auf.",
+  "tipp": "Nutze für die Prüfung einen neuen Chat oder ein anderes Modell als das, das den Code geschrieben hat. Wer seine eigene Arbeit prüft, ist betriebsblind, auch als KI.",
+  "fehler": "Die Prüfung überspringen, weil die Vorschau funktioniert. Funktionieren und sicher sein sind zwei verschiedene Dinge.",
+  "jean": "Läuft heißt nicht dicht."
+ },
+ "app-idee-zu-bauplan": {
+  "intro": "Ein Riesenprompt erzeugt eine Riesen-App, die keiner versteht. Dieser Prompt zerlegt deine Idee in kleine Schritte, die du nacheinander in Lovable, Bolt oder v0 gibst.",
+  "tipp": "Arbeite den Plan wirklich Schritt für Schritt ab und speicher nach jedem Schritt in GitHub. So weißt du immer, welche Änderung was kaputt gemacht hat.",
+  "fehler": "Alle Schritte auf einmal einfügen, weil es schneller geht.",
+  "jean": "Kleine Schritte, großer Fortschritt."
+ },
+ "bildserie-einheitlicher-stil": {
+  "intro": "Sechs Bilder, sechs Stile: Das sieht auf deinem Profil aus wie ein Flohmarkt. Mit einem festen Stil-Block passt die ganze Serie zusammen.",
+  "tipp": "Speichere den Stil-Block als Notiz und häng ihn an jede künftige Bildbeschreibung. So bleibt dein Auftritt auch in drei Monaten einheitlich.",
+  "fehler": "Bei jedem Bild den Stil neu beschreiben, mit anderen Worten.",
+  "jean": "Ein Stil, viele Bilder."
+ },
+ "vertrag-verstehen": {
+  "intro": "Zehn Seiten Kleingedrucktes, und irgendwo versteckt sich die automatische Verlängerung um zwei Jahre. Dieser Prompt holt Fristen, Kosten und Stolperstellen nach oben.",
+  "tipp": "Entferne vorher Namen, Adressen und Kontodaten. Für das Verständnis braucht die KI sie nicht.",
+  "fehler": "Die Zusammenfassung als rechtliche Prüfung behandeln. Bei hohen Beträgen oder langen Laufzeiten gehört der Vertrag zu jemandem vom Fach.",
+  "jean": "Verstehen vor unterschreiben."
+ },
+ "verein-mitgliederbrief": {
+  "intro": "Jedes Jahr dieselbe Einladung, jedes Jahr Kopfzerbrechen. Dieser Prompt schreibt den Brief aus deinen Stichpunkten, gleich in einer Fassung für E-Mail und einer für die WhatsApp-Gruppe.",
+  "tipp": "Prüf Datum, Uhrzeit und Fristen gegen die Satzung, bevor du verschickst. Bei der Einladung zur Versammlung entscheidet die Form manchmal darüber, ob Beschlüsse gelten.",
+  "fehler": "Die KI Fristen oder Tagesordnungspunkte ergänzen lassen, die nicht abgestimmt sind.",
+  "jean": "Ehrenamt braucht Zeit. Der Brief nicht."
+ },
+ "agentur-kundenbriefing": {
+  "intro": "Nach dem Erstgespräch hast du drei Seiten Notizen und kein Briefing. Dieser Prompt sortiert sie in feste Abschnitte und markiert, was noch fehlt.",
+  "tipp": "Schick das Briefing zur Freigabe, bevor du anfängst. Eine Unterschrift unter dem Umfang spart später lange Diskussionen.",
+  "fehler": "Mit der Arbeit beginnen, bevor Ziel und Budget schriftlich stehen.",
+  "jean": "Ein gutes Briefing ist die halbe Kampagne."
  }
 }

@@ -8,7 +8,7 @@ export const directories: Directory[] = [
         "domain_rating": 54,
         "monthly_visits": 134000,
         "submission_experience": "Good",
-        "pricing": "Free"
+        "pricing": "Paid"
     },
     {
         "name": "That AI Collection",

@@ -2,136 +2,171 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import JsonLd from '../../../components/JsonLd'
 import Breadcrumbs, { breadcrumbSchema } from '../../../components/Breadcrumbs'
-import Vernetzt, { seitenPfad } from '../../../components/Vernetzt'
-import { getPrompts, getPromptsForTool, PROMPT_KATEGORIEN, TECHNIKEN } from '../../../../lib/prompts'
-import { getTool, toolHref, toolRel } from '../../../../lib/tools'
-import { comparisonsForTool } from '../../../../lib/comparisons'
+import Faq, { faqSchema } from '../../../components/Faq'
+import Toc from '../../../components/Toc'
+import GlossarText from '../../../components/GlossarText'
+import LeadMagnetBox from '../../../components/LeadMagnetBox'
+import { Band } from '../../../components/Deko'
 import { SITE_NAME, absoluteUrl } from '../../../../lib/site'
+import { TECHNIKEN, PROMPT_KATEGORIEN } from '../../../../lib/prompts'
+import { getToolPromptSeiten, getToolPromptSeite } from '../../../../lib/prompt-tools'
+import { getComparison } from '../../../../lib/comparisons'
+import { getTestKategorie } from '../../../../lib/kitests'
+import { toolHref, toolRel } from '../../../../lib/tools'
+import Vernetzt, { seitenPfad } from '../../../components/Vernetzt'
 
 export const dynamicParams = false
 
 export function generateStaticParams() {
-    const slugs = [...new Set(getPrompts().flatMap((p) => p.fuer || []))]
-    return slugs.map((slug) => ({ slug }))
+    return getToolPromptSeiten().map((s) => ({ slug: s.slug }))
 }
 
 export function generateMetadata({ params }) {
-    const tool = getTool(params.slug)
-    const prompts = getPromptsForTool(params.slug)
-    const name = tool ? tool.name : params.slug
+    const s = getToolPromptSeite(params.slug)
+    if (!s) return {}
     return {
-        title: `Prompts für ${name}: ${prompts.length} kostenlose Vorlagen auf Deutsch`,
-        description: `${prompts.length} getestete Prompts und Vorlagen speziell für ${name} auf Deutsch. Felder ausfüllen, kopieren und direkt in ${name} nutzen.`,
-        alternates: { canonical: `/prompts/tool/${params.slug}` },
+        title: s.titel,
+        description: `${s.prompts.length} Vorlagen für ${s.tool.name}. ${s.intro}`.slice(0, 300),
+        alternates: { canonical: `/prompts/tool/${s.slug}` },
     }
 }
 
-function ToolPromptsPage({ params }) {
-    const tool = getTool(params.slug)
-    const prompts = getPromptsForTool(params.slug)
-    if (!tool || prompts.length === 0) notFound()
+const FARBEN = ['#fde68a', '#a7f3d0', '#bfdbfe', '#fbcfe8', '#ddd6fe']
 
-    const vergleiche = comparisonsForTool(tool.slug)
-    const kategorien = [...new Set(prompts.map((p) => p.kategorie))]
+function ToolPromptPage({ params }) {
+    const s = getToolPromptSeite(params.slug)
+    if (!s) notFound()
+    const t = s.tool
+    const vergleiche = (s.vergleiche || []).map(getComparison).filter(Boolean)
+    const kitest = s.kitest && getTestKategorie(s.kitest)
+    const kategorien = [...new Set(s.prompts.map((p) => p.kategorie))]
+    const gesehen = new Set()
     const crumbs = [
         { name: SITE_NAME, path: '/' },
         { name: 'Prompts', path: '/prompts' },
-        { name: `Prompts für ${tool.name}`, path: `/prompts/tool/${params.slug}` },
+        { name: `${t.name}-Prompts`, path: `/prompts/tool/${s.slug}` },
     ]
     const schema = [
         breadcrumbSchema(crumbs),
         {
             '@context': 'https://schema.org',
             '@type': 'ItemList',
-            name: `Prompts für ${tool.name}`,
-            itemListElement: prompts.map((p, i) => ({
-                '@type': 'ListItem',
-                position: i + 1,
-                name: p.title,
-                url: absoluteUrl(`/prompts/${p.slug}`),
-            })),
+            name: s.titel,
+            itemListElement: s.prompts.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, url: absoluteUrl(`/prompts/${p.slug}`) })),
         },
+        faqSchema(s.faq),
     ]
-
     return (
         <>
             <JsonLd data={schema} />
             <Breadcrumbs items={crumbs} />
             <section className="hero">
-                <p className="eyebrow">Tool-Prompts · {prompts.length} Vorlagen</p>
-                <h1>Prompts für {tool.name}</h1>
+                <p className="eyebrow">Prompts für {t.name} · {s.prompts.length} Vorlagen</p>
+                <h1>{s.titel}</h1>
                 <p className="lead">
-                    {prompts.length} getestete Vorlagen und Arbeitsabläufe speziell für {tool.name} auf Deutsch. Felder ausfüllen, kopieren und direkt im Tool starten.
+                    <GlossarText text={s.intro} gesehen={gesehen} />
                 </p>
-                <p className="cta-row">
-                    <a href={toolHref(tool)} target="_blank" rel={toolRel(tool)} className="button">
-                        {tool.name} öffnen ↗{tool.affiliate && <sup>*</sup>}
+                <p>
+                    <Link href={`/tools/${t.slug}`}>Steckbrief {t.name}</Link> ·{' '}
+                    <a href={toolHref(t)} rel={toolRel(t)} target="_blank">
+                        {t.name} öffnen{t.affiliate ? '*' : ''}
                     </a>
-                    <Link href={`/tools/${tool.slug}`}>Zum Steckbrief {tool.name} →</Link>
-                    {vergleiche.map((c) => (
-                        <Link key={c.slug} href={`/tool-vergleiche/${c.slug}`}>
-                            {c.title} →
-                        </Link>
-                    ))}
                 </p>
             </section>
-            <section aria-labelledby="prompts-liste">
-                <h2 id="prompts-liste">Alle {prompts.length} Prompts für {tool.name}</h2>
+            <Toc
+                items={[
+                    ['vorlagen', 'Vorlagen'],
+                    ['tipps', 'Tipps'],
+                    ['weiter', 'Weiter'],
+                    ['faq', 'FAQ'],
+                ]}
+            />
+            <section aria-labelledby="vorlagen">
+                <h2 id="vorlagen">Alle {s.prompts.length} Vorlagen für {t.name} 💬</h2>
                 <ul className="link-cards">
-                    {prompts.map((p) => (
+                    {s.prompts.map((p) => (
                         <li key={p.slug}>
                             <Link href={`/prompts/${p.slug}`}>
                                 <strong>{p.title}</strong>
                             </Link>
                             <span>{p.ziel}</span>
+                            <span>{p.techniken.map((x) => TECHNIKEN[x][0]).join(' · ')}</span>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+            <Band farbe="mint" id="tipps" titel={`So holst du mehr aus ${t.name} raus 🧭`} sticker={`${s.tipps.length} Tipps`}>
+                <ul className="kriterien-grid">
+                    {s.tipps.map(([titel, text], i) => (
+                        <li key={titel} style={{ '--tile': FARBEN[i % FARBEN.length] }}>
+                            <span className="kriterien-icon" aria-hidden="true">
+                                {i + 1}
+                            </span>
+                            <strong>{titel}</strong>
                             <span>
-                                {p.techniken.map((t) => TECHNIKEN[t]?.[0]).filter(Boolean).join(' · ')} ·{' '}
-                                <Link href={`/prompts/kategorie/${p.kategorie}`}>{PROMPT_KATEGORIEN[p.kategorie]?.name || p.kategorie} →</Link>
+                                <GlossarText text={text} gesehen={gesehen} />
                             </span>
                         </li>
                     ))}
                 </ul>
-            </section>
+            </Band>
             <section aria-labelledby="weiter">
-                <h2 id="weiter">Passende Kategorien, Vergleiche und Selbsttests</h2>
+                <h2 id="weiter">Vergleichen, testen, weiterlernen</h2>
                 <ul className="link-cards">
-                    {kategorien.map((katKey) => {
-                        const kat = PROMPT_KATEGORIEN[katKey]
-                        if (!kat) return null
-                        return (
-                            <li key={katKey}>
-                                <Link href={`/prompts/kategorie/${katKey}`}>
-                                    <strong>Prompt-Kategorie: {kat.name}</strong>
-                                </Link>
-                                <span>Weitere Vorlagen für {kat.name} im Überblick.</span>
-                            </li>
-                        )
-                    })}
                     {vergleiche.map((c) => (
                         <li key={c.slug}>
                             <Link href={`/tool-vergleiche/${c.slug}`}>
-                                <strong>Vergleich: {c.title}</strong>
+                                <strong>⚖️ {c.title}</strong>
                             </Link>
                             <span>{c.intro}</span>
                         </li>
                     ))}
+                    {kitest && (
+                        <li>
+                            <Link href={`/ki-test/${s.kitest}`}>
+                                <strong>
+                                    {kitest.emoji} KI-Test: {kitest.name}
+                                </strong>
+                            </Link>
+                            <span>Gleiche Aufgaben in mehreren KIs ausführen und selbst bewerten.</span>
+                        </li>
+                    )}
+                    {kategorien.map((k) => (
+                        <li key={k}>
+                            <Link href={`/prompts/kategorie/${k}`}>
+                                <strong>📂 {PROMPT_KATEGORIEN[k].name}</strong>
+                            </Link>
+                            <span>Alle Vorlagen dieser Kategorie, für jede KI.</span>
+                        </li>
+                    ))}
                     <li>
-                        <Link href="/ki-test/deutsch">
-                            <strong>KI-Test: Deutsch & Stil</strong>
+                        <Link href="/prompt-check">
+                            <strong>✅ Prompt-Check</strong>
                         </Link>
-                        <span>Prüfe selbst mit Kopier-Aufgaben, wie sauber {tool.name} auf Deutsch formuliert.</span>
-                    </li>
-                    <li>
-                        <Link href="/ki-test/code">
-                            <strong>KI-Test: Programmieren</strong>
-                        </Link>
-                        <span>Standardisierte Coding-Aufgaben zum direkten Gegenprüfen im Browser.</span>
+                        <span>Deinen eigenen Prompt prüfen und verbessern lassen.</span>
                     </li>
                 </ul>
-                <p>
-                    <Link href="/prompts">← Alle Prompts</Link> · <Link href={`/tools/${tool.slug}`}>Steckbrief {tool.name}</Link> · <Link href="/prompt-baukasten">Eigenen Prompt bauen</Link>
-                </p>
             </section>
+            <section aria-labelledby="faq">
+                <h2 id="faq">Häufige Fragen 🙋</h2>
+                <Faq items={s.faq} />
+            </section>
+            {s.quellen?.length > 0 && (
+                <section aria-labelledby="quellen" className="quellen-block">
+                    <h2 id="quellen">Quellen 🔎</h2>
+                    <p>Funktionen und Schreibweisen wurden am 2. November 2026 in der offiziellen Hilfe des Anbieters geprüft.</p>
+                    <ul className="quellen">
+                        {s.quellen.map((q) => (
+                            <li key={q.url}>
+                                <a href={q.url} rel="noopener nofollow" target="_blank">
+                                    {q.titel}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            )}
+            <LeadMagnetBox id="prompt-paket" />
         </>
     )
 }
@@ -139,7 +174,7 @@ function ToolPromptsPage({ params }) {
 export default function Seite({ params }) {
     return (
         <>
-            <ToolPromptsPage params={params} />
+            <ToolPromptPage params={params} />
             <Vernetzt pfad={seitenPfad('/prompts/tool/[slug]', params)} />
         </>
     )

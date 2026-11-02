@@ -1,5 +1,8 @@
 import Link from 'next/link'
-import TEXTE from '../../../db/texte/prompts.json'
+import BASIS_TEXTE from '../../../db/texte/prompts.json'
+import { TOOL_PROMPT_TEXTE_EXTRA } from '../../../lib/prompts-tool'
+
+const TEXTE = { ...BASIS_TEXTE, ...TOOL_PROMPT_TEXTE_EXTRA }
 import Jean from '../../components/Jean'
 import { notFound } from 'next/navigation'
 import JsonLd from '../../components/JsonLd'
@@ -13,6 +16,7 @@ import { SITE_NAME } from '../../../lib/site'
 import { getPrompts, getPrompt, PROMPT_KATEGORIEN, TECHNIKEN } from '../../../lib/prompts'
 import { getTool, toolHref, toolRel } from '../../../lib/tools'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import { getToolPromptSeite } from '../../../lib/prompt-tools'
 
 export const dynamicParams = false
 
@@ -62,6 +66,15 @@ function PromptPage({ params }) {
             <section className="hero">
                 <p className="eyebrow">
                     Prompt · <Link href={`/prompts/kategorie/${p.kategorie}`}>{kat.name}</Link>
+                    {(p.fuer || [])
+                        .map(getToolPromptSeite)
+                        .filter(Boolean)
+                        .map((x) => (
+                            <span key={x.slug}>
+                                {' · '}
+                                <Link href={`/prompts/tool/${x.slug}`}>{x.tool.name}-Prompts</Link>
+                            </span>
+                        ))}
                 </p>
                 <h1>{p.title}</h1>
                 <p className="lead">{p.ziel}</p>

@@ -90,6 +90,19 @@
    "Lass es, wenn dir der Gratis-Tarif schon völlig reicht"
   ]
  },
+ "copy-ai": {
+  "meinung": "Copy.ai hat sich vom Werbetext-Generator zur Plattform für Vertrieb und Marketing gemausert: Chat mit Modellen von OpenAI, Anthropic und Google, dazu Workflows für Texte, die immer wieder anfallen. Der Chat-Tarif kostet $29/Monat bei monatlicher Zahlung und bringt fünf Plätze mit. Einen Gratis-Tarif zeigt die Preisseite nicht, eine deutsche Oberfläche ist nicht bestätigt. Die Workflow-Tarife starten bei $1.000/Monat, das ist eher Fuhrpark als Firmenwagen. Für einzelne Blogtexte bist du mit einem normalen KI-Chat günstiger dran.",
+  "jean": "Erst Werbetexter, jetzt Vertriebsabteilung. Für einen Blogtext zu viel Personal.",
+  "passt_wenn": [
+   "Passt, wenn ihr im Team viele ähnliche Marketingtexte schreibt",
+   "Passt, wenn ihr mehrere KI-Modelle in einem Chat nutzen wollt",
+   "Passt, wenn ihr Vertriebsprozesse mit KI automatisieren möchtet"
+  ],
+  "lass_es_wenn": [
+   "Lass es, wenn du allein ab und zu einen Text brauchst",
+   "Lass es, wenn du erst gratis testen willst"
+  ]
+ },
  "cursor": {
   "meinung": "Programmierst du gern mit KI im Editor, schau dir Cursor an, einen KI-nativen Code-Editor mit lokalen und Cloud-Coding-Agents. Seit Oktober 2026 gehört er zu The X Subscription, zusammen mit Grok und X Premium, und die Plus-Stufe kostet $8/Monat oder $80/Jahr. Das ist ein bisschen wie ein Werkzeugkasten, der nur im Bundle mit Autoradio und Fußmatten verkauft wird. Einen Gratis-Tarif gibt es, eine deutsche Oberfläche ist nicht bestätigt. Für Entwickler, die einen Editor mit Agents suchen, ist das interessant, wenn dich das Bundle nicht stört.",
   "jean": "Starker Editor im Bundle. Autoradio und Fußmatten kommen ungefragt mit.",
@@ -153,6 +166,19 @@
   "lass_es_wenn": [
    "Lass es, wenn du deine Texte lieber selbst einsprichst",
    "Lass es, wenn du nur einmal im Jahr eine Ansage brauchst"
+  ]
+ },
+ "elicit": {
+  "meinung": "Elicit ist der Bibliothekar, der nie Feierabend macht: Er durchsucht über 138 Millionen wissenschaftliche Paper, fasst sie zusammen und lässt dich mit den Volltexten chatten. Für Hausarbeit, Masterarbeit oder einen Faktencheck ist das Gold wert. Der Basic-Tarif ist gratis, Plus kostet $11/Monat bei jährlicher Zahlung. Eine deutsche Oberfläche ist nicht bestätigt, und die Paper sind ohnehin meist englisch. Wichtig: Lies die Quelle selbst, bevor du sie zitierst, sonst schreibst du die Zusammenfassung der Zusammenfassung ab.",
+  "jean": "Bibliothekar ohne Feierabend. Die Quelle lesen musst du trotzdem selbst.",
+  "passt_wenn": [
+   "Passt, wenn du für Studium oder Job Studien suchst",
+   "Passt, wenn du viele Paper schnell sortieren willst",
+   "Passt, wenn du erst gratis starten möchtest"
+  ],
+  "lass_es_wenn": [
+   "Lass es, wenn du nur deutschsprachige Quellen brauchst",
+   "Lass es, wenn du Zusammenfassungen ungeprüft übernehmen willst"
   ]
  },
  "fireflies-ai": {
@@ -571,6 +597,19 @@
    "Lass es, wenn du Quellen nie prüfen möchtest"
   ]
  },
+ "photoroom": {
+  "meinung": "Photoroom ist das Fotostudio für alle, die keins haben: Hintergrund raus, KI-Hintergrund rein, auf Wunsch sogar mit KI-Modemodell. Für Onlinehändler mit vielen Produkten spart das Stunden am Küchentisch mit Bettlaken als Hintergrund. Pro kostet laut Anbieter $7.50/Monat bei jährlicher Abrechnung, Pro und Max kannst du kostenlos testen, und die Preisseite gibt es auf Deutsch. Video-Ads und 4K gibt es erst ab Max bzw. Ultra. Der Haken: Die KI-Credits sind je nach Werkzeug schnell weg, rechne also vorher, wie viele Bilder du wirklich brauchst.",
+  "jean": "Fotostudio ohne Bettlaken. Zähl aber die Credits, bevor du loslegst.",
+  "passt_wenn": [
+   "Passt, wenn du viele Produktfotos für deinen Shop brauchst",
+   "Passt, wenn du Hintergründe schnell entfernen willst",
+   "Passt, wenn du erst testen möchtest, bevor du zahlst"
+  ],
+  "lass_es_wenn": [
+   "Lass es, wenn du nur zwei Fotos im Jahr freistellst",
+   "Lass es, wenn du Video-Ads willst, aber nur Pro zahlen möchtest"
+  ]
+ },
  "pictory": {
   "meinung": "Pictory macht aus Skripten, URLs oder Präsentationen Videos mit Stockmaterial, KI-Stimmen und Untertiteln. Für Marketer, die ihre Blogartikel in Videos verwandeln wollen, ist das ein bequemer Fleischwolf: Text oben rein, Clip unten raus. Einen Gratis-Tarif gibt es nicht, nur 14 Tage Test, danach zahlst du $25/Monat im Starter-Tarif bei jährlicher Abrechnung. Eine deutsche Oberfläche ist nicht bestätigt. Rechne damit, dass Stockmaterial eher solide als einzigartig aussieht, für Markenvideos mit eigenem Look wird das schnell zu generisch.",
   "jean": "Text rein, Video raus. Einzigartig wird es mit Stockmaterial selten.",
@@ -727,6 +766,19 @@
    "Lass es, wenn du für jede Disziplin das tiefste Spezialtool suchst"
   ]
  },
+ "tabnine": {
+  "meinung": "Tabnine ist ein KI-Coding-Assistent für Firmen, bei denen der Code das Haus nicht verlassen darf: Du kannst ihn als SaaS, in der eigenen Cloud oder komplett offline betreiben. Das ist der Tresor unter den Coding-Helfern. Der Code Assistant kostet $39 pro Nutzer und Monat im Jahresabo, einen Gratis-Tarif zeigt die Preisseite nicht. Seit der Übernahme durch Tricentis ist der Kurs klar auf Unternehmen ausgerichtet. Für dein Hobbyprojekt am Wochenende ist das wie ein Panzerschrank für dein Fahrradschloss.",
+  "jean": "Der Tresor unter den Coding-Helfern. Fürs Hobbyprojekt zu schwer.",
+  "passt_wenn": [
+   "Passt, wenn dein Code das Firmennetz nicht verlassen darf",
+   "Passt, wenn ihr KI-Coding zentral steuern und prüfen wollt",
+   "Passt, wenn ihr eigene Sprachmodelle anbinden möchtet"
+  ],
+  "lass_es_wenn": [
+   "Lass es, wenn du allein an privaten Projekten codest",
+   "Lass es, wenn du erst gratis testen willst"
+  ]
+ },
  "tally": {
   "meinung": "Endlich mal ein Formular-Tool, bei dem der Gratis-Tarif nicht nach drei Antworten den Hahn zudreht, denn Tally bietet unbegrenzte Formulare und Antworten kostenlos, dazu Logik, Zahlungen und Integrationen. Für Startups und Creator mit kleinem Budget ist das ein echter Glücksgriff, gerade in der Anfangszeit. Pro kostet $29/Monat monatlich oder $290/Jahr. Eine deutsche Oberfläche ist in unseren Daten nicht bestätigt. Wer hochgestylte Umfrageerlebnisse mit viel Animation sucht, bekommt hier eher ein ordentliches Werkzeug als eine Bühnenshow.",
   "jean": "Gratis heißt hier wirklich gratis. Für Showeffekte gibt es Bühnen.",
@@ -738,6 +790,19 @@
   "lass_es_wenn": [
    "Lass es, wenn du ein deutsches Interface brauchst",
    "Lass es, wenn dein Formular wie eine Show wirken soll"
+  ]
+ },
+ "taskade": {
+  "meinung": "Taskade will Aufgabenliste, KI-Agent, Automation und App-Baukasten in einem sein. Das ist wie ein Werkzeugkoffer, in dem auch noch die Werkbank steckt. Gratis kannst du bis zu drei Apps bauen, bekommst aber keine monatlichen KI-Credits. Starter kostet $6/Monat bei jährlicher Zahlung und deckt drei Nutzer ab. Eine deutsche Oberfläche ist in unseren Daten nicht bestätigt. Wenn du nur eine To-do-Liste suchst, schleppst du hier viel Werkzeug mit, das du nie auspackst.",
+  "jean": "Werkzeugkoffer mit eingebauter Werkbank. Für eine To-do-Liste zu schwer.",
+  "passt_wenn": [
+   "Passt, wenn du Projekte und KI-Agenten an einem Ort bündeln willst",
+   "Passt, wenn du per Prompt kleine Web-Apps bauen möchtest",
+   "Passt, wenn ihr ein kleines Team mit schmalem Budget seid"
+  ],
+  "lass_es_wenn": [
+   "Lass es, wenn du nur eine einfache To-do-Liste brauchst",
+   "Lass es, wenn du zwingend eine deutsche Oberfläche brauchst"
   ]
  },
  "tldv": {

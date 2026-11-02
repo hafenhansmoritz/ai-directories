@@ -4605,7 +4605,7 @@
    "cookie": "",
    "signup_url": "",
    "status": "nicht registriert",
-   "notes": "Freigabe dauert etwa eine Woche",
+   "notes": "Freigabe dauert etwa eine Woche; 2026-11-02: lovo.ai liefert Vercel DEPLOYMENT_DISABLED (HTTP 402), Seite nicht erreichbar. Vor Anmeldung erneut prüfen.",
    "programm": "ja",
    "anmeldung": "manuell",
    "quelle": "https://lovo.ai/affiliate-program",
