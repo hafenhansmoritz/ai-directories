@@ -158,7 +158,7 @@ export const metadata = {
     },
     referrer: 'strict-origin-when-cross-origin',
     description:
-        'AIGeddon: die deutsche Liste der KI-Verzeichnisse mit Domain Rating, Traffic, Preis, Freischaltdauer und Einreichungs-Check. Dazu Launch-Kit, Ratgeber und KI-Use-Cases. Ehrlich, kostenlos und mit mehr Humor, als SEO erlaubt.',
+        'mentat.codes: die kuratierte Liste der KI-Verzeichnisse mit Domain Rating, Traffic, Preis, Freischaltdauer und Einreichungs-Check. Dazu Launch-Kit, Ratgeber und KI-Use-Cases. Ehrlich, kostenlos und mit mehr Humor, als SEO erlaubt.',
     applicationName: SITE_NAME,
     openGraph: {
         type: 'website',
@@ -217,7 +217,7 @@ export default function RootLayout({ children }) {
                         <Link href="/" className="brand">
                             <JeanIcon cool badge="strahlung" size={44} className="brand-icon" />
                             <span>
-                                AIGEDDON <span aria-hidden="true">☢️</span>
+                                MENTAT.CODES <span aria-hidden="true">&gt;</span>
                             </span>
                             <span className="brand-sub">{SITE_TAGLINE}</span>
                         </Link>
