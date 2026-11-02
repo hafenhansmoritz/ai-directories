@@ -1,7 +1,7 @@
 # ROADMAP: mentat.codes — Das genialste & liebenswerteste AI Directory auf Deutsch
 
 Basierend auf der Live-Browser-Inspektion von `https://mentat.codes/` (Desktop, Mobile & Dark Mode).
-Jeder automatische Lauf (alle 30 Minuten) wählt die **erste offene Aufgabe (`- [ ]`)**, setzt sie unter Einhaltung aller Qualitätsregeln (`CLAUDE.md`, `docs/BRAND-VOICE.md`, `layer-a` ohne Gedankenstriche/unsichtbare Zeichen) um, prüft Build & Links (`npm run lint`, `npm run build:pages`, `npm run check:links`, `node utils/check/layer-a.mjs --out out`), hakt die Aufgabe ab (`- [x]`), committet und pusht nach `origin main`.
+Jeder automatische Lauf (alle 10 Minuten) wählt die **erste offene Aufgabe (`- [ ]`)**, setzt sie unter Einhaltung aller Qualitätsregeln (`CLAUDE.md`, `docs/BRAND-VOICE.md`, `layer-a` ohne Gedankenstriche/unsichtbare Zeichen) um, prüft Build & Links (`npm run lint`, `npm run build:pages`, `npm run check:links`, `node utils/check/layer-a.mjs --out out`), hakt die Aufgabe ab (`- [x]`), committet und pusht nach `origin main`.
 
 ---
 
