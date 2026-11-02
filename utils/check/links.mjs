@@ -58,7 +58,8 @@ const ohneBasis = new Map()
 let ohneBild = 0
 let anzahl = 0
 for (const f of dateien) {
-    const html = fs.readFileSync(f, 'utf8')
+    let html;
+    try { html = fs.readFileSync(f, 'utf8'); } catch (e) { if (e.code === 'ENOENT') continue; throw e; }
     const von = path.relative(OUT, f)
     if (!html.includes('noindex') && !/property="og:image"/.test(html)) ohneBild++
     // Nur echte Attribute, die RSC-Daten in <script> zählen nicht.

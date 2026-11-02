@@ -45,9 +45,9 @@ Jeder automatische Lauf (alle 10 Minuten) wählt die **erste offene Aufgabe (`- 
   Auf den 260 Verzeichnis-Detailseiten muss man bisher zurück zur Tabelle, um ein Verzeichnis als „Eingetragen" abzuhaken. Baue direkt in die Hero-Box jeder Verzeichnis-Detailseite einen großen Status-Toggle („Noch offen" / „Eingetragen ✓") inklusive Konfetti/Toast und同步 mit `mentat-eingetragen`.
 - [x] **Task 14: Persönliches Einreichungs-Logbuch (Notiz, Datum & Listing-URL) pro Verzeichnis**
   Die Startseiten-Checkliste rät: „Buch führen: Datum, Verzeichnis, Status, Link zur Listing-Seite." Erweitere den Abhak-Status auf `/verzeichnis/[slug]/` und in der Tabelle um ein optionales Mini-Feld für das eigene Einreichdatum (wird beim Abhaken automatisch auf heute gesetzt) und die eigene Listing-URL / Notiz in `localStorage`.
-- [ ] **Task 15: Filter „Preis: Unklar / Freemium" und „Nur getestete" in der Haupttabelle ergänzen**
+- [x] **Task 15: Filter „Preis: Unklar / Freemium" und „Nur getestete" in der Haupttabelle ergänzen**
   Einige Verzeichnisse haben den Preis `Unklar` oder den Status `Noch nicht getestet`. Erweitere die Filter in `DirectoryTable.js`, damit man gezielt nach „Geprüfte Einreichung" filtern kann und `Unklar`-Einträge sauber eingeordnet werden.
-- [ ] **Task 16: „Nächstes offenes Top-Verzeichnis starten" (Speed-Run-Modus für Gründer)**
+- [x] **Task 16: „Nächstes offenes Top-Verzeichnis starten" (Speed-Run-Modus für Gründer)**
   Baue über der Verzeichnis-Tabelle einen „🚀 Launch-Speedrun: Nächstes offenes Top-Verzeichnis"-Button ein: Er zeigt sofort das bestbewertete kostenlose Verzeichnis, in dem der Nutzer noch *nicht* eingetragen ist, mit Direktlink zum Submit-Formular und „Erledigt, nächstes!"-Knopf.
 - [ ] **Task 17: Persönliche UTM-Links direkt in der Verzeichnis-Tabelle & im CSV-Export**
   Wenn ein Nutzer im `/launch-kit/` seine Projekt-URL hinterlegt hat, hänge auf Wunsch an alle „Eintragen ↗"-Links und in den CSV-Export automatisch die passenden UTM-Parameter (`utm_source=<slug>&utm_medium=directory&utm_campaign=launch`) an.

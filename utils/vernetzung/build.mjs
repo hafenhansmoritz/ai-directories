@@ -53,7 +53,7 @@ const typVon = (p) => {
 
 const daten = []
 for (const datei of seiten) {
-    const html = fs.readFileSync(datei, 'utf8')
+    let html; try { html = fs.readFileSync(datei, 'utf8'); } catch (err) { if (err.code === 'ENOENT') continue; throw err; }
     if (/<meta name="robots" content="noindex/.test(html)) continue
     const p = pfadVon(datei)
     const titel = entities((html.match(/<title>(.*?)<\/title>/s) || [])[1] || p)

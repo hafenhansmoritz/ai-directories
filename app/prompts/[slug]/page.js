@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import BASIS_TEXTE from '../../../db/texte/prompts.json'
-import { TOOL_PROMPT_TEXTE_EXTRA } from '../../../lib/prompts-tool'
+import { TOOL_PROMPT_TEXTE_EXTRA } from '../../../lib/prompts-tool/index.js'
 
 const TEXTE = { ...BASIS_TEXTE, ...TOOL_PROMPT_TEXTE_EXTRA }
 import Jean from '../../components/Jean'

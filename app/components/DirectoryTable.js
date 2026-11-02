@@ -4,6 +4,7 @@ import { memo, useCallback, useDeferredValue, useEffect, useMemo, useRef, useSta
 import Link from 'next/link'
 import { PriceBadge, ExperienceBadge } from './Badges'
 import TrackerPanel from './TrackerPanel'
+import LaunchSpeedrun from './LaunchSpeedrun'
 import { formatRating, formatVisits } from '../../utils/i18n-de'
 import useTracker, { RANKS } from './useTracker'
 import konfetti from '../../lib/konfetti'
@@ -24,8 +25,8 @@ const MILESTONES = new Set(RANKS.map(([min]) => min).filter(Boolean))
 
 // Filter in der Adresszeile: lesbare Werte, damit geteilte Links und der Zurück-Knopf den Stand behalten.
 const URL_FELDER = {
-    preis: ['pricing', { kostenlos: 'Free', kostenpflichtig: 'Paid' }],
-    einreichung: ['experience', { reibungslos: 'Good', hakelig: 'Bad', zu: 'Closed' }],
+    preis: ['pricing', { kostenlos: 'Free', kostenpflichtig: 'Paid', unklar: 'Unclear' }],
+    einreichung: ['experience', { geprueft: 'Tested', reibungslos: 'Good', hakelig: 'Bad', ungeprueft: 'Untested', zu: 'Closed' }],
     dr: ['minDr', { '30': '30', '50': '50', '70': '70' }],
     link: ['linkType', { dofollow: 'dofollow' }],
     status: ['status', { offen: 'open', eingetragen: 'done' }],
@@ -279,8 +280,19 @@ export default function DirectoryTable({ directories, interactive = true, defaul
     const { treffer, aehnlich } = useMemo(() => {
         const { query, pricing, experience, minDr, linkType, sort } = spaet
         const basis = index
-            .filter(({ d }) => pricing === 'all' || d.pricing === pricing)
-            .filter(({ d }) => experience === 'all' || (experience === 'Closed' ? d.blocked : !d.blocked && d.submission_experience === experience))
+            .filter(({ d }) => {
+                if (pricing === 'all') return true
+                if (pricing === 'Unclear') return !d.pricing || d.pricing === 'Unclear'
+                return d.pricing === pricing
+            })
+            .filter(({ d }) => {
+                if (experience === 'all') return true
+                if (experience === 'Closed') return Boolean(d.blocked)
+                if (d.blocked) return false
+                if (experience === 'Tested') return Boolean(d.submission_experience)
+                if (experience === 'Untested') return !d.submission_experience
+                return d.submission_experience === experience
+            })
             .filter(({ d }) => minDr === 'all' || (d.domain_rating ?? 0) >= Number(minDr))
             .filter(({ d }) => linkType === 'all' || Boolean(d.dofollow))
         const q = norm(query)
@@ -316,7 +328,9 @@ export default function DirectoryTable({ directories, interactive = true, defaul
         <div className={`table-block c-tabelle${interactive ? '' : ' c-tabelle-leicht'}`}>
             {tracker && <TrackerPanel directories={directories} />}
             {interactive && (
-                <form className="filters" role="search" aria-label="Verzeichnisse filtern" onSubmit={(e) => e.preventDefault()}>
+                <>
+                    <LaunchSpeedrun directories={directories} done={done} onToggle={onToggle} />
+                    <form className="filters" role="search" aria-label="Verzeichnisse filtern" onSubmit={(e) => e.preventDefault()}>
                     <label>
                         <span>
                             Suche <kbd>/</kbd>
@@ -336,14 +350,17 @@ export default function DirectoryTable({ directories, interactive = true, defaul
                             <option value="all">Alle</option>
                             <option value="Free">Kostenlos</option>
                             <option value="Paid">Kostenpflichtig</option>
+                            <option value="Unclear">Unklar / Freemium</option>
                         </select>
                     </label>
                     <label>
                         <span>Einreichung</span>
                         <select value={filter.experience} onChange={(e) => setze('experience', e.target.value)}>
                             <option value="all">Alle</option>
+                            <option value="Tested">Geprüfte Einreichung</option>
                             <option value="Good">Reibungslos</option>
                             <option value="Bad">Hakelig</option>
+                            <option value="Untested">Noch nicht getestet</option>
                             <option value="Closed">Gerade zu</option>
                         </select>
                     </label>
@@ -386,6 +403,7 @@ export default function DirectoryTable({ directories, interactive = true, defaul
                         {aehnlich ? `, ähnlich geschrieben wie „${spaet.query.trim()}“` : ''}
                     </p>
                 </form>
+                </>
             )}
             {rows.length > 0 && (
                 <div className="table-scroll" aria-busy={laedt || undefined}>
