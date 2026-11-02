@@ -1,1 +1,658 @@
-{}
+{
+ "descript": {
+  "geprueft": "2026-11-02",
+  "intro": "Descript schneidet Video und Podcast über das Transkript: Du löschst Text, und der Schnitt folgt. Für die erste Stunde reicht eine kurze Aufnahme, die du importierst, säuberst und exportierst.",
+  "quellen": [
+   {
+    "titel": "Descript Help: Get started",
+    "url": "https://help.descript.com/getting-started/get-started-with-descript"
+   },
+   {
+    "titel": "Descript Help: Automatic transcription",
+    "url": "https://help.descript.com/script-editing/automatic-transcription"
+   },
+   {
+    "titel": "Descript Help: Export",
+    "url": "https://help.descript.com/export-and-share/export-and-publishing-overview"
+   },
+   {
+    "titel": "Descript Preise",
+    "url": "https://www.descript.com/pricing"
+   }
+  ],
+  "schritte": [
+   [
+    "Konto und App",
+    "Leg ein kostenloses Konto an. Du arbeitest im Browser oder in der Desktop-App für macOS und Windows."
+   ],
+   [
+    "Deutsch vorbereiten",
+    "Descript transkribiert laut Preisseite 25 Sprachen, Deutsch ist dabei. Stell vor dem Import die „Default transcription language“ auf Deutsch oder schalte „Always ask before transcribing“ ein."
+   ],
+   [
+    "Medien reinholen",
+    "Zieh eine vorhandene Audio- oder Videodatei ins Projekt oder nimm direkt in Descript auf. Alles wird automatisch transkribiert."
+   ],
+   [
+    "Im Text schneiden",
+    "Markier Versprecher oder überflüssige Sätze im Transkript und lösch sie. Bild und Ton werden automatisch mitgeschnitten."
+   ],
+   [
+    "Ton aufräumen",
+    "Studio Sound entfernt Hintergrundgeräusche und macht Stimmen klarer, „Remove Filler Words“ wirft Ähs und Ähms raus. Beides findest du bei den KI-Werkzeugen."
+   ],
+   [
+    "Underlord fragen",
+    "Klick in einem Projekt rechts in der Seitenleiste auf das Underlord-Symbol und chatte mit dem KI-Co-Editor, etwa um Clips zu erstellen, Untertitel einzufügen oder Inhalte zu übersetzen."
+   ],
+   [
+    "Exportieren",
+    "Oben rechts auf „Export“: lokal als MP4, MP3, WAV oder GIF, als Untertitel im SRT- oder VTT-Format, als Transkript oder als Web-Link auf share.descript.com, unter dem andere mit Zeitstempel kommentieren."
+   ]
+  ],
+  "tipps": [
+   "Gratis-Tarif: 60 Minuten importierte oder aufgenommene Medien pro Monat. Teste also mit einem kurzen Clip statt mit der zweistündigen Aufzeichnung.",
+   "Willst du später in Premiere Pro, Final Cut Pro oder DaVinci Resolve weiterschneiden, gibt es einen Timeline-Export, der Schnitte und Medien mitnimmt."
+  ]
+ },
+ "elevenlabs": {
+  "geprueft": "2026-11-02",
+  "intro": "ElevenLabs liest deine Texte mit sehr natürlichen Stimmen vor, und Deutsch gehört bei allen aktuellen Sprachmodellen dazu. In der ersten Stunde hast du deine erste deutsche Sprachdatei.",
+  "quellen": [
+   {
+    "titel": "ElevenLabs Docs: Quickstart",
+    "url": "https://elevenlabs.io/docs/eleven-creative/quickstart"
+   },
+   {
+    "titel": "ElevenLabs Help: Sprachen",
+    "url": "https://help.elevenlabs.io/hc/en-us/articles/13313366263441-What-languages-do-you-support"
+   },
+   {
+    "titel": "ElevenLabs Docs: Credits pro Generierung",
+    "url": "https://elevenlabs.io/docs/help-center/account/general/do-i-use-quota-on-every-generation"
+   },
+   {
+    "titel": "ElevenLabs Text to Speech",
+    "url": "https://elevenlabs.io/text-to-speech"
+   }
+  ],
+  "schritte": [
+   [
+    "Konto anlegen",
+    "Registrier dich kostenlos, laut Anbieter ohne Kreditkarte. Der Gratis-Tarif bringt 10.000 Credits im Monat, das sind etwa 10 Minuten Audio."
+   ],
+   [
+    "Stimme aussuchen",
+    "Stöber in der „Voice Library“ und filter nach Sprache und Akzent. Für deutsche Texte nimmst du eine Stimme mit deutschem Akzent, das klingt laut ElevenLabs am natürlichsten."
+   ],
+   [
+    "Modell wählen",
+    "Deutsch können unter anderem Multilingual v2 mit bis zu 10.000 Zeichen pro Durchgang und Eleven v3 mit bis zu 5.000 Zeichen. Für lange Vorlesetexte gilt Multilingual v2 als das stabilste Modell."
+   ],
+   [
+    "Text einfügen",
+    "Im Text-to-Speech-Playground fügst du deinen Text ein. Die Sprache musst du auf der Website nicht einstellen, die KI erkennt sie automatisch."
+   ],
+   [
+    "Generieren",
+    "Klick auf „Generate speech“. Gleichen Text mit gleicher Stimme und gleichem Modell darfst du innerhalb von zwei Stunden zweimal gratis neu erzeugen, solange du die Seite nicht verlässt. Die Regler darfst du dabei verändern."
+   ],
+   [
+    "Herunterladen",
+    "Die fertige Audiodatei lädst du herunter oder teilst sie direkt."
+   ]
+  ],
+  "tipps": [
+   "Gratis-Tarif: 10.000 Credits pro Monat ohne Übertrag, nur private, nicht kommerzielle Nutzung, und du musst ElevenLabs als Quelle nennen. Für monetarisierte Videos oder Kundenprojekte brauchst du einen bezahlten Tarif.",
+   "Text-to-Speech kostet 1 Credit pro Zeichen. Ein Text mit 5.000 Zeichen verbraucht also die Hälfte deines Gratis-Monats.",
+   "Bei Eleven v3 liefert jeder Klick auf Generate zwei Varianten, berechnet wird nur eine."
+  ]
+ },
+ "gamma": {
+  "geprueft": "2026-11-02",
+  "intro": "Seit Gamma 5 entsteht eine Präsentation im Gespräch mit einem KI-Agenten: Du beschreibst, was du brauchst, beantwortest ein paar Rückfragen und bekommst ein fertiges Deck. So kommst du in der ersten Stunde vom Prompt zur PowerPoint-Datei.",
+  "quellen": [
+   {
+    "titel": "Gamma Help: Create with Agent",
+    "url": "https://help.gamma.app/en/articles/15002203-how-do-i-create-with-agent-in-gamma"
+   },
+   {
+    "titel": "Gamma Help: Export",
+    "url": "https://help.gamma.app/en/articles/8022861-what-s-the-easiest-way-to-export-my-gamma"
+   },
+   {
+    "titel": "Gamma Help: Credits",
+    "url": "https://help.gamma.app/en/articles/7834324-how-do-credits-work-in-gamma"
+   },
+   {
+    "titel": "Gamma Preise",
+    "url": "https://gamma.app/pricing"
+   }
+  ],
+  "schritte": [
+   [
+    "Konto anlegen",
+    "Registrier dich kostenlos auf gamma.app. Im Gratis-Tarif bekommst du laut Preisseite 400 Credits zum Start, die sich nicht wieder auffüllen."
+   ],
+   [
+    "Prompt eingeben",
+    "Beschreib im Prompt-Feld deines Dashboards in einem Satz, was du brauchst: Thema, Publikum, Anlass. Über das Plus-Symbol hängst du Dateien oder eigene Bilder an, die Gamma statt Stockfotos verwenden soll."
+   ],
+   [
+    "Modus wählen",
+    "Im Composer wählst du „Plan“ oder „Express“. Plan ist Standard: Der Agent stellt Rückfragen und zeigt dir seinen Plan, bevor er baut. Express springt direkt zum ersten Entwurf. „Research“ mit Webquellen gibt es erst ab Pro."
+   ],
+   [
+    "Plan prüfen",
+    "Lies den Plan zu Story, Stil und Look, pass ihn an und gib dann das Go. Laut Gamma sparst du hier die meisten Korrekturrunden. Bei Rückfragen, auf die du keine Lust hast, klickst du „Decide for me“."
+   ],
+   [
+    "Auf Deutsch arbeiten",
+    "Sag dem Agenten im Prompt ausdrücklich, dass er auf Deutsch schreiben soll. Ein fertiges Deck übersetzt du im Agent-Chat mit „Translate all slides into German“, das kostet Credits."
+   ],
+   [
+    "Nachbessern",
+    "Änderungen wünschst du dir im Chat in eigenen Worten, etwa „Folie 4 ist zu textlastig“. Kleinkram tippst du besser selbst: Manuelle Bearbeitung kostet keine Credits, jede KI-Änderung schon."
+   ],
+   [
+    "Exportieren",
+    "Über „Share“ und dann „Export“ lädst du PDF, PNG oder PowerPoint herunter. Für Google Slides exportierst du als PPTX und lädst die Datei dort hoch. Stell im Dropdown „All cards“ ein, sonst landet eventuell nur die aktuelle Folie im Export."
+   ]
+  ],
+  "tipps": [
+   "Gratis-Tarif: 400 Start-Credits ohne Nachfüllen, bis zu 10 Folien pro Prompt und Gamma-Branding, das erst ab Plus wegfällt. Für jede Empfehlung, die sich anmeldet, gibt es 200 Credits dazu.",
+   "Passt der Inhalt, aber nicht das Design, bitte um einen neuen Look statt neu zu generieren. Restyling behält deinen Text, Neugenerieren fängt bei null an.",
+   "Sind die Credits aufgebraucht, kannst du deine Gammas weiterhin von Hand bearbeiten und exportieren."
+  ]
+ },
+ "heygen": {
+  "geprueft": "2026-11-02",
+  "intro": "HeyGen lässt einen KI-Avatar deinen Text vorsprechen und übersetzt fertige Videos mit Lippensynchronisation. Die HeyGen Academy gibt es auf Deutsch, die Buttons in der App heißen aber Englisch.",
+  "quellen": [
+   {
+    "titel": "HeyGen Academy: Erstes Projekt",
+    "url": "https://www.heygen.com/de-de/academy/ai-studio/how-to-create-a-new-project"
+   },
+   {
+    "titel": "HeyGen Help: Sprachen der Videoübersetzung",
+    "url": "https://help.heygen.com/en/articles/11391941"
+   },
+   {
+    "titel": "HeyGen Help: Gratis-Tarif",
+    "url": "https://help.heygen.com/en/articles/10207693-how-to-get-started-with-heygen-for-mobile"
+   },
+   {
+    "titel": "HeyGen Preise",
+    "url": "https://www.heygen.com/pricing"
+   }
+  ],
+  "schritte": [
+   [
+    "Konto anlegen",
+    "Registrier dich kostenlos, laut Anbieter ohne Kreditkarte. Nach dem Login landest du im Dashboard mit der Navigation links."
+   ],
+   [
+    "Video starten",
+    "Klick auf „Create Video“, dann „Start from Scratch“, und wähl Hoch- oder Querformat. Danach öffnet sich das AI Studio."
+   ],
+   [
+    "Skript einfügen",
+    "Gib dem Projekt einen Namen und füg dein Skript in den Skripteditor ein. Über das Megafon-Symbol, den Voice Director, steuerst du Tonfall, Tempo und Emotion."
+   ],
+   [
+    "Avatar wählen",
+    "Oberhalb der Videofläche öffnest du „Avatars“ und nimmst einen aus der öffentlichen Bibliothek. Im Gratis-Tarif stehen über 500 fertige Avatare bereit."
+   ],
+   [
+    "Auf Deutsch",
+    "Im Skripteditor wechselst du pro Szene die Stimme, nimm für deutschen Text eine passende. Fertige Videos übersetzt HeyGen auch ins Deutsche, mit Varianten für Deutschland, Österreich und die Schweiz."
+   ],
+   [
+    "Generieren",
+    "Klick auf „Generate“, benenne das Video und wähl Zielordner und Auflösung. Im Gratis-Tarif bekommst du laut HeyGen-Hilfe einen 720p-Link zum Teilen."
+   ]
+  ],
+  "tipps": [
+   "Gratis-Tarif: laut Preisseite 3 Videos pro Monat mit Wasserzeichen, je bis zu 1 Minute, über 30 Sprachen und ein eigener Video-Avatar. Die HeyGen-Hilfe nennt je nach Region 1 bis 3 Gratis-Videos.",
+   "Für einen eigenen Avatar nimmst du ein kurzes Einverständnis-Video auf, und zwar von derselben Person wie im Material. Fremde Gesichter ohne Erlaubnis lässt HeyGen nicht zu."
+  ]
+ },
+ "leonardo-ai": {
+  "geprueft": "2026-11-02",
+  "intro": "Leonardo AI erzeugt Bilder und Videos aus Prompts und schenkt dir jeden Tag 150 Tokens. Eine deutsche Oberfläche gibt es nicht, der Einstieg klappt aber auch mit Schulenglisch.",
+  "quellen": [
+   {
+    "titel": "Leonardo Help: Bilder generieren",
+    "url": "https://intercom.help/leonardo-ai/en/articles/8942360-how-to-generate-images-with-leonardo-ai"
+   },
+   {
+    "titel": "Leonardo Help: Tokens",
+    "url": "https://intercom.help/leonardo-ai/en/articles/9044700-tokens-frequently-asked-questions"
+   },
+   {
+    "titel": "Leonardo Help: FAQ",
+    "url": "https://intercom.help/leonardo-ai/en/articles/7051613-frequently-asked-questions"
+   },
+   {
+    "titel": "Leonardo Preise",
+    "url": "https://leonardo.ai/pricing/"
+   }
+  ],
+  "schritte": [
+   [
+    "Konto anlegen",
+    "Auf leonardo.ai über „Create an account“ registrieren, per E-Mail oder Single Sign-on, dann unter app.leonardo.ai einloggen."
+   ],
+   [
+    "Schnellstart",
+    "Tipp auf der Startseite deinen Prompt ins Feld und klick „Generate“. Leonardo wählt dann selbst ein passendes Modell."
+   ],
+   [
+    "Mehr Kontrolle",
+    "Unter dem Prompt-Feld oder links in der Seitenleiste öffnest du „Image“. Dort stellst du Modell, Modus „Fast“ oder „Ultra“, Seitenverhältnis und Bildanzahl ein."
+   ],
+   [
+    "Tokens im Blick",
+    "Die Kosten stehen vor dem Generieren direkt auf dem Button. Fast ist günstig zum Ausprobieren, Ultra teurer und detaillierter. Leonardo rät, in Fast zu testen und nur das Lieblingsbild hochzuskalieren."
+   ],
+   [
+    "Prompts auf Englisch",
+    "Oberfläche und Funktionen sind laut Leonardo auf Englisch optimiert, eine Sprachumstellung gibt es nicht. Schreib Prompts deshalb lieber auf Englisch und nenn das Hauptmotiv zuerst, denn frühe Wörter wiegen schwerer."
+   ],
+   [
+    "Speichern und weiter",
+    "Fahr mit der Maus über ein Bild, um es hochzuskalieren, zu teilen, herunterzuladen, zu bearbeiten oder in ein Video zu verwandeln. Alles landet außerdem in deiner „Library“."
+   ]
+  ],
+  "tipps": [
+   "Gratis-Tarif: 150 Tokens pro Tag, die nicht angespart werden. Was du bis zum Reset nicht nutzt, verfällt. Deine Ergebnisse sind öffentlich im Feed, privat geht nur bezahlt.",
+   "Kommerziell nutzen darfst du auch Gratis-Bilder, Leonardo bekommt an öffentlichen Bildern aber weitreichende Nutzungsrechte. Für Kundenmaterial ist ein bezahlter Tarif mit Private Mode die sauberere Wahl.",
+   "Der Support antwortet nur auf Englisch, eine kostenlose Testphase für die Bezahltarife gibt es nicht."
+  ]
+ },
+ "make": {
+  "geprueft": "2026-11-02",
+  "intro": "Make verbindet Apps über Szenarien, die du als Kette von Modulen zusammenklickst, und baut KI-Agenten direkt in diese Ketten ein. In der ersten Stunde legst du ein kleines Szenario an und hängst einen Agenten dran.",
+  "quellen": [
+   {
+    "titel": "Make Help: Create your first scenario",
+    "url": "https://help.make.com/create-your-first-scenario"
+   },
+   {
+    "titel": "Make Help: Create your first AI agent",
+    "url": "https://help.make.com/create-your-first-ai-agent"
+   },
+   {
+    "titel": "Make Help: Schedule a scenario",
+    "url": "https://help.make.com/schedule-a-scenario"
+   },
+   {
+    "titel": "Make Preise",
+    "url": "https://www.make.com/en/pricing"
+   }
+  ],
+  "schritte": [
+   [
+    "Konto anlegen",
+    "Registrier dich kostenlos auf make.com. Der Gratis-Tarif hat laut Preisseite kein Zeitlimit."
+   ],
+   [
+    "Szenario anlegen",
+    "Klick oben auf „Create scenario“ und wähl einen Trigger, zum Beispiel Google Sheets mit „Watch New Rows“. Der Trigger bestimmt, wann das Szenario startet."
+   ],
+   [
+    "Aktion anhängen",
+    "Über das Plus-Symbol rechts am letzten Modul fügst du das nächste hinzu, etwa eine Slack-Nachricht. Die Verbindung zur jeweiligen App legst du dabei einmal an."
+   ],
+   [
+    "KI-Agent einbauen",
+    "Such nach „Make AI Agent (New)“ und wähl das Modul „Run an agent“. Im Gratis-Tarif nimmst du als Verbindung „Make's AI Provider“, eigene OpenAI- oder Claude-Zugänge gehen erst in bezahlten Tarifen."
+   ],
+   [
+    "Anweisungen schreiben",
+    "Unter „Instructions“ beschreibst du Rolle, Ziel und Arbeitsschritte des Agenten, unter „Input“ die konkrete Aufgabe pro Durchlauf."
+   ],
+   [
+    "Im Chat testen",
+    "Rechtsklick auf das Agenten-Modul und „Chat with Agent“: Dort schickst du Beispielanfragen und siehst, welche Tools der Agent aufruft."
+   ],
+   [
+    "Zeitplan setzen",
+    "Klick in der Werkzeugleiste auf „Every 15 minutes“, wähl ein Intervall oder „On demand“, speichern und „Activate scenario“. Reine Testszenarien schaltest du danach wieder ab, sonst laufen Credits weg."
+   ]
+  ],
+  "tipps": [
+   "Gratis-Tarif: 1.000 Credits pro Monat, 2 aktive Szenarien, mindestens 15 Minuten zwischen zwei Läufen und 5 Minuten maximale Laufzeit. Fast jede Modul-Aktion kostet einen Credit.",
+   "Rechne den Trigger mit: Laut Make kostet stündliches Abfragen allein 24 Credits am Tag. Alle 15 Minuten wären rund 2.880 Credits im Monat, das sprengt den Gratis-Tarif schon ohne weitere Module."
+  ]
+ },
+ "n8n": {
+  "geprueft": "2026-11-02",
+  "intro": "n8n ist das Automatisierungs-Werkzeug für Leute, die gern unter die Haube schauen. In diesem Mini-Tutorial baust du deinen ersten KI-Agenten: Chat rein, Sprachmodell dran, Gedächtnis dazu.",
+  "quellen": [
+   {
+    "titel": "n8n Docs: Build your first workflow",
+    "url": "https://docs.n8n.io/build-your-first-workflow"
+   },
+   {
+    "titel": "n8n Docs: AI Agent",
+    "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent"
+   },
+   {
+    "titel": "n8n Docs: Chat Trigger",
+    "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-langchain.chattrigger"
+   },
+   {
+    "titel": "n8n Preise",
+    "url": "https://n8n.io/pricing/"
+   }
+  ],
+  "schritte": [
+   [
+    "Instanz wählen",
+    "Entweder n8n Cloud mit kostenloser Testphase oder selbst gehostet als Community Edition von GitHub. Für Einsteiger empfiehlt n8n die Cloud."
+   ],
+   [
+    "Neuer Workflow",
+    "Leg einen neuen Workflow an, klick auf „Add first step“ und such nach „Chat Trigger“. Damit startet der Workflow bei jeder Chatnachricht."
+   ],
+   [
+    "AI Agent anhängen",
+    "Am Trigger über das Plus den Knoten „AI Agent“ hinzufügen. Er entscheidet selbst, welche angeschlossenen Tools er für eine Aufgabe aufruft."
+   ],
+   [
+    "Sprachmodell verbinden",
+    "Klick unter dem Agenten am Anschluss „Chat Model“ aufs Plus und wähl ein Modell, etwa von OpenAI, Anthropic oder Google Gemini. Den API-Schlüssel hinterlegst du als Credential."
+   ],
+   [
+    "Gedächtnis geben",
+    "Ohne Memory vergisst der Agent nach jeder Nachricht, wer du bist. Häng am Anschluss „Memory“ eine „Simple Memory“ an, dann merkt er sich den Verlauf."
+   ],
+   [
+    "Testen",
+    "Über den „Chat“-Button unten im Canvas öffnest du ein lokales Chatfenster und siehst daneben die Logs mit allen Ein- und Ausgaben des Agenten."
+   ],
+   [
+    "Veröffentlichen",
+    "Passt alles, klick oben auf „Publish“. Soll der Chat öffentlich erreichbar sein, schaltest du im Chat Trigger „Make Chat Publicly Available“ ein. Beim Bauen lässt du es aus."
+   ]
+  ],
+  "tipps": [
+   "Cloud-Testphase: laut Preisseite 1.000 Ausführungen, 5 gleichzeitige Ausführungen und 1 Projekt. Jede Chatnachricht zählt als eigene Ausführung, ein Gespräch mit zehn Nachrichten sind also zehn.",
+   "Selbst hosten ist laut n8n kostenlos, du brauchst dann aber einen eigenen Server und eigene API-Schlüssel für das Sprachmodell.",
+   "Lieber per Beschreibung bauen? Der n8n Assistant erstellt Workflows aus einem Prompt, in der Cloud ab dem Starter-Tarif."
+  ]
+ },
+ "runway": {
+  "geprueft": "2026-11-02",
+  "intro": "Runway ist ein Videostudio im Browser, in dem du aus Bild und Text kurze KI-Clips erzeugst. Mit 125 Gratis-Credits musst du sparsam testen, deshalb hier der Weg mit dem kleinsten Verbrauch.",
+  "quellen": [
+   {
+    "titel": "Runway Help: Getting Started",
+    "url": "https://help.runwayml.com/hc/en-us/articles/37425232841875-Getting-Started-with-Generative-Video"
+   },
+   {
+    "titel": "Runway Help: Gen-4 Video",
+    "url": "https://help.runwayml.com/hc/en-us/articles/37327109429011-Creating-with-Gen-4-Video"
+   },
+   {
+    "titel": "Runway Help: Free plan",
+    "url": "https://help.runwayml.com/hc/en-us/articles/50404627334547-Free-plan-details"
+   },
+   {
+    "titel": "Runway Preise",
+    "url": "https://runway.com/pricing"
+   }
+  ],
+  "schritte": [
+   [
+    "Konto anlegen",
+    "Melde dich auf app.runwayml.com an, Runway empfiehlt dafür Chrome. Für unterwegs gibt es Apps für iOS und Android."
+   ],
+   [
+    "Modus wählen",
+    "Es gibt vier Modi: „Tools“ für volle Kontrolle, „Apps“ für fertige Anwendungsfälle, „Agent“ für mehrteilige Videos im Gespräch und „Workflows“ als Node-Editor. Für den Start nimmst du „Tools“."
+   ],
+   [
+    "Startbild hochladen",
+    "Wähl oben den Tab „Video“ und lade ein Bild hoch. Bei Gen-4 ist das Pflicht, das Bild wird zum ersten Frame deines Clips."
+   ],
+   [
+    "Bewegung beschreiben",
+    "Bei Image to Video beschreibst du im Prompt nur die Bewegung, nicht den Bildinhalt: wie die Kamera fährt, was sich bewegt. Maximal 1.000 Zeichen."
+   ],
+   [
+    "Günstig testen",
+    "Stell im Modell-Dropdown unten Gen-4 Turbo ein: 5 Credits pro Sekunde, ein 5-Sekunden-Clip kostet also 25 Credits. Gen-4 kostet 12 Credits pro Sekunde. Zeigt ein Modell einen Upgrade-Hinweis, ist es nicht im Gratis-Tarif."
+   ],
+   [
+    "Generieren und weiterarbeiten",
+    "Klick auf „Generate“. Unter dem fertigen Clip kannst du ihn favorisieren, hochskalieren oder herunterladen. Über „Use“ schneidest du ihn zu oder nimmst den aktuellen Frame als neues Startbild. Zuschneiden kostet keine Credits."
+   ],
+   [
+    "Wiederfinden",
+    "Alle Ergebnisse liegen zusätzlich unter „Assets“ im Ordner deiner Session."
+   ]
+  ],
+  "tipps": [
+   "Gratis-Tarif: einmalig 125 Credits, die nicht verfallen, aber auch nicht nachgefüllt werden. Nachkaufen geht erst ab Standard, und alle Gratis-Videos tragen ein Runway-Wasserzeichen.",
+   "Rechne vorher: Mit Gen-4 Turbo reichen 125 Credits für fünf 5-Sekunden-Clips, mit Gen-4 nur für zwei."
+  ]
+ },
+ "rytr": {
+  "geprueft": "2026-11-02",
+  "intro": "Rytr ist ein schlanker KI-Texter für kurze Sachen wie Mails, Posts und Anzeigen. Du klickst dir Sprache, Ton und Anwendungsfall zusammen, gibst ein paar Stichworte ein und bekommst bis zu drei Entwürfe.",
+  "quellen": [
+   {
+    "titel": "Rytr",
+    "url": "https://rytr.me/"
+   },
+   {
+    "titel": "Rytr Anleitung: Continue Writing",
+    "url": "https://rytr.me/use-cases/text-continue-writing"
+   },
+   {
+    "titel": "Rytr Preise",
+    "url": "https://rytr.me/pricing"
+   }
+  ],
+  "schritte": [
+   [
+    "Konto anlegen",
+    "Registrier dich auf rytr.me. Der Gratis-Tarif ist laut Anbieter dauerhaft kostenlos."
+   ],
+   [
+    "Sprache wählen",
+    "Stell zuerst die Sprache ein, Rytr schreibt laut Anbieter in über 30 Sprachen."
+   ],
+   [
+    "Ton festlegen",
+    "Wähl einen von 22 Tönen, zum Beispiel freundlich oder formell. Alternativ kann Rytr eine Schreibprobe von dir analysieren und deinen Ton nachahmen."
+   ],
+   [
+    "Anwendungsfall aussuchen",
+    "Im Dropdown wählst du aus rund 40 Anwendungsfällen, von der E-Mail über Blog-Abschnitte bis zur Anzeige."
+   ],
+   [
+    "Input und „Ryte for me“",
+    "Gib Stichworte oder einen Satz als Input ein, stell Kreativität und die Zahl der Varianten ein, höchstens drei, und klick „Ryte for me“."
+   ],
+   [
+    "Nachbessern",
+    "Im Editor kannst du markierten Text verbessern, kürzen, verlängern, umformulieren oder im Ton ändern. „Continue Ryting“ schreibt an der markierten Stelle weiter."
+   ],
+   [
+    "Browser-Erweiterung",
+    "Mit der Erweiterung nutzt du Rytr in jedem Textfeld im Browser, ohne den Tab zu wechseln."
+   ]
+  ],
+  "tipps": [
+   "Gratis-Tarif: 10.000 Zeichen pro Monat, also eher eine Handvoll Mails und Posts als ein langer Fachartikel. Lite für $9/Monat hebt das Zeichenlimit auf.",
+   "Bei jährlicher Zahlung sparst du laut Anbieter 20 % gegenüber dem Monatspreis."
+  ]
+ },
+ "surfer-seo": {
+  "geprueft": "2026-11-02",
+  "intro": "Surfer SEO vergleicht deinen Text live mit den Seiten, die für dein Keyword ranken, und gibt dir einen Content Score von 0 bis 100. Das Herzstück für die erste Stunde ist der Content Editor.",
+  "quellen": [
+   {
+    "titel": "Surfer Docs: Content Editor",
+    "url": "https://docs.surferseo.com/en/articles/5700347-content-editor-overview"
+   },
+   {
+    "titel": "Surfer Docs: Sprachen",
+    "url": "https://docs.surferseo.com/en/articles/8052688-surfer-language-and-location-support"
+   },
+   {
+    "titel": "Surfer Docs auf Deutsch",
+    "url": "https://docs.surferseo.com/de/articles/11404758-schritt-1a-wie-man-einen-neuen-seo-optimierten-artikel-schreibt"
+   },
+   {
+    "titel": "Surfer Preise",
+    "url": "https://surferseo.com/pricing/"
+   }
+  ],
+  "schritte": [
+   [
+    "Tarif wählen",
+    "Einen Gratis-Tarif gibt es nicht. Der Einstieg ist Discovery für 49 USD im Monat bei jährlicher Abrechnung, danach arbeitest du unter app.surferseo.com."
+   ],
+   [
+    "Content Editor anlegen",
+    "Links auf „Content Editor“, dann „+ New Content“. Gib dein Hauptkeyword ein, bis zu 20 Keywords pro Editor sind möglich."
+   ],
+   [
+    "Deutschland einstellen",
+    "Wähl Standort und Sprache, also Deutschland und Deutsch, dazu Desktop oder Mobile. Surfer unterstützt laut Doku alle Sprachen, entscheidend ist, dass Keyword und Standort zum Zielmarkt passen. Die Analyse dauert ein paar Minuten."
+   ],
+   [
+    "Vorlage und Kontext",
+    "Wähl ein Template, schau dir die rankende Konkurrenz an und pass die vorgeschlagene Wortzahl an. Als Kontext kannst du bis zu 5 Quell-URLs mitgeben."
+   ],
+   [
+    "Schreiben lassen oder selbst schreiben",
+    "„Write it yourself“ öffnet einen leeren Editor mit Guidelines, „Generate content“ lässt Surfer AI erst die Gliederung und dann den Text schreiben."
+   ],
+   [
+    "Score hochziehen",
+    "Oben siehst du Content Score, SEO Score und AI Search Score, die sich beim Schreiben live aktualisieren. Laut Surfer ist ein Content Score über 60 ein guter Richtwert."
+   ],
+   [
+    "Exportieren",
+    "Im Schritt „Publish or Export“ kopierst du den Text als TXT, HTML oder Markdown oder schickst ihn als Entwurf nach WordPress. Der WordPress-Export verbraucht keine Credits."
+   ]
+  ],
+  "tipps": [
+   "Jeder neue Content Editor zählt gegen dein Abo-Limit, auch wenn du ihn aus Google Docs oder WordPress heraus anlegst. Leg also nicht für jede spontane Keyword-Idee einen eigenen an.",
+   "Teile des Hilfe-Centers gibt es auf Deutsch, die Buttons heißen dort aber wie in der App auf Englisch, etwa „New Content“ und „Create“."
+  ]
+ },
+ "wordtune": {
+  "geprueft": "2026-11-02",
+  "intro": "Wordtune glättet englische Texte: umformulieren, kürzen, Ton ändern. Der Trick für Deutschsprachige: Du darfst auf Deutsch tippen und bekommst eine englische Fassung zurück.",
+  "quellen": [
+   {
+    "titel": "Wordtune Extension",
+    "url": "https://www.wordtune.com/extension"
+   },
+   {
+    "titel": "Wordtune Help: Editor-Funktionen",
+    "url": "https://support.wordtune.com/en/articles/9024394-wordtune-editor-writing-features"
+   },
+   {
+    "titel": "Wordtune Help: Extension",
+    "url": "https://support.wordtune.com/en/articles/5780724-wordtune-extension-explained"
+   },
+   {
+    "titel": "Wordtune Preise",
+    "url": "https://wordtune.com/plans"
+   }
+  ],
+  "schritte": [
+   [
+    "Konto anlegen",
+    "Registrier dich kostenlos auf wordtune.com, laut Anbieter ohne Kreditkarte."
+   ],
+   [
+    "Erweiterung installieren",
+    "Hol dir die Erweiterung für Chrome, Edge, Firefox oder Arc, bestätig die Berechtigungen und pinn Wordtune über das Puzzle-Symbol an die Symbolleiste."
+   ],
+   [
+    "Erster Rewrite",
+    "Schreib im Wordtune Editor oder in einem Textfeld im Browser, markier einen Satz und klick auf „Rewrite“. Dann wählst du einen der Vorschläge."
+   ],
+   [
+    "Ganze Absätze",
+    "Für längere Passagen schaltest du im Rewrite-Panel von „Sentence“ auf „Paragraph“ um."
+   ],
+   [
+    "Deutsch als Eingabe",
+    "Du kannst auf Deutsch schreiben, Wordtune übersetzt ins Englische und formuliert dann weiter. Die Ausgabe ist immer Englisch, deutsche Texte poliert Wordtune nicht."
+   ],
+   [
+    "Google Docs einrichten",
+    "In Google Docs funktioniert Wordtune nur im Modus „Pages“. Steht dein Dokument auf „Pageless“, stellst du es unter „File“ > „Page setup“ um."
+   ],
+   [
+    "Tastenkürzel",
+    "Mit Cmd + D auf dem Mac oder Strg + D unter Windows rufst du die Erweiterung direkt im Text auf."
+   ]
+  ],
+  "tipps": [
+   "Gratis-Tarif: 10 Rewrites und 10 Vorschläge zum Weiterschreiben pro Tag, Rechtschreib- und Grammatikkorrektur unbegrenzt. „Ask AI“ gibt es erst ab Advanced.",
+   "Die Testphase der Bezahltarife dauert 3 Tage und braucht eine Zahlungsmethode. Kündig rechtzeitig, Rückerstattungen gibt es laut Anbieter nicht."
+  ]
+ },
+ "writesonic": {
+  "geprueft": "2026-11-02",
+  "intro": "Writesonic misst heute vor allem, ob deine Marke in KI-Antworten von ChatGPT, Gemini und Co. auftaucht. In der ersten Stunde richtest du ein Projekt ein und bekommst den ersten Sichtbarkeits-Schnappschuss.",
+  "quellen": [
+   {
+    "titel": "Writesonic Docs: GEO Getting Started",
+    "url": "https://docs.writesonic.com/docs/geo-getting-started"
+   },
+   {
+    "titel": "Writesonic Docs: All Prompts",
+    "url": "https://docs.writesonic.com/docs/all-prompts"
+   },
+   {
+    "titel": "Writesonic Preise",
+    "url": "https://writesonic.com/pricing"
+   }
+  ],
+  "schritte": [
+   [
+    "Testphase starten",
+    "Auf der Preisseite startest du über „Start free trial“, laut Anbieter ohne Kreditkarte."
+   ],
+   [
+    "Projekt anlegen",
+    "Gib die URL deiner Website ein und wähl den „Scope“: „Domain“ für die ganze Seite, alternativ „Exact URL“, „Path“ oder „Subdomain“. Im Zweifel bleibst du bei Domain."
+   ],
+   [
+    "Ziel wählen",
+    "Für KI-Sichtbarkeit nimmst du „Optimize for AI Search Engines“, für klassische Keyword-Recherche „SEO and Content Optimization“."
+   ],
+   [
+    "Markt auf Deutsch stellen",
+    "Bei „Where do you want to track your brand?“ wählst du Land und Sprache, in denen Writesonic die KI-Antworten prüft. Deutsch steht laut Doku zur Wahl, also Deutschland und Deutsch, wenn deine Kunden hier sitzen."
+   ],
+   [
+    "Themen und Prompts",
+    "Wähl 2 bis 10 Themen in den Worten deiner Kunden, nicht in Produktnamen. Daraus erzeugt Writesonic Prompts, die du abwählen oder über „Add Prompt“ ergänzen kannst."
+   ],
+   [
+    "Konkurrenz eintragen",
+    "Prüf die vorgeschlagenen Wettbewerber und ergänz eigene per URL. Erst damit siehst du, wo die KI statt dir die Konkurrenz nennt."
+   ],
+   [
+    "Auswerten",
+    "Unter „All Prompts & Answers“ siehst du je Prompt deine AI Visibility und deinen Rang, im Tab „Answers“ die Original-Antworten der KI-Plattformen."
+   ]
+  ],
+  "tipps": [
+   "Einen Gratis-Tarif gibt es nicht, nur die Testphase. Starter für $79/Monat bei jährlicher Zahlung trackt laut Preisseite 50 Prompts täglich in ChatGPT, Gemini und Google AI Overviews, mit 1 Nutzer und 1 Projekt.",
+   "Beim Setup zeigt ein Schieberegler, wie viele deiner verfügbaren Prompts du verbrauchst. Fang mit den Fragen an, die echte Kunden stellen würden, statt das Kontingent sofort zu verballern."
+  ]
+ }
+}
