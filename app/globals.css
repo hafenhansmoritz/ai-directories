@@ -776,6 +776,95 @@ abbr {
     margin: 0;
 }
 
+/* Hero Status-Toggle & Merkliste auf Verzeichnis-Detailseiten */
+.detail-hero-actions,
+.verzeichnis-hero-status {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 16px 0 14px;
+    padding: 10px 14px;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.detail-status-btn,
+.status-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 6px 14px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-pill);
+    font: inherit;
+    font-size: var(--fs-base);
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+.detail-status-btn:hover,
+.status-toggle-btn:hover {
+    transform: translateY(-1px);
+}
+.detail-status-btn.is-open,
+.status-toggle-btn.is-offen {
+    background: var(--surface);
+    color: var(--text);
+    border-style: dashed;
+}
+.detail-status-btn.is-open:hover,
+.status-toggle-btn.is-offen:hover {
+    border-style: solid;
+    background: var(--warn-bg);
+}
+.detail-status-btn.is-done,
+.status-toggle-btn.is-eingetragen {
+    background: var(--good-bg);
+    color: var(--good-fg);
+    border-color: var(--good-fg);
+    box-shadow: 2px 2px 0 var(--good-fg);
+}
+
+.status-indicator { font-size: 1.1em; font-weight: 900; }
+.status-text { font-weight: 800; }
+.status-toggle-hint {
+    font-size: var(--fs-2xs);
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.detail-merk-btn,
+.hero-merk-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 40px;
+    padding: 6px 14px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-pill);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+.detail-merk-btn:hover,
+.hero-merk-btn:hover {
+    transform: translateY(-1px);
+    background: var(--warn-bg);
+}
+.detail-merk-btn.is-gemerkt,
+.hero-merk-btn.is-gemerkt {
+    background: var(--warn-bg);
+    border-color: var(--border);
+}
+
 .verdict {
     border-radius: var(--radius);
     padding: 16px 18px;
