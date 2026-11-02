@@ -1979,7 +1979,24 @@ td.wrap {
 
 @media (max-width: 1179px) {
     .back-to-top {
-        bottom: 84px;
+        bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+@media (max-width: 720px) {
+    .back-to-top {
+        right: 12px;
+        bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+        transform: translateY(20px) scale(0.85);
+    }
+
+    .back-to-top.is-visible {
+        transform: scale(0.85);
+    }
+
+    .back-to-top svg {
+        width: 44px;
+        height: 44px;
     }
 }
 

@@ -34,7 +34,7 @@ Jeder automatische Lauf (alle 10 Minuten) wählt die **erste offene Aufgabe (`- 
   Das Badge rechts am Header wirkt wie ein klickbares Element, tut aber nichts. Mach es klickbar: Beim Klick wechselt Jean durch 8 trockene, motivierende Kurz-Sprüche für Indie-Hacker (und vergibt beim 3. Klick ein kleines Easter-Egg-Abzeichen oder Toast).
 - [x] **Task 11: Doppelte Scrollbalken der linken und rechten Sidebar auf Desktop entschärfen**
   Beide Sidebars (`.sidebar-left` und `.sidebar-right`) zeigen auf Desktop eigene, breite Scrollbalken direkt neben dem Hauptinhalt. Style die Sidebar-Scrollbars dezent (`scrollbar-width: thin`, dezente Thumb-Farbe) und sorge für einen sanften Fade-Hinweis am unteren Rand.
-- [ ] **Task 12: Kollision des „Nach oben"-Raketen-Buttons auf Mobile beheben**
+- [x] **Task 12: Kollision des „Nach oben"-Raketen-Buttons auf Mobile beheben**
   Auf Mobile (`390px`) verdeckt der schwebende „Nach oben"-Button unten rechts oft den „Eintragen ↗"-Button der Verzeichnis-Karten. Positioniere ihn auf Mobile höher über dem Bottom-Dock, leicht kompakter, und blende ihn erst ab 600px Scrolltiefe ein.
 
 ---
