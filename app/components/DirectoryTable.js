@@ -10,6 +10,7 @@ import konfetti from '../../lib/konfetti'
 import { submitRel } from '../../lib/monetization'
 import '../styles/c-start.css'
 import { kuerzelAus } from '../../lib/herz'
+import { LOKAL_EVENT, lokalLaunch, setzeLokal, datumDe } from '../../lib/launch'
 
 // Erwartet schlanke Zeilen aus tabellenZeilen() (lib/data.js): Score und Sperre kommen fertig vom Server.
 const SORTS = {
@@ -54,48 +55,148 @@ function abstand(a, b, max) {
     return prev[b.length]
 }
 
-const Zeile = memo(function Zeile({ d, erledigt, onToggle }) {
+const Zeile = memo(function Zeile({ d, erledigt, onToggle, logEintrag, onSpeichernLog }) {
+    const [offen, setOffen] = useState(false)
+    const hatLog = Boolean(logEintrag?.datum || logEintrag?.listingUrl || logEintrag?.notiz)
+
     return (
-        <tr className={erledigt ? 'is-done' : undefined}>
-            <td>
-                <input type="checkbox" className="track" checked={erledigt} onChange={() => onToggle(d.slug)} aria-label={`${d.name} als eingetragen markieren`} />
-            </td>
-            <th scope="row">
-                {/* Kein Prefetch: sonst lädt jede sichtbare Zeile beim Scrollen die Daten ihrer Detailseite vor. */}
-                <Link href={`/verzeichnis/${d.slug}`} prefetch={false}>
-                    {d.name}
-                </Link>
-                {d.deal && <span className="deal-flag">Rabatt</span>}
-            </th>
-            <td>
-                {d.blocked ? (
-                    <span className="submit-closed">gerade zu</span>
-                ) : (
-                    <a
-                        className="submit-link"
-                        href={d.submission_link}
-                        target="_blank"
-                        rel={submitRel(d)}
-                        aria-label={`${d.name}: Tool eintragen (externer Link, öffnet in neuem Tab)${d.affiliate ? ', Partnerlink' : ''}`}
-                    >
-                        Eintragen ↗{d.affiliate && <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup>}
-                    </a>
-                )}
-            </td>
-            <td className="num">
-                <span className="score-pill" style={{ '--score': d.score }}>
-                    {d.score}
-                </span>
-            </td>
-            <td className="num">{formatRating(d.domain_rating)}</td>
-            <td className="num">{formatVisits(d.monthly_visits)}</td>
-            <td>
-                <PriceBadge value={d.pricing} />
-            </td>
-            <td>
-                <ExperienceBadge value={d.submission_experience} blocked={d.blocked} />
-            </td>
-        </tr>
+        <>
+            <tr className={erledigt ? 'is-done' : undefined}>
+                <td>
+                    <div className="table-track-cell">
+                        <input
+                            type="checkbox"
+                            className="track"
+                            checked={erledigt}
+                            onChange={() => onToggle(d.slug)}
+                            aria-label={`${d.name} als eingetragen markieren`}
+                        />
+                        {erledigt && (
+                            <button
+                                type="button"
+                                className={`table-log-trigger ${offen ? 'is-open' : ''} ${hatLog ? 'has-data' : ''}`}
+                                onClick={() => setOffen((o) => !o)}
+                                title={hatLog ? 'Logbuch bearbeiten (Datum, Notiz, Listing-URL)' : 'Logbuch öffnen (Datum, Notiz, Listing-URL)'}
+                                aria-label={`Logbuch für ${d.name} ${offen ? 'schließen' : 'öffnen'}`}
+                                aria-expanded={offen}
+                            >
+                                📝
+                            </button>
+                        )}
+                    </div>
+                </td>
+                <th scope="row">
+                    {/* Kein Prefetch: sonst lädt jede sichtbare Zeile beim Scrollen die Daten ihrer Detailseite vor. */}
+                    <Link href={`/verzeichnis/${d.slug}`} prefetch={false}>
+                        {d.name}
+                    </Link>
+                    {d.deal && <span className="deal-flag">Rabatt</span>}
+                    {erledigt && logEintrag?.datum && (
+                        <span className="table-log-datum-hint" title={`Eingereicht am ${datumDe(logEintrag.datum)}`}>
+                            📅 {datumDe(logEintrag.datum)}
+                        </span>
+                    )}
+                    {erledigt && logEintrag?.listingUrl && (
+                        <a
+                            href={logEintrag.listingUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="table-log-link-hint"
+                            title={`Deine Listing-Seite auf ${d.name} öffnen`}
+                        >
+                            Listing ↗
+                        </a>
+                    )}
+                </th>
+                <td>
+                    {d.blocked ? (
+                        <span className="submit-closed">gerade zu</span>
+                    ) : (
+                        <a
+                            className="submit-link"
+                            href={d.submission_link}
+                            target="_blank"
+                            rel={submitRel(d)}
+                            aria-label={`${d.name}: Tool eintragen (externer Link, öffnet in neuem Tab)${d.affiliate ? ', Partnerlink' : ''}`}
+                        >
+                            Eintragen ↗{d.affiliate && <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup>}
+                        </a>
+                    )}
+                </td>
+                <td className="num">
+                    <span className="score-pill" style={{ '--score': d.score }}>
+                        {d.score}
+                    </span>
+                </td>
+                <td className="num">{formatRating(d.domain_rating)}</td>
+                <td className="num">{formatVisits(d.monthly_visits)}</td>
+                <td>
+                    <PriceBadge value={d.pricing} />
+                </td>
+                <td>
+                    <ExperienceBadge value={d.submission_experience} blocked={d.blocked} />
+                </td>
+            </tr>
+            {erledigt && offen && (
+                <tr className="table-log-row">
+                    <td colSpan={8}>
+                        <div className="table-log-card">
+                            <div className="table-log-header">
+                                <strong>Logbuch für {d.name}:</strong>
+                                <span className="widget-note">Wird automatisch in deinem Browser gespeichert</span>
+                                <button
+                                    type="button"
+                                    className="table-log-close-btn"
+                                    onClick={() => setOffen(false)}
+                                    aria-label="Logbuch schließen"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+                            <div className="table-log-fields">
+                                <label>
+                                    <span>Einreichdatum:</span>
+                                    <input
+                                        type="date"
+                                        value={logEintrag?.datum || ''}
+                                        onChange={(e) => onSpeichernLog(d.slug, { datum: e.target.value || null })}
+                                    />
+                                </label>
+                                <label className="table-log-url-field">
+                                    <span>Listing-URL:</span>
+                                    <input
+                                        type="url"
+                                        placeholder="https://.../tool/dein-projekt"
+                                        value={logEintrag?.listingUrl || ''}
+                                        onChange={(e) => onSpeichernLog(d.slug, { listingUrl: e.target.value })}
+                                    />
+                                </label>
+                                <label className="table-log-notiz-field">
+                                    <span>Notiz:</span>
+                                    <input
+                                        type="text"
+                                        placeholder="z. B. Paket Free, Login via GitHub, Freischaltung in 3 Tagen"
+                                        value={logEintrag?.notiz || ''}
+                                        onChange={(e) => onSpeichernLog(d.slug, { notiz: e.target.value })}
+                                    />
+                                </label>
+                                {logEintrag?.listingUrl && (
+                                    <a
+                                        href={logEintrag.listingUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="button button-small"
+                                        style={{ textDecoration: 'none' }}
+                                    >
+                                        Listing ↗
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            )}
+        </>
     )
 })
 
@@ -106,6 +207,20 @@ export default function DirectoryTable({ directories, interactive = true, defaul
     // Die Eingabe bleibt sofort bedienbar, die Tabelle rechnet im Hintergrund nach (wichtig für INP auf Handys).
     const spaet = useDeferredValue(filter)
     const { done, toggle } = useTracker()
+    const [launchEintraege, setLaunchEintraege] = useState(() => new Map())
+    useEffect(() => {
+        const sync = () => setLaunchEintraege(lokalLaunch())
+        sync()
+        window.addEventListener(LOKAL_EVENT, sync)
+        window.addEventListener('storage', sync)
+        return () => {
+            window.removeEventListener(LOKAL_EVENT, sync)
+            window.removeEventListener('storage', sync)
+        }
+    }, [])
+    const onSpeichernLog = useCallback((slug, felder) => {
+        setzeLokal(slug, felder)
+    }, [])
     const searchRef = useRef(null)
     const urlGelesen = useRef(false)
 
@@ -298,7 +413,7 @@ export default function DirectoryTable({ directories, interactive = true, defaul
                         </thead>
                         <tbody>
                             {rows.map((d) => (
-                                <Zeile key={d.slug} d={d} erledigt={done.has(d.slug)} onToggle={onToggle} />
+                                <Zeile key={d.slug} d={d} erledigt={done.has(d.slug)} onToggle={onToggle} logEintrag={launchEintraege.get(d.slug)} onSpeichernLog={onSpeichernLog} />
                             ))}
                         </tbody>
                     </table>

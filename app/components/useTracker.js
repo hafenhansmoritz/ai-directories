@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import useLaunch from './useLaunch'
-import { LOKAL_KEY, ZAEHLT, setzeLaunch } from '../../lib/launch'
+import { LOKAL_KEY, ZAEHLT, setzeLaunch, heute, LOKAL_LAUNCH } from '../../lib/launch'
 import { verleihe } from '../../lib/herz'
 
 // Ohne Anmeldung liegen eingetragene Verzeichnisse nur im Browser; ein Event hält mehrere Tabellen auf derselben Seite synchron.
@@ -54,9 +54,21 @@ export default function useTracker() {
         an ? next.add(slug) : next.delete(slug)
         try {
             localStorage.setItem(KEY, JSON.stringify([...next]))
+            localStorage.setItem('mentat-eingetragen', JSON.stringify([...next]))
         } catch {
             // Speicher gesperrt (privates Fenster): Häkchen gilt dann nur bis zum Neuladen.
         }
+        try {
+            const roh = JSON.parse(localStorage.getItem(LOKAL_LAUNCH) || '{}')
+            const bisher = roh[slug] || {}
+            roh[slug] = {
+                ...bisher,
+                status: an ? (bisher.status === 'live' ? 'live' : 'eingereicht') : 'geplant',
+                datum: an ? (bisher.datum || heute()) : bisher.datum,
+                aktualisiert: new Date().toISOString(),
+            }
+            localStorage.setItem(LOKAL_LAUNCH, JSON.stringify(roh))
+        } catch {}
         setDone(next)
         window.dispatchEvent(new Event(EVENT))
         if (an) {

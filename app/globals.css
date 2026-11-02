@@ -865,6 +865,218 @@ abbr {
     border-color: var(--border);
 }
 
+/* Persoenliches Einreichungs-Logbuch (Task 14) */
+.hero-log-box {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px 14px;
+    background: var(--surface-2);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+
+.hero-log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: var(--fs-xs);
+}
+
+.hero-log-header strong {
+    font-weight: 800;
+}
+
+.hero-log-sub {
+    font-size: var(--fs-2xs);
+    opacity: 0.75;
+}
+
+.hero-log-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.hero-log-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+}
+
+.hero-log-field-wide {
+    grid-column: 1 / -1;
+}
+
+.hero-log-field span {
+    font-size: var(--fs-2xs);
+    opacity: 0.8;
+}
+
+.hero-log-field input {
+    font: inherit;
+    font-size: var(--fs-xs);
+    padding: 6px 10px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-xs);
+    background: var(--surface);
+    color: var(--text);
+}
+
+.hero-log-field input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.hero-log-url-wrap {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.hero-log-url-wrap input {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-log-link-btn {
+    padding: 6px 12px;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: var(--fs-xs);
+}
+
+/* Tabellen-Logbuch (DirectoryTable) */
+.table-track-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.table-log-trigger {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-xs);
+    padding: 1px 4px;
+    font-size: var(--fs-xs);
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.75;
+    transition: transform 0.1s ease, opacity 0.15s ease, background 0.15s ease;
+}
+
+.table-log-trigger:hover {
+    transform: scale(1.15);
+    background: var(--warn-bg);
+    opacity: 1;
+}
+
+.table-log-trigger.is-open {
+    background: var(--pop);
+    border-color: var(--border);
+    opacity: 1;
+}
+
+.table-log-trigger.has-data {
+    border-color: var(--good-fg);
+    opacity: 1;
+}
+
+.table-log-datum-hint {
+    display: block;
+    font-size: var(--fs-2xs);
+    font-weight: 600;
+    color: var(--muted);
+    margin-top: 2px;
+}
+
+.table-log-link-hint {
+    display: inline-block;
+    font-size: var(--fs-2xs);
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: underline;
+    margin-left: 6px;
+}
+
+.table-log-row td {
+    background: var(--surface-2);
+    padding: 0 10px 10px !important;
+}
+
+.table-log-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-xs);
+    box-shadow: var(--shadow-sm);
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.table-log-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: var(--fs-xs);
+}
+
+.table-log-close-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xs);
+    padding: 2px 6px;
+    cursor: pointer;
+    font-size: var(--fs-xs);
+    font-weight: 800;
+    opacity: 0.7;
+}
+
+.table-log-close-btn:hover {
+    background: var(--bad-bg);
+    color: var(--bad-fg);
+    opacity: 1;
+}
+
+.table-log-fields {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+}
+
+.table-log-fields label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+}
+
+.table-log-fields input {
+    padding: 4px 8px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-xs);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: var(--fs-xs);
+}
+
+.table-log-notiz-field input {
+    min-width: 220px;
+}
+
+.table-log-url-field input {
+    min-width: 200px;
+}
+
 .verdict {
     border-radius: var(--radius);
     padding: 16px 18px;

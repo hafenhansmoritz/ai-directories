@@ -43,7 +43,7 @@ Jeder automatische Lauf (alle 10 Minuten) wählt die **erste offene Aufgabe (`- 
 
 - [x] **Task 13: Direktes Abhaken („Eingetragen ✓") und Merkliste oben auf `/verzeichnis/[slug]/`**
   Auf den 260 Verzeichnis-Detailseiten muss man bisher zurück zur Tabelle, um ein Verzeichnis als „Eingetragen" abzuhaken. Baue direkt in die Hero-Box jeder Verzeichnis-Detailseite einen großen Status-Toggle („Noch offen" / „Eingetragen ✓") inklusive Konfetti/Toast und同步 mit `mentat-eingetragen`.
-- [ ] **Task 14: Persönliches Einreichungs-Logbuch (Notiz, Datum & Listing-URL) pro Verzeichnis**
+- [x] **Task 14: Persönliches Einreichungs-Logbuch (Notiz, Datum & Listing-URL) pro Verzeichnis**
   Die Startseiten-Checkliste rät: „Buch führen: Datum, Verzeichnis, Status, Link zur Listing-Seite." Erweitere den Abhak-Status auf `/verzeichnis/[slug]/` und in der Tabelle um ein optionales Mini-Feld für das eigene Einreichdatum (wird beim Abhaken automatisch auf heute gesetzt) und die eigene Listing-URL / Notiz in `localStorage`.
 - [ ] **Task 15: Filter „Preis: Unklar / Freemium" und „Nur getestete" in der Haupttabelle ergänzen**
   Einige Verzeichnisse haben den Preis `Unklar` oder den Status `Noch nicht getestet`. Erweitere die Filter in `DirectoryTable.js`, damit man gezielt nach „Geprüfte Einreichung" filtern kann und `Unklar`-Einträge sauber eingeordnet werden.

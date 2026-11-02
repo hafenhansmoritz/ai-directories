@@ -12,7 +12,7 @@ import { jeanLine } from '../../../lib/score'
 import Jean from '../../components/Jean'
 import ScoreBar from '../../components/ScoreBar'
 import CopyButton from '../../components/CopyButton'
-import DirectoryDetailHeroActions from '../../components/DirectoryDetailHeroActions'
+import VerzeichnisHeroStatus from '../../components/VerzeichnisHeroStatus'
 import FreshBox from '../../components/FreshBox'
 import CheckBox from '../../components/CheckBox'
 import { getCheck, hasStatusIssue } from '../../../lib/checks'
@@ -159,7 +159,7 @@ function DirectoryPage({ params }) {
                 </div>
             </header>
 
-            <DirectoryDetailHeroActions slug={d.slug} name={d.name} />
+            <VerzeichnisHeroStatus slug={d.slug} name={d.name} />
 
             <p className="cta-row">
                 <a className="button" href={hasStatusIssue(d.slug) ? d.link : d.submission_link} target="_blank" rel={hasStatusIssue(d.slug) ? 'nofollow noopener noreferrer' : submitRel(d)}>
