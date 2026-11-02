@@ -13,6 +13,7 @@ import Jean from '../../components/Jean'
 import ScoreBar from '../../components/ScoreBar'
 import CopyButton from '../../components/CopyButton'
 import VerzeichnisHeroStatus from '../../components/VerzeichnisHeroStatus'
+import VerzeichnisLaunchKitBox from '../../components/VerzeichnisLaunchKitBox'
 import FreshBox from '../../components/FreshBox'
 import CheckBox from '../../components/CheckBox'
 import { getCheck, hasStatusIssue } from '../../../lib/checks'
@@ -172,6 +173,8 @@ function DirectoryPage({ params }) {
                 </a>
                 <CopyButton label="Link zu dieser Seite kopieren 🔗" done="Link kopiert ✓" />
             </p>
+
+            <VerzeichnisLaunchKitBox slug={d.slug} directoryName={d.name} />
 
             <div className={`verdict verdict-${verdict.tone}`}>
                 <p className="verdict-label">Jeans Urteil: {verdict.short}</p>

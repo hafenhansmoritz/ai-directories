@@ -68,7 +68,7 @@ const loadManifestPath = path.join(WURZEL, 'node_modules/next/dist/server/load-m
 if (fs.existsSync(loadManifestPath)) {
     const src = fs.readFileSync(loadManifestPath, 'utf8')
     const target = 'let manifest = JSON.parse((0, _fs.readFileSync)(path, "utf8"));'
-    const replacement = 'let manifest; for (let i = 0; i < 30; i++) { try { manifest = JSON.parse((0, _fs.readFileSync)(path, "utf8")); break; } catch (err) { if (err.code === "ENOENT" && i < 29) { const s = Date.now(); while (Date.now() - s < 200) {} continue; } throw err; } }'
+    const replacement = 'let manifest; for (let i = 0; i < 40; i++) { try { manifest = JSON.parse((0, _fs.readFileSync)(path, "utf8")); break; } catch (err) { if ([\"ENOENT\", \"EBUSY\", \"EPERM\"].includes(err.code) && i < 39) { const s = Date.now(); while (Date.now() - s < 250) {} continue; } if (err.code === \"ENOENT\" && (path.includes(\"pages-manifest.json\") || path.includes(\"font-manifest.json\"))) { manifest = path.includes(\"font-manifest.json\") ? [] : {}; break; } throw err; } }'
     if (src.includes(target)) fs.writeFileSync(loadManifestPath, src.replace(target, replacement))
 }
 
@@ -92,6 +92,12 @@ if (fs.existsSync(exportIndexPath)) {
     const tAppRoute = "appRoutePathManifest = require((0, _path.join)(distDir, _constants1.APP_PATH_ROUTES_MANIFEST));";
     const rAppRoute = "for (let i = 0; i < 40; i++) { try { appRoutePathManifest = JSON.parse((0, _fs.readFileSync)((0, _path.join)(distDir, _constants1.APP_PATH_ROUTES_MANIFEST), \"utf8\")); break; } catch (e) { if ([\"ENOENT\", \"EBUSY\", \"EPERM\"].includes(e.code) && i < 39) { const st = Date.now(); while (Date.now() - st < 250) {} continue; } } }";
     if (src.includes(tAppRoute)) src = src.replace(tAppRoute, rAppRoute);
+    const tAppPage = 'const appPageName = mapAppRouteToPage.get(srcRoute || "");';
+    const rAppPage = 'const appPageName = mapAppRouteToPage.get(srcRoute || "") || mapAppRouteToPage.get(route);';
+    if (src.includes(tAppPage)) src = src.replace(tAppPage, rAppPage);
+    const tHandler = "if (isAppRouteHandler && (0, _fs.existsSync)(handlerSrc)) {";
+    const rHandler = "if ((isAppRouteHandler || (0, _fs.existsSync)(handlerSrc)) && (0, _fs.existsSync)(handlerSrc)) {";
+    if (src.includes(tHandler)) src = src.replace(tHandler, rHandler);
     const tCopy = "await _fs.promises.copyFile(htmlSrc, htmlDest);\n            await _fs.promises.copyFile(jsonSrc, jsonDest);";
     const rCopy = "const _safeCopy = async (src, dest) => { for (let i = 0; i < 40; i++) { try { await _fs.promises.mkdir((0, _path.dirname)(dest), { recursive: true }); await _fs.promises.copyFile(src, dest); return; } catch (e) { if ([\"ENOENT\", \"EPERM\", \"EBUSY\"].includes(e.code) && i < 39) { await new Promise((r) => setTimeout(r, 150)); continue; } throw e; } } }; await _safeCopy(htmlSrc, htmlDest); await _safeCopy(jsonSrc, jsonDest);";
     if (src.includes(tCopy)) src = src.replace(tCopy, rCopy);
