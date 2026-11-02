@@ -74,6 +74,13 @@ function schemaOffers(t) {
 
 const yesNo = (v) => (v === true ? 'Ja' : v === false ? 'Nein' : 'keine Angabe')
 
+const formatTestphase = (t) => {
+    if (t.free_trial) return t.free_trial
+    if (t.free_plan === true) return 'Keine (dauerhafter Gratis-Tarif)'
+    if (t.free_plan === false) return 'Keine'
+    return 'keine Angabe'
+}
+
 // Steckbrief-Kategorie → Rubrik der KI-Tool-Datenbank (für Auswahlkriterien und Datenbank-Link)
 const KAT_RUBRIK = {
     'KI-Chat & Recherche': 'chatbots',
@@ -102,7 +109,7 @@ function toolFaq(t, alternativen, abo) {
             t.free_plan === true
                 ? `Ja, ${t.name} hat laut Anbieter einen Gratis-Tarif.${t.price_from ? ` Bezahlte Tarife beginnen bei ${t.price_from}.` : ''}`
                 : t.free_plan === false
-                  ? `Nein, einen dauerhaften Gratis-Tarif nennt ${t.name} nicht.${t.free_trial ? ` Es gibt aber eine Testphase (${t.free_trial}).` : ''}${t.price_from ? ` Bezahlt ab ${t.price_from}.` : ''}`
+                  ? `Nein, einen dauerhaften Gratis-Tarif nennt ${t.name} nicht.${t.free_trial && !t.free_trial.toLowerCase().startsWith('kein') ? ` Es gibt aber eine Testphase (${t.free_trial}).` : ''}${t.price_from ? ` Bezahlt ab ${t.price_from}.` : ''}`
                   : `Einen Gratis-Tarif nennt die Preisseite nicht eindeutig.${t.free_trial ? ` Testphase: ${t.free_trial}.` : ''} Prüfe den aktuellen Stand auf der Preisseite des Anbieters.`,
     })
     if (t.price_from) f.push({ q: `Was kostet ${t.name}?`, a: `Laut Anbieter ab ${t.price_from} (Stand ${TOOLS_STAND}). Preise können sich ändern, maßgeblich ist die Preisseite von ${t.name}.` })
@@ -187,7 +194,7 @@ function ToolPage({ params }) {
                 </p>
                 <PartnerHinweis zeigen={Boolean(t.affiliate)} />
                 <Kurzantwort frage={`Was kostet ${t.name}, und für wen lohnt es sich?`}>
-                    {t.free_plan === true ? `${t.name} lässt sich laut Anbieter kostenlos nutzen.` : t.free_plan === false ? `${t.name} hat laut Anbieter keinen dauerhaften Gratis-Tarif${t.free_trial ? `, aber eine Testphase (${t.free_trial})` : ''}.` : `Ob ${t.name} einen Gratis-Tarif hat, nennt die Preisseite nicht eindeutig.`}{' '}
+                    {t.free_plan === true ? `${t.name} lässt sich laut Anbieter kostenlos nutzen.` : t.free_plan === false ? `${t.name} hat laut Anbieter keinen dauerhaften Gratis-Tarif${t.free_trial && !t.free_trial.toLowerCase().startsWith('kein') ? `, aber eine Testphase (${t.free_trial})` : ''}.` : `Ob ${t.name} einen Gratis-Tarif hat, nennt die Preisseite nicht eindeutig.`}{' '}
                     {t.price_from ? `Bezahlt geht es ab ${t.price_from} los (Stand ${TOOLS_STAND}).` : 'Einen festen Einstiegspreis nennt der Anbieter nicht.'} Am besten geeignet für: {t.best_for_de.replace(/\.$/, '')}.
                     {alternatives.length > 0 && ` Bekannte Alternativen: ${alternatives.slice(0, 3).map((a) => a.name).join(', ')}.`}
                 </Kurzantwort>
@@ -200,7 +207,7 @@ function ToolPage({ params }) {
                 </div>
                 <div>
                     <dt>Testphase</dt>
-                    <dd>{t.free_trial || 'keine Angabe'}</dd>
+                    <dd>{formatTestphase(t)}</dd>
                 </div>
                 <div>
                     <dt>Bezahlt ab</dt>

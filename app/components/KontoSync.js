@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import useKonto from './useKonto'
 import { supabase, istAktuell } from '../../lib/konto'
 import { erstAbgleich, schreibeNach, SYNC_KEYS } from '../../lib/sync'
-import { toast, verleihe } from '../../lib/herz'
+import { toast } from '../../lib/herz'
 
 // Hält die Browser-Sammlung mit dem Konto synchron, sobald jemand angemeldet ist.
 export default function KontoSync() {
@@ -37,7 +37,6 @@ export default function KontoSync() {
                 if (ok && !schon) {
                     sitzungMerken()
                     toast('Deine Merkliste, Herzen und Abzeichen sind jetzt in deinem Konto gesichert.', '☁️')
-                    verleihe('Mitglieds-Abzeichen')
                 }
             })
             .catch(() => {})

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import SendToAI from './SendToAI'
 import konfetti from '../../lib/konfetti'
 import { BEWERTUNG, TEST_KIS } from '../../lib/kitests'
+import { verleihe } from '../../lib/herz'
 import '../styles/e-inhalte.css'
 
 const KEY = 'mentat-kitest-v1'
@@ -65,7 +66,10 @@ export default function KiTestSuite({ tests, kategorien }) {
     }, [kis, noten, geladen])
 
     const toggleKi = (id) => setKis((k) => (k.includes(id) ? (k.length > 1 ? k.filter((x) => x !== id) : k) : [...k, id]))
-    const setNote = (test, ki, wert) => setNoten((n) => ({ ...n, [`${test}:${ki}`]: n[`${test}:${ki}`] === wert ? undefined : wert }))
+    const setNote = (test, ki, wert) => {
+        setNoten((n) => ({ ...n, [`${test}:${ki}`]: n[`${test}:${ki}`] === wert ? undefined : wert }))
+        if (wert) verleihe('Benchmark-Abzeichen', { auto: false, konfetti: true })
+    }
 
     const ergebnis = useMemo(
         () =>
