@@ -14,6 +14,8 @@ import Pruefer from '../../components/Pruefer'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 import PartnerHinweis from '../../components/PartnerHinweis'
 import { kuerzen, datumDe } from '../../../lib/text'
+import SendToAI from '../../components/SendToAI'
+import { getToolPromptSeite } from '../../../lib/prompt-tools'
 
 export const dynamicParams = false
 
@@ -23,6 +25,11 @@ export function generateStaticParams() {
 
 // „Jean sagt“ je Vergleich, nur aus den Angaben auf der jeweiligen Seite (BRAND-VOICE: pro Seite einzigartig).
 const JEAN_SAGT = {
+    'claude-vs-chatgpt': 'Beide können fast alles. Entscheide nach dem, was du jeden Tag machst, nicht nach der letzten Schlagzeile.',
+    'lovable-vs-bolt-new-vs-v0': 'Alle drei bauen dir in Minuten eine App. Ob du sie in drei Monaten noch verstehst, liegt an dir, nicht am Tool.',
+    'github-copilot-vs-cursor-vs-replit': 'Du hast einen Editor, den du liebst? Copilot. Du willst einen neuen? Cursor. Du willst gar keinen installieren? Replit.',
+    'fireflies-ai-vs-tldv-vs-otter-ai': 'Erst Datenschutz, dann Funktionen. Ein Protokoll-Bot, den dein Kunde nicht im Meeting haben will, bringt dir gar nichts.',
+    'deepl-vs-grammarly-vs-quillbot': 'Drei Werkzeuge, drei Aufgaben: übersetzen, korrigieren, umformulieren. Nicht verwechseln, dann passt es.',
     'make-vs-zapier-vs-n8n': 'Zwei Apps verheiraten: Zapier. Einen Kabelbaum verlegen: Make. Daten in der eigenen Garage lassen: n8n.',
     'semrush-vs-se-ranking-vs-surfer-seo': 'Kauf nicht den ganzen Werkzeugwagen, wenn du nur Artikel schreibst. Dafür reicht Surfer, für alles andere vergleich Semrush mit SE Ranking.',
     'beehiiv-vs-kit-vs-getresponse-vs-brevo': 'Alle vier lassen dich gratis rein. Entscheide nach deinem Geschäftsmodell, nicht nach der hübscheren Oberfläche.',
@@ -182,6 +189,32 @@ function ComparisonPage({ params }) {
                             </div>
                         ))}
                     </dl>
+                </section>
+            )}
+            {c.testen?.length > 0 && (
+                <section aria-labelledby="testen">
+                    <h2 id="testen">Teste es selbst 🧪</h2>
+                    <p>
+                        Schick dieselben {c.testen.length} Prompts an {c.items.map((t) => t.name).join(' und ')} und vergleiche die Antworten nebeneinander. Mehr standardisierte Aufgaben mit Bewertung findest du im{' '}
+                        <Link href={c.kitest ? `/ki-test/${c.kitest}` : '/ki-test'}>KI-Test</Link>.
+                    </p>
+                    <ol>
+                        {c.testen.map(([titel, prompt]) => (
+                            <li key={titel}>
+                                <strong>{titel}</strong>
+                                <div className="stepper-try"><pre tabIndex={0} role="region" aria-label={`Prompt: ${titel}`}>{prompt}</pre></div>
+                                <SendToAI prompt={prompt} />
+                            </li>
+                        ))}
+                    </ol>
+                    {c.items
+                        .map((t) => getToolPromptSeite(t.slug))
+                        .filter(Boolean)
+                        .map((x) => (
+                            <p key={x.slug} className="service-hint">
+                                <strong>Mehr Vorlagen:</strong> <Link href={`/prompts/tool/${x.slug}`}>{x.tool.name}-Prompts →</Link>
+                            </p>
+                        ))}
                 </section>
             )}
             {c.faq?.length > 0 && (
