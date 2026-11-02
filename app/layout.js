@@ -169,6 +169,8 @@ export const metadata = {
     twitter: { card: 'summary_large_image' },
     robots: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
     ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } } : {}),
+    // Inhaberschaftsnachweis für LinkApprove (Partnernetzwerk), Meta-Tag im <head> jeder Seite.
+    other: { 'linkapprove-verification': 'a923b123-8b81-4593-8e92-bd430e7dfb9d' },
 }
 
 export const viewport = {
