@@ -64,6 +64,7 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - [ ] **Otter-Preis in `db/tools.json`**: 8,49 USD ist laut Preisseite ein Aktionspreis für Neukunden, regulär 16,99 USD monatlich. Beim Preis-Check korrigieren.
 - [ ] **Tekpon** in `db/directories.json`: laut https://tekpon.com/get-listed/ jetzt einmalig 249 $, gelistet als „Free“. Preis prüfen und korrigieren.
 - [ ] **StartupBase** (fällig ab 2027-02-01): „Sign ups are closed until January 31st“ prüfen, ob Anmeldung wieder offen ist.
+- [ ] **Product-Hunt-Fakten nachziehen** in `product-hunt-launch-deutsch` und dem Launch-Artikel (lib/ratgeber.js): Beschreibung jetzt 500 Zeichen, Logo bis 2 MB, Galerie ab 1 Bild, Videos als Link, alte Hilfe-URL 17350772 tot (Quelle: help.producthunt.com/en/articles/17834537).
 - [ ] **Top 50 als echter Lead-Magnet**: Sobald der Newsletter läuft, CSV-Download an das Abo koppeln. *wartet auf Newsletter*
 
 ## Herzstücke-Backlog (verworfene Ideen aus Runde 2, bei Bedarf umsetzen)
@@ -100,6 +101,8 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - **Täglich (GitHub Actions, 04:17 UTC):** Neubau der Seite, damit Deal und Tool des Tages wechseln. Danach berechnet `utils/vernetzung/build.mjs` die interne Verlinkung neu; hat sie sich geändert, baut der Workflow ein zweites Mal.
 
 ## Erledigt
+
+- 2026-11-02 · Backlog-Runde: Vergleich ChatGPT vs. Claude vs. Gemini, Ratgeber KI-Musik und GEMA-Urteil gegen Suno (LG München I, 42 O 763/25), Zielgruppen Agenturen sowie Vereine und Ehrenamt, 5 Steckbriefe (Photoroom, Taskade, Copy.ai, Elicit, Tabnine), Aufklapp-Infos für 20 weitere Steckbriefe, 15 neu entdeckte Verzeichnisse geprüft, 15 neue Prüfdaten, Faktencheck von 2 Ratgebern.
 
 - 2026-11-02 · Ratgeber „Vibe Coding: Apps bauen mit Lovable, Bolt und v0“, Tutorial „Mit KI programmieren, ohne dass es knallt“ (6 Schritte, 3 Quizfragen), Prompt-Runde mit 6 neuen Vorlagen (Code-Review, App-Bauplan, Bildserie, Vertrag verstehen, Vereinsbrief, Agentur-Briefing).
 
