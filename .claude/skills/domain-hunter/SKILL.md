@@ -32,8 +32,19 @@ Fehlt ein Wert: „unbekannt“. Nie schätzen.
 
 1. **Trend-Radar**: steigende Begriffe aus Google Trends, Semrush, GitHub, Hugging Face, Product Hunt, Reddit, TikTok, Amazon-Bestseller. Nur Begriffe mit mindestens 3 Wochen Anstieg. Kohorten aus `keywords_trends` sind Registrierungsdaten, keine Nachfrage: Massenregistrierungen (z. B. Glücksspiel-Präfixe mit hohem Ziffernanteil) aussortieren.
 2. **Länder-Arbitrage**: Was in US oder UK steigt, für die Ziel-ccTLDs sichern, bevor es dort ankommt.
-3. **Drops**: Pending-Delete-, Deleted- und Expired-Listen aller Ziel-TLDs gegen Keyword- und Nischenliste abgleichen. Zonendatei-Diffs (ICANN CZDS) für gTLDs.
-4. **Registry-Regeln je TLD**: .com mit Grace, Redemption und Pending Delete (Drop-Zeitpunkt berechnen). .de und viele ccTLDs ohne Redemption: nach Löschung sofort frei, Registerabfrage im erlaubten Takt.
+3. **Drops**: Pending-Delete-, Deleted- und Expired-Listen aller Ziel-TLDs gegen Keyword- und Nischenliste abgleichen. Zonendatei-Diffs (ICANN CZDS) für gTLDs, Download z. B. mit `lanrat/czds` (`czds download -parallel 10 com org`), danach eigener Diff der Domainspalte (sort/comm). CZDS braucht ein kostenloses Konto mit Freigabe je TLD, die abläuft. Nur gTLDs, ccTLDs über die Registry-Quellen unten.
+4. **Registry-Regeln je TLD** (Zeitfenster bei jedem Lauf beim Registry neu lesen, nicht fest verdrahten):
+
+| TLD | Ablauf nach Löschung | Freigabe | Quelle für den Zeitpunkt |
+|---|---|---|---|
+| .com/.net | Grace, Redemption 30 Tage, Pending Delete 5 Tage | Drop nach Pending Delete | Drop-Listen, Zonendatei-Diff |
+| .de | Redemption Grace Period 30 Tage, nur Altinhaber oder von ihm Benannte | am Folgetag zu zufälliger Zeit im DENIC-Fenster | Löschdatum + 30 Tage. Domains mit DISPUTE-Eintrag gehen an den Dispute-Inhaber: nicht fangbar |
+| .uk | feste 95 Tage: 0 bis 30 Grace, 30 bis 90 Redemption („May Drop“), 90 bis 95 Pending Delete | exakter UTC-Zeitstempel | tägliche Nominet-Drop-Liste (CSV, einmal täglich laden). Nur die nächsten 5 Tage sind sicher |
+| .nl | 40 Tage Quarantäne, nur Altinhaber kann zurückholen | zufällig innerhalb einer Stunde, dann first come first served | Quarantäne-Ende in UTC im .nl-Whois, die ganze Stunde abdecken |
+| .eu | 40 Tage Quarantäne | Freigabedatum im EURid-Whois, Uhrzeit nicht | alle Stunden des Freigabetags abdecken |
+| .fr, .at, .ch | ungeprüft | ungeprüft | vor dem ersten Einsatz beim Registry nachlesen |
+
+Für .com/.net zusätzlich die **Registrar-Expiry-Auktionen** (GoDaddy, NameJet und ähnliche) im Fenster 0 bis 45 Tage nach Ablauf beobachten: Viele wertvolle gTLD-Namen landen dort und erreichen nie einen öffentlichen Drop.
 5. **Linkquellen-Jagd**: tote ausgehende Links auf Wikipedia, Behörden, Unis, Verbänden, Herstellern, Fachmedien und Linklisten finden, Zieldomain prüfen.
 6. **Unternehmensende**: Insolvenzen, Registerlöschungen, eingestellte Marken, Start-up-Pleiten, abgekündigte Produkte, abgelaufene Kampagnen- und Event-Microsites.
 7. **Community-Leichen**: alte Foren, Vereine, Blogs, Webkataloge, Open-Source-Projektseiten mit gewachsenem Linkprofil.
@@ -44,21 +55,22 @@ Fehlt ein Wert: „unbekannt“. Nie schätzen.
 ## Phase 2: Bewerten
 
 11. **Linkprofil**: verweisende Domains, davon dofollow, Länderverteilung, Top-10-Linkquellen, Ankertext-Mix (Marke, generisch, URL, Money).
-12. **Spam-Vorfilter** (vor teuren Abfragen): Ausschluss bei über 30 % Money-Ankern, fremdsprachigem Spam, oder wenn fast jeder Link von einer eigenen Domain kommt und der Authority Score trotzdem unter 10 liegt (typisches Spam-Muster: viele verweisende Domains, kaum Autorität).
+12. **Spam-Vorfilter** (vor teuren Abfragen): Ausschluss bei über 30 % Money-Ankern, fremdsprachigem Spam, oder wenn fast jeder Link von einer eigenen Domain kommt und der Authority Score trotzdem unter 10 liegt (typisches Spam-Muster: viele verweisende Domains, kaum Autorität). Der Semrush Authority Score verrechnet seit 2023 Linkstärke, organischen Traffic und Spam-Faktoren. Zusätzlich prüfen: über 90 % der verweisenden Domains nur dofollow, viele verweisende Domains auf derselben IP oder demselben Subnetz (PBN-Footprint), Linkprofil zu 95 % oder mehr gleich mit einer anderen Domain. „Keine Rankings“ und „viele Links, kaum Traffic“ treffen nach einem Drop fast immer zu: nur gegen Traffic und Rankings von vor dem Drop bewerten, nicht als Ausschluss.
 13. **Historie**: Wayback-Snapshots über die gesamte Laufzeit. Themenwechsel, Glücksspiel, Pharma, Adult, Krypto-Spam, Spam-Wellen in fremden Schriften, frühere PBN-Nutzung und Parking-Phasen markieren.
 14. **Index und Strafen**: site:-Abfrage, Markenabfrage, Sichtbarkeitsverlauf, typische Abstrafungsmuster.
 15. **Restwert**: noch rankende Keywords, organischer Traffic, Referral-Traffic, Alter, Registrierungslücken (Drop-Historie setzt Wert zurück).
-16. **Markenrecht**: DPMA, EUIPO, WIPO, USPTO. Treffer im Namen bedeutet Ausschluss.
-17. **Score 0 bis 100** = Linkstärke 35 % + Themenpassung 25 % + Sauberkeit 20 % + Restwert 10 % + Name und Endung 10 %. Gewichte offen zeigen.
+16. **Markenrecht**: DPMA, EUIPO, WIPO, USPTO. Treffer im Namen bedeutet Ausschluss. Gegen das eigene Erwerbsdatum prüfen, nicht gegen das Erstellungsdatum der Domain: In den USA zählt jede Neuregistrierung und jeder Erwerb als neue Registrierung (Prudential v. Shenzhen Stone Network, 4th Cir. 2023, PRU.COM). Entspricht eine gedroppte Domain einer aktiven Marke des Altinhabers: rot markieren oder verwerfen (UDRP-Fall lifetimeassistance.com, WIPO D2011-2137).
+17. **Themenkontinuität**: geplante Nutzung gegen die Wayback-Historie vergleichen. Google definiert Expired Domain Abuse als Kauf und Umnutzung vor allem zur Rankingmanipulation mit Inhalten ohne Nutzen. Der Kauf selbst ist kein Verstoß („It's fine to use an old domain name for a new, original site that's designed to serve people first“). Themen- oder Betreiberbruch plus dünner Inhalt ist das Hochrisiko-Muster.
+18. **Score 0 bis 100** = Linkstärke 30 % + Themenpassung 20 % + Themenkontinuität 15 % + Sauberkeit 15 % + Restwert 10 % + Name und Endung 10 %. Gewichte offen zeigen.
 
 ## Phase 3: Sichern
 
-18. **Strategie je Score**: über 80 Backorders bei mehreren Drop-Catchern parallel, 60 bis 80 ein Catcher, darunter nur Watchlist. Maximalgebot = erwarteter Wert x 0,4, nie über Budget.
-19. **Auktionsplan**: Startgebot, Limit, Ausstiegspunkt. Kein emotionales Mitbieten.
+19. **Strategie je Score**: über 80 Backorders bei mehreren Drop-Catchern parallel, 60 bis 80 ein Catcher, darunter nur Watchlist. Maximalgebot = erwarteter Wert x 0,4, nie über Budget.
+20. **Auktionsplan**: Startgebot, Limit, Ausstiegspunkt. Kein emotionales Mitbieten.
 
 ## Phase 4: Nutzen
 
-20. Pro Domain das beste Modell mit Begründung und erwartetem Wert: 301 auf thematisch passende Seite, Rebuild mit neuem eigenem Content entlang der alten Linkstruktur, Satellitenseite mit echtem Mehrwert, Lead-Gen- oder Rank-and-Rent-Seite, Weiterverkauf, Parken. Risiko je Modell nennen, inklusive Googles Spam-Richtlinien zu Expired Domain Abuse und Link-Schemata. Umzugs-Checkliste: Hosting, saubere Footprints, Redirect-Map der alten URLs mit Links, Indexierung, Monitoring 90 Tage.
+21. Pro Domain das beste Modell mit Begründung und erwartetem Wert: 301 auf thematisch passende Seite, Rebuild mit neuem eigenem Content entlang der alten Linkstruktur, Satellitenseite mit echtem Mehrwert, Lead-Gen- oder Rank-and-Rent-Seite, Weiterverkauf, Parken. Risiko je Modell nennen, inklusive Googles Spam-Richtlinien zu Expired Domain Abuse, Scaled Content Abuse und Link-Spam: Satellitenseiten und Linkverkauf auch gegen diese beiden Richtlinien prüfen. Umzugs-Checkliste: Hosting, saubere Footprints, Redirect-Map der alten URLs mit Links, Indexierung, Monitoring 90 Tage.
 
 ## Ausgabe
 
@@ -66,9 +78,14 @@ Tabelle: Domain | Quelle | Status | Drop/Ablauf | Ref. Domains | Ankertext ok | 
 
 Danach: Top 10 mit je drei Sätzen, drei Sofortaktionen für heute, Liste der verworfenen Domains mit Grund, verbrauchte API-Units.
 
+## Offene Punkte (noch nicht belegt)
+
+Gewinnquoten der Drop-Catcher je TLD, Drop-Ablauf bei .fr, .at, .ch, Schwellenwerte für Majestic TF/CF und Ahrefs DR, belegte Durchsetzung der Google-Richtlinie, deutsches Marken- und Namensrecht (MarkenG, § 12 BGB) bei .de-Drops. Bis dahin vorsichtig bewerten und als „unbelegt“ kennzeichnen.
+
 ## Grenzen
 
 - Keine Tippfehler- oder Markendomains.
+- Eine gedroppte Domain mit Marken- oder Firmenbezug nie dem Altinhaber über die eigenen Kosten hinaus anbieten, kein For-Sale-Parking und keine PPC-Anzeigen aus dessen Branche darauf (UDRP 4(b)(i)).
 - Keine Imitation früherer Betreiber oder Firmen.
 - Keine Nutzung alter E-Mail-, Login- oder Software-Verweise einer Domain (Konto- und Paketübernahme).
 - Nichts kaufen, bieten oder registrieren ohne Freigabe.
