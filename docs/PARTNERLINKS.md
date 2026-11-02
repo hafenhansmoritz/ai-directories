@@ -177,7 +177,7 @@ Punkte = Provision in % x Laufzeit (lebenslang 3, sonst Monate/8, einmalig 0,7) 
 | ScrollLaunch | 30 % einmalig, 30 Tage, Affonso | jede Bewerbung geprüft | https://www.scrolllaunch.com/affiliates |
 | SmartDirectoryAI | 40 % wiederkehrend, 60 Tage, PayPal, min 50 USD | Bewerbung und Freigabe | https://smartdirectory.ai/affiliates/ |
 | Rendley | 30 % für 12 Monate, 60 Tage, PayPal oder Überweisung, Lemon Squeezy | Prüfung durch Lemon Squeezy, kann dauern | https://rendley.com/affiliates |
-| LOVO AI | 20 % wiederkehrend 24 Monate | Freigabe dauert etwa eine Woche | https://lovo.ai/affiliate-program |
+| LOVO AI | 20 % wiederkehrend 24 Monate | Freigabe dauert etwa eine Woche; 2026-11-02: lovo.ai liefert Vercel DEPLOYMENT_DISABLED (HTTP 402), Seite nicht erreichbar. Vor Anmeldung erneut prüfen. | https://lovo.ai/affiliate-program |
 | FreeTTS | 30 % der ersten Zahlung, 90 Tage, Wise, ACH, Überweisung oder USDT, min 100 USD | jeder Partner wird manuell aufgenommen | https://freetts.org/affiliate |
 | Built By Joey | 30 % auf alle Käufe, 90 Tage, PayPal, min 20 USD | Freigabe binnen 24 Stunden per Formular | https://builtbyjoey.com/affiliate |
 | Agent Builder (WordPress) | 40 % lebenslang, 90 Tage, Stripe Connect, min 100 USD | Bewerbung, Zugang binnen 1 Werktag | https://agentic-plugin.com/affiliates/ |

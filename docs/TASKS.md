@@ -55,8 +55,6 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - [ ] **Aufklapp-Infos** je Runde 20 Seiten eines Typs (zuerst Steckbriefe `/tools/…`, dann Ratgeber, Vergleiche, Verzeichnisse mit dem höchsten Jean-Score): in `db/texte/klapp.json` unter dem Pfad mit Schrägstrich am Ende 1 bis 2 Einträge `[frage, antwort]` oder `[frage, antwort, [link, linktext]]`. Nur Fakten aus den Daten im Repository oder mit offizieller Quelle, keine Wiederholung dessen, was schon auf der Seite steht. Ton nach BRAND-VOICE.
 - [ ] **Verlinkung prüfen** je Runde: `node utils/vernetzung/build.mjs out` nach einem Build ausführen und Seiten mit weniger als 5 eingehenden Links (`reinGesamt` in `db/vernetzung.json`) im Fließtext von 2 thematisch passenden Seiten verlinken.
 - [ ] **ChatGPT-Prompts live testen**: die 10 Vorlagen mit `fuer: ['chatgpt']` in ChatGPT und einem zweiten Modell ausführen, Prüfdatum je Prompt ergänzen (Regel aus `docs/CONTENT-PLAN-TOOL-PROMPTS.md`). *braucht Login, wartet auf Jean*
-- [ ] **Cursor-Steckbrief und Vergleich nachprüfen**: Preisseite zeigt seit Herbst 2026 ein Paket mit Grok und X (Plus 8 USD, nur Grok-Modelle). Beim nächsten Preis-Check im Browser bestätigen.
-- [ ] **Otter-Preis in `db/tools.json`**: 8,49 USD ist laut Preisseite ein Aktionspreis für Neukunden, regulär 16,99 USD monatlich. Beim Preis-Check korrigieren.
 - [ ] **StartupBase** (fällig ab 2027-02-01): „Sign ups are closed until January 31st“ prüfen, ob Anmeldung wieder offen ist.
 - [ ] **Top 50 als echter Lead-Magnet**: Sobald der Newsletter läuft, CSV-Download an das Abo koppeln. *wartet auf Newsletter*
 
@@ -94,6 +92,8 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - **Täglich (GitHub Actions, 04:17 UTC):** Neubau der Seite, damit Deal und Tool des Tages wechseln. Danach berechnet `utils/vernetzung/build.mjs` die interne Verlinkung neu; hat sie sich geändert, baut der Workflow ein zweites Mal.
 
 ## Erledigt
+
+- 2026-11-02 · Cursor-Preisseite bestätigt (Paket mit Grok und X: Free, Plus 8 $ nur Grok-Modelle, Premium 30 $, Super 100 $, Ultra 200 $). Comet: keine Preisangabe auf der offiziellen Seite, „kostenlos“ entfernt. Otter-Preis auf 16,99 $ monatlich korrigiert. LOVO AI: Notiz im Partner-Register (Seite nicht erreichbar). StartupBase am 2026-11-02 erneut geprüft: weiter „Sign ups are closed until January 31st“.
 
 - 2026-11-02 · Ratgeber `ki-agenten-selbststaendige-deutschland`: Verfügbarkeit von ChatGPT Work laut chatgpt.com/work korrigiert (Desktop alle Tarife, Web und mobil ab Plus), Hinweis auf eingestellten ChatGPT-Agenten, zwei Quellen ergänzt.
 
