@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import TEXTE from '../../../db/texte/tools.json'
+import START from '../../../db/texte/tools-start.json'
 import Jean from '../../components/Jean'
 import { notFound } from 'next/navigation'
 import JsonLd from '../../components/JsonLd'
@@ -227,6 +228,39 @@ function ToolPage({ params }) {
                 <p className="source">
                     Quelle: <a href={t.source} target="_blank" rel="nofollow noopener noreferrer">{new URL(t.source).hostname}</a>
                 </p>
+            )}
+            {START[t.slug] && (
+                <section aria-labelledby="start">
+                    <h2 id="start">So startest du mit {t.name} 🚀</h2>
+                    {START[t.slug].intro && <p>{START[t.slug].intro}</p>}
+                    <ol>
+                        {START[t.slug].schritte.map(([titel, text]) => (
+                            <li key={titel}>
+                                <strong>{titel}:</strong> {text}
+                            </li>
+                        ))}
+                    </ol>
+                    {START[t.slug].tipps?.length > 0 && (
+                        <ul>
+                            {START[t.slug].tipps.map((x) => (
+                                <li key={x}>{x}</li>
+                            ))}
+                        </ul>
+                    )}
+                    {START[t.slug].quellen?.length > 0 && (
+                        <p className="source">
+                            Geprüft am {START[t.slug].geprueft} auf:{' '}
+                            {START[t.slug].quellen.map((q, i) => (
+                                <span key={q.url}>
+                                    {i > 0 && ' · '}
+                                    <a href={q.url} target="_blank" rel="nofollow noopener noreferrer">
+                                        {q.titel}
+                                    </a>
+                                </span>
+                            ))}
+                        </p>
+                    )}
+                </section>
             )}
             {TEXTE[t.slug] && (
                 <section aria-labelledby="meinung" className="jean-take">

@@ -1,5 +1,8 @@
 import Link from 'next/link'
-import TEXTE from '../../../db/texte/prompts.json'
+import BASIS_TEXTE from '../../../db/texte/prompts.json'
+import { TOOL_PROMPT_TEXTE_EXTRA } from '../../../lib/prompts-tool'
+
+const TEXTE = { ...BASIS_TEXTE, ...TOOL_PROMPT_TEXTE_EXTRA }
 import Jean from '../../components/Jean'
 import { notFound } from 'next/navigation'
 import JsonLd from '../../components/JsonLd'
