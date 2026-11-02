@@ -47,30 +47,31 @@ Fehlt ein Wert: „unbekannt“. Nie schätzen.
 Für .com/.net zusätzlich die **Registrar-Expiry-Auktionen** (GoDaddy, NameJet und ähnliche) im Fenster 0 bis 45 Tage nach Ablauf beobachten: Viele wertvolle gTLD-Namen landen dort und erreichen nie einen öffentlichen Drop.
 5. **Linkquellen-Jagd**: tote ausgehende Links auf Wikipedia, Behörden, Unis, Verbänden, Herstellern, Fachmedien und Linklisten finden, Zieldomain prüfen.
 6. **Unternehmensende**: Insolvenzen, Registerlöschungen, eingestellte Marken, Start-up-Pleiten, abgekündigte Produkte, abgelaufene Kampagnen- und Event-Microsites.
-7. **Community-Leichen**: alte Foren, Vereine, Blogs, Webkataloge, Open-Source-Projektseiten mit gewachsenem Linkprofil.
-8. **Aftermarket**: Sedo, Afternic, Dan, GoDaddy Auctions, NameJet, DropCatch, Catched nach unterbewerteten Domains mit Links.
-9. **Neue Endungen**: gTLD-Starts, Early-Access- und Landrush-Phasen für generische Begriffe.
-10. **Watchlist**: Wunschdomains mit Ablaufdatum, Alarm 60, 30, 7 und 1 Tag vorher.
+7. **GitHub-Listen-Mining**: Awesome-Listen eines Themas klonen (`git clone --depth 1`), alle externen Domains extrahieren, DNS auflösen, nicht auflösende per RDAP prüfen (Status `redemption period` oder `pending delete` = fällt bald, 404 = frei, bei .co/.me/.so gegen `bulk_available` gegenprüfen, dort liefert rdap.org falsche 404). Links in GitHub-READMEs sind in der Regel nofollow: Wert liegt in Referral-Traffic und Name, nicht in Linkkraft.
+8. **Community-Leichen**: alte Foren, Vereine, Blogs, Webkataloge, Open-Source-Projektseiten mit gewachsenem Linkprofil.
+9. **Aftermarket**: Sedo, Afternic, Dan, GoDaddy Auctions, NameJet, DropCatch, Catched nach unterbewerteten Domains mit Links.
+10. **Neue Endungen**: gTLD-Starts, Early-Access- und Landrush-Phasen für generische Begriffe.
+11. **Watchlist**: Wunschdomains mit Ablaufdatum, Alarm 60, 30, 7 und 1 Tag vorher.
 
 ## Phase 2: Bewerten
 
-11. **Linkprofil**: verweisende Domains, davon dofollow, Länderverteilung, Top-10-Linkquellen, Ankertext-Mix (Marke, generisch, URL, Money).
-12. **Spam-Vorfilter** (vor teuren Abfragen): Ausschluss bei über 30 % Money-Ankern, fremdsprachigem Spam, oder wenn fast jeder Link von einer eigenen Domain kommt und der Authority Score trotzdem unter 10 liegt (typisches Spam-Muster: viele verweisende Domains, kaum Autorität). Der Semrush Authority Score verrechnet seit 2023 Linkstärke, organischen Traffic und Spam-Faktoren. Zusätzlich prüfen: über 90 % der verweisenden Domains nur dofollow, viele verweisende Domains auf derselben IP oder demselben Subnetz (PBN-Footprint), Linkprofil zu 95 % oder mehr gleich mit einer anderen Domain. „Keine Rankings“ und „viele Links, kaum Traffic“ treffen nach einem Drop fast immer zu: nur gegen Traffic und Rankings von vor dem Drop bewerten, nicht als Ausschluss.
-13. **Historie**: Wayback-Snapshots über die gesamte Laufzeit. Themenwechsel, Glücksspiel, Pharma, Adult, Krypto-Spam, Spam-Wellen in fremden Schriften, frühere PBN-Nutzung und Parking-Phasen markieren.
-14. **Index und Strafen**: site:-Abfrage, Markenabfrage, Sichtbarkeitsverlauf, typische Abstrafungsmuster.
-15. **Restwert**: noch rankende Keywords, organischer Traffic, Referral-Traffic, Alter, Registrierungslücken (Drop-Historie setzt Wert zurück).
-16. **Markenrecht**: DPMA, EUIPO, WIPO, USPTO. Treffer im Namen bedeutet Ausschluss. Gegen das eigene Erwerbsdatum prüfen, nicht gegen das Erstellungsdatum der Domain: In den USA zählt jede Neuregistrierung und jeder Erwerb als neue Registrierung (Prudential v. Shenzhen Stone Network, 4th Cir. 2023, PRU.COM). Entspricht eine gedroppte Domain einer aktiven Marke des Altinhabers: rot markieren oder verwerfen (UDRP-Fall lifetimeassistance.com, WIPO D2011-2137).
-17. **Themenkontinuität**: geplante Nutzung gegen die Wayback-Historie vergleichen. Google definiert Expired Domain Abuse als Kauf und Umnutzung vor allem zur Rankingmanipulation mit Inhalten ohne Nutzen. Der Kauf selbst ist kein Verstoß („It's fine to use an old domain name for a new, original site that's designed to serve people first“). Themen- oder Betreiberbruch plus dünner Inhalt ist das Hochrisiko-Muster.
-18. **Score 0 bis 100** = Linkstärke 30 % + Themenpassung 20 % + Themenkontinuität 15 % + Sauberkeit 15 % + Restwert 10 % + Name und Endung 10 %. Gewichte offen zeigen.
+12. **Linkprofil**: verweisende Domains, davon dofollow, Länderverteilung, Top-10-Linkquellen, Ankertext-Mix (Marke, generisch, URL, Money).
+13. **Spam-Vorfilter** (vor teuren Abfragen): Ausschluss bei über 30 % Money-Ankern, fremdsprachigem Spam, oder wenn fast jeder Link von einer eigenen Domain kommt und der Authority Score trotzdem unter 10 liegt (typisches Spam-Muster: viele verweisende Domains, kaum Autorität). Der Semrush Authority Score verrechnet seit 2023 Linkstärke, organischen Traffic und Spam-Faktoren. Zusätzlich prüfen: über 90 % der verweisenden Domains nur dofollow, viele verweisende Domains auf derselben IP oder demselben Subnetz (PBN-Footprint), Linkprofil zu 95 % oder mehr gleich mit einer anderen Domain. „Keine Rankings“ und „viele Links, kaum Traffic“ treffen nach einem Drop fast immer zu: nur gegen Traffic und Rankings von vor dem Drop bewerten, nicht als Ausschluss.
+14. **Historie**: Wayback-Snapshots über die gesamte Laufzeit. Themenwechsel, Glücksspiel, Pharma, Adult, Krypto-Spam, Spam-Wellen in fremden Schriften, frühere PBN-Nutzung und Parking-Phasen markieren.
+15. **Index und Strafen**: site:-Abfrage, Markenabfrage, Sichtbarkeitsverlauf, typische Abstrafungsmuster.
+16. **Restwert**: noch rankende Keywords, organischer Traffic, Referral-Traffic, Alter, Registrierungslücken (Drop-Historie setzt Wert zurück).
+17. **Markenrecht**: DPMA, EUIPO, WIPO, USPTO. Treffer im Namen bedeutet Ausschluss. Gegen das eigene Erwerbsdatum prüfen, nicht gegen das Erstellungsdatum der Domain: In den USA zählt jede Neuregistrierung und jeder Erwerb als neue Registrierung (Prudential v. Shenzhen Stone Network, 4th Cir. 2023, PRU.COM). Entspricht eine gedroppte Domain einer aktiven Marke des Altinhabers: rot markieren oder verwerfen (UDRP-Fall lifetimeassistance.com, WIPO D2011-2137).
+18. **Themenkontinuität**: geplante Nutzung gegen die Wayback-Historie vergleichen. Google definiert Expired Domain Abuse als Kauf und Umnutzung vor allem zur Rankingmanipulation mit Inhalten ohne Nutzen. Der Kauf selbst ist kein Verstoß („It's fine to use an old domain name for a new, original site that's designed to serve people first“). Themen- oder Betreiberbruch plus dünner Inhalt ist das Hochrisiko-Muster.
+19. **Score 0 bis 100** = Linkstärke 30 % + Themenpassung 20 % + Themenkontinuität 15 % + Sauberkeit 15 % + Restwert 10 % + Name und Endung 10 %. Gewichte offen zeigen.
 
 ## Phase 3: Sichern
 
-19. **Strategie je Score**: über 80 Backorders bei mehreren Drop-Catchern parallel, 60 bis 80 ein Catcher, darunter nur Watchlist. Maximalgebot = erwarteter Wert x 0,4, nie über Budget.
-20. **Auktionsplan**: Startgebot, Limit, Ausstiegspunkt. Kein emotionales Mitbieten.
+20. **Strategie je Score**: über 80 Backorders bei mehreren Drop-Catchern parallel, 60 bis 80 ein Catcher, darunter nur Watchlist. Maximalgebot = erwarteter Wert x 0,4, nie über Budget.
+21. **Auktionsplan**: Startgebot, Limit, Ausstiegspunkt. Kein emotionales Mitbieten.
 
 ## Phase 4: Nutzen
 
-21. Pro Domain das beste Modell mit Begründung und erwartetem Wert: 301 auf thematisch passende Seite, Rebuild mit neuem eigenem Content entlang der alten Linkstruktur, Satellitenseite mit echtem Mehrwert, Lead-Gen- oder Rank-and-Rent-Seite, Weiterverkauf, Parken. Risiko je Modell nennen, inklusive Googles Spam-Richtlinien zu Expired Domain Abuse, Scaled Content Abuse und Link-Spam: Satellitenseiten und Linkverkauf auch gegen diese beiden Richtlinien prüfen. Umzugs-Checkliste: Hosting, saubere Footprints, Redirect-Map der alten URLs mit Links, Indexierung, Monitoring 90 Tage.
+22. Pro Domain das beste Modell mit Begründung und erwartetem Wert: 301 auf thematisch passende Seite, Rebuild mit neuem eigenem Content entlang der alten Linkstruktur, Satellitenseite mit echtem Mehrwert, Lead-Gen- oder Rank-and-Rent-Seite, Weiterverkauf, Parken. Risiko je Modell nennen, inklusive Googles Spam-Richtlinien zu Expired Domain Abuse, Scaled Content Abuse und Link-Spam: Satellitenseiten und Linkverkauf auch gegen diese beiden Richtlinien prüfen. Umzugs-Checkliste: Hosting, saubere Footprints, Redirect-Map der alten URLs mit Links, Indexierung, Monitoring 90 Tage.
 
 ## Ausgabe
 
