@@ -24,7 +24,7 @@ export function generateStaticParams() {
 
 // „Jean sagt“ je Vergleich, nur aus den Angaben auf der jeweiligen Seite (BRAND-VOICE: pro Seite einzigartig).
 const JEAN_SAGT = {
-    'claude-vs-chatgpt': 'Gleicher Preis im Pro-Tarif, anderer Schwerpunkt: Für Code, Artefakte und lange Dokumente nimmst du Claude, für Custom GPTs, Sprachmodus und den Alltags-Einsatz ChatGPT.',
+    'claude-vs-chatgpt': 'Monatlich gleicher Preis, im Jahresabo spart Claude drei Dollar: Für Code mit Claude 5.5, Artefakte und lange Dokumente nimmst du Claude, für GPT-6, Bilder, Sprachmodus und den Alltags-Einsatz ChatGPT.',
     'make-vs-zapier-vs-n8n': 'Zwei Apps verheiraten: Zapier. Einen Kabelbaum verlegen: Make. Daten in der eigenen Garage lassen: n8n.',
     'semrush-vs-se-ranking-vs-surfer-seo': 'Kauf nicht den ganzen Werkzeugwagen, wenn du nur Artikel schreibst. Dafür reicht Surfer, für alles andere vergleich Semrush mit SE Ranking.',
     'beehiiv-vs-kit-vs-getresponse-vs-brevo': 'Alle vier lassen dich gratis rein. Entscheide nach deinem Geschäftsmodell, nicht nach der hübscheren Oberfläche.',

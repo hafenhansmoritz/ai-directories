@@ -7,7 +7,7 @@ Jeder automatische Lauf (alle 30 Minuten) wählt die **erste offene Aufgabe (`- 
 
 ## Block 1: Quick Wins, Daten-Glaubwürdigkeit & Bugfixes (Tasks 1–6)
 
-- [ ] **Task 1: Modell-Generationen in `claude-vs-chatgpt` auf Stand 2026 aktualisieren**
+- [x] **Task 1: Modell-Generationen in `claude-vs-chatgpt` auf Stand 2026 aktualisieren**
   Auf `/tool-vergleiche/claude-vs-chatgpt/` (`lib/comparisons.js` und `app/tool-vergleiche/[slug]/page.js`) werden im Fließtext noch `Claude 3.5 Sonnet`, `GPT-4o` und `GPT-4o-mini` genannt, während die Startseite bereits `Claude 5.5` und `GPT-6` (Stand Herbst 2026) führt. Aktualisiere die Modellnamen und Beschreibungen im Vergleich konsistent auf den 2026er Stand.
 - [ ] **Task 2: Fehlende Fakten (`keine Angabe`) in den Tool-Vergleichstabellen vervollständigen**
   Auf `/tool-vergleiche/claude-vs-chatgpt/` und weiteren Vergleichen steht in der Tabelle „Die Fakten nebeneinander“ bei `Testphase` und `Oberfläche auf Deutsch` für ChatGPT/Claude teilweise `keine Angabe`. Pflege die fehlenden Attribute (`aufDeutsch`, `testphase` bzw. `gratis`) in `db/tools.json` nach, damit keine unnötigen „keine Angabe"-Zeilen bei Top-Tools erscheinen.
