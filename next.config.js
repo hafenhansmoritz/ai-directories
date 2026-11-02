@@ -6,6 +6,7 @@ const basePath = isExport ? process.env.BASE_PATH || '' : ''
 /** @type {import('next').NextConfig} */
 module.exports = {
     env: { NEXT_PUBLIC_BASE_PATH: basePath },
+    staticPageGenerationTimeout: 300,
     ...(isExport && {
         output: 'export',
         basePath,

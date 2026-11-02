@@ -58,7 +58,7 @@ Jeder automatische Lauf (alle 10 Minuten) wählt die **erste offene Aufgabe (`- 
 
 ## Block 4: Supercharging für `/tools/`, `/prompts/`, `/launch-kit/` & `/ki-test/` (Tasks 19–24)
 
-- [ ] **Task 19: Echtzeit-Suche, Preis-Filter & „DSGVO/EU"-Filter auf `/tools/` (67 Tool-Steckbriefe)**
+- [x] **Task 19: Echtzeit-Suche, Preis-Filter & „DSGVO/EU"-Filter auf `/tools/` (67 Tool-Steckbriefe)**
   Die Seite `/tools/` hat aktuell nur 15 Sprungmarken ohne Suche. Baue eine schnelle Client-Suchleiste sowie Schnellfilter („Gratis-Tarif verfügbar", „Deutsche Oberfläche", „EU/Server") über die 67 Steckbriefe ein.
 - [ ] **Task 20: Inline-Prompt-Vorschau (Aufklappen & 1-Klick-Kopieren) auf `/prompts/tool/*` und Rubrikseiten**
   Auf `/prompts/tool/chatgpt/` sieht man bisher nur Links zu den Unterseiten. Ergänze an jeder Prompt-Karte einen „Vorschau & Kopieren"-Toggle, der den Prompt-Text direkt inline ausklappt und mit einem Klick in die Zwischenablage kopiert.

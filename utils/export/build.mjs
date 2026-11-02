@@ -80,6 +80,14 @@ if (fs.existsSync(requirePath)) {
     if (src.includes(target)) fs.writeFileSync(requirePath, src.replace(target, replacement));
 }
 
+const requireHookPath = path.join(WURZEL, "node_modules/next/dist/server/require-hook.js");
+if (fs.existsSync(requireHookPath)) {
+    const src = fs.readFileSync(requireHookPath, "utf8");
+    const target = "return originalRequire.call(this, request);";
+    const replacement = "for (let i = 0; i < 40; i++) { try { return originalRequire.call(this, request); } catch (err) { if ([\"ENOENT\", \"EBUSY\", \"EPERM\"].includes(err.code) && i < 39) { const s = Date.now(); while (Date.now() - s < 100) {} continue; } throw err; } }";
+    if (src.includes(target)) fs.writeFileSync(requireHookPath, src.replace(target, replacement));
+}
+
 const exportIndexPath = path.join(WURZEL, "node_modules/next/dist/export/index.js");
 if (fs.existsSync(exportIndexPath)) {
     let src = fs.readFileSync(exportIndexPath, "utf8");
@@ -99,8 +107,12 @@ if (fs.existsSync(exportIndexPath)) {
     const rHandler = "if ((isAppRouteHandler || (0, _fs.existsSync)(handlerSrc)) && (0, _fs.existsSync)(handlerSrc)) {";
     if (src.includes(tHandler)) src = src.replace(tHandler, rHandler);
     const tCopy = "await _fs.promises.copyFile(htmlSrc, htmlDest);\n            await _fs.promises.copyFile(jsonSrc, jsonDest);";
-    const rCopy = "const _safeCopy = async (src, dest) => { for (let i = 0; i < 40; i++) { try { await _fs.promises.mkdir((0, _path.dirname)(dest), { recursive: true }); await _fs.promises.copyFile(src, dest); return; } catch (e) { if ([\"ENOENT\", \"EPERM\", \"EBUSY\"].includes(e.code) && i < 39) { await new Promise((r) => setTimeout(r, 150)); continue; } throw e; } } }; await _safeCopy(htmlSrc, htmlDest); await _safeCopy(jsonSrc, jsonDest);";
-    if (src.includes(tCopy)) src = src.replace(tCopy, rCopy);
+    const rCopy = "const _safeCopy = async (src, dest) => { for (let i = 0; i < 60; i++) { try { await _fs.promises.mkdir((0, _path.dirname)(dest), { recursive: true }); await _fs.promises.copyFile(src, dest); return; } catch (e) { if ([\"ENOENT\", \"EPERM\", \"EBUSY\"].includes(e.code) && i < 59) { await new Promise((r) => setTimeout(r, 200)); continue; } throw e; } } }; await _safeCopy(htmlSrc, htmlDest); await _safeCopy(jsonSrc, jsonDest);";
+    if (src.includes(tCopy)) {
+        src = src.replace(tCopy, rCopy);
+    } else if (src.includes("const _safeCopy = async (src, dest) => { for (let i = 0; i < 40;")) {
+        src = src.replace(/const _safeCopy = async \(src, dest\) => \{ for \(let i = 0; i < 40;.*?await _safeCopy\(jsonSrc, jsonDest\);/, rCopy);
+    }
     fs.writeFileSync(exportIndexPath, src);
 }
 

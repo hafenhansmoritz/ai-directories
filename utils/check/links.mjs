@@ -28,7 +28,9 @@ const idCache = new Map()
 const ids = (f) => {
     if (!idCache.has(f)) {
         const s = new Set()
-        for (const m of fs.readFileSync(f, 'utf8').matchAll(/\sid="([^"]+)"/g)) s.add(m[1])
+        try {
+            for (const m of fs.readFileSync(f, 'utf8').matchAll(/\sid="([^"]+)"/g)) s.add(m[1])
+        } catch {}
         idCache.set(f, s)
     }
     return idCache.get(f)
@@ -39,7 +41,7 @@ const ziel = (u) => {
         p = decodeURIComponent(p)
     } catch {}
     for (const x of [path.join(OUT, p), path.join(OUT, p, 'index.html'), path.join(OUT, `${p}.html`)]) {
-        if (fs.existsSync(x) && fs.statSync(x).isFile()) return x
+        try { const st = fs.statSync(x, { throwIfNoEntry: false }); if (st && st.isFile()) return x; } catch {}
     }
     return null
 }
