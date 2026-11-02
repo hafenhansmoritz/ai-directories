@@ -56,10 +56,17 @@ export function generateMetadata({ params }) {
 
 const yesNo = (v) => (v === true ? 'Ja' : v === false ? 'Nein' : 'keine Angabe')
 
+const formatTestphase = (t) => {
+    if (t.free_trial) return t.free_trial
+    if (t.free_plan === true) return 'Keine (dauerhafter Gratis-Tarif)'
+    if (t.free_plan === false) return 'Keine'
+    return 'keine Angabe'
+}
+
 const ROWS = [
     ['Am besten für', (t) => t.best_for_de],
     ['Gratis-Tarif', (t) => yesNo(t.free_plan)],
-    ['Testphase', (t) => t.free_trial || 'keine Angabe'],
+    ['Testphase', formatTestphase],
     ['Bezahlt ab', (t) => t.price_from || 'keine Angabe'],
     ['Oberfläche auf Deutsch', (t) => yesNo(t.german_ui)],
 ]

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { lies, schreib, toast, setzeRuhe, kuerzelAus, setzeKuerzel } from '../../lib/herz'
+import { lies, schreib, toast, verleihe, setzeRuhe, kuerzelAus, setzeKuerzel } from '../../lib/herz'
 
 // Farbwahl, Ruhe-Modus, Tastenkürzel-Schalter und ein Gruß zum Wochentag im Footer.
 const FARBEN = [
@@ -48,6 +48,7 @@ export default function FooterExtras() {
         if (wert) document.documentElement.dataset.akzent = wert
         else delete document.documentElement.dataset.akzent
         toast(`Neue Lieblingsfarbe: ${name}. Steht dir!`, '🎨')
+        verleihe('Farbenfroh-Abzeichen', { auto: false })
     }
     const ruhe = () => {
         const neu = !still

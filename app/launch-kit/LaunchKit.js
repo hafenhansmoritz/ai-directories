@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import CopyButton from '../components/CopyButton'
+import { verleihe } from '../../lib/herz'
 import '../styles/e-inhalte.css'
 
 const KEY = 'kiv-launch-kit'
@@ -178,7 +179,10 @@ export default function LaunchKit({ directories }) {
                                     ok = window.confirm('Deine Eingaben durch das Beispiel RechnungsRadar ersetzen?')
                                 } catch {}
                             }
-                            if (ok) setF(EXAMPLE)
+                            if (ok) {
+                                setF(EXAMPLE)
+                                verleihe('Launch-Pionier-Abzeichen', { auto: false })
+                            }
                         }}
                     >
                         Beispiel laden
