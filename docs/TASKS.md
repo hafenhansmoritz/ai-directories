@@ -31,7 +31,10 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
 
 ### Automatisch abzuarbeiten (Reihenfolge = Priorität)
 - Content-Plan Tool-Prompts (`docs/CONTENT-PLAN-TOOL-PROMPTS.md`): eine Woche pro Sitzung, von oben. Verlinkungsregel aus dem Plan beachten. Höchstens eine Woche pro Kalenderwoche, gesteuert über „fällig ab“. Nach jeder Veröffentlichung zwei Mess-Aufgaben direkt unter dieser Liste eintragen, nach Fälligkeit sortiert, Format: `- [ ] **Messung <Stück>** (fällig ab JJJJ-MM-TT, braucht Datei docs/gsc/JJJJ-MM-TT.csv): Ziel-Keyword, URL`.
-  - [ ] **Content-Plan Woche 1** (fällig ab 2026-11-02): Route /prompts/tool/[slug] bauen; ChatGPT-Prompts; Claude vs. ChatGPT
+  - [ ] **Messung ChatGPT-Prompts** (fällig ab 2026-11-30, braucht Datei docs/gsc/2026-11-30.csv): chatgpt prompts, /prompts/tool/chatgpt
+  - [ ] **Messung Claude vs. ChatGPT** (fällig ab 2026-11-30, braucht Datei docs/gsc/2026-11-30.csv): claude vs chatgpt, /tool-vergleiche/claude-vs-chatgpt
+  - [ ] **Messung ChatGPT-Prompts** (fällig ab 2026-12-28, braucht Datei docs/gsc/2026-12-28.csv): chatgpt prompts, /prompts/tool/chatgpt
+  - [ ] **Messung Claude vs. ChatGPT** (fällig ab 2026-12-28, braucht Datei docs/gsc/2026-12-28.csv): claude vs chatgpt, /tool-vergleiche/claude-vs-chatgpt
   - [ ] **Content-Plan Woche 2** (fällig ab 2026-11-09): ChatGPT-Verlauf löschen; Gemini vs. ChatGPT; Gemini-Prompts
   - [ ] **Content-Plan Woche 3** (fällig ab 2026-11-16): Claude Memory; Suno-Prompts; ChatGPT für die Bewerbung
   - [ ] **Content-Plan Woche 4** (fällig ab 2026-11-23): Gamma-Steckbrief-Ausbau; Mit ChatGPT übersetzen; Prompt-Vorlagen-Hub
@@ -48,14 +51,9 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
   - [ ] **Content-Plan Woche 15** (fällig ab 2027-02-08): Leonardo-AI-Prompts; Ideogram-Prompts; Runway-Prompts
   - [ ] **Content-Plan Woche 16** (fällig ab 2027-02-15): Kling-Prompts; InVideo-Prompts
 Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die angegebene Menge). Ton immer nach `docs/BRAND-VOICE.md`, Fakten nur mit offizieller Quelle, Unikat-Texte in `db/texte/*.json`.
-- [ ] **Vergleich Lovable vs. Bolt.new vs. v0** in `lib/comparisons.js` mit Picks, 5 Unterschieden, 3 FAQ, Quellen (Daten aus `db/tools.json`, Preise vorher auf den Preisseiten prüfen).
-- [ ] **Vergleich GitHub Copilot vs. Cursor vs. Replit** (wie oben).
-- [ ] **Vergleich Fireflies.ai vs. tl;dv vs. Otter.ai** (wie oben).
-- [ ] **Vergleich DeepL vs. Grammarly vs. QuillBot** (wie oben).
 - [ ] **Vergleich ChatGPT vs. Claude vs. Google Gemini** als Tool-Vergleich (Tarife aus `db/tools.json`, Modelle aus `lib/modelle.js`).
 - [ ] **Ratgeber „Vibe Coding: Apps bauen mit Lovable, Bolt und v0“** (8 bis 10 Abschnitte, FAQ, Quellen, `geprueft`).
 - [ ] **Ratgeber „KI-Musik und Rechte: was das GEMA-Urteil gegen Suno bedeutet“** (LG München I, 42 O 763/25, nur belegte Fakten, Hinweis keine Rechtsberatung).
-- [ ] **Tutorial „Meeting-Notizen mit KI, DSGVO-sauber“** im Format von `lib/tutorials.js` (6 Schritte, 3 Quizfragen).
 - [ ] **Tutorial „Mit KI programmieren, ohne dass es knallt“** (Vibe Coding sicher: Tests, Secrets, Code lesen).
 - [ ] **Zielgruppe Agenturen** und **Zielgruppe Vereine und Ehrenamt** in `lib/zielgruppen.js` (je 5 Aufgaben-Karten, Warnbox, FAQ mit Quellen).
 - [ ] **Steckbriefe** je Runde 5 weitere Tools aus den Konsens-Tools (3/3 und 2/3) der KI-Tool-Datenbank in `db/tools.json`, dazu Jeans Meinung in `db/texte/tools.json`.
@@ -66,6 +64,9 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - [ ] **Ratgeber-Faktencheck** je Runde 2 Artikel aus `lib/ratgeber.js`, deren `geprueft` älter als 30 Tage ist: Quellen erneut öffnen, Abweichungen korrigieren, `geprueft` aktualisieren.
 - [ ] **Aufklapp-Infos** je Runde 20 Seiten eines Typs (zuerst Steckbriefe `/tools/…`, dann Ratgeber, Vergleiche, Verzeichnisse mit dem höchsten Jean-Score): in `db/texte/klapp.json` unter dem Pfad mit Schrägstrich am Ende 1 bis 2 Einträge `[frage, antwort]` oder `[frage, antwort, [link, linktext]]`. Nur Fakten aus den Daten im Repository oder mit offizieller Quelle, keine Wiederholung dessen, was schon auf der Seite steht. Ton nach BRAND-VOICE.
 - [ ] **Verlinkung prüfen** je Runde: `node utils/vernetzung/build.mjs out` nach einem Build ausführen und Seiten mit weniger als 5 eingehenden Links (`reinGesamt` in `db/vernetzung.json`) im Fließtext von 2 thematisch passenden Seiten verlinken.
+- [ ] **ChatGPT-Prompts live testen**: die 10 Vorlagen mit `fuer: ['chatgpt']` in ChatGPT und einem zweiten Modell ausführen, Prüfdatum je Prompt ergänzen (Regel aus `docs/CONTENT-PLAN-TOOL-PROMPTS.md`). *braucht Login, wartet auf Jean*
+- [ ] **Cursor-Steckbrief und Vergleich nachprüfen**: Preisseite zeigt seit Herbst 2026 ein Paket mit Grok und X (Plus 8 USD, nur Grok-Modelle). Beim nächsten Preis-Check im Browser bestätigen.
+- [ ] **Otter-Preis in `db/tools.json`**: 8,49 USD ist laut Preisseite ein Aktionspreis für Neukunden, regulär 16,99 USD monatlich. Beim Preis-Check korrigieren.
 - [ ] **Top 50 als echter Lead-Magnet**: Sobald der Newsletter läuft, CSV-Download an das Abo koppeln. *wartet auf Newsletter*
 
 ## Herzstücke-Backlog (verworfene Ideen aus Runde 2, bei Bedarf umsetzen)
@@ -102,6 +103,8 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - **Täglich (GitHub Actions, 04:17 UTC):** Neubau der Seite, damit Deal und Tool des Tages wechseln. Danach berechnet `utils/vernetzung/build.mjs` die interne Verlinkung neu; hat sie sich geändert, baut der Workflow ein zweites Mal.
 
 ## Erledigt
+
+- 2026-11-02 · Zehn-Schritte-Sitzung: Content-Plan Woche 1 (Route /prompts/tool/[slug] mit Feld `fuer`, 10 ChatGPT-Prompts, Vergleich Claude vs. ChatGPT mit „Teste es selbst“), Vergleiche Lovable/Bolt/v0, Copilot/Cursor/Replit, Fireflies/tl;dv/Otter, DeepL/Grammarly/QuillBot, Tutorial Meeting-Notizen DSGVO, 5 Glossar-Begriffe, Aufklapp-Infos für 14 Steckbriefe.
 
 - 2026-10-28 · Herzstücke Runde 2: 20 weitere liebevolle Elemente (Sammelalbum mit 14 Abzeichen, Easter Eggs, Weiterlesen, Restlesezeit, Neu seit letztem Besuch, Verlauf, eigene SVG-Illustrationen, Feiertags- und Nachtgruß, Weitersagen, Idee an Jean).
 - 2026-10-28 · PR #126: Herzstücke Runde 1 (21 Elemente, Merkliste, Farbwahl, Ruhe-Modus).
