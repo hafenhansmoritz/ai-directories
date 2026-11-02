@@ -51,6 +51,23 @@ const cell = (v) => (v == null || v === '' ? '–' : String(v).replace(/\|/g, '/
 const live = register.programme.filter((p) => p.partner_link || p.coupon)
 const count = (s) => register.programme.filter((p) => p.status === s).length
 
+// Ranking der Programme mit Selbstanmeldung: Provision x Laufzeit, Freigabe, Auszahlung, Passung zu AIGeddon.
+const PASST = { verzeichnis: 1.3, seo: 1.25, marketing: 1.2, schreiben: 1.2, video: 1.15, chat: 1.15, bild: 1.1, audio: 1.1, automatisierung: 1.1, coding: 1, produktivitaet: 1, sonstiges: 0.85 }
+const laufzeit = (p) => {
+    const t = `${p.dauer || ''} ${p.commission || ''}`.toLowerCase()
+    if (/lebenslang|lifetime|unbegrenzt|solange/.test(t)) return 3
+    const m = t.match(/(\d+)\s*monat/)
+    if (m) return Math.min(2.5, Math.max(0.8, Number(m[1]) / 8))
+    if (/einmalig|erste/.test(t)) return 0.7
+    if (/wiederkehrend/.test(t)) return 2
+    return 1
+}
+const prozent = (p) => Number(String(p.commission || '').match(/(\d+(?:[.,]\d+)?)\s*%/)?.[1]?.replace(',', '.') || 0)
+const wallet = (p) => (p.auszahlung || []).some((a) => /paypal|wise/i.test(a))
+const punkte = (p) =>
+    Math.round(prozent(p) * laufzeit(p) * (p.anmeldung === 'sofort' ? 1.25 : 1) * (p.krypto ? 1.15 : 1) * (wallet(p) ? 1.05 : 1) * (PASST[p.kategorie] || 1))
+const auszahlungText = (p) => [...(p.auszahlung || []), ...(p.krypto && !(p.auszahlung || []).some((a) => /usdc|krypto|crypto|bitcoin/i.test(a)) ? ['Krypto'] : [])].join(', ')
+
 const table = (rows, cols) =>
     [`| ${cols.map((c) => c[0]).join(' | ')} |`, `|${cols.map(() => '---').join('|')}|`, ...rows.map((p) => `| ${cols.map((c) => cell(c[1](p))).join(' | ')} |`)].join('\n')
 
@@ -63,6 +80,23 @@ Automatisch erzeugt aus \`db/partners.json\` (Programme, Stand ${register.stand}
 ## Live auf der Website
 
 ${live.length ? table(live, [['Programm', (p) => p.name], ['Partnerlink', (p) => p.partner_link], ['Code', (p) => p.coupon && `${p.coupon.code} (${p.coupon.text})`]]) : 'Noch keine. Sobald in `db/affiliate-links.json` ein Link oder Code mit passender id steht, nutzt die Seite ihn beim nächsten Build.'}
+
+## Ranking: Programme mit Selbstanmeldung
+
+Punkte = Provision in % x Laufzeit (lebenslang 3, sonst Monate/8, einmalig 0,7) x 1,25 bei sofortiger Freigabe x 1,15 bei Krypto x 1,05 bei PayPal/Wise x Passung zur Zielgruppe. Nur Angaben der offiziellen Anbieterseite; leere Felder sind dort nicht angegeben. Rewardful und Lemon Squeezy zahlen nicht in Krypto, Dub Partners je nach Land per Bank oder USDC.
+
+${table(
+    register.programme
+        .filter((p) => ['sofort', 'schnell', 'unbekannt'].includes(p.anmeldung) && !p.partner_link)
+        .map((p) => ({ ...p, punkte: punkte(p) }))
+        .sort((a, b) => b.punkte - a.punkte)
+        .map((p, i) => ({ ...p, rang: i + 1 })),
+    [['#', (p) => p.rang], ['Programm', (p) => p.name], ['Punkte', (p) => p.punkte], ['Provision', (p) => p.commission], ['Laufzeit', (p) => p.dauer], ['Cookie', (p) => p.cookie], ['Freigabe', (p) => p.anmeldung], ['Auszahlung', (p) => auszahlungText(p)], ['Mindestbetrag', (p) => p.mindestauszahlung], ['Netzwerk', (p) => p.network], ['Anmelden', (p) => p.signup_url]]
+)}
+
+## Manuelle Prüfung nötig
+
+${table(register.programme.filter((p) => p.anmeldung === 'manuell'), [['Programm', (p) => p.name], ['Konditionen', (p) => p.commission], ['Grund', (p) => p.notes], ['Quelle', (p) => p.quelle]])}
 
 ## Schnell anmelden (sofort oder in wenigen Tagen freigeschaltet)
 

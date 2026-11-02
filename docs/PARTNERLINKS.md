@@ -1,10 +1,10 @@
 # Partnerlinks AIGeddon
 
-Automatisch erzeugt aus `db/partners.json` (Programme, Stand 2026-11-01) und der zentralen Sammlung `db/affiliate-links.json` (eigene Links und Codes, Stand 2026-11-01) mit `npm run partners`. Nicht von Hand bearbeiten.
+Automatisch erzeugt aus `db/partners.json` (Programme, Stand 2026-11-02) und der zentralen Sammlung `db/affiliate-links.json` (eigene Links und Codes, Stand 2026-11-01) mit `npm run partners`. Nicht von Hand bearbeiten.
 
 **Alle eigenen Affiliate-Links aller Projekte:** 6 Einträge in `db/affiliate-links.json`.
 
-**Stand:** 110 Programme · aktiv 4 · beantragt 0 · nicht registriert 59 · Code anfragen 22 · Code angefragt 0 · abgelehnt 0
+**Stand:** 239 Programme · aktiv 4 · beantragt 0 · nicht registriert 188 · Code anfragen 22 · Code angefragt 0 · abgelehnt 0
 
 ## Live auf der Website
 
@@ -16,24 +16,242 @@ Automatisch erzeugt aus `db/partners.json` (Programme, Stand 2026-11-01) und der
 | GoHighLevel (HighLevel) | https://www.gohighlevel.com/?fp_ref=3w6dr | – |
 | Tiiny Host | https://tiiny.cello.so/VSfOsTdniC6 | – |
 
+## Ranking: Programme mit Selbstanmeldung
+
+Punkte = Provision in % x Laufzeit (lebenslang 3, sonst Monate/8, einmalig 0,7) x 1,25 bei sofortiger Freigabe x 1,15 bei Krypto x 1,05 bei PayPal/Wise x Passung zur Zielgruppe. Nur Angaben der offiziellen Anbieterseite; leere Felder sind dort nicht angegeben. Rewardful und Lemon Squeezy zahlen nicht in Krypto, Dub Partners je nach Land per Bank oder USDC.
+
+| # | Programm | Punkte | Provision | Laufzeit | Cookie | Freigabe | Auszahlung | Mindestbetrag | Netzwerk | Anmelden |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | MakeInfluencer.ai | 249 | 50 % wiederkehrend | lebenslang | 30 Tage | sofort | PayPal, Bank, USDC | 50 USD | – | https://www.makeinfluencer.ai/ai-affiliate-program |
+| 2 | Crush | 236 | 50 % auf jede Zahlung | lebenslang | 60 Tage | sofort | PayPal, Wise | 25 USD | – | https://trycrush.ai/affiliate |
+| 3 | DVYB | 180 | 40 % wiederkehrend | lebenslang | 90 Tage | sofort | – | – | – | https://dvyb.ai/affiliates |
+| 4 | Fizzly | 180 | 40 % wiederkehrend | lebenslang | 60 Tage | sofort | – | keine | – | https://www.fizzly.ai/affiliate |
+| 5 | MIDI Agent | 165 | 50 % auf Plugin-Kauf, 30 % wiederkehrend auf Monatsabo, 20 % Sub-Provision | lebenslang | – | unbekannt | – | – | – | https://www.midiagent.com/affiliates |
+| 6 | LLM Pulse | 148 | 30 % wiederkehrend | lebenslang | 60 Tage | sofort | PayPal, Bank | 300 EUR (Standard laut Seite) | FirstPromoter | https://llmpulse.firstpromoter.com |
+| 7 | Searchable | 148 | 30 % wiederkehrend, ab 10 aktiven Kunden 40 % | lebenslang | 90 Tage | sofort | PayPal, Stripe | 50 USD | – | https://www.searchable.com/affiliates |
+| 8 | Outrank | 148 | 30 % aller Zahlungen | lebenslang | 60 Tage | sofort | PayPal | 50 USD | – | https://www.outrank.so/affiliate-program |
+| 9 | Senja | 142 | 30 % wiederkehrend | lebenslang | unbegrenzt | sofort | PayPal | – | – | https://senja.io/affiliates |
+| 10 | WritingAI | 141 | 30 % jeder Zahlung inkl. Lifetime-Lizenzen | lebenslang | 90 Tage | sofort | Bank | 50 USD | – | https://writingai.pro/affiliate-program |
+| 11 | OMNIFAMOUS | 141 | 30 % jeder Zahlung | lebenslang | 60 Tage | sofort | – | – | – | https://omnifamous.com/affiliate |
+| 12 | AITuber | 136 | 30 % wiederkehrend | lebenslang | 90 Tage | sofort | PayPal, Bank | 50 USD | – | https://aituber.app/affiliates/ |
+| 13 | SmartReply | 135 | 30 % wiederkehrend | lebenslang | – | sofort | – | – | – | https://smartreply.io/affiliates |
+| 14 | Contenta AI | 135 | 30 % wiederkehrend auf Business-Pläne | lebenslang | – | sofort | – | – | – | http://contenta.ai/affiliate-program |
+| 15 | TaskAGI | 130 | 30 % wiederkehrend, Lifetime-Deal 30 % einmalig | lebenslang | 30 Tage | sofort | Payoneer, Wise, Bank | 50 USD | – | https://www.taskagi.net/affiliate |
+| 16 | quso.ai (vormals vidyo.ai) | 129 | 30 % auf jede Zahlung | lebenslang | – | sofort | – | – | FirstPromoter | https://quso.ai/affiliate-program |
+| 17 | GPT Prompt Maker | 129 | 30 % auf erste Zahlung, danach 10 % wiederkehrend | lebenslang | – | sofort | – | – | – | https://www.gptpromptmaker.com/pages/refer-and-earn |
+| 18 | Ampere | 124 | 30 % auf jede Aufladung | lebenslang | 60 Tage | sofort | Stripe | – | – | https://www.ampere.sh/affiliate |
+| 19 | Agent Media | 119 | 30 % pro Verkauf | lebenslang | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/agent-media |
+| 20 | Vivora AI | 119 | 30 % pro Verkauf, plus Video-Bounties | lebenslang | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/vivora |
+| 21 | Scalenut | 118 | 30 % wiederkehrend, Seite nennt bis 50 % | lebenslang | 60 Tage | unbekannt | PayPal | 50 USD | FirstPromoter | https://www.scalenut.com/affiliate |
+| 22 | beehiiv | 113 | bis 60 % für 12 Monate | – | 60 Tage | sofort | – | – | Dub | https://www.beehiiv.com/partners |
+| 23 | Submagic | 113 | 30 % lebenslang wiederkehrend | – | – | sofort | – | – | – | https://affiliate.submagic.co/ |
+| 24 | QR Code AI | 113 | 30 % wiederkehrend | lebenslang | 60 Tage | unbekannt | PayPal | keine | Rewardful | https://qrcode-ai.getrewardful.com/signup |
+| 25 | MomentumHive | 113 | 30 % wiederkehrend | lebenslang | 30 Tage | unbekannt | Bank, PayPal | – | Lemon Squeezy | https://momentumhive.app/affiliates |
+| 26 | VO3 AI | 113 | 20 bis 25 % auf Erstkauf, 6 bis 8 % auf Verlängerungen | lebenslang | – | sofort | Stripe, PayPal | 50 USD | – | https://www.vo3ai.com/affiliate |
+| 27 | MeDo | 113 | 30 % auf jeden Credit-Kauf | lebenslang | – | sofort | – | – | – | https://miaoda.io/programs/affiliate |
+| 28 | SEOBlogger | 113 | 30 % jeder Abozahlung | lebenslang | – | unbekannt | – | – | Lemon Squeezy | https://seoblogger.ai/affiliate-program/ |
+| 29 | BizChecker AI | 110 | 30 % auf jeden Kauf (Produkt 39 USD einmalig), auch Folgekäufe | lebenslang | 180 Tage | sofort | Bank, Krypto | – | Creem | https://bizchecker.ai/affiliates |
+| 30 | Categent | 109 | 30 % wiederkehrend | lebenslang | 90 Tage | unbekannt | PayPal, Bank | 50 USD | – | https://categent.com/affiliate-program |
+| 31 | SmartEngage | 108 | 30 % wiederkehrend, auch nach Trial-Upgrade | lebenslang | – | unbekannt | – | – | FirstPromoter | https://smartengage.firstpromoter.com/ |
+| 32 | Usermaven | 108 | 30 % wiederkehrend | lebenslang | 14 Tage | unbekannt | – | – | FirstPromoter | https://usermaven.com/affiliate-program |
+| 33 | Vyndra AI | 108 | 25 % auf Abos und Credit-Pakete | lebenslang | – | sofort | PayPal | 50 USD | – | https://vyndra.ai/affiliate-program |
+| 34 | Markty | 104 | 50 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/markty |
+| 35 | AI Writing Skool (Ship 30 for 30) | 104 | 15 bis 50 % je nach Produkt, aktuelle Aktion 30 % pauschal | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/dwp |
+| 36 | Pictory | 100 | bis 50 % wiederkehrend | – | unbekannt | schnell | – | – | eigenes Programm | https://partners.pictory.ai/signup/40690 |
+| 37 | AppSumo | 100 | 100 % des Kaufs bis $50 bei Neukunden | – | 7 Tage | schnell | – | – | Impact | https://appsumo.com/p/affiliates |
+| 38 | BaseAI Tools | 100 | 30 % auf Pro-Abos und Audits, wiederkehrend | lebenslang | – | sofort | PayPal | keine | – | https://affiliates.baseaitools.com/ |
+| 39 | Top AI Tools (topaitools.com) | 98 | 25 % wiederkehrend auf bezahlte Einträge und Sponsorings | lebenslang | – | unbekannt | – | 100 USD | – | https://topaitools.com/affiliates |
+| 40 | Roic AI | 96 | 30 % wiederkehrend | lebenslang | – | sofort | – | – | – | https://roic.ai/become-partner |
+| 41 | Winston AI | 95 | 40 % auf alle Zahlungen der ersten 12 Monate | 12 Monate | – | sofort | PayPal, Bank | 30 USD | Rewardful | https://winston-ai.getrewardful.com/signup |
+| 42 | Devaito | 95 | bis 30 % wiederkehrend | lebenslang | – | unbekannt | PayPal, Wise | keine | – | https://www.devaito.com/page/devaito-affiliates |
+| 43 | AI-Writer | 95 | 25 % wiederkehrend | lebenslang | – | unbekannt | PayPal, Bank, Wise | – | FirstPromoter | https://ai-writer.firstpromoter.com/ |
+| 44 | Giggal.ai | 95 | 20 % wiederkehrend | lebenslang | 3 Monate | sofort | PayPal, Wise | 50 USD | – | https://giggal.ai/affiliates |
+| 45 | AISend (9 Produkte inkl. SEOBolt, AutoShort) | 95 | 30 % jeder Zahlung | lebenslang | 30 Tage | unbekannt | PayPal, Bank | 50 USD | Lemon Squeezy | https://aisend.app/affiliate |
+| 46 | ReachLLM | 94 | 25 % wiederkehrend | lebenslang | – | unbekannt | – | – | Rewardful | https://reachllm.getrewardful.com/signup |
+| 47 | UGCfy AI | 91 | 40 % auf jede Zahlung | 12 Monate | 30 Tage | sofort | PayPal | – | – | https://ugcfy.ai/affiliates |
+| 48 | Cachee | 91 | 20 % der Brutto-Abo-Umsätze | lebenslang | 90 Tage | sofort | Stripe Connect, PayPal, USDC | 100 USD | – | https://cachee.ai/partner |
+| 49 | Fliki | 90 | „30% lifetime commission on every sale“ | – | 30 Tage | schnell | – | – | Rewardful | https://affiliates.fliki.ai/signup |
+| 50 | Enrich Labs | 90 | 25 % wiederkehrend | lebenslang | – | unbekannt | – | – | – | https://www.enrichlabs.ai/affiliates |
+| 51 | Paintit.ai | 87 | 20 % der Netto-Abogebühren wiederkehrend | lebenslang | – | sofort | Wise, PayPal, Bank | – | Tolt | https://paintit.ai/affiliate/ |
+| 52 | Ranked AI | 86 | 20 % pro Verkauf, plus 20 % der Provision geworbener Partner | lebenslang | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/ranked |
+| 53 | Wispr Flow | 86 | bis 50 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://dub.co/marketplace |
+| 54 | Pikzels | 83 | 20 % wiederkehrend auf alle Zahlungen | lebenslang | – | sofort | – | – | FirstPromoter | https://www.pikzels.com/affiliate |
+| 55 | All-Images.ai | 83 | 20 % auf jede Bestellung, ab 30 Konversionen 25 % | lebenslang | – | sofort | – | – | FirstPromoter | https://all-images.ai/affiliate-program/ |
+| 56 | FlowGent AI | 83 | 20 % wiederkehrend | lebenslang | 60 Tage | unbekannt | PayPal, Bank, Krypto | – | – | https://flowgent.ai/affiliate |
+| 57 | Readyt | 79 | 25 bis 35 % wiederkehrend je nach Kundenzahl | 12 Monate | 60 Tage | sofort | – | 80 USD | – | https://www.readyt.ai/affiliate.html |
+| 58 | TubeAI | 79 | 20 % auf jede Abozahlung | lebenslang | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/tube-ai |
+| 59 | GetResponse | 75 | 40 % für 12 Monate, 50 bis 60 % ab 50/100 Verkäufen | – | unbekannt | sofort | – | – | PartnerStack | https://www.getresponse.com/affiliate-programs |
+| 60 | SE Ranking | 75 | 30 % (laut Seite wiederkehrend) | – | 120 Tage | sofort | – | – | eigenes Programm | https://seranking.com/affiliate-program.html |
+| 61 | Elephas | 75 | 25 % wiederkehrend solange das Abo läuft | – | – | schnell | – | – | Gumroad | https://elephas.app/become-an-affiliate |
+| 62 | DeepSearch | 74 | 30 % auf qualifizierte Zahlungen inkl. Verlängerungen | 12 Monate | 90 Tage | sofort | Bank (Stripe Express), USDC | keine | Dub Partners | https://partners.dub.co/deepsearch |
+| 63 | CopyCopter | 72 | 30 % wiederkehrend | – | – | unbekannt | Wise, PayPal | – | – | https://copycopter.ai |
+| 64 | PostFast | 71 | 30 % auf jede Zahlung | 12 Monate | 30 Tage | sofort | PayPal | 50 EUR | Rewardful | https://postfast.getrewardful.com/signup |
+| 65 | Social Intern | 71 | 30 % jeder Zahlung | 12 Monate | 90 Tage | sofort | PayPal, Wise, Stripe Connect | 50 USD | – | https://www.socialintern.com/affiliate |
+| 66 | Robofy | 68 | 30 % auf jede Zahlung | 12 Monate | 60 Tage | sofort | PayPal, Paytm, Google Pay | – | Tolt | https://robofy.tolt.io |
+| 67 | Viral Day | 68 | 30 % wiederkehrend | 12 Monate | 30 Tage | sofort | PayPal | 50 USD | FirstPromoter | https://viral.day/en/affiliates |
+| 68 | Sbl.so | 68 | 15 % wiederkehrend, ab 20 Kunden 20 % | lebenslang | 30 Tage | sofort | – | 200 USD | Rewardful | https://sbl-partner.getrewardful.com/signup |
+| 69 | Make | 66 | 35 % für 12 Monate | – | 30 Tage | sofort | – | – | eigenes Programm | https://www.make.com/en/affiliate |
+| 70 | TubeGen | 65 | 10 bis 15 % wiederkehrend | lebenslang | 30 Tage | sofort | – | 30 USD | Tolt | https://www.tubegen.ai/affiliate |
+| 71 | Content Foundry | 65 | 30 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/content-foundry |
+| 72 | OpenSEO | 65 | 30 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/open-seo |
+| 73 | Zaro | 65 | 30 % wiederkehrend | 12 Monate | – | sofort | PayPal | – | Rewardful | https://zaro.ai/affiliates |
+| 74 | Bluedot | 63 | 20 % wiederkehrend | 24 Monate | – | sofort | – | – | Tolt | https://www.bluedothq.com/affiliate |
+| 75 | Dub | 62 | 30 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/dub |
+| 76 | BetaList | 61 | 30 % jeder Zahlung in den ersten 12 Monaten | 12 Monate | 60 Tage | unbekannt | Wise | 50 USD | – | https://betalist.com/terms/affiliates |
+| 77 | DataFuel | 60 | 40 % auf alle Zahlungen der ersten 12 Monate | 12 Monate | – | unbekannt | – | – | Rewardful | https://www.datafuel.dev/affiliates |
+| 78 | Guideless | 60 | 30 % pro Verkauf, 100 USD Bonus nach 50 Konversionen | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/guideless |
+| 79 | LandingHero.AI | 59 | 15 % wiederkehrend | lebenslang | 60 Tage | sofort | PayPal, Bank | keine | – | https://www.landinghero.ai/affiliate |
+| 80 | Postcrest | 57 | 30 % auf jede Zahlung im ersten Jahr | 12 Monate | 90 Tage | unbekannt | PayPal | keine | – | https://postcrest.com/affiliates |
+| 81 | Krisp | 57 | 30 % pro Verkauf, plus 5 % auf geworbene Partner, Bonus 25 USD nach erster Konversion | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/krisp |
+| 82 | ProofWrite | 57 | 30 % jeder Abozahlung | 12 Monate | 90 Tage | unbekannt | PayPal | 50 USD | – | https://proofwrite.io/affiliates |
+| 83 | Merlin AI | 56 | 30 % wiederkehrend bis 12 Monate (Jahresplan einmalig 30 %) | – | 90 Tage | sofort | – | – | Tapfiliate | https://merlin.tapfiliate.com/ |
+| 84 | Notra | 54 | 25 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/notra |
+| 85 | Firecrawl | 52 | 15 % pro Verkauf | lebenslang | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://dub.co/marketplace |
+| 86 | Murf | 50 | 20 % für 24 Monate | – | 90 Tage | schnell | – | – | PartnerStack | https://murf.ai/partner-with-us/affiliate |
+| 87 | Uneed | 50 | 50 % auf „Skip the Waiting Line“ | – | 30 Tage | schnell | – | – | eigenes Programm | https://www.uneed.best/affiliates |
+| 88 | PeerPush | 50 | 50 % auf „Launch Now“ | – | 30 Tage | schnell | – | – | eigenes Programm | https://peerpush.com/affiliates |
+| 89 | Listnr | 50 | 30 %, ab 30 Kunden 35 %, ab 50 Kunden 40 % | 12 Monate | – | unbekannt | – | – | Tolt | https://listnr.tolt.io |
+| 90 | FineVoice | 50 | 30 % auf qualifizierte Käufe | 12 Monate | 120 Tage | unbekannt | – | 50 USD | – | https://finevoice.ai/affiliates |
+| 91 | Higgsfield AI | 47 | bis zu 25 % wiederkehrend bis 12 Monate | – | – | sofort | – | – | eigenes Programm | https://higgsfield.ai/affiliate |
+| 92 | Runable | 47 | 25 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/runable |
+| 93 | NewArc.ai | 46 | 20 % wiederkehrend | – | – | unbekannt | Wise | keine | – | https://newarc.ai/affiliate-program |
+| 94 | Rytr | 45 | 30 % wiederkehrend für 12 Monate, 15 $ Startbonus | – | 60 Tage | schnell | – | – | eigenes Programm | https://rytr.me/affiliates |
+| 95 | Rewardful | 45 | 25 % auf alle Zahlungen der ersten 12 Monate | 12 Monate | 60 Tage | unbekannt | – | 50 USD | Rewardful | https://www.rewardful.com/affiliate-program |
+| 96 | Submitator | 42 | 37 % auf jeden Erstkauf (Einmalzahlung) | einmalig | 60 Tage | sofort | – | keine | PromoteKit | https://submitator.promotekit.com |
+| 97 | ElevenLabs | 41 | 22 % für 12 Monate | – | 90 Tage | sofort | – | – | PartnerStack | https://elevenlabs.io/affiliates |
+| 98 | Poppy AI | 41 | bis 20 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/poppy-ai |
+| 99 | DirectoryLaunch | 41 | 30 % je Verkauf (199 oder 249 USD einmalig) | einmalig | 30 Tage | sofort | Krypto, PayPal, Payoneer, Bank | 50 USD | – | https://directory-launch.com/partner/join |
+| 100 | Voices AI | 41 | 20 %, ab 10 aktiven Kunden 25 %, ab 50 Kunden 30 % | 12 Monate | – | sofort | – | – | Tolt | https://getvoices.ai/affiliate |
+| 101 | AITOPIA AI | 40 | 20 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/aitopia |
+| 102 | meinGPT | 40 | 20 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/meingpt |
+| 103 | VoiceKiller | 40 | 40 % auf die erste Zahlung | einmalig | 7 Tage | sofort | PayPal | 5 USD | – | https://voicekiller.com/affiliate |
+| 104 | Synthesia | 38 | 25 % für 12 Monate | – | 60 Tage | schnell | – | – | Rewardful | https://synthesia.getrewardful.com/signup |
+| 105 | Fireflies.ai | 38 | „up to 30% recurring commissions per sale for 12 months“, Einstieg mit 10 % | – | 90 Tage | sofort | – | – | Rewardful (fireflies.getrewardful.com), zusätzlich PartnerStack | https://fireflies.getrewardful.com/ |
+| 106 | HighGround | 38 | 30 % wiederkehrend | 12 Monate | – | unbekannt | – | – | – | https://highground.ai/affiliate-program/ |
+| 107 | Squad | 38 | 20 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/squad-so |
+| 108 | Viktor | 38 | bis 20 % pro Verkauf | 12 Monate | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://dub.co/marketplace |
+| 109 | InVideo AI | 35 | 50 % Monats- bzw. 25 % Jahresabo, erste Abrechnung | – | 120 Tage | schnell | – | – | Impact | https://invideo.io/make/affiliate-program/ |
+| 110 | Supermemory | 35 | 20 % auf ersten Verkauf (Belohnungsliste), Text nennt 30 % wiederkehrend für 12 Monate | – | – | unbekannt | Bank (Stripe Express), USDC | – | Dub Partners | https://partners.dub.co/supermemory |
+| 111 | tl;dv | 31 | „earn 25% of all referred payments with no limit“, Geworbene erhalten 30 % Rabatt auf Pro | – | unbekannt | sofort | – | – | eigenes Programm | https://tldv.io/partner-programs/ |
+| 112 | Writesonic | 30 | 20 % für 12 Monate | – | 60 Tage | schnell | – | – | FirstPromoter | https://affiliates.writesonic.com/ |
+| 113 | Jenni AI | 30 | bis zu 30 % | – | – | schnell | – | – | Rewardful | https://jenni-ai.getrewardful.com/signup |
+| 114 | HeadshotPro | 30 | 30 % auf jeden Kauf | einmalig | 60 Tage | sofort | PayPal | 25 USD | – | https://www.headshotpro.com/affiliate |
+| 115 | GPTZero | 30 | 30 % auf alle Zahlungen der ersten 6 Monate | 6 Monate | 60 Tage | unbekannt | PayPal | 20 USD | Rewardful | https://gptzero.getrewardful.com/signup |
+| 116 | Crayo | 29 | 20 % auf bezahlte Empfehlungen | – | – | sofort | – | 20 USD | Tolt | https://crayo.tolt.io |
+| 117 | RankInPublic | 27 | 30 % auf jeden Verkauf | einmalig | – | unbekannt | – | – | – | https://rankinpublic.xyz/affiliates |
+| 118 | Dirstarter | 27 | 30 % je Verkauf (ca. 60 USD beim Pro-Plan) | einmalig | 30 Tage | unbekannt | – | 100 USD | – | https://dirstarter.com/affiliates |
+| 119 | Loova AI | 26 | 15 % wiederkehrend, Top-Partner bis 30 % | 12 Monate | – | unbekannt | – | – | Rewardful | https://loova.getrewardful.com/signup |
+| 120 | Tally | 25 | 20 % des Abos, max. $150 | – | unbekannt | sofort | – | – | im Tally-Konto | https://tally.so/help/referral-program |
+| 121 | OpusClip | 25 | „Earn 25% recurring commission through the first year of each new subscriber“ | – | unbekannt | schnell | – | – | Rewardful | https://www.opus.pro/affiliate |
+| 122 | WPWriter | 25 | 30 % auf die erste Zahlung | einmalig | 60 Tage | unbekannt | – | – | Lemon Squeezy | https://www.wpwriter.com/affiliate |
+| 123 | LALAL.AI | 24 | 30 % im ersten Monat, danach 20 % bis insgesamt 6 Monate | – | 180 Tage | schnell | – | – | FirstPromoter | https://www.lalal.ai/affiliate-program/ |
+| 124 | Tailkit | 21 | 30 % je Verkauf (bis 164,70 USD) | einmalig | – | unbekannt | – | 10 USD | Lemon Squeezy | https://tailkit.com/become-an-affiliate |
+| 125 | Immersive Translate | 20 | 20 % des gezahlten Preises für Pro oder Max | – | 365 Tage | unbekannt | – | – | Rewardful | https://immersive-translate.getrewardful.com/signup |
+| 126 | Bolt.new | 19 | „you earn 15% of what they pay Bolt, up to $50 per referral“ | – | unbekannt | sofort | – | – | Cello | https://bolt.new/platform/referral |
+| 127 | SciSpace | 18 | 25 % auf jedes neue Abo (erste Zahlung) | – | 90 Tage | schnell | – | – | – | https://scispace.com/influencer-program |
+| 128 | QuillBot | 10 | „10% for monthly plans, 15% for semi-annual plans, and 20% for annual plans“, bis 20 $ je Abo | – | 30 Tage | schnell | – | – | PartnerStack | https://quillbot.com/affiliates |
+| 129 | SOUNDRAW | 0 | bis zu 25 USD pro erfolgreicher Empfehlung | – | – | schnell | – | – | – | https://affiliates.soundraw.io/ |
+| 130 | Relevance AI | 0 | wiederkehrend, Satz im Portal | – | – | unbekannt | – | – | Rewardful | https://relevance-ai.getrewardful.com/signup |
+| 131 | Site Launcher | 0 | 10 USD je Konversion (Hosting-Abschluss) | einmalig | 30 Tage | sofort | PayPal | – | – | https://sitelauncher.ai/affiliate.html |
+
+## Manuelle Prüfung nötig
+
+| Programm | Konditionen | Grund | Quelle |
+|---|---|---|---|
+| Koala AI | 30 % wiederkehrend lebenslang, 60 Tage, Wise, min 50 USD | Bewerbung per Mail an hello@koala.sh | https://koala.sh/pages/affiliate |
+| Uplift AI | 30 % wiederkehrend | Rewardful, Freigabe nach Prüfung | https://www.upliftai.co/affiliate-program |
+| CustomGPT.ai | 15 bis 20 % wiederkehrend bis 24 Monate, FirstPromoter | Prüfung 2 bis 5 Werktage | https://customgpt.ai/affiliate-program/ |
+| Apify | 20 % erste 3 Monate, dann 30 %, max 2500 USD je Kunde, PayPal oder Bank, min 100 USD | Prüfung bis 3 Werktage | https://apify.com/partners/affiliate |
+| FirstPromoter | 25 bis 35 % für 12 Monate, 120 Tage Cookie, min 100 USD | Prüfung einige Werktage | https://firstpromoter.com/affiliate-program |
+| Selira AI | 40 % lebenslang, PayPal, Wise, Krypto, min 50 USD, meist sofort | ausgeschlossen: Erwachsenen-Nische (KI-Companions) | https://selira.ai/affiliate-program |
+| Inkfluence AI | 30 % bis 12 Monate, 30 Tage, PayPal Wise Bank, min 25 USD, Tolt | manuelle Prüfung 2 bis 3 Werktage | https://www.inkfluenceai.com/affiliate |
+| Chatling | 20 % wiederkehrend 12 Monate, 60 Tage, PayPal oder Wise, keine Mindestauszahlung, Tolt | manuelle Prüfung binnen 48 Stunden | https://chatling.tolt.io |
+| Narration Box | Standard 25 % bis 12 Monate laut FAQ, Landingpage nennt 40 %, min 50 USD | Bewerbung kann geprüft werden | https://narrationbox.com/affiliate |
+| ShortPurify | 30 % wiederkehrend lebenslang, 180 Tage, Creem: Bank oder USDC | manuelle Freigabe meist unter 24 Stunden | https://shortpurify.com/affiliates |
+| PrivateClawd | 20 % lebenslang, USDT/USDC, PayPal, min 50 USD | Prüfung binnen 24 Stunden | https://privateclawd.com/affiliate |
+| Ryla | 30 % lebenslang inkl. Coins, 60 Tage, Überweisung oder Krypto, min 100 USD | manuelle Prüfung 24 bis 48 Stunden | https://ryla.ai/affiliates/ |
+| Reviral | 25 % für 12 Monate, 60 Tage, Creem: Bank oder USDC, min 50 USD | jede Bewerbung wird geprüft | https://reviral.ai/affiliate |
+| VidsHero | 20 % lebenslang, Creem: Bank oder Krypto, min 50 USD | Bewerbung, dann Einladung | https://vidshero.com/affiliate |
+| AI Fiesta | 15 % für 1 Jahr laut Belohnung, Text nennt 10 % lebenslang, Dub | meist binnen 48 Stunden geprüft | https://partners.dub.co/aifiesta |
+| LaunchDirectories | 25 % je Verkauf, 60 Tage, PayPal oder Stripe, min 50 USD | Bewerbung wird geprüft | https://launchdirectories.com/affiliate |
+| ScrollLaunch | 30 % einmalig, 30 Tage, Affonso | jede Bewerbung geprüft | https://www.scrolllaunch.com/affiliates |
+| SmartDirectoryAI | 40 % wiederkehrend, 60 Tage, PayPal, min 50 USD | Bewerbung und Freigabe | https://smartdirectory.ai/affiliates/ |
+| Rendley | 30 % für 12 Monate, 60 Tage, PayPal oder Überweisung, Lemon Squeezy | Prüfung durch Lemon Squeezy, kann dauern | https://rendley.com/affiliates |
+| LOVO AI | 20 % wiederkehrend 24 Monate | Freigabe dauert etwa eine Woche | https://lovo.ai/affiliate-program |
+| FreeTTS | 30 % der ersten Zahlung, 90 Tage, Wise, ACH, Überweisung oder USDT, min 100 USD | jeder Partner wird manuell aufgenommen | https://freetts.org/affiliate |
+| Built By Joey | 30 % auf alle Käufe, 90 Tage, PayPal, min 20 USD | Freigabe binnen 24 Stunden per Formular | https://builtbyjoey.com/affiliate |
+| Agent Builder (WordPress) | 40 % lebenslang, 90 Tage, Stripe Connect, min 100 USD | Bewerbung, Zugang binnen 1 Werktag | https://agentic-plugin.com/affiliates/ |
+| BotSailor | 25 % wiederkehrend, PayPal, min 50 USD | Formular, Rückmeldung abwarten | https://botsailor.com/partner/affiliate |
+| StealthWriter | 30 % wiederkehrend, 30 Tage, PayPal oder Überweisung | Freigabe binnen 24 Stunden | https://stealthwriter.ai/affiliate |
+| AEOlens | 30 % lebenslang, 60 Tage, PayPal Wise Bank, min 50 USD | Prüfung binnen eines Werktags | https://aeolens.ai/affiliate |
+| WriteRush | 30 % wiederkehrend jährlich, 60 Tage | Freigabe in einigen Werktagen | https://writerush.ai/affiliate-program/ |
+
 ## Schnell anmelden (sofort oder in wenigen Tagen freigeschaltet)
 
 Programme ohne Mindest-Traffic und ohne Einladung, laut offizieller Seite geprüft. „sofort“: Link direkt nach der Anmeldung, „schnell“: Selbstanmeldung mit kurzer Prüfung.
 
 | Programm | Anmeldung | Provision | Cookie | Netzwerk | Anmelden | Geprüft |
 |---|---|---|---|---|---|---|
+| AITuber | sofort | 30 % wiederkehrend | 90 Tage | – | https://aituber.app/affiliates/ | 2026-11-02 |
+| All-Images.ai | sofort | 20 % auf jede Bestellung, ab 30 Konversionen 25 % | – | FirstPromoter | https://all-images.ai/affiliate-program/ | 2026-11-02 |
+| Ampere | sofort | 30 % auf jede Aufladung | 60 Tage | – | https://www.ampere.sh/affiliate | 2026-11-02 |
+| BaseAI Tools | sofort | 30 % auf Pro-Abos und Audits, wiederkehrend | – | – | https://affiliates.baseaitools.com/ | 2026-11-02 |
 | beehiiv | sofort | bis 60 % für 12 Monate | 60 Tage | Dub | https://www.beehiiv.com/partners | 2026-11-01 |
+| BizChecker AI | sofort | 30 % auf jeden Kauf (Produkt 39 USD einmalig), auch Folgekäufe | 180 Tage | Creem | https://bizchecker.ai/affiliates | 2026-11-02 |
+| Bluedot | sofort | 20 % wiederkehrend | – | Tolt | https://www.bluedothq.com/affiliate | 2026-11-02 |
 | Bolt.new | sofort | „you earn 15% of what they pay Bolt, up to $50 per referral“ | unbekannt | Cello | https://bolt.new/platform/referral | 2026-11-01 |
+| Cachee | sofort | 20 % der Brutto-Abo-Umsätze | 90 Tage | – | https://cachee.ai/partner | 2026-11-02 |
+| Contenta AI | sofort | 30 % wiederkehrend auf Business-Pläne | – | – | http://contenta.ai/affiliate-program | 2026-11-02 |
+| Crayo | sofort | 20 % auf bezahlte Empfehlungen | – | Tolt | https://crayo.tolt.io | 2026-11-02 |
+| Crush | sofort | 50 % auf jede Zahlung | 60 Tage | – | https://trycrush.ai/affiliate | 2026-11-02 |
+| DeepSearch | sofort | 30 % auf qualifizierte Zahlungen inkl. Verlängerungen | 90 Tage | Dub Partners | https://partners.dub.co/deepsearch | 2026-11-02 |
+| DirectoryLaunch | sofort | 30 % je Verkauf (199 oder 249 USD einmalig) | 30 Tage | – | https://directory-launch.com/partner/join | 2026-11-02 |
+| DVYB | sofort | 40 % wiederkehrend | 90 Tage | – | https://dvyb.ai/affiliates | 2026-11-02 |
 | ElevenLabs | sofort | 22 % für 12 Monate | 90 Tage | PartnerStack | https://elevenlabs.io/affiliates | 2026-11-01 |
 | Fireflies.ai | sofort | „up to 30% recurring commissions per sale for 12 months“, Einstieg mit 10 % | 90 Tage | Rewardful (fireflies.getrewardful.com), zusätzlich PartnerStack | https://fireflies.getrewardful.com/ | 2026-11-01 |
+| Fizzly | sofort | 40 % wiederkehrend | 60 Tage | – | https://www.fizzly.ai/affiliate | 2026-11-02 |
 | GetResponse | sofort | 40 % für 12 Monate, 50 bis 60 % ab 50/100 Verkäufen | unbekannt | PartnerStack | https://www.getresponse.com/affiliate-programs | 2026-11-01 |
+| Giggal.ai | sofort | 20 % wiederkehrend | 3 Monate | – | https://giggal.ai/affiliates | 2026-11-02 |
+| GPT Prompt Maker | sofort | 30 % auf erste Zahlung, danach 10 % wiederkehrend | – | – | https://www.gptpromptmaker.com/pages/refer-and-earn | 2026-11-02 |
+| HeadshotPro | sofort | 30 % auf jeden Kauf | 60 Tage | – | https://www.headshotpro.com/affiliate | 2026-11-02 |
 | Higgsfield AI | sofort | bis zu 25 % wiederkehrend bis 12 Monate | – | eigenes Programm | https://higgsfield.ai/affiliate | 2026-11-01 |
+| LandingHero.AI | sofort | 15 % wiederkehrend | 60 Tage | – | https://www.landinghero.ai/affiliate | 2026-11-02 |
+| LLM Pulse | sofort | 30 % wiederkehrend | 60 Tage | FirstPromoter | https://llmpulse.firstpromoter.com | 2026-11-02 |
 | Make | sofort | 35 % für 12 Monate | 30 Tage | eigenes Programm | https://www.make.com/en/affiliate | 2026-11-01 |
+| MakeInfluencer.ai | sofort | 50 % wiederkehrend | 30 Tage | – | https://www.makeinfluencer.ai/ai-affiliate-program | 2026-11-02 |
+| MeDo | sofort | 30 % auf jeden Credit-Kauf | – | – | https://miaoda.io/programs/affiliate | 2026-11-02 |
 | Merlin AI | sofort | 30 % wiederkehrend bis 12 Monate (Jahresplan einmalig 30 %) | 90 Tage | Tapfiliate | https://merlin.tapfiliate.com/ | 2026-11-01 |
+| OMNIFAMOUS | sofort | 30 % jeder Zahlung | 60 Tage | – | https://omnifamous.com/affiliate | 2026-11-02 |
+| Outrank | sofort | 30 % aller Zahlungen | 60 Tage | – | https://www.outrank.so/affiliate-program | 2026-11-02 |
+| Paintit.ai | sofort | 20 % der Netto-Abogebühren wiederkehrend | – | Tolt | https://paintit.ai/affiliate/ | 2026-11-02 |
+| Pikzels | sofort | 20 % wiederkehrend auf alle Zahlungen | – | FirstPromoter | https://www.pikzels.com/affiliate | 2026-11-02 |
+| PostFast | sofort | 30 % auf jede Zahlung | 30 Tage | Rewardful | https://postfast.getrewardful.com/signup | 2026-11-02 |
+| quso.ai (vormals vidyo.ai) | sofort | 30 % auf jede Zahlung | – | FirstPromoter | https://quso.ai/affiliate-program | 2026-11-02 |
+| Readyt | sofort | 25 bis 35 % wiederkehrend je nach Kundenzahl | 60 Tage | – | https://www.readyt.ai/affiliate.html | 2026-11-02 |
+| Robofy | sofort | 30 % auf jede Zahlung | 60 Tage | Tolt | https://robofy.tolt.io | 2026-11-02 |
+| Roic AI | sofort | 30 % wiederkehrend | – | – | https://roic.ai/become-partner | 2026-11-02 |
+| Sbl.so | sofort | 15 % wiederkehrend, ab 20 Kunden 20 % | 30 Tage | Rewardful | https://sbl-partner.getrewardful.com/signup | 2026-11-02 |
 | SE Ranking | sofort | 30 % (laut Seite wiederkehrend) | 120 Tage | eigenes Programm | https://seranking.com/affiliate-program.html | 2026-11-01 |
+| Searchable | sofort | 30 % wiederkehrend, ab 10 aktiven Kunden 40 % | 90 Tage | – | https://www.searchable.com/affiliates | 2026-11-02 |
+| Senja | sofort | 30 % wiederkehrend | unbegrenzt | – | https://senja.io/affiliates | 2026-11-02 |
+| Site Launcher | sofort | 10 USD je Konversion (Hosting-Abschluss) | 30 Tage | – | https://sitelauncher.ai/affiliate.html | 2026-11-02 |
+| SmartReply | sofort | 30 % wiederkehrend | – | – | https://smartreply.io/affiliates | 2026-11-02 |
+| Social Intern | sofort | 30 % jeder Zahlung | 90 Tage | – | https://www.socialintern.com/affiliate | 2026-11-02 |
 | Submagic | sofort | 30 % lebenslang wiederkehrend | – | – | https://affiliate.submagic.co/ | 2026-11-01 |
+| Submitator | sofort | 37 % auf jeden Erstkauf (Einmalzahlung) | 60 Tage | PromoteKit | https://submitator.promotekit.com | 2026-11-02 |
 | Tally | sofort | 20 % des Abos, max. $150 | unbekannt | im Tally-Konto | https://tally.so/help/referral-program | 2026-11-01 |
+| TaskAGI | sofort | 30 % wiederkehrend, Lifetime-Deal 30 % einmalig | 30 Tage | – | https://www.taskagi.net/affiliate | 2026-11-02 |
 | tl;dv | sofort | „earn 25% of all referred payments with no limit“, Geworbene erhalten 30 % Rabatt auf Pro | unbekannt | eigenes Programm | https://tldv.io/partner-programs/ | 2026-11-01 |
+| TubeGen | sofort | 10 bis 15 % wiederkehrend | 30 Tage | Tolt | https://www.tubegen.ai/affiliate | 2026-11-02 |
+| UGCfy AI | sofort | 40 % auf jede Zahlung | 30 Tage | – | https://ugcfy.ai/affiliates | 2026-11-02 |
+| Viral Day | sofort | 30 % wiederkehrend | 30 Tage | FirstPromoter | https://viral.day/en/affiliates | 2026-11-02 |
+| VO3 AI | sofort | 20 bis 25 % auf Erstkauf, 6 bis 8 % auf Verlängerungen | – | – | https://www.vo3ai.com/affiliate | 2026-11-02 |
+| VoiceKiller | sofort | 40 % auf die erste Zahlung | 7 Tage | – | https://voicekiller.com/affiliate | 2026-11-02 |
+| Voices AI | sofort | 20 %, ab 10 aktiven Kunden 25 %, ab 50 Kunden 30 % | – | Tolt | https://getvoices.ai/affiliate | 2026-11-02 |
+| Vyndra AI | sofort | 25 % auf Abos und Credit-Pakete | – | – | https://vyndra.ai/affiliate-program | 2026-11-02 |
+| Winston AI | sofort | 40 % auf alle Zahlungen der ersten 12 Monate | – | Rewardful | https://winston-ai.getrewardful.com/signup | 2026-11-02 |
+| WritingAI | sofort | 30 % jeder Zahlung inkl. Lifetime-Lizenzen | 90 Tage | – | https://writingai.pro/affiliate-program | 2026-11-02 |
+| Zaro | sofort | 30 % wiederkehrend | – | Rewardful | https://zaro.ai/affiliates | 2026-11-02 |
 | AppSumo | schnell | 100 % des Kaufs bis $50 bei Neukunden | 7 Tage | Impact | https://appsumo.com/p/affiliates | 2026-11-01 |
 | Elephas | schnell | 25 % wiederkehrend solange das Abo läuft | – | Gumroad | https://elephas.app/become-an-affiliate | 2026-11-01 |
 | Fliki | schnell | „30% lifetime commission on every sale“ | 30 Tage | Rewardful | https://affiliates.fliki.ai/signup | 2026-11-01 |
@@ -143,6 +361,135 @@ Programme ohne Mindest-Traffic und ohne Einladung, laut offizieller Seite geprü
 | Merlin AI | nicht registriert | Tapfiliate | 30 % wiederkehrend bis 12 Monate (Jahresplan einmalig 30 %) | 90 Tage | https://merlin.tapfiliate.com/ | – |
 | Elephas | nicht registriert | Gumroad | 25 % wiederkehrend solange das Abo läuft | – | https://elephas.app/become-an-affiliate | – |
 | Higgsfield AI | nicht registriert | eigenes Programm | bis zu 25 % wiederkehrend bis 12 Monate | – | https://higgsfield.ai/affiliate | – |
+| LLM Pulse | nicht registriert | FirstPromoter | 30 % wiederkehrend | 60 Tage | https://llmpulse.firstpromoter.com | – |
+| SmartReply | nicht registriert | – | 30 % wiederkehrend | – | https://smartreply.io/affiliates | – |
+| Roic AI | nicht registriert | – | 30 % wiederkehrend | – | https://roic.ai/become-partner | – |
+| NewArc.ai | nicht registriert | – | 20 % wiederkehrend | – | https://newarc.ai/affiliate-program | – |
+| CopyCopter | nicht registriert | – | 30 % wiederkehrend | – | https://copycopter.ai | – |
+| Winston AI | nicht registriert | Rewardful | 40 % auf alle Zahlungen der ersten 12 Monate | – | https://winston-ai.getrewardful.com/signup | – |
+| HeadshotPro | nicht registriert | – | 30 % auf jeden Kauf | 60 Tage | https://www.headshotpro.com/affiliate | – |
+| ReachLLM | nicht registriert | Rewardful | 25 % wiederkehrend | – | https://reachllm.getrewardful.com/signup | – |
+| Loova AI | nicht registriert | Rewardful | 15 % wiederkehrend, Top-Partner bis 30 % | – | https://loova.getrewardful.com/signup | – |
+| Immersive Translate | nicht registriert | Rewardful | 20 % des gezahlten Preises für Pro oder Max | 365 Tage | https://immersive-translate.getrewardful.com/signup | – |
+| Relevance AI | nicht registriert | Rewardful | wiederkehrend, Satz im Portal | – | https://relevance-ai.getrewardful.com/signup | – |
+| GPTZero | nicht registriert | Rewardful | 30 % auf alle Zahlungen der ersten 6 Monate | 60 Tage | https://gptzero.getrewardful.com/signup | – |
+| Rewardful | nicht registriert | Rewardful | 25 % auf alle Zahlungen der ersten 12 Monate | 60 Tage | https://www.rewardful.com/affiliate-program | – |
+| PostFast | nicht registriert | Rewardful | 30 % auf jede Zahlung | 30 Tage | https://postfast.getrewardful.com/signup | – |
+| QR Code AI | nicht registriert | Rewardful | 30 % wiederkehrend | 60 Tage | https://qrcode-ai.getrewardful.com/signup | – |
+| Top AI Tools (topaitools.com) | nicht registriert | – | 25 % wiederkehrend auf bezahlte Einträge und Sponsorings | – | https://topaitools.com/affiliates | – |
+| HighGround | nicht registriert | – | 30 % wiederkehrend | – | https://highground.ai/affiliate-program/ | – |
+| DataFuel | nicht registriert | Rewardful | 40 % auf alle Zahlungen der ersten 12 Monate | – | https://www.datafuel.dev/affiliates | – |
+| Enrich Labs | nicht registriert | – | 25 % wiederkehrend | – | https://www.enrichlabs.ai/affiliates | – |
+| MakeInfluencer.ai | nicht registriert | – | 50 % wiederkehrend | 30 Tage | https://www.makeinfluencer.ai/ai-affiliate-program | – |
+| UGCfy AI | nicht registriert | – | 40 % auf jede Zahlung | 30 Tage | https://ugcfy.ai/affiliates | – |
+| BaseAI Tools | nicht registriert | – | 30 % auf Pro-Abos und Audits, wiederkehrend | – | https://affiliates.baseaitools.com/ | – |
+| MomentumHive | nicht registriert | Lemon Squeezy | 30 % wiederkehrend | 30 Tage | https://momentumhive.app/affiliates | – |
+| TubeGen | nicht registriert | Tolt | 10 bis 15 % wiederkehrend | 30 Tage | https://www.tubegen.ai/affiliate | – |
+| LandingHero.AI | nicht registriert | – | 15 % wiederkehrend | 60 Tage | https://www.landinghero.ai/affiliate | – |
+| Crush | nicht registriert | – | 50 % auf jede Zahlung | 60 Tage | https://trycrush.ai/affiliate | – |
+| Readyt | nicht registriert | – | 25 bis 35 % wiederkehrend je nach Kundenzahl | 60 Tage | https://www.readyt.ai/affiliate.html | – |
+| Robofy | nicht registriert | Tolt | 30 % auf jede Zahlung | 60 Tage | https://robofy.tolt.io | – |
+| Devaito | nicht registriert | – | bis 30 % wiederkehrend | – | https://www.devaito.com/page/devaito-affiliates | – |
+| DVYB | nicht registriert | – | 40 % wiederkehrend | 90 Tage | https://dvyb.ai/affiliates | – |
+| Viral Day | nicht registriert | FirstPromoter | 30 % wiederkehrend | 30 Tage | https://viral.day/en/affiliates | – |
+| Sbl.so | nicht registriert | Rewardful | 15 % wiederkehrend, ab 20 Kunden 20 % | 30 Tage | https://sbl-partner.getrewardful.com/signup | – |
+| AI-Writer | nicht registriert | FirstPromoter | 25 % wiederkehrend | – | https://ai-writer.firstpromoter.com/ | – |
+| SmartEngage | nicht registriert | FirstPromoter | 30 % wiederkehrend, auch nach Trial-Upgrade | – | https://smartengage.firstpromoter.com/ | – |
+| quso.ai (vormals vidyo.ai) | nicht registriert | FirstPromoter | 30 % auf jede Zahlung | – | https://quso.ai/affiliate-program | – |
+| MIDI Agent | nicht registriert | – | 50 % auf Plugin-Kauf, 30 % wiederkehrend auf Monatsabo, 20 % Sub-Provision | – | https://www.midiagent.com/affiliates | – |
+| Pikzels | nicht registriert | FirstPromoter | 20 % wiederkehrend auf alle Zahlungen | – | https://www.pikzels.com/affiliate | – |
+| Senja | nicht registriert | – | 30 % wiederkehrend | unbegrenzt | https://senja.io/affiliates | – |
+| Usermaven | nicht registriert | FirstPromoter | 30 % wiederkehrend | 14 Tage | https://usermaven.com/affiliate-program | – |
+| Paintit.ai | nicht registriert | Tolt | 20 % der Netto-Abogebühren wiederkehrend | – | https://paintit.ai/affiliate/ | – |
+| Bluedot | nicht registriert | Tolt | 20 % wiederkehrend | – | https://www.bluedothq.com/affiliate | – |
+| Listnr | nicht registriert | Tolt | 30 %, ab 30 Kunden 35 %, ab 50 Kunden 40 % | – | https://listnr.tolt.io | – |
+| Crayo | nicht registriert | Tolt | 20 % auf bezahlte Empfehlungen | – | https://crayo.tolt.io | – |
+| AITuber | nicht registriert | – | 30 % wiederkehrend | 90 Tage | https://aituber.app/affiliates/ | – |
+| GPT Prompt Maker | nicht registriert | – | 30 % auf erste Zahlung, danach 10 % wiederkehrend | – | https://www.gptpromptmaker.com/pages/refer-and-earn | – |
+| Fizzly | nicht registriert | – | 40 % wiederkehrend | 60 Tage | https://www.fizzly.ai/affiliate | – |
+| Social Intern | nicht registriert | – | 30 % jeder Zahlung | 90 Tage | https://www.socialintern.com/affiliate | – |
+| VO3 AI | nicht registriert | – | 20 bis 25 % auf Erstkauf, 6 bis 8 % auf Verlängerungen | – | https://www.vo3ai.com/affiliate | – |
+| All-Images.ai | nicht registriert | FirstPromoter | 20 % auf jede Bestellung, ab 30 Konversionen 25 % | – | https://all-images.ai/affiliate-program/ | – |
+| Searchable | nicht registriert | – | 30 % wiederkehrend, ab 10 aktiven Kunden 40 % | 90 Tage | https://www.searchable.com/affiliates | – |
+| BizChecker AI | nicht registriert | Creem | 30 % auf jeden Kauf (Produkt 39 USD einmalig), auch Folgekäufe | 180 Tage | https://bizchecker.ai/affiliates | – |
+| MeDo | nicht registriert | – | 30 % auf jeden Credit-Kauf | – | https://miaoda.io/programs/affiliate | – |
+| Giggal.ai | nicht registriert | – | 20 % wiederkehrend | 3 Monate | https://giggal.ai/affiliates | – |
+| Site Launcher | nicht registriert | – | 10 USD je Konversion (Hosting-Abschluss) | 30 Tage | https://sitelauncher.ai/affiliate.html | – |
+| Ampere | nicht registriert | – | 30 % auf jede Aufladung | 60 Tage | https://www.ampere.sh/affiliate | – |
+| Cachee | nicht registriert | – | 20 % der Brutto-Abo-Umsätze | 90 Tage | https://cachee.ai/partner | – |
+| Postcrest | nicht registriert | – | 30 % auf jede Zahlung im ersten Jahr | 90 Tage | https://postcrest.com/affiliates | – |
+| Categent | nicht registriert | – | 30 % wiederkehrend | 90 Tage | https://categent.com/affiliate-program | – |
+| Dub | nicht registriert | Dub Partners | 30 % pro Verkauf | – | https://partners.dub.co/dub | – |
+| Supermemory | nicht registriert | Dub Partners | 20 % auf ersten Verkauf (Belohnungsliste), Text nennt 30 % wiederkehrend für 12 Monate | – | https://partners.dub.co/supermemory | – |
+| AITOPIA AI | nicht registriert | Dub Partners | 20 % pro Verkauf | – | https://partners.dub.co/aitopia | – |
+| Krisp | nicht registriert | Dub Partners | 30 % pro Verkauf, plus 5 % auf geworbene Partner, Bonus 25 USD nach erster Konversion | – | https://partners.dub.co/krisp | – |
+| Ranked AI | nicht registriert | Dub Partners | 20 % pro Verkauf, plus 20 % der Provision geworbener Partner | – | https://partners.dub.co/ranked | – |
+| Markty | nicht registriert | Dub Partners | 50 % pro Verkauf | – | https://partners.dub.co/markty | – |
+| meinGPT | nicht registriert | Dub Partners | 20 % pro Verkauf | – | https://partners.dub.co/meingpt | – |
+| Guideless | nicht registriert | Dub Partners | 30 % pro Verkauf, 100 USD Bonus nach 50 Konversionen | – | https://partners.dub.co/guideless | – |
+| DeepSearch | nicht registriert | Dub Partners | 30 % auf qualifizierte Zahlungen inkl. Verlängerungen | 90 Tage | https://partners.dub.co/deepsearch | – |
+| Squad | nicht registriert | Dub Partners | 20 % pro Verkauf | – | https://partners.dub.co/squad-so | – |
+| AI Writing Skool (Ship 30 for 30) | nicht registriert | Dub Partners | 15 bis 50 % je nach Produkt, aktuelle Aktion 30 % pauschal | – | https://partners.dub.co/dwp | – |
+| TubeAI | nicht registriert | Dub Partners | 20 % auf jede Abozahlung | – | https://partners.dub.co/tube-ai | – |
+| Notra | nicht registriert | Dub Partners | 25 % pro Verkauf | – | https://partners.dub.co/notra | – |
+| Agent Media | nicht registriert | Dub Partners | 30 % pro Verkauf | – | https://partners.dub.co/agent-media | – |
+| Content Foundry | nicht registriert | Dub Partners | 30 % pro Verkauf | – | https://partners.dub.co/content-foundry | – |
+| Runable | nicht registriert | Dub Partners | 25 % pro Verkauf | – | https://partners.dub.co/runable | – |
+| OpenSEO | nicht registriert | Dub Partners | 30 % pro Verkauf | – | https://partners.dub.co/open-seo | – |
+| Vivora AI | nicht registriert | Dub Partners | 30 % pro Verkauf, plus Video-Bounties | – | https://partners.dub.co/vivora | – |
+| Poppy AI | nicht registriert | Dub Partners | bis 20 % pro Verkauf | – | https://partners.dub.co/poppy-ai | – |
+| Wispr Flow | nicht registriert | Dub Partners | bis 50 % pro Verkauf | – | https://dub.co/marketplace | – |
+| Viktor | nicht registriert | Dub Partners | bis 20 % pro Verkauf | – | https://dub.co/marketplace | – |
+| Firecrawl | nicht registriert | Dub Partners | 15 % pro Verkauf | – | https://dub.co/marketplace | – |
+| Submitator | nicht registriert | PromoteKit | 37 % auf jeden Erstkauf (Einmalzahlung) | 60 Tage | https://submitator.promotekit.com | – |
+| RankInPublic | nicht registriert | – | 30 % auf jeden Verkauf | – | https://rankinpublic.xyz/affiliates | – |
+| BetaList | nicht registriert | – | 30 % jeder Zahlung in den ersten 12 Monaten | 60 Tage | https://betalist.com/terms/affiliates | – |
+| DirectoryLaunch | nicht registriert | – | 30 % je Verkauf (199 oder 249 USD einmalig) | 30 Tage | https://directory-launch.com/partner/join | – |
+| Dirstarter | nicht registriert | – | 30 % je Verkauf (ca. 60 USD beim Pro-Plan) | 30 Tage | https://dirstarter.com/affiliates | – |
+| AISend (9 Produkte inkl. SEOBolt, AutoShort) | nicht registriert | Lemon Squeezy | 30 % jeder Zahlung | 30 Tage | https://aisend.app/affiliate | – |
+| WPWriter | nicht registriert | Lemon Squeezy | 30 % auf die erste Zahlung | 60 Tage | https://www.wpwriter.com/affiliate | – |
+| Tailkit | nicht registriert | Lemon Squeezy | 30 % je Verkauf (bis 164,70 USD) | – | https://tailkit.com/become-an-affiliate | – |
+| Voices AI | nicht registriert | Tolt | 20 %, ab 10 aktiven Kunden 25 %, ab 50 Kunden 30 % | – | https://getvoices.ai/affiliate | – |
+| FineVoice | nicht registriert | – | 30 % auf qualifizierte Käufe | 120 Tage | https://finevoice.ai/affiliates | – |
+| VoiceKiller | nicht registriert | – | 40 % auf die erste Zahlung | 7 Tage | https://voicekiller.com/affiliate | – |
+| TaskAGI | nicht registriert | – | 30 % wiederkehrend, Lifetime-Deal 30 % einmalig | 30 Tage | https://www.taskagi.net/affiliate | – |
+| Zaro | nicht registriert | Rewardful | 30 % wiederkehrend | – | https://zaro.ai/affiliates | – |
+| Vyndra AI | nicht registriert | – | 25 % auf Abos und Credit-Pakete | – | https://vyndra.ai/affiliate-program | – |
+| FlowGent AI | nicht registriert | – | 20 % wiederkehrend | 60 Tage | https://flowgent.ai/affiliate | – |
+| WritingAI | nicht registriert | – | 30 % jeder Zahlung inkl. Lifetime-Lizenzen | 90 Tage | https://writingai.pro/affiliate-program | – |
+| Contenta AI | nicht registriert | – | 30 % wiederkehrend auf Business-Pläne | – | http://contenta.ai/affiliate-program | – |
+| OMNIFAMOUS | nicht registriert | – | 30 % jeder Zahlung | 60 Tage | https://omnifamous.com/affiliate | – |
+| ProofWrite | nicht registriert | – | 30 % jeder Abozahlung | 90 Tage | https://proofwrite.io/affiliates | – |
+| Outrank | nicht registriert | – | 30 % aller Zahlungen | 60 Tage | https://www.outrank.so/affiliate-program | – |
+| SEOBlogger | nicht registriert | Lemon Squeezy | 30 % jeder Abozahlung | – | https://seoblogger.ai/affiliate-program/ | – |
+| Scalenut | nicht registriert | FirstPromoter | 30 % wiederkehrend, Seite nennt bis 50 % | 60 Tage | https://www.scalenut.com/affiliate | – |
+| Koala AI | nicht registriert | – | 30 % wiederkehrend lebenslang, 60 Tage, Wise, min 50 USD | – | – | – |
+| Uplift AI | nicht registriert | – | 30 % wiederkehrend | – | – | – |
+| CustomGPT.ai | nicht registriert | – | 15 bis 20 % wiederkehrend bis 24 Monate, FirstPromoter | – | – | – |
+| Apify | nicht registriert | – | 20 % erste 3 Monate, dann 30 %, max 2500 USD je Kunde, PayPal oder Bank, min 100 USD | – | – | – |
+| FirstPromoter | nicht registriert | – | 25 bis 35 % für 12 Monate, 120 Tage Cookie, min 100 USD | – | – | – |
+| Selira AI | nicht registriert | – | 40 % lebenslang, PayPal, Wise, Krypto, min 50 USD, meist sofort | – | – | – |
+| Inkfluence AI | nicht registriert | – | 30 % bis 12 Monate, 30 Tage, PayPal Wise Bank, min 25 USD, Tolt | – | – | – |
+| Chatling | nicht registriert | – | 20 % wiederkehrend 12 Monate, 60 Tage, PayPal oder Wise, keine Mindestauszahlung, Tolt | – | – | – |
+| Narration Box | nicht registriert | – | Standard 25 % bis 12 Monate laut FAQ, Landingpage nennt 40 %, min 50 USD | – | – | – |
+| ShortPurify | nicht registriert | – | 30 % wiederkehrend lebenslang, 180 Tage, Creem: Bank oder USDC | – | – | – |
+| PrivateClawd | nicht registriert | – | 20 % lebenslang, USDT/USDC, PayPal, min 50 USD | – | – | – |
+| Ryla | nicht registriert | – | 30 % lebenslang inkl. Coins, 60 Tage, Überweisung oder Krypto, min 100 USD | – | – | – |
+| Reviral | nicht registriert | – | 25 % für 12 Monate, 60 Tage, Creem: Bank oder USDC, min 50 USD | – | – | – |
+| VidsHero | nicht registriert | – | 20 % lebenslang, Creem: Bank oder Krypto, min 50 USD | – | – | – |
+| AI Fiesta | nicht registriert | – | 15 % für 1 Jahr laut Belohnung, Text nennt 10 % lebenslang, Dub | – | – | – |
+| LaunchDirectories | nicht registriert | – | 25 % je Verkauf, 60 Tage, PayPal oder Stripe, min 50 USD | – | – | – |
+| ScrollLaunch | nicht registriert | – | 30 % einmalig, 30 Tage, Affonso | – | – | – |
+| SmartDirectoryAI | nicht registriert | – | 40 % wiederkehrend, 60 Tage, PayPal, min 50 USD | – | – | – |
+| Rendley | nicht registriert | – | 30 % für 12 Monate, 60 Tage, PayPal oder Überweisung, Lemon Squeezy | – | – | – |
+| LOVO AI | nicht registriert | – | 20 % wiederkehrend 24 Monate | – | – | – |
+| FreeTTS | nicht registriert | – | 30 % der ersten Zahlung, 90 Tage, Wise, ACH, Überweisung oder USDT, min 100 USD | – | – | – |
+| Built By Joey | nicht registriert | – | 30 % auf alle Käufe, 90 Tage, PayPal, min 20 USD | – | – | – |
+| Agent Builder (WordPress) | nicht registriert | – | 40 % lebenslang, 90 Tage, Stripe Connect, min 100 USD | – | – | – |
+| BotSailor | nicht registriert | – | 25 % wiederkehrend, PayPal, min 50 USD | – | – | – |
+| StealthWriter | nicht registriert | – | 30 % wiederkehrend, 30 Tage, PayPal oder Überweisung | – | – | – |
+| AEOlens | nicht registriert | – | 30 % lebenslang, 60 Tage, PayPal Wise Bank, min 50 USD | – | – | – |
+| WriteRush | nicht registriert | – | 30 % wiederkehrend jährlich, 60 Tage | – | – | – |
 
 ## Verzeichnisse: Partnerprogramme und eigene Codes
 
