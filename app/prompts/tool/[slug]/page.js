@@ -151,6 +151,21 @@ function ToolPromptPage({ params }) {
                 <h2 id="faq">Häufige Fragen 🙋</h2>
                 <Faq items={s.faq} />
             </section>
+            {s.quellen?.length > 0 && (
+                <section aria-labelledby="quellen" className="quellen-block">
+                    <h2 id="quellen">Quellen 🔎</h2>
+                    <p>Funktionen und Schreibweisen wurden am 2. November 2026 in der offiziellen Hilfe des Anbieters geprüft.</p>
+                    <ul className="quellen">
+                        {s.quellen.map((q) => (
+                            <li key={q.url}>
+                                <a href={q.url} rel="noopener nofollow" target="_blank">
+                                    {q.titel}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            )}
             <LeadMagnetBox id="prompt-paket" />
         </>
     )
