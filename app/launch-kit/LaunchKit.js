@@ -147,7 +147,8 @@ export default function LaunchKit({ directories }) {
         } catch {
             // Ohne Speicher geht es trotzdem, nur ohne Erinnerung.
         }
-    }, [f])
+        if (!leer) verleihe('Launch-Pionier-Abzeichen', { auto: false })
+    }, [f, leer])
 
     const out = useMemo(() => build(f), [f])
     const words = out.langDe.split(/\s+/).filter(Boolean).length

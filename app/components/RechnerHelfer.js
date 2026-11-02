@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import TeilenKnopf from './TeilenKnopf'
+import { verleihe } from '../../lib/herz'
 import '../styles/e-inhalte.css'
 
 // Gemeinsame Helfer für die Rechner unter /rechner: Eingaben im Link (Hash), Zahlenfelder mit Prüfung,
@@ -57,6 +58,7 @@ export function useHashZustand(felder) {
         const t = setTimeout(() => {
             try {
                 window.history.replaceState(null, '', `#${hashAus(felder)}`)
+                verleihe('Prüfmeister-Abzeichen', { auto: false })
             } catch {}
         }, 400)
         return () => clearTimeout(t)
