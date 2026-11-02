@@ -15,9 +15,9 @@ Jeder automatische Lauf (alle 10 Minuten) wählt die **erste offene Aufgabe (`- 
   Auf `/ki-test/` steht in der Kategorie-Karte „🇩🇪 Deutsch & Stil" am Ende ein doppeltes Satzzeichen (`Wie gut schreibt die KI wirklich Deutsch?.`). Prüfe `lib/kitests.js` und `app/ki-test/page.js` auf doppelte Satzzeichen (`?.` oder `!.`) und bereinige sie.
 - [x] **Task 4: Die 6 unerreichbaren Konto-Abzeichen auf `/merkliste/` durch echte Browser-Abzeichen ersetzen**
   Unter `/merkliste/` steht „Kein Konto, kein Server, keine Zählung", aber im Sammelalbum (`lib/herz.js` / `app/merkliste/`) gibt es 6 Account-/Foren-Abzeichen (Mitglied, Gesicht zeigen, Erster Kommentar, Forums-Starter, Problemlöser, Hilfsbereit), die ohne Konto nie freigeschaltet werden können. Ersetze oder ergänze sie für den statischen Modus durch 6 echte, im Browser erreichbare Entdecker-Abzeichen (z. B. Rechner benutzt, KI-Test bewertet, Launch-Kit ausgefüllt, 10 Verzeichnisse abgehakt, Prompt kopiert, Dark-Mode/Farbe gewechselt).
-- [ ] **Task 5: „Deal des Tages"-Platzhalter durch echten Mehrwert / Gratis-Perle ersetzen**
+- [x] **Task 5: „Deal des Tages"-Platzhalter durch echten Mehrwert / Gratis-Perle ersetzen**
   In der rechten Sidebar und auf der Startseite steht unter „Deal des Tages" aktuell nur ein leerer Platzhalter („Eigene Rabattcodes für KI-Verzeichnisse folgen"). Zeige stattdessen automatisch das tagesaktuell bestbewertete kostenlose Dofollow-Verzeichnis („Gratis-Perle des Tages" mit DR, Traffic und Direktlink) an, solange kein bezahlter Rabattcode hinterlegt ist.
-- [ ] **Task 6: Zahlen-Diskrepanz zwischen `/ki-tools/` und `/tools/` synchronisieren**
+- [x] **Task 6: Zahlen-Diskrepanz zwischen `/ki-tools/` und `/tools/` synchronisieren**
   Auf `/ki-tools/` steht „47 mit Steckbrief", während `/tools/` 67 Tool-Steckbriefe listet. Berechne die Anzahl der vorhandenen Tool-Steckbriefe auf `/ki-tools/` dynamisch aus `db/tools.json`, damit die Zahlen überall exakt übereinstimmen.
 
 ---

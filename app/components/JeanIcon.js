@@ -96,6 +96,13 @@ const BADGES = {
         </g>
     ),
     herz: <path d="M49 57s-7.5-4.6-7.5-9.4a3.9 3.9 0 0 1 7.5-1.6 3.9 3.9 0 0 1 7.5 1.6C56.5 52.4 49 57 49 57z" fill="#e0262c" stroke={INK} strokeWidth="1.5" />,
+    perle: (
+        <g stroke={INK} strokeWidth="1.6" strokeLinejoin="round">
+            <circle cx="49" cy="49" r="5.5" fill="#fff" />
+            <path d="M46.8 46.8a3 3 0 0 1 3-1.8" stroke="#38bdf8" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+            <circle cx="51.8" cy="46.2" r="1" fill="#fff" />
+        </g>
+    ),
     prompt: (
         <g>
             <path d="M40.5 43.5a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3h-7l-4 3.5v-3.5a3 3 0 0 1-3-3z" fill="#fff" stroke={INK} strokeWidth="1.6" strokeLinejoin="round" />
@@ -122,6 +129,7 @@ const LABELS = {
     pokal: 'Jean mit Pokal',
     rakete: 'Jean mit Rakete',
     herz: 'Jean mit Herz',
+    perle: 'Jean mit Perle',
     prompt: 'Jean mit Prompt-Sprechblase',
     tattoo: 'Jean zeigt seinen tätowierten Arm',
 }

@@ -30,8 +30,10 @@ const lauf = (befehl, args) => {
 let geparkt = false
 const zuruecklegen = () => {
     if (!geparkt) return
-    fs.copyFileSync(OG_PARK, OG)
-    fs.rmSync(OG_PARK, { force: true })
+    if (fs.existsSync(OG_PARK)) {
+        fs.copyFileSync(OG_PARK, OG)
+        fs.rmSync(OG_PARK, { force: true })
+    }
     geparkt = false
 }
 for (const signal of ['SIGINT', 'SIGTERM']) {
@@ -47,8 +49,23 @@ if (fs.existsSync(ogNode)) {
     const fixed = src.replace(/join\(import\.meta\.url, "\.\.\/([^"]+)"\)/g, 'new URL("./$1", import.meta.url)')
     if (fixed !== src) fs.writeFileSync(ogNode, fixed)
 }
+
+const nextBuildIdx = path.join(WURZEL, 'node_modules/next/dist/build/index.js')
+if (fs.existsSync(nextBuildIdx)) {
+    const src = fs.readFileSync(nextBuildIdx, 'utf8')
+    const fixed = src.replace(
+        /await _fs\.promises\.rm\(exportOptions\.outdir, \{\s*recursive: true,\s*force: true\s*\}\);/g,
+        'await _fs.promises.rm(exportOptions.outdir, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 }).catch(() => {});'
+    )
+    if (fixed !== src) fs.writeFileSync(nextBuildIdx, fixed)
+}
+
 const next = path.join(WURZEL, 'node_modules/next/dist/bin/next')
 try {
+    if (!fs.existsSync(OG)) {
+        const orphan = fs.readdirSync(os.tmpdir()).find((f) => f.startsWith('mentat-og-'))
+        if (orphan) fs.copyFileSync(path.join(os.tmpdir(), orphan), OG)
+    }
     if (fs.existsSync(OG)) {
         fs.copyFileSync(OG, OG_PARK)
         fs.rmSync(OG)

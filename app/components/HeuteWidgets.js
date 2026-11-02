@@ -58,32 +58,57 @@ function Widget({ icon, cool, title, children }) {
     )
 }
 
-function DealInhalt({ deal }) {
-    if (!deal)
+function DealInhalt({ deal, perle }) {
+    if (deal) {
         return (
-            <p>
-                Eigene Rabattcodes für KI-Verzeichnisse folgen. Bis dahin: <Link href="/liste/kostenlos" prefetch={false}>kostenlose Verzeichnisse</Link>
-            </p>
+            <>
+                <p>
+                    <strong>{deal.text}</strong> bei{' '}
+                    <Link href={`/verzeichnis/${deal.slug}`} prefetch={false}>
+                        {deal.name}
+                    </Link>
+                </p>
+                <p className="widget-code">
+                    <code>{deal.code}</code> <CopyButton value={deal.code} label="Kopieren" />
+                </p>
+                <p className="widget-note">
+                    <a href={deal.link} target="_blank" rel={deal.rel}>
+                        Einlösen <span aria-hidden="true">↗</span>
+                        {deal.partner && <sup>*</sup>}
+                    </a>{' '}
+                    · <Link href="/liste/rabattcodes" prefetch={false}>alle Deals</Link>
+                </p>
+            </>
         )
+    }
+
+    if (perle) {
+        return (
+            <>
+                <p>
+                    <Link href={`/verzeichnis/${perle.slug}`} prefetch={false}>
+                        <strong>{perle.name}</strong>
+                    </Link>{' '}
+                    <span className="widget-note">{perle.dofollow ? 'dofollow' : 'kostenlos'}</span>
+                </p>
+                <p className="widget-note">
+                    DR {perle.dr} · ca. {perle.traffic} Besuche/Monat
+                </p>
+                <p className="widget-note">
+                    <a href={perle.link} target="_blank" rel={perle.rel}>
+                        Kostenlos eintragen <span aria-hidden="true">↗</span>
+                        {perle.partner && <sup>*</sup>}
+                    </a>{' '}
+                    · <Link href="/liste/kostenlos" prefetch={false}>alle Gratis-Portale</Link>
+                </p>
+            </>
+        )
+    }
+
     return (
-        <>
-            <p>
-                <strong>{deal.text}</strong> bei{' '}
-                <Link href={`/verzeichnis/${deal.slug}`} prefetch={false}>
-                    {deal.name}
-                </Link>
-            </p>
-            <p className="widget-code">
-                <code>{deal.code}</code> <CopyButton value={deal.code} label="Kopieren" />
-            </p>
-            <p className="widget-note">
-                <a href={deal.link} target="_blank" rel={deal.rel}>
-                    Einlösen <span aria-hidden="true">↗</span>
-                    {deal.partner && <sup>*</sup>}
-                </a>{' '}
-                · <Link href="/liste/rabattcodes" prefetch={false}>alle Deals</Link>
-            </p>
-        </>
+        <p>
+            Jeden Tag eine handverlesene Gratis-Perle mit Dofollow-Link. <Link href="/liste/kostenlos" prefetch={false}>Alle Gratis-Portale</Link>
+        </p>
     )
 }
 
@@ -140,10 +165,11 @@ function ToolInhalt({ tool }) {
 // Für die rechte Seitenleiste (Desktop).
 export function HeuteSeitenleiste() {
     const [ort, daten] = useHeute()
+    const titel = daten?.deal ? 'Deal des Tages' : 'Gratis-Perle des Tages'
     return (
         <div ref={ort} className="a-heute-leiste">
-            <Widget icon="deal" title="Deal des Tages">
-                <DealInhalt deal={daten?.deal} />
+            <Widget icon={daten?.deal ? 'deal' : 'perle'} title={titel}>
+                <DealInhalt deal={daten?.deal} perle={daten?.perle} />
             </Widget>
             <Widget icon="prompt" cool title="Prompt des Tages">
                 <PromptInhalt prompt={daten?.prompt} />
@@ -158,6 +184,7 @@ export function HeuteSeitenleiste() {
 // Kompakte Karte für Handy und Tablet, wo die Seitenleisten fehlen.
 export function HeuteKarte() {
     const [ort, daten] = useHeute()
+    const titel = daten?.deal ? 'Deal des Tages' : 'Gratis-Perle des Tages'
     return (
         <section ref={ort} className="a-heute" aria-labelledby="a-heute-titel">
             <h2 id="a-heute-titel" className="a-heute-titel">
@@ -165,8 +192,8 @@ export function HeuteKarte() {
             </h2>
             <div className="a-heute-raster">
                 <div>
-                    <p className="a-heute-art">Deal des Tages</p>
-                    <DealInhalt deal={daten?.deal} />
+                    <p className="a-heute-art">{titel}</p>
+                    <DealInhalt deal={daten?.deal} perle={daten?.perle} />
                 </div>
                 <div>
                     <p className="a-heute-art">Prompt des Tages</p>
