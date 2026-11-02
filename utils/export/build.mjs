@@ -41,6 +41,12 @@ for (const signal of ['SIGINT', 'SIGTERM']) {
     })
 }
 
+const ogNode = path.join(WURZEL, 'node_modules/next/dist/compiled/@vercel/og/index.node.js')
+if (fs.existsSync(ogNode)) {
+    const src = fs.readFileSync(ogNode, 'utf8')
+    const fixed = src.replace(/join\(import\.meta\.url, "\.\.\/([^"]+)"\)/g, 'new URL("./$1", import.meta.url)')
+    if (fixed !== src) fs.writeFileSync(ogNode, fixed)
+}
 const next = path.join(WURZEL, 'node_modules/next/dist/bin/next')
 try {
     if (fs.existsSync(OG)) {

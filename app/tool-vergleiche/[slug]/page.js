@@ -7,6 +7,7 @@ import JeanIcon from '../../components/JeanIcon'
 import Faq from '../../components/Faq'
 import { SITE_NAME, absoluteUrl } from '../../../lib/site'
 import { getComparisons, getComparison } from '../../../lib/comparisons'
+import { getPromptsForTool } from '../../../lib/prompts'
 import { getTool, toolHref, toolRel, TOOLS_STAND } from '../../../lib/tools'
 import Kurzantwort from '../../components/Kurzantwort'
 import { autorRef } from '../../../lib/autor'
@@ -23,6 +24,7 @@ export function generateStaticParams() {
 
 // „Jean sagt“ je Vergleich, nur aus den Angaben auf der jeweiligen Seite (BRAND-VOICE: pro Seite einzigartig).
 const JEAN_SAGT = {
+    'claude-vs-chatgpt': 'Gleicher Preis im Pro-Tarif, anderer Schwerpunkt: Für Code, Artefakte und lange Dokumente nimmst du Claude, für Custom GPTs, Sprachmodus und den Alltags-Einsatz ChatGPT.',
     'make-vs-zapier-vs-n8n': 'Zwei Apps verheiraten: Zapier. Einen Kabelbaum verlegen: Make. Daten in der eigenen Garage lassen: n8n.',
     'semrush-vs-se-ranking-vs-surfer-seo': 'Kauf nicht den ganzen Werkzeugwagen, wenn du nur Artikel schreibst. Dafür reicht Surfer, für alles andere vergleich Semrush mit SE Ranking.',
     'beehiiv-vs-kit-vs-getresponse-vs-brevo': 'Alle vier lassen dich gratis rein. Entscheide nach deinem Geschäftsmodell, nicht nach der hübscheren Oberfläche.',
@@ -205,6 +207,16 @@ function ComparisonPage({ params }) {
                     </ul>
                 </section>
             )}
+            {c.items
+                .filter((t) => getPromptsForTool(t.slug).length > 0)
+                .map((t) => (
+                    <p key={t.slug} className="service-hint">
+                        <strong>Passende Vorlagen:</strong>{' '}
+                        <Link href={`/prompts/tool/${t.slug}`}>
+                            Prompts für {t.name} ({getPromptsForTool(t.slug).length} Vorlagen) →
+                        </Link>
+                    </p>
+                ))}
             <Pruefer datum={c.geprueft} />
             <p>
                 <Link href="/tool-vergleiche">← Alle Tool-Vergleiche</Link> · <Link href="/tools">KI-Tool-Verzeichnis</Link>
