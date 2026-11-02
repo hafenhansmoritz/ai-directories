@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og'
 // Gemeinsames Layout für Vorschaubilder. Ohne Emojis, weil die zur Laufzeit nachgeladen würden.
 export const ogSize = { width: 1200, height: 630 }
 
-export function ogImage({ eyebrow, title, score, footer, bg = '#fff6d6' }) {
+export function ogImage({ eyebrow, title, score, footer, bg = '#f4f7fb' }) {
     return new ImageResponse(
         (
             <div
@@ -16,33 +16,34 @@ export function ogImage({ eyebrow, title, score, footer, bg = '#fff6d6' }) {
                     background: bg,
                     padding: 60,
                     fontFamily: 'sans-serif',
-                    border: '16px solid #1b1b1f',
+                    border: '16px solid #0f172a',
                 }}
             >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <div
                         style={{
                             display: 'flex',
-                            background: '#b3164f',
+                            background: '#0369a1',
                             color: '#fff',
                             fontSize: 34,
                             fontWeight: 800,
                             padding: '10px 22px',
-                            border: '4px solid #1b1b1f',
+                            border: '4px solid #0f172a',
                         }}
                     >
-                        AIGEDDON
+                        {'MENTAT.CODES >'}
                     </div>
                     {score != null && (
                         <div
                             style={{
                                 display: 'flex',
                                 background: '#6ee7b7',
+                                color: '#0f172a',
                                 fontSize: 40,
                                 fontWeight: 800,
                                 padding: '8px 24px',
-                                border: '4px solid #1b1b1f',
-                                borderRadius: 999,
+                                border: '4px solid #0f172a',
+                                borderRadius: 12,
                             }}
                         >
                             {`Jean-Score ${score}`}
@@ -50,17 +51,18 @@ export function ogImage({ eyebrow, title, score, footer, bg = '#fff6d6' }) {
                     )}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <div style={{ display: 'flex', fontSize: 34, color: '#5a5560', marginBottom: 12 }}>{eyebrow}</div>
-                    <div style={{ display: 'flex', fontSize: 76, fontWeight: 800, color: '#1b1b1f', lineHeight: 1.1 }}>{title}</div>
+                    <div style={{ display: 'flex', fontSize: 34, color: '#475569', marginBottom: 12 }}>{eyebrow}</div>
+                    <div style={{ display: 'flex', fontSize: 76, fontWeight: 800, color: '#0f172a', lineHeight: 1.1 }}>{title}</div>
                 </div>
                 <div
                     style={{
                         display: 'flex',
-                        background: '#ffe14d',
+                        background: '#67e8f9',
+                        color: '#0f172a',
                         fontSize: 30,
                         fontWeight: 700,
                         padding: '12px 20px',
-                        border: '4px solid #1b1b1f',
+                        border: '4px solid #0f172a',
                         alignSelf: 'flex-start',
                     }}
                 >

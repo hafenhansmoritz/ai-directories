@@ -4,8 +4,8 @@ import { verleihe, toast } from '../../lib/herz'
 import { BriefHerz } from './HerzIcons'
 import { SITE_URL } from '../../lib/site'
 
-// Zwei kleine Gemeinschafts-Gesten ohne Server: Idee an Jean schicken und AIGeddon weitersagen.
-const TEXT = 'Schau mal, AIGeddon: KI-Verzeichnisse, KI-Tools, Prompts und Skills, ehrlich geprüft und kostenlos.'
+// Zwei kleine Gemeinschafts-Gesten ohne Server: Idee an Jean schicken und mentat.codes weitersagen.
+const TEXT = 'Schau mal, mentat.codes: KI-Verzeichnisse, KI-Tools, Prompts und Skills, ehrlich geprüft und kostenlos.'
 
 export function IdeeBox() {
     return (
@@ -37,10 +37,10 @@ export function Weitersagen() {
                 💌
             </span>
             <div>
-                <p className="herz-box-titel">Kennst du jemanden, dem AIGeddon helfen würde?</p>
+                <p className="herz-box-titel">Kennst du jemanden, dem mentat.codes helfen würde?</p>
                 <p>Ein Link an die richtige Person ist das schönste Kompliment, das du uns machen kannst.</p>
                 <p className="herz-box-knoepfe">
-                    <a className="button button-small" href={`mailto:?subject=${encodeURIComponent('Tipp: AIGeddon')}&body=${encodeURIComponent(`${TEXT}\n\n${url}`)}`} onClick={danke}>
+                    <a className="button button-small" href={`mailto:?subject=${encodeURIComponent('Tipp: mentat.codes')}&body=${encodeURIComponent(`${TEXT}\n\n${url}`)}`} onClick={danke}>
                         Per E-Mail
                     </a>
                     <a className="button button-small" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" onClick={danke}>

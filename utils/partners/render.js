@@ -8,8 +8,9 @@ const slugify = require('../slugify')
 const root = path.join(__dirname, '..', '..')
 const register = require(path.join(root, 'db/partners.json'))
 const sammlung = require(path.join(root, 'db/affiliate-links.json'))
-const linkVon = new Map(sammlung.links.filter((l) => l.link && l.bestaetigt !== false && (!l.projekte?.length || l.projekte.includes('aigeddon'))).map((l) => [l.id, l.link]))
-const codeVon = new Map(sammlung.links.filter((l) => l.code && l.bestaetigt !== false && (!l.projekte?.length || l.projekte.includes('aigeddon'))).map((l) => [l.id, { code: l.code, text: l.rabatt || 'discount' }]))
+const istFuerUns = (l) => !l.projekte?.length || l.projekte.includes('mentat.codes') || l.projekte.includes('aigeddon')
+const linkVon = new Map(sammlung.links.filter((l) => l.link && l.bestaetigt !== false && istFuerUns(l)).map((l) => [l.id, l.link]))
+const codeVon = new Map(sammlung.links.filter((l) => l.code && l.bestaetigt !== false && istFuerUns(l)).map((l) => [l.id, { code: l.code, text: l.rabatt || 'discount' }]))
 for (const p of register.programme) {
     p.partner_link = linkVon.get(p.id) || ''
     p.coupon = codeVon.get(p.id) || null
@@ -38,9 +39,9 @@ for (const l of sammlung.links) {
     sids.add(l.id)
     if (!l.link && !l.code) errors.push(`affiliate-links: ${l.id} braucht link oder code`)
     if (l.link && !/^https:\/\//.test(l.link)) errors.push(`affiliate-links: ${l.id}: link muss mit https:// beginnen`)
-    // Ausdrücklich für AIGeddon gedacht, aber ohne Programm im Register: Fehler. Für alle Projekte ohne Programm: nur Hinweis.
-    if (l.projekte?.includes('aigeddon') && !ids.has(l.id)) errors.push(`affiliate-links: ${l.id} fehlt in db/partners.json`)
-    else if (!l.projekte?.length && !ids.has(l.id)) console.log(`Hinweis: ${l.id} gilt für alle Projekte, auf AIGeddon fehlt noch das Programm in db/partners.json`)
+    // Ausdrücklich für mentat.codes gedacht, aber ohne Programm im Register: Fehler. Für alle Projekte ohne Programm: nur Hinweis.
+    if ((l.projekte?.includes('mentat.codes') || l.projekte?.includes('aigeddon')) && !ids.has(l.id)) errors.push(`affiliate-links: ${l.id} fehlt in db/partners.json`)
+    else if (!l.projekte?.length && !ids.has(l.id)) console.log(`Hinweis: ${l.id} gilt für alle Projekte, auf mentat.codes fehlt noch das Programm in db/partners.json`)
 }
 if (errors.length) {
     console.error(errors.join('\n'))
@@ -51,7 +52,7 @@ const cell = (v) => (v == null || v === '' ? '–' : String(v).replace(/\|/g, '/
 const live = register.programme.filter((p) => p.partner_link || p.coupon)
 const count = (s) => register.programme.filter((p) => p.status === s).length
 
-// Ranking der Programme mit Selbstanmeldung: Provision x Laufzeit, Freigabe, Auszahlung, Passung zu AIGeddon.
+// Ranking der Programme mit Selbstanmeldung: Provision x Laufzeit, Freigabe, Auszahlung, Passung zu mentat.codes.
 const PASST = { verzeichnis: 1.3, seo: 1.25, marketing: 1.2, schreiben: 1.2, video: 1.15, chat: 1.15, bild: 1.1, audio: 1.1, automatisierung: 1.1, coding: 1, produktivitaet: 1, sonstiges: 0.85 }
 const laufzeit = (p) => {
     const t = `${p.dauer || ''} ${p.commission || ''}`.toLowerCase()
@@ -71,7 +72,7 @@ const auszahlungText = (p) => [...(p.auszahlung || []), ...(p.krypto && !(p.ausz
 const table = (rows, cols) =>
     [`| ${cols.map((c) => c[0]).join(' | ')} |`, `|${cols.map(() => '---').join('|')}|`, ...rows.map((p) => `| ${cols.map((c) => cell(c[1](p))).join(' | ')} |`)].join('\n')
 
-const md = `# Partnerlinks AIGeddon
+const md = `# Partnerlinks mentat.codes
 
 Automatisch erzeugt aus \`db/partners.json\` (Programme, Stand ${register.stand}) und der zentralen Sammlung \`db/affiliate-links.json\` (eigene Links und Codes, Stand ${sammlung.stand}) mit \`npm run partners\`. Nicht von Hand bearbeiten.\n\n**Alle eigenen Affiliate-Links aller Projekte:** ${sammlung.links.length} Einträge in \`db/affiliate-links.json\`.
 
@@ -124,8 +125,8 @@ ${table(register.programme.filter((p) => p.kind === 'directory'), [['Verzeichnis
 Direkt in \`db/affiliate-links.json\` unter \`links\`:
 
 \`\`\`json
-{ "id": "semrush", "programm": "Semrush", "link": "https://www.semrush.com/...?ref=...", "projekte": ["aigeddon"], "netzwerk": "Impact", "seit": "2026-11-01" }
-{ "id": "uneed", "programm": "Uneed", "code": "AIGEDDON20", "rabatt": "20% discount", "projekte": ["aigeddon"] }
+{ "id": "semrush", "programm": "Semrush", "link": "https://www.semrush.com/...?ref=...", "projekte": ["mentat.codes"], "netzwerk": "Impact", "seit": "2026-11-01" }
+{ "id": "uneed", "programm": "Uneed", "code": "MENTAT20", "rabatt": "20% discount", "projekte": ["mentat.codes"] }
 \`\`\`
 
 Für andere Projekte eine beliebige id und den Projektnamen in \`projekte\` setzen. Fremde Referral-Links und fremde Rabattcodes werden nirgends übernommen.

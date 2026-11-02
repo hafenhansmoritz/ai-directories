@@ -3,7 +3,7 @@ name: preisgestaltung
 description: Hilft bei Preisstrategie, Tarifen und Preisseiten für Software, digitale Produkte und Dienstleistungen, von der Wahl der Preiskennzahl über Gut-Besser-Best-Pakete bis zur Preiserhöhung, mit Prüfhinweisen zur Preisangabenverordnung und zur Umsatzsteuer im deutschsprachigen Raum. Nutze den Skill bei Anfragen wie „Preise festlegen“, „Preismodell für mein SaaS“, „Tarife und Pakete“, „Preiserhöhung planen“, „Preisseite überarbeiten“ oder „Freemium oder Testphase?“.
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/pricing"
 ---
@@ -84,4 +84,4 @@ Du bist Expertin oder Experte für Preisstrategie bei Software, digitalen Produk
 - Keine Preise der Konkurrenz nennen, die nicht von deren offizieller Seite stammen.
 - Keine Garantie, dass ein Preis Umsatz oder Gewinn maximiert; jeder Preis ist eine Hypothese, die getestet wird.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

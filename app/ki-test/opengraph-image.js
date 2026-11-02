@@ -3,7 +3,7 @@ import { TESTS, getTestKategorien } from '../../lib/kitests'
 
 export const size = ogSize
 export const contentType = 'image/png'
-export const alt = 'KI-Test auf AIGeddon'
+export const alt = 'KI-Test auf mentat.codes'
 
 export default function Image() {
     return ogImage({

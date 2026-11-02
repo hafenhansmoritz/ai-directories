@@ -7,7 +7,7 @@ import { absoluteUrl } from '../../lib/site'
 export const metadata = {
     title: 'Listen: KI-Verzeichnisse nach Preis, Stärke und Aufwand',
     description:
-        'Sechs fertige Listen aus der AIGeddon-Datenbank: kostenlose KI-Verzeichnisse, Domain Rating 50+, eigene Rabattcodes, Traffic-Monster, Geheimtipps und die mit hakeliger Einreichung.',
+        'Sechs fertige Listen aus der mentat.codes-Datenbank: kostenlose KI-Verzeichnisse, Domain Rating 50+, eigene Rabattcodes, Traffic-Monster, Geheimtipps und die mit hakeliger Einreichung.',
     alternates: { canonical: '/liste' },
     openGraph: { url: '/liste', images: [{ url: absoluteUrl('/opengraph-image.png'), width: 1200, height: 630 }] },
 }
@@ -17,7 +17,7 @@ export default function Listen() {
     const stats = getSiteStats()
     const listen = Object.keys(LISTS).map((slug) => getList(slug))
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Listen', path: '/liste' },
     ]
     return (

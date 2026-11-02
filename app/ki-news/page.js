@@ -14,7 +14,7 @@ export const metadata = {
     title: 'KI-News: aktuelle KI-Nachrichten verständlich erklärt',
     description: `Aktuelle KI-News auf Deutsch: neue Funktionen, Abschaltungen, Sicherheitslücken und Preise von OpenAI, Anthropic, Google und Co. Jede Meldung geprüft, mit Quellen und dem, was du jetzt tun solltest. Stand ${NEWS_STAND}.`,
     alternates: { canonical: '/ki-news', types: { 'application/rss+xml': '/ki-news/feed.xml' } },
-    openGraph: ogMeta({ url: '/ki-news', bild: OG_BILDER.news, alt: 'KI-News auf AIGeddon' }),
+    openGraph: ogMeta({ url: '/ki-news', bild: OG_BILDER.news, alt: 'KI-News auf mentat.codes' }),
 }
 
 const datumKurz = (d) => new Date(d).toLocaleDateString('de-DE', { day: 'numeric', month: 'short' })
@@ -27,7 +27,7 @@ const themaId = (t) =>
 
 function KiNews() {
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'KI-News', path: '/ki-news' },
     ]
     const liste = getNews()

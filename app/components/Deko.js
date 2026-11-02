@@ -1,13 +1,13 @@
 // Gestaltungsbausteine: farbige Bänder und Trennlinien. Reines Markup, keine Logik.
 
-// Trennlinie: welle, zickzack, punkte oder strahlung. Form per CSS-Maske, Farbe frei wählbar.
+// Trennlinie: welle, zickzack, punkte oder strahlung/terminal. Form per CSS-Maske, Farbe frei wählbar.
 export function Trenner({ art = 'welle', farbe = 'accent' }) {
-    if (art === 'strahlung')
+    if (art === 'strahlung' || art === 'terminal')
         return (
             <div className={`trenner-strahlung farbe-${farbe}`} aria-hidden="true">
-                <span>☢</span>
-                <span>☢</span>
-                <span>☢</span>
+                <span>&gt;_</span>
+                <span>{'//'}</span>
+                <span>&gt;_</span>
             </div>
         )
     return <div className={`trenner trenner-${art} farbe-${farbe}`} aria-hidden="true" />

@@ -14,12 +14,12 @@ export const metadata = {
     description:
         'Kostenloses Launch-Kit: Einmal Name, Nutzen und Funktionen deines KI-Tools eingeben, dann Einzeiler, Kurz- und Langbeschreibung auf Deutsch und Englisch sowie UTM-Links für jedes Verzeichnis kopieren.',
     alternates: { canonical: '/launch-kit' },
-    openGraph: ogMeta({ url: '/launch-kit', bild: OG_BILDER.launchKit, alt: 'Launch-Kit auf AIGeddon' }),
+    openGraph: ogMeta({ url: '/launch-kit', bild: OG_BILDER.launchKit, alt: 'Launch-Kit auf mentat.codes' }),
 }
 
 function LaunchKitPage() {
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Launch-Kit', path: '/launch-kit' },
     ]
     const directories = [...getDirectories()]

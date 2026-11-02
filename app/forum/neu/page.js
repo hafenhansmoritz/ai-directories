@@ -3,7 +3,7 @@ import NeuesThema from './NeuesThema'
 
 export const metadata = {
     title: 'Neues Thema im KI-Forum',
-    description: 'Starte ein neues Thema im AIGeddon-KI-Forum.',
+    description: 'Starte ein neues Thema im mentat.codes-KI-Forum.',
     robots: { index: false, follow: false },
 }
 

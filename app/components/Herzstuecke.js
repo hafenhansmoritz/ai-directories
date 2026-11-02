@@ -61,9 +61,9 @@ export default function Herzstuecke() {
     // Einmal pro Seitenaufruf: Einstellungen anwenden, Saison, Besuche, Konsole, Pausen, Kopieren, Tab-Titel.
     useEffect(() => {
         const html = document.documentElement
-        const akzent = lies('aigeddon-akzent')
+        const akzent = lies('mentat-akzent')
         if (akzent) html.dataset.akzent = akzent
-        if (lies('aigeddon-ruhig')) html.dataset.ruhig = 'an'
+        if (lies('mentat-ruhig')) html.dataset.ruhig = 'an'
         const s = saison(new Date())
         if (s) {
             html.dataset.saison = s[0]
@@ -75,19 +75,19 @@ export default function Herzstuecke() {
 
         // Feiertagsgruß: einmal pro Tag, hat Vorrang vor allen anderen automatischen Meldungen.
         const fest = feiertag(jetzt)
-        if (fest && lies('aigeddon-feiertag') !== heute()) {
-            schreib('aigeddon-feiertag', heute())
+        if (fest && lies('mentat-feiertag') !== heute()) {
+            schreib('mentat-feiertag', heute())
             setTimeout(() => toast(fest[2], fest[1], true), 800)
         }
 
-        if (!sitzung('aigeddon-besuch')) {
-            const anzahl = (lies('aigeddon-besuche', 0) || 0) + 1
-            schreib('aigeddon-besuche', anzahl)
+        if (!sitzung('mentat-besuch')) {
+            const anzahl = (lies('mentat-besuche', 0) || 0) + 1
+            schreib('mentat-besuche', anzahl)
             // Für „Neu seit deinem letzten Besuch“: den vorigen Besuch für diese Sitzung festhalten.
             try {
-                sessionStorage.setItem('aigeddon-vorher', lies('aigeddon-zuletzt', '') || '')
+                sessionStorage.setItem('mentat-vorher', lies('mentat-zuletzt', '') || '')
             } catch {}
-            schreib('aigeddon-zuletzt', jetzt.toISOString())
+            schreib('mentat-zuletzt', jetzt.toISOString())
             if (nachts(jetzt)) {
                 setTimeout(() => {
                     toast('Nachteule! Schön, dass du da bist. Denk dran: Schlaf ist auch ein Produktivitäts-Tool.', '🌙', true)
@@ -100,8 +100,8 @@ export default function Herzstuecke() {
             else if ([5, 10, 25, 50, 100].includes(anzahl)) setTimeout(() => toast(`Das ist dein ${anzahl}. Besuch. Danke für deine Treue!`, '🎉', true), 1500)
             // Für Entwickler, die neugierig in die Konsole schauen.
             console.log(
-                '%c☢️ AIGeddon%c\nHallo du neugierige Seele! Der Code ist Open Source: https://github.com/jmp-collab/ai-directories\nPull Requests werden mit Konfetti empfangen.',
-                'font:bold 20px sans-serif;color:#b3164f',
+                '%c>_ mentat.codes%c\nHallo du neugierige Seele! Der Code ist Open Source: https://github.com/jmp-collab/ai-directories\nPull Requests werden mit Konfetti empfangen.',
+                'font:bold 20px monospace;color:#0369a1',
                 'font:13px sans-serif'
             )
             const pause = setTimeout(() => toast('Du bist seit 25 Minuten hier. Zeit für einen Schluck Wasser und einmal Strecken.', '💧', true), 25 * 60 * 1000)
@@ -112,14 +112,14 @@ export default function Herzstuecke() {
     useEffect(() => {
         const kopiert = () => {
             const text = String(window.getSelection() || '')
-            if (text.length > 40 && !sitzung('aigeddon-kopiert')) toast('Gut kopiert! Wenn du es teilst, freut sich ein Link zurück.', '📋', true)
+            if (text.length > 40 && !sitzung('mentat-kopiert')) toast('Gut kopiert! Wenn du es teilst, freut sich ein Link zurück.', '📋', true)
         }
         let timer
         const titel = { alt: '' }
         const sicht = () => {
             if (document.hidden) {
                 titel.alt = document.title
-                timer = setTimeout(() => (document.title = '👋 Bis gleich! | AIGeddon'), 30000)
+                timer = setTimeout(() => (document.title = '👋 Bis gleich! | mentat.codes'), 30000)
             } else {
                 clearTimeout(timer)
                 if (titel.alt) document.title = titel.alt
@@ -137,22 +137,22 @@ export default function Herzstuecke() {
     // Pro Seite: Bereiche für Abzeichen merken, Lese-Medaille bei ganz gelesenen Artikeln.
     useEffect(() => {
         const bereich = pfad.split('/').filter(Boolean)[0] || 'start'
-        const besucht = new Set(lies('aigeddon-bereiche', []) || [])
+        const besucht = new Set(lies('mentat-bereiche', []) || [])
         if (!besucht.has(bereich)) {
             besucht.add(bereich)
-            schreib('aigeddon-bereiche', [...besucht])
+            schreib('mentat-bereiche', [...besucht])
             const neu = ABZEICHEN.find(([n]) => n === besucht.size)
             if (neu) setTimeout(() => verleihe(neu[1]), 1200)
         }
         // Verlauf für die Merkliste: die letzten 8 Seiten. Titel erst nach dem Seitenwechsel lesen.
         const verlaufTimer = setTimeout(() => {
             if (pfad.startsWith('/merkliste')) return
-            const titel = document.title.replace(/\s*\|\s*AIGeddon\s*$/, '')
-            const alt = (lies('aigeddon-verlauf', []) || []).filter((v) => v.pfad !== pfad)
-            schreib('aigeddon-verlauf', [{ pfad, titel, zeit: Date.now() }, ...alt].slice(0, 8))
+            const titel = document.title.replace(/\s*\|\s*(?:mentat\.codes|mentat.codes)\s*$/i, '')
+            const alt = (lies('mentat-verlauf', []) || []).filter((v) => v.pfad !== pfad)
+            schreib('mentat-verlauf', [{ pfad, titel, zeit: Date.now() }, ...alt].slice(0, 8))
         }, 600)
         if (!LESESEITEN.test(pfad)) return () => clearTimeout(verlaufTimer)
-        const gelesen = new Set(lies('aigeddon-gelesen', []) || [])
+        const gelesen = new Set(lies('mentat-gelesen', []) || [])
         if (gelesen.has(pfad)) return () => clearTimeout(verlaufTimer)
         const start = Date.now()
         let wartet = false
@@ -163,7 +163,7 @@ export default function Herzstuecke() {
             const ende = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight * 0.92
             if (ende && Date.now() - start > 30000) {
                 gelesen.add(pfad)
-                schreib('aigeddon-gelesen', [...gelesen])
+                schreib('mentat-gelesen', [...gelesen])
                 if (!verleihe('Leseratten-Abzeichen')) toast(`Respekt, ganz durchgelesen! Das war Artikel Nr. ${gelesen.size} für dich. Kaffee verdient.`, '🏅', true)
                 window.removeEventListener('scroll', scroll)
             }
@@ -192,7 +192,7 @@ export default function Herzstuecke() {
                         icon.classList.add('logo-wirbel')
                         setTimeout(() => icon.classList.remove('logo-wirbel'), 1300)
                     }
-                    if (!verleihe('Atomkern-Abzeichen', { auto: false, konfetti: true })) toast('Wusch! Der Atomkern dreht sich für dich.', '☢️')
+                    if (!verleihe('Atomkern-Abzeichen', { auto: false, konfetti: true })) toast('Wusch! Das Terminal dreht sich für dich.', '⚡')
                 }
             }
             if (ziel.closest('.moped-strecke')) {
@@ -224,11 +224,11 @@ export default function Herzstuecke() {
         setKuerzelAn(!kuerzelAus())
         const wechsel = (e) => setKuerzelAn(e.detail.an)
         const zeigen = () => setHilfe(true)
-        window.addEventListener('aigeddon-kuerzel', wechsel)
-        window.addEventListener('aigeddon-kuerzel-hilfe', zeigen)
+        window.addEventListener('mentat-kuerzel', wechsel)
+        window.addEventListener('mentat-kuerzel-hilfe', zeigen)
         return () => {
-            window.removeEventListener('aigeddon-kuerzel', wechsel)
-            window.removeEventListener('aigeddon-kuerzel-hilfe', zeigen)
+            window.removeEventListener('mentat-kuerzel', wechsel)
+            window.removeEventListener('mentat-kuerzel-hilfe', zeigen)
         }
     }, [])
 

@@ -34,7 +34,7 @@ function ListPage({ params }) {
     if (!list) notFound()
 
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Listen', path: '/liste' },
         { name: list.title, path: `/liste/${list.slug}` },
     ]
@@ -77,7 +77,7 @@ function ListPage({ params }) {
             {list.slug === 'rabattcodes' && list.items.length === 0 && (
                 <>
                     <p>
-                        Gerade gibt es hier keinen Code. Sobald AIGeddon mit einem Verzeichnis einen eigenen Rabatt vereinbart hat, steht er hier und auf der Seite des Verzeichnisses. Bis dahin lohnt der Blick auf die{' '}
+                        Gerade gibt es hier keinen Code. Sobald mentat.codes mit einem Verzeichnis einen eigenen Rabatt vereinbart hat, steht er hier und auf der Seite des Verzeichnisses. Bis dahin lohnt der Blick auf die{' '}
                         <Link href="/liste/kostenlos">kostenlosen KI-Verzeichnisse</Link>.
                     </p>
                     <LeadBox title="Deal-Alarm 🚨" text="Sobald es eigene Rabattcodes gibt, landen sie zuerst im Newsletter." />

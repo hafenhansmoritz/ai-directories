@@ -31,7 +31,9 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
 
 ### Automatisch abzuarbeiten (Reihenfolge = Priorität)
 - Content-Plan Tool-Prompts (`docs/CONTENT-PLAN-TOOL-PROMPTS.md`): eine Woche pro Sitzung, von oben. Verlinkungsregel aus dem Plan beachten. Höchstens eine Woche pro Kalenderwoche, gesteuert über „fällig ab“. Nach jeder Veröffentlichung zwei Mess-Aufgaben direkt unter dieser Liste eintragen, nach Fälligkeit sortiert, Format: `- [ ] **Messung <Stück>** (fällig ab JJJJ-MM-TT, braucht Datei docs/gsc/JJJJ-MM-TT.csv): Ziel-Keyword, URL`.
-  - [ ] **Content-Plan Woche 1** (fällig ab 2026-11-02): Route /prompts/tool/[slug] bauen; ChatGPT-Prompts; Claude vs. ChatGPT
+  - [x] **Content-Plan Woche 1** (erledigt 2026-11-02): Route /prompts/tool/[slug] gebaut, ChatGPT-Prompts ergänzt, Claude vs. ChatGPT Vergleich hinzugefügt.
+  - [ ] **Messung Content-Plan Woche 1 (4 Wochen)** (fällig ab 2026-11-30, braucht Datei docs/gsc/2026-11-30.csv): ChatGPT-Prompts, Claude vs ChatGPT, /prompts/tool/chatgpt, /tool-vergleiche/claude-vs-chatgpt
+  - [ ] **Messung Content-Plan Woche 1 (8 Wochen)** (fällig ab 2026-12-28, braucht Datei docs/gsc/2026-12-28.csv): ChatGPT-Prompts, Claude vs ChatGPT, /prompts/tool/chatgpt, /tool-vergleiche/claude-vs-chatgpt
   - [ ] **Content-Plan Woche 2** (fällig ab 2026-11-09): ChatGPT-Verlauf löschen; Gemini vs. ChatGPT; Gemini-Prompts
   - [ ] **Content-Plan Woche 3** (fällig ab 2026-11-16): Claude Memory; Suno-Prompts; ChatGPT für die Bewerbung
   - [ ] **Content-Plan Woche 4** (fällig ab 2026-11-23): Gamma-Steckbrief-Ausbau; Mit ChatGPT übersetzen; Prompt-Vorlagen-Hub

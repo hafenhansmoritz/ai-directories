@@ -82,7 +82,7 @@ export default function AboRechner() {
                         </li>
                     ))}
                 </ul>
-                {gewaehlt.length > 0 && <RechnungTeilen titel="Monatlich oder jährlich?" text={`Meine Abo-Rechnung auf AIGeddon: ${urteilText} bei ${monate} Monaten Nutzung.`} />}
+                {gewaehlt.length > 0 && <RechnungTeilen titel="Monatlich oder jährlich?" text={`Meine Abo-Rechnung auf mentat.codes: ${urteilText} bei ${monate} Monaten Nutzung.`} />}
             </div>
         </div>
     )

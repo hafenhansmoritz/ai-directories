@@ -3,7 +3,7 @@ import { getSiteStats } from '../lib/data'
 
 export const size = ogSize
 export const contentType = 'image/png'
-export const alt = 'AIGeddon: KI-Verzeichnisse für deinen Tool-Launch'
+export const alt = 'mentat.codes: KI-Verzeichnisse für deinen Tool-Launch'
 
 export default function Image() {
     const stats = getSiteStats()

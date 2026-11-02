@@ -44,7 +44,7 @@ function NewsPage({ params }) {
     const n = getNewsArtikel(params.slug)
     if (!n) notFound()
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'KI-News', path: '/ki-news' },
         { name: n.titel, path: `/ki-news/${n.slug}` },
     ]
@@ -142,7 +142,7 @@ function NewsPage({ params }) {
                         <a href="#jetzt-tun">Was du jetzt tun solltest</a>
                     </li>
                     <li>
-                        <a href="#auf-aigeddon">Passend dazu auf AIGeddon</a>
+                        <a href="#auf-mentat">Passend dazu auf mentat.codes</a>
                     </li>
                 </ol>
             </nav>
@@ -169,8 +169,8 @@ function NewsPage({ params }) {
                 </ol>
             </section>
 
-            <section aria-labelledby="auf-aigeddon">
-                <h2 id="auf-aigeddon">Passend dazu auf AIGeddon 🔗</h2>
+            <section aria-labelledby="auf-mentat">
+                <h2 id="auf-mentat">Passend dazu auf mentat.codes 🔗</h2>
                 <ul className="link-cards">
                     {n.bezug.map(([href, titel, warum]) => (
                         <li key={href}>

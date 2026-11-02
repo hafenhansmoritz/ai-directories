@@ -123,7 +123,7 @@ function DirectoryPage({ params }) {
     const check = getCheck(d.slug)
     const listen = Object.entries(LISTS).filter(([, l]) => l.filter(d))
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'KI-Verzeichnisse', path: '/verzeichnis' },
         { name: d.name, path: `/verzeichnis/${d.slug}` },
     ]

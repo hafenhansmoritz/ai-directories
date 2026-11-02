@@ -3,7 +3,7 @@ name: verzeichnis-eintraege
 description: Plant und begleitet Einträge in KI-Tool-Verzeichnissen, Startup- und Software-Verzeichnissen sowie Branchenverzeichnissen, von der Startklar-Prüfung über passende Beschreibungen je Verzeichnis bis zur Kontrolle der Links und einer Übersichtstabelle. Nutze den Skill bei Anfragen wie „Tool in Verzeichnisse eintragen“, „Backlinks aus Verzeichnissen“, „KI-Verzeichnisse für mein Produkt“, „Product-Hunt-Launch vorbereiten“, „Branchenbuch-Einträge“ oder „Unternehmenseinträge vereinheitlichen“.
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/directory-submissions"
 ---
@@ -101,4 +101,4 @@ Verzeichnisse sind das Fundament, nicht die ganze Strategie. Sie liefern Links, 
 - Keine Rechtsberatung zu Bewertungsaktionen oder bezahlten Einträgen; im Zweifel prüfen lassen.
 - Keine erfundenen Kennzahlen zu Linkstärke, Besucherzahlen oder Konversionsraten.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

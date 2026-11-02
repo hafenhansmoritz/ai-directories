@@ -109,7 +109,7 @@ fs.mkdirSync(ZIEL_DL, { recursive: true })
 for (const name of ordner) {
     const datei = path.join(QUELLE, name, 'SKILL.md')
     if (!fs.existsSync(datei)) continue
-    const text = fs.readFileSync(datei, 'utf8')
+    const text = fs.readFileSync(datei, 'utf8').replace(/\r\n/g, '\n')
     const { meta, body } = frontmatter(text, datei)
     if (meta.name !== name) fehler.push(`${datei}: name „${meta.name}“ passt nicht zum Ordner`)
     if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(meta.name || '') || meta.name.length > 64) fehler.push(`${datei}: ungültiger name`)
@@ -122,7 +122,7 @@ for (const name of ordner) {
             if (e.name.startsWith('.')) continue
             const p = path.join(dir, e.name)
             if (e.isDirectory()) lauf(p)
-            else dateien.push({ name: path.relative(QUELLE, p).split(path.sep).join('/'), data: fs.readFileSync(p) })
+            else dateien.push({ name: path.relative(QUELLE, p).split(path.sep).join('/'), data: Buffer.from(fs.readFileSync(p, 'utf8').replace(/\r\n/g, '\n')) })
         }
     }
     lauf(path.join(QUELLE, name))

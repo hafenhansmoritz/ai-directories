@@ -2,7 +2,7 @@ import { ogImage, ogSize } from '../og'
 
 export const size = ogSize
 export const contentType = 'image/png'
-export const alt = 'Launch-Kit auf AIGeddon'
+export const alt = 'Launch-Kit auf mentat.codes'
 
 export default function Image() {
     return ogImage({

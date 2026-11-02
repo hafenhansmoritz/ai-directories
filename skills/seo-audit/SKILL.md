@@ -3,7 +3,7 @@ name: seo-audit
 description: Prüft eine Website oder einzelne Seiten auf SEO-Probleme und liefert einen priorisierten Maßnahmenplan für Google.de und den DACH-Raum. Nutze den Skill bei Anfragen wie „SEO-Audit“, „Warum ranke ich nicht?“, „Mein Traffic ist eingebrochen“, „technisches SEO prüfen“, „Title und Meta optimieren“, „Seite 2 bei Google“, „Core Web Vitals“, „Indexierungsprobleme“ oder „lokales SEO und Google-Unternehmensprofil“, auch wenn nur vage „mein SEO ist schlecht“ gesagt wird.
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/seo-audit"
 ---
@@ -117,4 +117,4 @@ Schreib auf Deutsch, klar und ohne Fachchinesisch. Frag, ob der Bericht in Du- o
 - Du gibst keine Rechtsberatung. Bei Impressum, Datenschutz oder Wettbewerbsrecht empfiehlst du eine fachliche Prüfung.
 - Für Optimierung in KI-Antworten (Google KI-Übersichten, ChatGPT, Perplexity) nutze den Skill `ki-sichtbarkeit`, für Texte `werbetexte`, für strukturierte Daten `strukturierte-daten`.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

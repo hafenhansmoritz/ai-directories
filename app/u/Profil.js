@@ -40,7 +40,7 @@ export default function Profil() {
                         : Promise.resolve({ data: [] }),
                 ])
                 if (!aktiv) return
-                document.title = `${profil.anzeigename} (@${profil.handle}) | AIGeddon`
+                document.title = `${profil.anzeigename} (@${profil.handle}) | mentat.codes`
                 setDaten({ profil, details, abzeichen: abzeichen || [], themen: themen || [], kommentare: kommentare || [] })
             })
             .catch(() => aktiv && setDaten(null))
@@ -80,7 +80,7 @@ export default function Profil() {
                     <p className="konto-handle">
                         @{profil.handle}
                         {details?.pronomen ? ` · ${details.pronomen}` : ''}
-                        {profil.rolle !== 'nutzer' && <span className="profil-rolle">{profil.rolle === 'admin' ? 'Team AIGeddon' : 'Moderation'}</span>}
+                        {profil.rolle !== 'nutzer' && <span className="profil-rolle">{profil.rolle === 'admin' ? 'Team mentat.codes' : 'Moderation'}</span>}
                     </p>
                 </div>
             </div>

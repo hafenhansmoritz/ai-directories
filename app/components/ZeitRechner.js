@@ -132,7 +132,7 @@ export default function ZeitRechner() {
                         </>
                     )}
                 </p>
-                <RechnungTeilen titel="Lohnt sich mein KI-Abo?" text={`Meine Rechnung auf AIGeddon: ${urteil[1]}, ${eur.format(r.jahr)} € Gewinn pro Jahr.`} />
+                <RechnungTeilen titel="Lohnt sich mein KI-Abo?" text={`Meine Rechnung auf mentat.codes: ${urteil[1]}, ${eur.format(r.jahr)} € Gewinn pro Jahr.`} />
             </div>
         </div>
     )

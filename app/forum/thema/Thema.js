@@ -134,7 +134,7 @@ export default function Thema() {
         seitenZeilen.current = (b || []).length
         setMehr((b || []).length === SEITE)
         setKat(k)
-        document.title = `${t.titel} | KI-Forum | AIGeddon`
+        document.title = `${t.titel} | KI-Forum | mentat.codes`
     }, [id])
 
     useEffect(() => {

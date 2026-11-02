@@ -9,7 +9,7 @@ import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 
 export const metadata = {
     title: 'So prüfen wir: Quellen, Preise und Redaktionsregeln',
-    description: 'Wie AIGeddon Fakten prüft: Preise nur von offiziellen Seiten, Herstellerangaben als solche markiert, sichtbares Prüfdatum, offene Korrekturen und ein ehrlicher Umgang mit KI beim Schreiben.',
+    description: 'Wie mentat.codes Fakten prüft: Preise nur von offiziellen Seiten, Herstellerangaben als solche markiert, sichtbares Prüfdatum, offene Korrekturen und ein ehrlicher Umgang mit KI beim Schreiben.',
     alternates: { canonical: '/so-pruefen-wir' },
 }
 
@@ -24,7 +24,7 @@ const REGELN = [
 
 const FAQ = [
     {
-        q: 'Schreibt AIGeddon Texte mit KI?',
+        q: 'Schreibt mentat.codes Texte mit KI?',
         a: 'Ja, Texte entstehen mit Unterstützung von KI-Werkzeugen. Jede Faktangabe wird vor der Veröffentlichung gegen die genannten offiziellen Quellen geprüft, und Jean Maurice Port trägt die redaktionelle Verantwortung.',
     },
     {
@@ -32,7 +32,7 @@ const FAQ = [
         a: 'Schreib uns über das Formular „Frag Jean direkt“ unten auf jeder Seite. Wir prüfen die Angabe an der offiziellen Quelle, korrigieren sie und setzen das Prüfdatum neu.',
     },
     {
-        q: 'Testet AIGeddon die Tools selbst?',
+        q: 'Testet mentat.codes die Tools selbst?',
         a: 'Wo wir etwas selbst ausprobiert haben, steht das dabei. Alles andere stammt aus offiziellen Angaben und ist als „laut Anbieter“ gekennzeichnet. Wir behaupten keine Tests, die wir nicht gemacht haben.',
     },
     {
@@ -66,7 +66,7 @@ function SoPruefenWir() {
             <section className="hero">
                 <p className="eyebrow">Redaktionsregeln</p>
                 <h1>So prüfen wir: Quellen, Preise und Regeln</h1>
-                <p className="lead">Sechs Regeln, an die sich jede Seite auf AIGeddon hält. Damit du weißt, was eine Zahl hier wert ist, und wo du selbst nachschauen kannst.</p>
+                <p className="lead">Sechs Regeln, an die sich jede Seite auf mentat.codes hält. Damit du weißt, was eine Zahl hier wert ist, und wo du selbst nachschauen kannst.</p>
                 <Jean>Witze dürfen hier erfunden sein. Zahlen nie. Das ist die eine Regel, für die ich auch nachts aufstehe.</Jean>
             </section>
 

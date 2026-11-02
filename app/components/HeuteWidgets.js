@@ -161,7 +161,7 @@ export function HeuteKarte() {
     return (
         <section ref={ort} className="a-heute" aria-labelledby="a-heute-titel">
             <h2 id="a-heute-titel" className="a-heute-titel">
-                Heute bei AIGeddon <span aria-hidden="true">📅</span>
+                Heute bei mentat.codes <span aria-hidden="true">📅</span>
             </h2>
             <div className="a-heute-raster">
                 <div>

@@ -3,7 +3,7 @@ import ProfilEditor from './ProfilEditor'
 
 export const metadata = {
     title: 'Profil bearbeiten',
-    description: 'Gestalte dein AIGeddon-Profil mit eigenem Bild, Banner, Bio und Links.',
+    description: 'Gestalte dein mentat.codes-Profil mit eigenem Bild, Banner, Bio und Links.',
     alternates: { canonical: '/konto/profil' },
     robots: { index: false, follow: false },
 }

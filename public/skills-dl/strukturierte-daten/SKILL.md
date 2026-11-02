@@ -3,7 +3,7 @@ name: strukturierte-daten
 description: Erstellt, prüft und korrigiert strukturierte Daten (Schema-Markup als JSON-LD nach schema.org) für Websites, Shops und Blogs mit deutschsprachigen Inhalten. Nutzen, wenn jemand fragt „Schema-Markup einbauen“, „strukturierte Daten“, „JSON-LD erstellen“, „Rich Snippets“, „Sterne in Google“, „Produkt-Schema“, „Breadcrumbs für Google“ oder „Fehler in der Search Console bei strukturierten Daten“.
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/schema"
 ---
@@ -122,4 +122,4 @@ Wenn es eine Datei mit Produkt- oder Marketingkontext im Projekt gibt, lies sie 
 - Kein Ersatz für ein vollständiges SEO-Audit.
 - Ob Preis- und Bewertungsangaben rechtlich korrekt sind, prüft im Zweifel eine Fachperson. Der Skill gibt keine Rechtsberatung.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

@@ -3,7 +3,7 @@ name: social-media-posts
 description: Schreibt, plant und verbessert Social-Media-Inhalte für LinkedIn, Xing, Instagram, TikTok, Facebook und WhatsApp-Kanäle, inklusive Karussells, Kurzvideo-Skripten und Wiederverwertung längerer Inhalte. Nutzen bei „LinkedIn-Post schreiben“, „Was soll ich posten?“, „Redaktionsplan für Social Media“, „aus dem Blogartikel Posts machen“, „Reel-Skript“, „Karussell erstellen“ oder „mehr Reichweite auf LinkedIn“.
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/social"
 ---
@@ -73,4 +73,4 @@ Je nach Auftrag:
 - Rechtliche Hinweise sind keine Rechtsberatung. Bei Gewinnspielen, Influencer-Verträgen und Gesundheitsthemen eine Fachperson einbeziehen.
 - Keine Fake-Konten, gekauften Follower oder künstlich verstärkte Interaktion. Das verstößt gegen die Regeln der Plattformen und der KI-Anbieter.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

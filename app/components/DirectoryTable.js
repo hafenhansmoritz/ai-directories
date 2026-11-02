@@ -25,6 +25,8 @@ const MILESTONES = new Set(RANKS.map(([min]) => min).filter(Boolean))
 const URL_FELDER = {
     preis: ['pricing', { kostenlos: 'Free', kostenpflichtig: 'Paid' }],
     einreichung: ['experience', { reibungslos: 'Good', hakelig: 'Bad', zu: 'Closed' }],
+    dr: ['minDr', { '30': '30', '50': '50', '70': '70' }],
+    link: ['linkType', { dofollow: 'dofollow' }],
     status: ['status', { offen: 'open', eingetragen: 'done' }],
     sortierung: ['sort', { score: 'score', dr: 'rating', besuche: 'visits', name: 'name' }],
 }
@@ -35,7 +37,7 @@ const norm = (s = '') =>
         .normalize('NFD')
         .replace(/[^a-z0-9]/g, '')
 
-// Levenshtein mit Abbruch: reicht für 256 Namen locker, auch auf langsamen Handys.
+// Levenshtein mit Abbruch: reicht für 260 Namen locker, auch auf langsamen Handys.
 function abstand(a, b, max) {
     if (Math.abs(a.length - b.length) > max) return max + 1
     let prev = Array.from({ length: b.length + 1 }, (_, i) => i)
@@ -98,7 +100,7 @@ const Zeile = memo(function Zeile({ d, erledigt, onToggle }) {
 })
 
 export default function DirectoryTable({ directories, interactive = true, defaultSort = 'rating', caption, tracker = false }) {
-    const START = useMemo(() => ({ query: '', pricing: 'all', experience: 'all', status: 'all', sort: defaultSort }), [defaultSort])
+    const START = useMemo(() => ({ query: '', pricing: 'all', experience: 'all', minDr: 'all', linkType: 'all', status: 'all', sort: defaultSort }), [defaultSort])
     const [filter, setFilter] = useState(START)
     const setze = (feld, wert) => setFilter((f) => ({ ...f, [feld]: wert }))
     // Die Eingabe bleibt sofort bedienbar, die Tabelle rechnet im Hintergrund nach (wichtig für INP auf Handys).
@@ -158,12 +160,14 @@ export default function DirectoryTable({ directories, interactive = true, defaul
 
     const index = useMemo(() => directories.map((d) => ({ d, name: norm(d.name), link: norm(d.link) })), [directories])
 
-    // Erst Preis, Einreichung und Sortierung, dann der Suchbegriff. Ohne exakten Treffer greift eine Tippfehler-Suche.
+    // Erst Preis, Einreichung, Mindest-DR, Link-Art und Sortierung, dann der Suchbegriff. Ohne exakten Treffer greift eine Tippfehler-Suche.
     const { treffer, aehnlich } = useMemo(() => {
-        const { query, pricing, experience, sort } = spaet
+        const { query, pricing, experience, minDr, linkType, sort } = spaet
         const basis = index
             .filter(({ d }) => pricing === 'all' || d.pricing === pricing)
             .filter(({ d }) => experience === 'all' || (experience === 'Closed' ? d.blocked : !d.blocked && d.submission_experience === experience))
+            .filter(({ d }) => minDr === 'all' || (d.domain_rating ?? 0) >= Number(minDr))
+            .filter(({ d }) => linkType === 'all' || Boolean(d.dofollow))
         const q = norm(query)
         let liste = q ? basis.filter((x) => x.name.includes(q) || x.link.includes(q)) : basis
         let fuzzy = false
@@ -189,7 +193,7 @@ export default function DirectoryTable({ directories, interactive = true, defaul
         if (next.has(slug) && MILESTONES.has(next.size)) konfetti()
     }, [])
 
-    const aktiv = filter.pricing !== 'all' || filter.experience !== 'all' || filter.status !== 'all'
+    const aktiv = filter.pricing !== 'all' || filter.experience !== 'all' || filter.minDr !== 'all' || filter.linkType !== 'all' || filter.status !== 'all'
     const zuruecksetzen = () => setFilter(START)
     const laedt = filter !== spaet
 
@@ -226,6 +230,22 @@ export default function DirectoryTable({ directories, interactive = true, defaul
                             <option value="Good">Reibungslos</option>
                             <option value="Bad">Hakelig</option>
                             <option value="Closed">Gerade zu</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Mindest-DR</span>
+                        <select value={filter.minDr} onChange={(e) => setze('minDr', e.target.value)}>
+                            <option value="all">Alle</option>
+                            <option value="30">DR 30+</option>
+                            <option value="50">DR 50+</option>
+                            <option value="70">DR 70+</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Link-Art</span>
+                        <select value={filter.linkType} onChange={(e) => setze('linkType', e.target.value)}>
+                            <option value="all">Alle</option>
+                            <option value="dofollow">Nur Dofollow</option>
                         </select>
                     </label>
                     <label>

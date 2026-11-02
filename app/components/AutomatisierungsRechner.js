@@ -78,7 +78,7 @@ export default function AutomatisierungsRechner({ tools }) {
                 <p className="rechner-hinweis">
                     Der Aufbau hat sich nach rund <strong>{r.wochenBisPlus} Wochen</strong> bezahlt gemacht, die laufenden Tool-Kosten noch nicht eingerechnet.
                 </p>
-                <RechnungTeilen titel="Lohnt sich die Automatisierung?" text={`Meine Rechnung auf AIGeddon: ${urteil}, ${fmt.format(r.stundenJahr)} Stunden Handarbeit pro Jahr, bezahlt nach rund ${r.wochenBisPlus} Wochen.`} />
+                <RechnungTeilen titel="Lohnt sich die Automatisierung?" text={`Meine Rechnung auf mentat.codes: ${urteil}, ${fmt.format(r.stundenJahr)} Stunden Handarbeit pro Jahr, bezahlt nach rund ${r.wochenBisPlus} Wochen.`} />
                 <p className="send-to-ai-label">Einstiegspreise laut Anbieter</p>
                 <ul className="rechner-tools">
                     {tools.map((t) => (

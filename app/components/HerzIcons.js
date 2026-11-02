@@ -1,13 +1,12 @@
-// Eigene Illustrationen im AIGeddon-Stil: dicke Kontur, Pop-Farben, ohne Bilddatei.
+// Eigene Illustrationen im mentat.codes-Stil: dicke Kontur, Pop-Farben, ohne Bilddatei.
 // Alle sind dekorativ (aria-hidden), der Text daneben trägt die Bedeutung.
 
-// Herz mit Strahlungszeichen: das AIGeddon-Herz.
+// Herz mit Terminal-Prompt: das mentat.codes-Herz.
 export function StrahlenHerz({ size = 40, className = '' }) {
     return (
         <svg className={`hi hi-herz ${className}`} viewBox="0 0 48 48" width={size} height={size} aria-hidden="true" focusable="false">
             <path d="M24 42C10 32 4 25 4 16a10 10 0 0 1 20-3 10 10 0 0 1 20 3c0 9-6 16-20 26z" fill="var(--accent)" stroke="var(--border)" strokeWidth="3" strokeLinejoin="round" />
-            <circle cx="24" cy="22" r="3" fill="var(--pop)" stroke="var(--border)" strokeWidth="1.5" />
-            <path d="M24 19l-4-7a8 8 0 0 1 8 0zM21.4 23.5l-7.6 2.2a8 8 0 0 1 4-6.9zM26.6 23.5l7.6 2.2a8 8 0 0 0-4-6.9z" fill="var(--pop)" stroke="var(--border)" strokeWidth="1.5" strokeLinejoin="round" />
+            <path d="M16 18l5 4.5-5 4.5M23.5 27H32" fill="none" stroke="var(--pop)" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M12 13a5 5 0 0 1 5-3" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" opacity=".7" />
         </svg>
     )

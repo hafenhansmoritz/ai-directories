@@ -3,7 +3,7 @@ import { kbStats, KB_RUBRIKEN } from '../../lib/kb'
 
 export const size = ogSize
 export const contentType = 'image/png'
-export const alt = 'KI-Tool-Datenbank auf AIGeddon'
+export const alt = 'KI-Tool-Datenbank auf mentat.codes'
 
 export default function Image() {
     const s = kbStats()

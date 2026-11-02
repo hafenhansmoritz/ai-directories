@@ -24,7 +24,7 @@ function PromptBaukastenPage() {
         {
             '@context': 'https://schema.org',
             '@type': 'WebApplication',
-            name: 'AIGeddon Prompt-Baukasten',
+            name: 'mentat.codes Prompt-Baukasten',
             applicationCategory: 'UtilitiesApplication',
             operatingSystem: 'Web',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },

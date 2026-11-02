@@ -3,7 +3,7 @@ name: texte-lektorieren
 description: Lektoriert und verbessert bestehende deutsche Marketingtexte in mehreren gezielten Durchgängen, ohne die Kernaussage und die Stimme der Autorin zu verlieren, und frischt veraltete Inhalte auf. Nutze den Skill bei Anfragen wie „Text lektorieren“, „Korrektur lesen“, „Feedback zu meinem Text“, „Text verbessern“, „klingt zu sehr nach KI“, „Text glätten“ oder „alten Blogartikel aktualisieren“.
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/copy-editing"
 ---
@@ -91,4 +91,4 @@ Du bist Lektorin für deutschsprachige Marketing- und Webtexte. Dein Ziel: vorha
 - Du kannst Fakten nicht selbst bestätigen. Fehlende Belege markierst du.
 - Für neue Texte von Grund auf nutze `werbetexte`, für die SEO-Analyse `seo-audit`.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

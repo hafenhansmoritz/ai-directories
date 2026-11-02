@@ -11,7 +11,7 @@ import { Band } from '../components/Deko'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 
 export const metadata = {
-    title: 'Werben auf AIGeddon: Featured-Platz & Launch-Service',
+    title: 'Werben auf mentat.codes: Featured-Platz & Launch-Service',
     description:
         'Für Betreiber von KI-Verzeichnissen und KI-Tools: Featured-Platz, geprüftes Profil, Newsletter- und YouTube-Sponsoring oder der Launch-Service, bei dem wir dein Tool in die passenden Verzeichnisse eintragen.',
     alternates: { canonical: '/werben' },
@@ -42,7 +42,7 @@ const OFFERS = [
     {
         name: 'Newsletter- und YouTube-Sponsoring',
         for: 'Für KI-Tools',
-        text: 'Erwähnung im AIGeddon Briefing oder ein Use-Case-Video auf dem YouTube-Kanal, für Tools, die wir selbst sinnvoll finden.',
+        text: 'Erwähnung im mentat.codes Briefing oder ein Use-Case-Video auf dem YouTube-Kanal, für Tools, die wir selbst sinnvoll finden.',
         anliegen: 'werbung',
         liste: ['nur für Tools, die wir selbst sinnvoll finden', 'als Sponsoring gekennzeichnet'],
     },
@@ -83,7 +83,7 @@ function AdvertisePage() {
             <Breadcrumbs items={crumbs} />
             <section className="hero">
                 <p className="eyebrow">Für Gründer, Verzeichnisse und KI-Tools 💼</p>
-                <h1>Mit AIGeddon arbeiten</h1>
+                <h1>Mit mentat.codes arbeiten</h1>
                 <p className="lead">
                     Hier landen Gründer, die gerade ein KI-Tool launchen und {stats.total} Verzeichnisse vergleichen. Genau
                     dann suchen sie Reichweite, Werkzeuge und jemanden, der ihnen die Einreichungen abnimmt.

@@ -18,14 +18,14 @@ export default function KontoSync() {
         // sessionStorage kann gesperrt sein (privates Fenster); der Abgleich läuft trotzdem.
         const sitzungLesen = () => {
             try {
-                return sessionStorage.getItem('aigeddon-sync')
+                return sessionStorage.getItem('mentat-sync')
             } catch {
                 return null
             }
         }
         const sitzungMerken = () => {
             try {
-                sessionStorage.setItem('aigeddon-sync', user.id)
+                sessionStorage.setItem('mentat-sync', user.id)
             } catch {}
         }
         supabase()
@@ -47,10 +47,10 @@ export default function KontoSync() {
             clearTimeout(offen.get(key))
             offen.set(key, setTimeout(() => gilt() && schreibeNach(sb, user.id, key, gilt).catch(() => {}), 800))
         }
-        window.addEventListener('aigeddon-speicher', geaendert)
+        window.addEventListener('mentat-speicher', geaendert)
         return () => {
             aktiv = false
-            window.removeEventListener('aigeddon-speicher', geaendert)
+            window.removeEventListener('mentat-speicher', geaendert)
             offen.forEach((t) => clearTimeout(t))
         }
     }, [user])

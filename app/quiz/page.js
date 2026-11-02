@@ -11,12 +11,12 @@ export const metadata = {
     description:
         'Drei Fragen zu Budget, Ziel und Geduld, danach fünf KI-Verzeichnisse, die zu deinem Tool-Launch passen. Mit Jean-Score und ehrlicher Einschätzung.',
     alternates: { canonical: '/quiz' },
-    openGraph: ogMeta({ url: '/quiz', bild: OG_BILDER.quiz, alt: 'Quiz auf AIGeddon' }),
+    openGraph: ogMeta({ url: '/quiz', bild: OG_BILDER.quiz, alt: 'Quiz auf mentat.codes' }),
 }
 
 function QuizPage() {
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Quiz', path: '/quiz' },
     ]
     const options = getDirectories().map(({ name, slug, link, submission_link, domain_rating, monthly_visits, pricing, submission_experience }) => ({

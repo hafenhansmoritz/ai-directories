@@ -3,7 +3,7 @@ import { getPrompts } from '../../lib/prompts'
 
 export const size = ogSize
 export const contentType = 'image/png'
-export const alt = 'Prompt-Bibliothek auf AIGeddon'
+export const alt = 'Prompt-Bibliothek auf mentat.codes'
 
 export default function Image() {
     return ogImage({

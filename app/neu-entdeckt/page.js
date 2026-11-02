@@ -25,7 +25,7 @@ export const metadata = {
 
 function NeuEntdeckt() {
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Neu entdeckte KI-Verzeichnisse', path: '/neu-entdeckt' },
     ]
     const frei = NEU.filter((d) => d.pricing === 'Free')

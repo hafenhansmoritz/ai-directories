@@ -105,7 +105,7 @@ function TutorialPage({ params }) {
                 </section>
             )}
             <SlideInLead id={`tutorial-${t.slug}`} title={NEWSLETTER_URL ? `Jede Woche neue Prompts von ${NEWSLETTER_NAME} 📬` : 'Mehr davon als Video? 🎬'}>
-                <p>{NEWSLETTER_URL ? 'Die besten Prompts der Woche, ein Trick, ein Tool. Kostenlos, jederzeit kündbar.' : 'Prompt-Tricks, Tool-Tests und Case Studies auf dem AIGeddon-Kanal.'}</p>
+                <p>{NEWSLETTER_URL ? 'Die besten Prompts der Woche, ein Trick, ein Tool. Kostenlos, jederzeit kündbar.' : 'Prompt-Tricks, Tool-Tests und Case Studies auf dem mentat.codes-Kanal.'}</p>
                 <EmailCapture />
             </SlideInLead>
             <p>

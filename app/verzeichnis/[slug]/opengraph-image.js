@@ -18,6 +18,6 @@ export default function Image({ params }) {
         eyebrow: `${pricingLabel(d.pricing)} · DR ${formatRating(d.domain_rating)} · ${scoreLabel(total)}`,
         title: `${d.name} eintragen: lohnt sich das?`,
         score: total,
-        footer: 'Jeans Urteil auf AIGeddon',
+        footer: 'Jeans Urteil auf mentat.codes',
     })
 }

@@ -1,9 +1,9 @@
 import { ContentKitIcon } from '@gitbook/api';
 import { createComponent, createIntegration, RuntimeContext } from '@gitbook/runtime';
 
-// Standardquelle: Tool-Steckbriefe von AIGeddon. href ist der Anbieter-Link (Partnerlink, falls hinterlegt).
-const STANDARD_API = 'https://jmp-collab.github.io/ai-directories/api/tools.json';
-const STECKBRIEF = 'https://jmp-collab.github.io/ai-directories/tools/';
+// Standardquelle: Tool-Steckbriefe von mentat.codes. href ist der Anbieter-Link (Partnerlink, falls hinterlegt).
+const STANDARD_API = 'https://mentat.codes/api/tools.json';
+const STECKBRIEF = 'https://mentat.codes/tools/';
 
 type Tool = {
     slug: string;

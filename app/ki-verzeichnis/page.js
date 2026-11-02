@@ -21,11 +21,11 @@ const FAQ = [
     },
     {
         q: 'Was kostet ein Eintrag?',
-        a: 'Viele Verzeichnisse sind kostenlos, manche verlangen eine Gebühr für den Eintrag oder einen hervorgehobenen Platz. In der AIGeddon-Liste siehst du Preis und Domain Rating je Verzeichnis, dazu eigene Rabattcodes, wo wir welche vereinbart haben.',
+        a: 'Viele Verzeichnisse sind kostenlos, manche verlangen eine Gebühr für den Eintrag oder einen hervorgehobenen Platz. In der mentat.codes-Liste siehst du Preis und Domain Rating je Verzeichnis, dazu eigene Rabattcodes, wo wir welche vereinbart haben.',
     },
     {
         q: 'Wie viele KI-Verzeichnisse gibt es?',
-        a: 'Hunderte, und es kommen ständig neue dazu. AIGeddon bewertet die relevanten mit Domain Rating, Traffic, Preis und einem Einreichungs-Check.',
+        a: 'Hunderte, und es kommen ständig neue dazu. mentat.codes bewertet die relevanten mit Domain Rating, Traffic, Preis und einem Einreichungs-Check.',
     },
 ]
 

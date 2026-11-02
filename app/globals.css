@@ -5,38 +5,38 @@
    1179px/1180px Seitenleisten und Mobile-Dock, 1280px einzeilige Hauptnavigation (nur --header-h).
    ====================================================================== */
 :root {
-    --bg: #fff6d6;
+    --bg: #f4f7fb;
     --surface: #ffffff;
-    --text: #1b1b1f;
-    --muted: #5a5560;
-    --border: #1b1b1f;
-    --accent: #b3164f;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #0f172a;
+    --accent: #0369a1;
     --accent-contrast: #ffffff;
-    --pop: #ffe14d;
+    --pop: #67e8f9;
     --pop-2: #6ee7b7;
-    --good-bg: #e3f4ea;
-    --good-fg: #0f5b37;
-    --bad-bg: #fbe7e4;
-    --bad-fg: #8c2a1c;
-    --neutral-bg: #eeece6;
-    --neutral-fg: #4c525a;
-    --warn-bg: #fff4dc;
+    --good-bg: #dcfce7;
+    --good-fg: #14532d;
+    --bad-bg: #fee2e2;
+    --bad-fg: #7f1d1d;
+    --neutral-bg: #e2e8f0;
+    --neutral-fg: #334155;
+    --warn-bg: #fef3c7;
 
     /* Farben, die sich im Dunkelmodus nicht ändern: Schrift auf hellen Aufklebern, Papierweiß */
-    --ink: #1b1b1f;
+    --ink: #0f172a;
     --paper: #ffffff;
-    /* Akzent und Links auf immer hellen Aufkleberflächen (Gelb, Pastell) */
-    --accent-ink: #b3164f;
-    --link-ink: #8a0f3b;
+    /* Akzent und Links auf immer hellen Aufkleberflächen (Cyan, Mint, Pastell) */
+    --accent-ink: #0369a1;
+    --link-ink: #075985;
 
     /* Aufkleber für Status: hell knallig, dunkel gedämpft */
     --sticker-good-bg: var(--pop-2);
     --sticker-good-fg: var(--ink);
-    --sticker-bad-bg: #ffb4a8;
+    --sticker-bad-bg: #fca5a5;
     --sticker-bad-fg: var(--ink);
-    --sticker-neutral-bg: #e5e0d8;
+    --sticker-neutral-bg: #cbd5e1;
     --sticker-neutral-fg: var(--ink);
-    --sticker-warn-bg: #ffd8cf;
+    --sticker-warn-bg: #fde68a;
     --sticker-warn-fg: var(--ink);
     --sticker-deal-bg: var(--pop-2);
     --sticker-deal-fg: var(--ink);
@@ -47,19 +47,19 @@
     --bar-teils: #fde68a;
 
     /* Rubrikfarben und Bänder */
-    --c-blue: #3b82f6;
-    --c-purple: #8b5cf6;
-    --c-orange: #f97316;
-    --c-mint: #10b981;
-    --band-gelb: #fff1a8;
-    --band-mint: #d3f6e6;
-    --band-pink: #ffd9e7;
-    --band-blau: #d9e8ff;
-    --band-lila: #e8dcff;
-    --band-dunkel: #1f1830;
-    --on-dunkel: #f4efe6;
-    --on-dunkel-muted: #d8d2e2;
-    --on-dunkel-akzent: #ffd93d;
+    --c-blue: #0284c7;
+    --c-purple: #7c3aed;
+    --c-orange: #ea580c;
+    --c-mint: #059669;
+    --band-gelb: #e0f2fe;
+    --band-mint: #d1fae5;
+    --band-pink: #ede9fe;
+    --band-blau: #dbeafe;
+    --band-lila: #e0e7ff;
+    --band-dunkel: #0f172a;
+    --on-dunkel: #f8fafc;
+    --on-dunkel-muted: #cbd5e1;
+    --on-dunkel-akzent: #38bdf8;
 
     /* Schriftgrößen: kleinste Stufe 12px */
     --fs-2xs: 0.75rem;
@@ -75,9 +75,9 @@
 
     /* Radien und Schatten */
     --radius-xs: 4px;
-    --radius-sm: 8px;
-    --radius: 12px;
-    --radius-lg: 16px;
+    --radius-sm: 6px;
+    --radius: 8px;
+    --radius-lg: 12px;
     --radius-pill: 999px;
     --shadow-sm: 2px 2px 0 var(--border);
     --shadow: 4px 4px 0 var(--border);
@@ -86,8 +86,8 @@
     /* Höhe des klebenden Kopfbereichs (ab 721px), für klebende Leisten und Sprungziele */
     --header-h: 148px;
 
-    --font: ui-rounded, 'Nunito', 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-display: 'Arial Rounded MT Bold', ui-rounded, 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+    --font: 'Inter', 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-display: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 
     --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='16'%3E%3Cpath d='M0 8 Q12 0 24 8 T48 8' fill='none' stroke='black' stroke-width='3'/%3E%3C/svg%3E");
     --zigzag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16'%3E%3Cpath d='M0 13 L8 3 L16 13 L24 3 L32 13' fill='none' stroke='black' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -102,22 +102,22 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #17131f;
-        --surface: #221c2e;
-        --text: #f4efe6;
-        --muted: #b9b1c6;
-        --border: #f4efe6;
-        --accent: #ff6fa8;
-        --accent-contrast: #1a0a12;
-        --pop: #ffd93d;
-        --pop-2: #3fcf9b;
-        --good-bg: #173427;
-        --good-fg: #8ee0b6;
-        --bad-bg: #3a1f1b;
-        --bad-fg: #f3a597;
-        --neutral-bg: #262a30;
-        --neutral-fg: #c2c7ce;
-        --warn-bg: #3a3120;
+        --bg: #0b0f19;
+        --surface: #111827;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --border: #cbd5e1;
+        --accent: #38bdf8;
+        --accent-contrast: #082f49;
+        --pop: #38bdf8;
+        --pop-2: #34d399;
+        --good-bg: #064e3b;
+        --good-fg: #6ee7b7;
+        --bad-bg: #450a0a;
+        --bad-fg: #fca5a5;
+        --neutral-bg: #1e293b;
+        --neutral-fg: #cbd5e1;
+        --warn-bg: #451a03;
 
         --sticker-good-bg: var(--good-bg);
         --sticker-good-fg: var(--good-fg);
@@ -132,12 +132,12 @@
         --sticker-code-bg: var(--surface);
         --sticker-code-border: var(--border);
 
-        --band-gelb: #3a3216;
-        --band-mint: #12332a;
-        --band-pink: #3a1a29;
-        --band-blau: #172640;
-        --band-lila: #2a1f44;
-        --band-dunkel: #0e0b16;
+        --band-gelb: #0c4a6e;
+        --band-mint: #064e3b;
+        --band-pink: #2e1065;
+        --band-blau: #1e3a8a;
+        --band-lila: #312e81;
+        --band-dunkel: #060911;
     }
 }
 
@@ -319,16 +319,17 @@ main {
 }
 
 .eyebrow {
-    font-size: var(--fs-body-sm);
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
     margin: 0;
     display: inline-block;
     background: var(--pop-2);
     color: var(--ink);
-    padding: 2px 12px;
+    padding: 3px 12px;
     border: 2px solid var(--border);
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-xs);
     font-weight: 700;
-    transform: rotate(-2deg);
+    letter-spacing: 0.02em;
 }
 
 .lead {
@@ -413,10 +414,14 @@ main {
 
 .filters {
     display: grid;
-    grid-template-columns: 2fr repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 12px;
     align-items: end;
     margin-bottom: 12px;
+}
+
+.filters label:first-child {
+    grid-column: span 2;
 }
 
 .filters label span {
@@ -3091,9 +3096,12 @@ td.wrap {
 .trenner-strahlung {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 22px;
     margin: 28px 0;
-    font-size: 1.4rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.25rem;
 }
 
 .trenner-strahlung:hover span {
@@ -3102,7 +3110,7 @@ td.wrap {
 
 .trenner-strahlung span:nth-child(2) {
     animation-direction: reverse;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .farbe-accent { color: var(--accent); }
@@ -5028,7 +5036,7 @@ ul.kb-hero-chips {
     }
 
     body::after {
-        content: 'Ausgedruckt von AIGeddon. Jean ist gerührt, dass jemand noch Papier benutzt.';
+        content: 'Ausgedruckt von mentat.codes. Jean ist gerührt, dass jemand noch Papier benutzt.';
         display: block;
         margin-top: 24px;
         font-style: italic;

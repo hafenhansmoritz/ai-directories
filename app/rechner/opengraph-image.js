@@ -3,7 +3,7 @@ import { RECHNER } from '../../lib/rechner'
 
 export const size = ogSize
 export const contentType = 'image/png'
-export const alt = 'KI-Rechner auf AIGeddon'
+export const alt = 'KI-Rechner auf mentat.codes'
 
 export default function Image() {
     return ogImage({

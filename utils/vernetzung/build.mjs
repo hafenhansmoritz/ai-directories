@@ -7,7 +7,7 @@ import path from 'node:path'
 import { KI_GLOSSAR, glossarSlug } from '../../lib/ki-glossar.js'
 
 const OUT = process.argv[2] || 'out'
-const BASE = '/ai-directories'
+const BASE = process.env.BASE_PATH ?? ''
 const ZIEL = 'db/vernetzung.json'
 const AUSGEHEND = 6
 const EINGEHEND = 6
@@ -37,7 +37,7 @@ const pfadVon = (datei) => {
     return rel ? `/${rel}/` : '/'
 }
 const normHref = (h) => {
-    if (!h.startsWith(`${BASE}/`) && h !== BASE) return null
+    if (h.startsWith('//') || (!h.startsWith(`${BASE}/`) && h !== BASE)) return null
     let p = h.slice(BASE.length).split('#')[0].split('?')[0] || '/'
     if (!p.endsWith('/')) p += '/'
     return p
@@ -57,7 +57,7 @@ for (const datei of seiten) {
     if (/<meta name="robots" content="noindex/.test(html)) continue
     const p = pfadVon(datei)
     const titel = entities((html.match(/<title>(.*?)<\/title>/s) || [])[1] || p)
-        .replace(/\s*\|\s*AIGeddon\s*$/, '')
+        .replace(/\s*\|\s*(?:mentat\.codes|AIGeddon)\s*$/i, '')
         .trim()
     const h1 = entities(((html.match(/<h1[^>]*>(.*?)<\/h1>/s) || [])[1] || '').replace(/<[^>]+>/g, '')).trim()
     let main = (html.match(/<main id="inhalt"[^>]*>(.*)<\/main>/s) || [])[1] || ''

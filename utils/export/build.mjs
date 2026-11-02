@@ -11,14 +11,14 @@ import { fileURLToPath } from 'node:url'
 
 const WURZEL = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const OG = path.join(WURZEL, 'app/verzeichnis/[slug]/opengraph-image.js')
-const OG_PARK = path.join(os.tmpdir(), `aigeddon-og-${process.pid}.js`)
+const OG_PARK = path.join(os.tmpdir(), `mentat-og-${process.pid}.js`)
 const NETZ = path.join(WURZEL, 'db/vernetzung.json')
 
 const env = {
     ...process.env,
     STATIC_EXPORT: '1',
-    BASE_PATH: process.env.BASE_PATH ?? '/ai-directories',
-    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://jmp-collab.github.io/ai-directories',
+    BASE_PATH: process.env.BASE_PATH ?? '',
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://mentat.codes',
 }
 
 const lauf = (befehl, args) => {

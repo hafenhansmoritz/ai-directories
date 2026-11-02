@@ -34,7 +34,7 @@ const FAQ = [
 
 function FreischaltungPage() {
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Freischaltdauer', path: '/freischaltung' },
     ]
     const rows = allChecks()

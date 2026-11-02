@@ -18,11 +18,11 @@ const FAQ = [
     },
     {
         q: 'Wie wird die Auswahl getroffen?',
-        a: 'AIGeddon führt die drei größten frei lizenzierten KI-Tool-Listen auf GitHub zusammen. Pro Aufgabe stehen hier die Tools, die in den meisten dieser Listen vorkommen (Konsens). Das ist ein Qualitätssignal der Community, kein bezahltes Ranking.',
+        a: 'mentat.codes führt die drei größten frei lizenzierten KI-Tool-Listen auf GitHub zusammen. Pro Aufgabe stehen hier die Tools, die in den meisten dieser Listen vorkommen (Konsens). Das ist ein Qualitätssignal der Community, kein bezahltes Ranking.',
     },
     {
         q: 'Welches KI-Tool ist für Anfänger am besten?',
-        a: 'Ein allgemeiner Chatbot wie ChatGPT, Claude oder Gemini deckt die meisten Aufgaben ab und hat einen Gratis-Tarif. Mit dem KI-Test auf AIGeddon findest du heraus, welcher davon deine Aufgaben am besten löst.',
+        a: 'Ein allgemeiner Chatbot wie ChatGPT, Claude oder Gemini deckt die meisten Aufgaben ab und hat einen Gratis-Tarif. Mit dem KI-Test auf mentat.codes findest du heraus, welcher davon deine Aufgaben am besten löst.',
     },
 ]
 

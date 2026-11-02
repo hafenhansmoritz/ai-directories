@@ -5,8 +5,8 @@ import { SITE_NAME } from '../../lib/site'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 
 export const metadata = {
-    title: 'Transparenz: So finanziert sich AIGeddon',
-    description: 'Partnerlinks, Anzeigen und Sponsoring auf AIGeddon: wie sie gekennzeichnet sind und warum sie Bewertungen nicht beeinflussen.',
+    title: 'Transparenz: So finanziert sich mentat.codes',
+    description: 'Partnerlinks, Anzeigen und Sponsoring auf mentat.codes: wie sie gekennzeichnet sind und warum sie Bewertungen nicht beeinflussen.',
     alternates: { canonical: '/transparenz' },
 }
 
@@ -20,7 +20,7 @@ function TransparencyPage() {
             <JsonLd data={[breadcrumbSchema(crumbs)]} />
             <Breadcrumbs items={crumbs} />
             <section className="hero">
-                <h1>So finanziert sich AIGeddon</h1>
+                <h1>So finanziert sich mentat.codes</h1>
                 <p className="lead">Die Liste ist kostenlos. Damit das so bleibt, verdienen wir auf drei Wegen Geld.</p>
             </section>
             <section>

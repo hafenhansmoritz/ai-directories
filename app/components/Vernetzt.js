@@ -93,7 +93,7 @@ const WISSEN = {
             'Mit welcher KI funktioniert die Vorlage?',
             'Mit jedem aktuellen Chat-Modell, egal ob ChatGPT, Claude, Gemini oder Mistral. Die Platzhalter ersetzt du durch deine Angaben, der Rest bleibt stehen.',
         ],
-        ['Darf ich die Vorlage weitergeben?', 'Klar. Kopieren, anpassen, im Team teilen. Ein Link auf AIGeddon freut mich, ist aber keine Pflicht.'],
+        ['Darf ich die Vorlage weitergeben?', 'Klar. Kopieren, anpassen, im Team teilen. Ein Link auf mentat.codes freut mich, ist aber keine Pflicht.'],
     ],
     'prompts/kategorie': [['Wie sind die Prompts sortiert?', 'Nach Einsatzzweck. Jede Vorlage hat Platzhalter, ein Beispiel und einen Tipp, welcher typische Fehler das Ergebnis verdirbt.']],
     glossar: [['Warum so kurz erklärt?', 'Weil ein Glossar zum Nachschlagen da ist. Wer tiefer will, findet unten die Seiten, auf denen der Begriff in der Praxis vorkommt.']],
@@ -114,7 +114,7 @@ const WISSEN = {
     ],
     'ki-news': [
         [
-            'Wie prüft AIGeddon die News?',
+            'Wie prüft mentat.codes die News?',
             'Jede Meldung wird an den offiziellen Seiten der Anbieter, Behörden oder Projekte abgeglichen, Presseberichte zählen nur als Ergänzung. Angaben der Hersteller stehen als „laut Anbieter“ da, Kundenzitate sind keine unabhängigen Tests.',
             ['/transparenz/', 'Transparenz'],
         ],
@@ -122,7 +122,7 @@ const WISSEN = {
     skills: [
         [
             'Woher stammen die Skills?',
-            'Grundlage ist die Sammlung marketingskills von Corey Haines unter MIT-Lizenz. AIGeddon hat sie übersetzt, gekürzt und an den deutschsprachigen Markt angepasst. Die Skills enthalten nur Text, keine Skripte.',
+            'Grundlage ist die Sammlung marketingskills von Corey Haines unter MIT-Lizenz. mentat.codes hat sie übersetzt, gekürzt und an den deutschsprachigen Markt angepasst. Die Skills enthalten nur Text, keine Skripte.',
             ['/skills/', 'Alle Skills'],
         ],
     ],

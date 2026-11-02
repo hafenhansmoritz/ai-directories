@@ -42,7 +42,7 @@ function ArtikelPage({ params }) {
     const a = getArtikel(params.slug)
     if (!a) notFound()
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Ratgeber', path: '/ratgeber' },
         { name: a.title, path: `/ratgeber/${a.slug}` },
     ]
@@ -104,7 +104,7 @@ function ArtikelPage({ params }) {
                     <h2 id="quellen">Quellen und Stand 🔎</h2>
                     <p>
                         {a.geprueft ? `Alle Angaben zu Regeln, Preisen und Funktionen wurden am ${new Date(a.geprueft).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })} mit diesen Quellen abgeglichen. ` : ''}
-                        Zahlen zur Verzeichnisliste stammen aus der eigenen AIGeddon-Datenbank.
+                        Zahlen zur Verzeichnisliste stammen aus der eigenen mentat.codes-Datenbank.
                     </p>
                     <ul className="quellen">
                         {a.quellen.map((q) => (

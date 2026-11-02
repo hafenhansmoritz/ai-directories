@@ -32,7 +32,7 @@ export default function Kategorie() {
                 const { data } = await sb.from('forum_kategorien').select('*').eq('id', k).maybeSingle()
                 if (!aktiv) return
                 setKat(data || null)
-                if (data) document.title = `${data.name} | KI-Forum | AIGeddon`
+                if (data) document.title = `${data.name} | KI-Forum | mentat.codes`
             })
             .catch(() => aktiv && setKat(null))
         return () => {

@@ -1,5 +1,5 @@
 {
-"count": 256,
+"count": 260,
 "data": [
     {
         "name": "100 AI Apps",
@@ -2331,6 +2331,42 @@
         "submission_link": "https://eu.frms.link/g4juley/",
         "domain_rating": 86,
         "monthly_visits": 8758000,
+        "submission_experience": "Good",
+        "pricing": "Free"
+    },
+    {
+        "name": "Glama MCP Registry",
+        "link": "https://glama.ai/mcp/servers",
+        "submission_link": "https://glama.ai/mcp/servers",
+        "domain_rating": 58,
+        "monthly_visits": 420000,
+        "submission_experience": "Good",
+        "pricing": "Free"
+    },
+    {
+        "name": "Smithery",
+        "link": "https://smithery.ai/",
+        "submission_link": "https://smithery.ai/new",
+        "domain_rating": 52,
+        "monthly_visits": 310000,
+        "submission_experience": "Good",
+        "pricing": "Free"
+    },
+    {
+        "name": "Best of AI",
+        "link": "https://bestofai.com/",
+        "submission_link": "https://bestofai.com/submit",
+        "domain_rating": 47,
+        "monthly_visits": 95000,
+        "submission_experience": "Good",
+        "pricing": "Free"
+    },
+    {
+        "name": "ShowMeBest.ai",
+        "link": "https://showmebest.ai/",
+        "submission_link": "https://showmebest.ai/submit",
+        "domain_rating": 38,
+        "monthly_visits": 45000,
         "submission_experience": "Good",
         "pricing": "Free"
     }

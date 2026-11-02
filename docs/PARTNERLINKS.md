@@ -1,4 +1,4 @@
-# Partnerlinks AIGeddon
+# Partnerlinks mentat.codes
 
 Automatisch erzeugt aus `db/partners.json` (Programme, Stand 2026-11-02) und der zentralen Sammlung `db/affiliate-links.json` (eigene Links und Codes, Stand 2026-11-01) mit `npm run partners`. Nicht von Hand bearbeiten.
 
@@ -535,8 +535,8 @@ Programme ohne Mindest-Traffic und ohne Einladung, laut offizieller Seite geprü
 Direkt in `db/affiliate-links.json` unter `links`:
 
 ```json
-{ "id": "semrush", "programm": "Semrush", "link": "https://www.semrush.com/...?ref=...", "projekte": ["aigeddon"], "netzwerk": "Impact", "seit": "2026-11-01" }
-{ "id": "uneed", "programm": "Uneed", "code": "AIGEDDON20", "rabatt": "20% discount", "projekte": ["aigeddon"] }
+{ "id": "semrush", "programm": "Semrush", "link": "https://www.semrush.com/...?ref=...", "projekte": ["mentat.codes"], "netzwerk": "Impact", "seit": "2026-11-01" }
+{ "id": "uneed", "programm": "Uneed", "code": "MENTAT20", "rabatt": "20% discount", "projekte": ["mentat.codes"] }
 ```
 
 Für andere Projekte eine beliebige id und den Projektnamen in `projekte` setzen. Fremde Referral-Links und fremde Rabattcodes werden nirgends übernommen.

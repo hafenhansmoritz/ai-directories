@@ -23,7 +23,7 @@ function PromptCheckPage() {
         {
             '@context': 'https://schema.org',
             '@type': 'WebApplication',
-            name: 'AIGeddon Prompt-Check',
+            name: 'mentat.codes Prompt-Check',
             applicationCategory: 'UtilitiesApplication',
             operatingSystem: 'Web',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },

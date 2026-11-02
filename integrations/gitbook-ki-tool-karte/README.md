@@ -1,13 +1,13 @@
-# GitBook-Integration: KI-Tool-Karte (AIGeddon)
+# GitBook-Integration: KI-Tool-Karte (mentat.codes)
 
-Eigener Block für den GitBook-Editor. Tool auswählen (oder einen AIGeddon-Steckbrief-Link wie
-`https://jmp-collab.github.io/ai-directories/tools/chatgpt/` einfügen), und der Block zeigt:
+Eigener Block für den GitBook-Editor. Tool auswählen (oder einen mentat.codes-Steckbrief-Link wie
+`https://mentat.codes/tools/chatgpt/` einfügen), und der Block zeigt:
 
 - Kurzbeschreibung, Kategorie, Preis ab, Gratis-Tarif, deutsche Oberfläche, Zielgruppe
 - Button zum Anbieter: der Partnerlink aus `db/affiliate-links.json`, sonst die Website. Partnerlinks tragen ein `*` und einen Hinweistext.
-- Button zum AIGeddon-Steckbrief
+- Button zum mentat.codes-Steckbrief
 
-Die Daten kommen live aus `https://jmp-collab.github.io/ai-directories/api/tools.json` (Route `app/api/tools.json/route.js`).
+Die Daten kommen live aus `https://mentat.codes/api/tools.json` (Route `app/api/tools.json/route.js`).
 Ein neuer Partnerlink in `db/affiliate-links.json` erscheint nach dem nächsten Deploy automatisch in allen Karten.
 
 ## Einrichten (einmalig, mit Jeans GitBook-Konto)

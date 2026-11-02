@@ -8,10 +8,10 @@ import { lies, setzeRuhe } from '../../lib/herz'
 export default function RuheKnopf() {
     const [still, setStill] = useState(false)
     useEffect(() => {
-        setStill(Boolean(lies('aigeddon-ruhig')))
+        setStill(Boolean(lies('mentat-ruhig')))
         const wechsel = (e) => setStill(e.detail.an)
-        window.addEventListener('aigeddon-ruhe', wechsel)
-        return () => window.removeEventListener('aigeddon-ruhe', wechsel)
+        window.addEventListener('mentat-ruhe', wechsel)
+        return () => window.removeEventListener('mentat-ruhe', wechsel)
     }, [])
     const umschalten = () => {
         setStill(!still)

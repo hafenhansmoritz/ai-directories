@@ -1,11 +1,11 @@
 // Linkcheck über den statischen Export: jedes interne href/src muss auf eine Datei zeigen, den basePath tragen
 // und Anker müssen als id im Ziel stehen. Bricht mit Code 1 ab, wenn etwas fehlt.
-// Aufruf nach dem Build: node utils/check/links.mjs [out] (basePath aus BASE_PATH, Standard /ai-directories)
+// Aufruf nach dem Build: node utils/check/links.mjs [out] (basePath aus BASE_PATH, Standard leer)
 import fs from 'node:fs'
 import path from 'node:path'
 
 const OUT = process.argv[2] || 'out'
-const BASE = process.env.BASE_PATH ?? '/ai-directories'
+const BASE = process.env.BASE_PATH ?? ''
 const ZEIGEN = 30
 
 if (!fs.existsSync(OUT)) {

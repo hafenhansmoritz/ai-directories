@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata = {
     title: 'Community-Regeln und Meldeweg',
-    description: 'Wie wir bei AIGeddon miteinander umgehen: Regeln für Kommentare, Forum und Profile, plus so meldest du Inhalte.',
+    description: 'Wie wir bei mentat.codes miteinander umgehen: Regeln für Kommentare, Forum und Profile, plus so meldest du Inhalte.',
     alternates: { canonical: '/community-regeln' },
 }
 

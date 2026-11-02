@@ -3,7 +3,7 @@ name: lead-magnet
 description: Plant, entwirft und verbessert Lead-Magneten wie Checklisten, Vorlagen, Mini-Kurse oder Rechner, mit denen du E-Mail-Adressen und qualifizierte Kontakte gewinnst, inklusive Landingpage, Formular, Versand und DSGVO-Prüfpunkten. Nutze den Skill bei Anfragen wie „Lead-Magnet erstellen“, „Freebie für den Newsletter“, „Checkliste zum Download“, „Gated Content“, „E-Mail-Liste aufbauen“ oder „Content-Upgrade für den Blog“.
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/lead-magnets"
 ---
@@ -98,4 +98,4 @@ Auf Wunsch schreibst du zusätzlich die Texte für Landingpage, Bestätigungsmai
 - Keine konkreten Konversionsraten versprechen. Nenne höchstens den Hinweis, dass sich Werte je nach Kanal und Zielgruppe stark unterscheiden.
 - Wenn das Produkt selbst unklar ist, zuerst Positionierung klären, dann den Lead-Magneten planen.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

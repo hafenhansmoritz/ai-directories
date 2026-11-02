@@ -3,7 +3,7 @@ name: kaltakquise-email
 description: Prüft zuerst, ob eine Kaltakquise per E-Mail im deutschsprachigen Raum überhaupt zulässig ist, schlägt rechtssichere Alternativen vor und schreibt nur für zulässige Fälle kurze, menschlich klingende Erstkontakt- und Folgemails. Nutze den Skill bei Anfragen wie „Kaltakquise-Mail schreiben“, „Outreach an Neukunden“, „Akquise-Mail an Firmen“, „Follow-up-Sequenz“, „Niemand antwortet auf meine Mails“ oder „LinkedIn-Nachricht an Interessenten“.
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/cold-email"
 ---
@@ -89,4 +89,4 @@ Du bist Expertin oder Experte für B2B-Neukundengewinnung im deutschsprachigen R
 - Keine erfundenen Referenzen, Kundennamen oder Ergebnisse.
 - Keine Antwortquoten versprechen.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

@@ -5,7 +5,7 @@ const SKIN = '#f4c8ac'
 const EAR = '#efbb9c'
 const BEARD = '#c4581f'
 const BEARD_DARK = '#b54d18'
-const INK = '#1b1b1f'
+const INK = '#0f172a'
 
 function Face({ cool }) {
     return (
@@ -22,7 +22,7 @@ function Face({ cool }) {
                     <path d="M13 25h12c1 0 2 1 2 2v2.5c0 3-2.2 5-5 5h-4.2c-2.8 0-4.8-2.2-4.8-5z" fill={INK} />
                     <path d="M31 25h12v4.5c0 2.8-2 5-4.8 5H34c-2.8 0-5-2-5-5V27c0-1 1-2 2-2z" fill={INK} />
                     <path d="M27 27h2" stroke={INK} strokeWidth="2" />
-                    <path d="M15.5 27.5l4 0M33.5 27.5l4 0" stroke="#fff" strokeWidth="1.2" opacity=".6" strokeLinecap="round" />
+                    <path d="M15.5 27.5l4 0M33.5 27.5l4 0" stroke="#67e8f9" strokeWidth="1.4" opacity=".85" strokeLinecap="round" />
                 </g>
             ) : (
                 <g>
@@ -36,6 +36,13 @@ function Face({ cool }) {
         </g>
     )
 }
+
+const TERMINAL_BADGE = (
+    <g>
+        <rect x="41" y="42.5" width="16" height="13" rx="2.5" fill={INK} stroke="#fff" strokeWidth="1.4" />
+        <path d="M44 46.5l3 2.5-3 2.5M48.5 51.5h4.5" stroke="#6ee7b7" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    </g>
+)
 
 // Abzeichen: Kreis unten rechts mit Symbol.
 const BADGES = {
@@ -72,12 +79,8 @@ const BADGES = {
             strokeLinejoin="round"
         />
     ),
-    strahlung: (
-        <g>
-            <path d="M49 49l-3.6-6.2a7.2 7.2 0 0 1 7.2 0zM49 49l7.2 0a7.2 7.2 0 0 1-3.6 6.2zM49 49l-3.6 6.2a7.2 7.2 0 0 1-3.6-6.2z" fill={INK} />
-            <circle cx="49" cy="49" r="1.8" fill="#ffe14d" stroke={INK} strokeWidth="1" />
-        </g>
-    ),
+    strahlung: TERMINAL_BADGE,
+    terminal: TERMINAL_BADGE,
     pokal: (
         <g stroke={INK} strokeWidth="1.6" strokeLinejoin="round">
             <path d="M44 42h10v4a5 5 0 0 1-10 0z" fill="#ffe14d" />
@@ -114,7 +117,8 @@ const LABELS = {
     post: 'Jean mit Brief',
     play: 'Jean mit Play-Button',
     werkzeug: 'Jean mit Schraubenschlüssel',
-    strahlung: 'Jean mit Strahlenzeichen',
+    strahlung: 'Jean mit Terminal-Prompt',
+    terminal: 'Jean mit Terminal-Prompt',
     pokal: 'Jean mit Pokal',
     rakete: 'Jean mit Rakete',
     herz: 'Jean mit Herz',
@@ -136,7 +140,7 @@ export function JeanSprite() {
                 </symbol>
                 {Object.entries(BADGES).map(([key, badge]) => (
                     <symbol key={key} id={`jb-${key}`} viewBox="0 0 64 64">
-                        <circle cx="49" cy="49" r="12" fill="#ffe14d" stroke={INK} strokeWidth="2" />
+                        <circle cx="49" cy="49" r="12" fill="#67e8f9" stroke={INK} strokeWidth="2" />
                         {badge}
                     </symbol>
                 ))}

@@ -894,5 +894,47 @@
   "summary_de": "Fliki erstellt KI-Videos aus Ideen, Skripten, Blogposts oder PPTs mit über 300 Stimmen in mehr als 80 Sprachen.",
   "best_for_de": "Text-zu-Video mit KI-Sprechern für Erklär- und Social-Videos",
   "source": "https://fliki.ai/pricing"
+ },
+ {
+  "name": "Windsurf",
+  "slug": "windsurf",
+  "category": "Coding",
+  "url": "https://windsurf.com",
+  "pricing_url": "https://windsurf.com/pricing",
+  "free_plan": true,
+  "free_trial": "14 Tage Pro-Testphase",
+  "price_from": "$15/Monat (Pro)",
+  "german_ui": null,
+  "summary_de": "Windsurf (ehemals Codeium) ist eine agentische KI-Entwicklungsumgebung mit Cascade-Flow für mehrstufige Code-Änderungen, Terminal-Steuerung und Kontextverständnis über ganze Repositories.",
+  "best_for_de": "Entwickler, die eine schnelle KI-IDE mit Agenten-Workflow suchen",
+  "source": "https://windsurf.com/pricing"
+ },
+ {
+  "name": "Claude Code",
+  "slug": "claude-code",
+  "category": "Coding",
+  "url": "https://www.anthropic.com/claude-code",
+  "pricing_url": "https://www.anthropic.com/pricing",
+  "free_plan": false,
+  "free_trial": null,
+  "price_from": "$20/Monat (über Claude Pro) bzw. nutzungsbasiert per Anthropic API",
+  "german_ui": true,
+  "summary_de": "Claude Code ist Anthropics agentisches Coding-Werkzeug fürs Terminal und die IDE, das komplette Codebasen liest, Dateien editiert, Tests ausführt und Git-Workflows steuert.",
+  "best_for_de": "Terminal-affine Entwickler, komplexe Refactorings und autonome Agent-Workflows",
+  "source": "https://www.anthropic.com/claude-code"
+ },
+ {
+  "name": "OpenRouter",
+  "slug": "openrouter",
+  "category": "Coding",
+  "url": "https://openrouter.ai",
+  "pricing_url": "https://openrouter.ai/models",
+  "free_plan": true,
+  "free_trial": null,
+  "price_from": "Pay-as-you-go nach Token-Verbrauch (inklusive kostenloser Modell-Endpunkte)",
+  "german_ui": false,
+  "summary_de": "OpenRouter bündelt hunderte Sprachmodelle von OpenAI, Anthropic, Google, Meta, Mistral und DeepSeek hinter einer einheitlichen, OpenAI-kompatiblen API mit automatischem Fallback.",
+  "best_for_de": "Entwickler und Teams, die flexibel zwischen KI-Modellen wechseln und Kosten vergleichen wollen",
+  "source": "https://openrouter.ai/models"
  }
 ]

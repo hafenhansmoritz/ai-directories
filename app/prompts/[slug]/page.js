@@ -117,7 +117,7 @@ function PromptPage({ params }) {
                 </section>
             )}
             <SlideInLead id="prompt" title={NEWSLETTER_URL ? `Jeden Freitag 5 neue Prompts von ${NEWSLETTER_NAME} 📬` : 'Prompt-Tricks als Video 🎬'}>
-                <p>{NEWSLETTER_URL ? 'Getestet, auf Deutsch, sofort nutzbar. Kostenlos, jederzeit kündbar.' : 'Neue Prompts, Tool-Tests und Case Studies auf dem AIGeddon-Kanal.'}</p>
+                <p>{NEWSLETTER_URL ? 'Getestet, auf Deutsch, sofort nutzbar. Kostenlos, jederzeit kündbar.' : 'Neue Prompts, Tool-Tests und Case Studies auf dem mentat.codes-Kanal.'}</p>
                 <EmailCapture />
             </SlideInLead>
             <p>

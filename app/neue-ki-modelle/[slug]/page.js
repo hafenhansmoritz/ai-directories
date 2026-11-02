@@ -92,7 +92,7 @@ function ModellPage({ params }) {
     if (!fam && !m) notFound()
     const item = fam || m
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Neue KI-Modelle', path: '/neue-ki-modelle' },
         { name: fam ? fam.titel : m.name, path: `/neue-ki-modelle/${item.slug}` },
     ]

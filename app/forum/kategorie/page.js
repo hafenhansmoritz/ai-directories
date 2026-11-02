@@ -4,7 +4,7 @@ import Kategorie from './Kategorie'
 
 export const metadata = {
     title: 'Forum-Kategorie',
-    description: 'Themen in einer Kategorie des AIGeddon-KI-Forums.',
+    description: 'Themen in einer Kategorie des mentat.codes-KI-Forums.',
     robots: { index: false, follow: true },
 }
 

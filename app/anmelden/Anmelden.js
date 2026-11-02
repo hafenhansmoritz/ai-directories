@@ -37,10 +37,10 @@ export default function Anmelden() {
     useEffect(() => {
         if (!user) return
         // Gewünschte Einwilligungen gelten nur für genau die Adresse, an die der Link ging, und nur 1 Stunde.
-        const wunsch = lies('aigeddon-einwilligung-wunsch')
+        const wunsch = lies('mentat-einwilligung-wunsch')
         if (wunsch) {
             const passt = wunsch.email && user.email && wunsch.email === user.email.toLowerCase() && Date.now() - (wunsch.zeit || 0) < 3600000
-            schreib('aigeddon-einwilligung-wunsch', null)
+            schreib('mentat-einwilligung-wunsch', null)
             if (passt) {
                 supabase().then(async (sb) => {
                     if (wunsch.regeln) await sb.rpc('regeln_akzeptieren')
@@ -67,7 +67,7 @@ export default function Anmelden() {
         const form = new FormData(e.currentTarget)
         setFehler('')
         setStatus('sendet')
-        schreib('aigeddon-einwilligung-wunsch', {
+        schreib('mentat-einwilligung-wunsch', {
             email: email.trim().toLowerCase(),
             zeit: Date.now(),
             regeln: form.get('regeln') === 'on',
@@ -77,7 +77,7 @@ export default function Anmelden() {
         const sb = await supabase()
         const { error } = await sb.auth.signInWithOtp({ email: email.trim(), options: { emailRedirectTo: anmeldeZiel(zurueck), shouldCreateUser: true } })
         if (error) {
-            schreib('aigeddon-einwilligung-wunsch', null)
+            schreib('mentat-einwilligung-wunsch', null)
             setStatus('bereit')
             setFehler(
                 error.status === 429
