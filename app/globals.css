@@ -460,7 +460,9 @@ main {
     color: inherit;
 }
 
-:root[data-theme='dark'] .lead strong,
+:root[data-theme='dark'] .lead strong {
+    background: linear-gradient(transparent 55%, color-mix(in srgb, var(--pop) 35%, transparent) 55%);
+}
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme='light']) .lead strong {
         background: linear-gradient(transparent 55%, color-mix(in srgb, var(--pop) 35%, transparent) 55%);
@@ -4951,9 +4953,13 @@ ul.kb-hero-chips {
 
 :root[data-theme='dark'] .kompass a:focus-visible,
 :root[data-theme='dark'] .toc-label ~ a:focus-visible,
-:root[data-theme='dark'] .news-themen a:focus-visible,
+:root[data-theme='dark'] .news-themen a:focus-visible {
+    outline-color: var(--accent);
+}
 :root[data-theme='dark'] .vernetzt :focus-visible,
-:root[data-theme='dark'] .hero .quick-links :focus-visible,
+:root[data-theme='dark'] .hero .quick-links :focus-visible {
+    outline-color: var(--pop);
+}
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme='light']) .kompass a:focus-visible,
     :root:not([data-theme='light']) .toc-label ~ a:focus-visible,
