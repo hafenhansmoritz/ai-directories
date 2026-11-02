@@ -94,7 +94,7 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 
 ## Wiederkehrend (eigene geplante Sitzungen, nicht hier abhaken)
 
-- **Monatlich:** KI-Tool-Datenbank neu einlesen: die drei Listen klonen (`git clone --depth 1`), `npm run kb:import -- <ordner>`, Sterne/Forks in `utils/kb/import.js` aktualisieren, Diff prüfen (neue/entfernte Tools), PR.
+- **Monatlich:** KI-Tool-Datenbank neu einlesen (tote Domains aus `db/kb-tot.json` filtert der Import automatisch heraus; vorher erneut prüfen, ob dort gelistete Seiten wieder leben): die drei Listen klonen (`git clone --depth 1`), `npm run kb:import -- <ordner>`, Sterne/Forks in `utils/kb/import.js` aktualisieren, Diff prüfen (neue/entfernte Tools), PR.
 
 - **Wöchentlich, Montag:** Sperr-Check. Alle Verzeichnisse mit Status in `db/checks.json` erneut prüfen, ob die Einreichung wieder offen ist, und die 30 Verzeichnisse mit dem höchsten Jean-Score prüfen, ob sie inzwischen gesperrt oder tot sind. Änderungen mit Quelle eintragen.
 - **Monatlich, am 1.:** Preis-Check aller Tools in `db/tools.json` und aller Rechner-Preise in `lib/preise.js` (API-Modelle, Abos) gegen die offiziellen Preisseiten, `TOOLS_STAND` und `PREISE_STAND` aktualisieren. Achtung: Gemini 4 Argon verdoppelt am 1.12.2026 den Preis.
@@ -103,6 +103,8 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - **Täglich (GitHub Actions, 04:17 UTC):** Neubau der Seite, damit Deal und Tool des Tages wechseln. Danach berechnet `utils/vernetzung/build.mjs` die interne Verlinkung neu; hat sie sich geändert, baut der Workflow ein zweites Mal.
 
 ## Erledigt
+
+- 2026-11-02 · Tote Tools aus der KI-Tool-Datenbank entfernt: 29 Domains (gelöscht, nicht auflösbar, Vercel abgeschaltet, Fremdinhaber) in `db/kb-tot.json` mit Grund und Datum, Import filtert sie, Datenbank von 705 auf 676 Tools.
 
 - 2026-11-02 · Zehn-Schritte-Sitzung: Content-Plan Woche 1 (Route /prompts/tool/[slug] mit Feld `fuer`, 10 ChatGPT-Prompts, Vergleich Claude vs. ChatGPT mit „Teste es selbst“), Vergleiche Lovable/Bolt/v0, Copilot/Cursor/Replit, Fireflies/tl;dv/Otter, DeepL/Grammarly/QuillBot, Tutorial Meeting-Notizen DSGVO, 5 Glossar-Begriffe, Aufklapp-Infos für 14 Steckbriefe.
 

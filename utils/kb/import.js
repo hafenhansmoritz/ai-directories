@@ -51,7 +51,7 @@ const clean = (s) =>
 const domainOf = (url) => {
     try {
         const u = new URL(url)
-        const host = u.hostname.replace(/^www\./, '')
+        const host = u.hostname.replace(/^w{3,4}\./, '')
         if (host === 'github.com') return `github.com/${u.pathname.split('/').slice(1, 3).join('/').toLowerCase()}`
         if (host === 'huggingface.co') return `huggingface.co/${u.pathname.split('/').slice(1, 4).join('/').toLowerCase()}`
         return host
@@ -114,7 +114,9 @@ function parse(source) {
     return out
 }
 
-const all = SOURCES.flatMap(parse)
+// Tote Domains (db/kb-tot.json) nicht übernehmen, sonst kämen sie beim monatlichen Import zurück.
+const TOT = new Set(require('../../db/kb-tot.json').eintraege.map((e) => e.domain))
+const all = SOURCES.flatMap(parse).filter((e) => !TOT.has(e.domain))
 const byDomain = new Map()
 for (const e of all) {
     const cur = byDomain.get(e.domain)
