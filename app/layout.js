@@ -24,6 +24,7 @@ import { KONTO_AKTIV } from '../lib/konto'
 import HauptNav from './components/HauptNav'
 import MerkZaehler from './components/MerkZaehler'
 import RuheKnopf from './components/RuheKnopf'
+import ThemeSchalter from './components/ThemeSchalter'
 import { HeuteKarte } from './components/HeuteWidgets'
 import SENF_TEXTE from '../db/texte/hubs.json'
 import JsonLd from './components/JsonLd'
@@ -208,6 +209,11 @@ export default function RootLayout({ children }) {
                 {process.env.NODE_ENV === 'production' && <meta httpEquiv="Content-Security-Policy" content={CSP} />}
                 <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME}: Neues auf einen Blick`} href={absoluteUrl('/feed.xml')} />
                 <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME}: KI-News`} href={absoluteUrl('/ki-news/feed.xml')} />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(){try{var t=localStorage.getItem('mentat-theme');if(t==='"dark"'||t==='dark'){document.documentElement.dataset.theme='dark'}else if(t==='"light"'||t==='light'){document.documentElement.dataset.theme='light'}}catch(e){}})()`,
+                    }}
+                />
             </head>
             <body>
                 <JeanSprite />
@@ -226,6 +232,7 @@ export default function RootLayout({ children }) {
                         </Link>
                         <Gruss />
                         <div className="konto-leiste">
+                            <ThemeSchalter kompakt className="header-theme-toggle" />
                             {!KONTO_AKTIV && <MerkZaehler />}
                             <Glocke />
                             <KontoKnopf />

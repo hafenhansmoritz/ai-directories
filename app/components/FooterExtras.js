@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import ThemeSchalter from './ThemeSchalter'
 import { lies, schreib, toast, verleihe, setzeRuhe, kuerzelAus, setzeKuerzel } from '../../lib/herz'
 
 // Farbwahl, Ruhe-Modus, Tastenkürzel-Schalter und ein Gruß zum Wochentag im Footer.
@@ -80,6 +81,7 @@ export default function FooterExtras() {
                         />
                     ))}
                 </div>
+                <ThemeSchalter />
                 <button type="button" className="ruhe-knopf" aria-pressed={still} onClick={ruhe}>
                     <span aria-hidden="true">{still ? '🌙' : '✨'}</span> {still ? 'Ruhe-Modus an' : 'Ruhe-Modus'}
                 </button>

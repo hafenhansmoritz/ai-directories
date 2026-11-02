@@ -1,8 +1,8 @@
 // Kompletter Build der statischen Fassung, lokal genauso wie in der CI (npm run build:pages).
 // 1. Vorschaubild-Route unter [slug] kurz beiseitelegen (Next.js 14 kann sie nicht statisch exportieren)
-// 2. next build, interne Verlinkung aus out/ neu berechnen, bei geändertem Netz noch einmal bauen
+// 2. next build, interne Verlinkung aus out/ neu berechnen, bei geaendertem Netz noch einmal bauen
 // 3. fix-og (PNG-Vorschaubilder, doppelter basePath) und .nojekyll
-// Die Vorschaubild-Datei kommt immer zurück, auch wenn der Build scheitert oder abgebrochen wird.
+// Die Vorschaubild-Datei kommt immer zurueck, auch wenn der Build scheitert oder abgebrochen wird.
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
@@ -53,11 +53,23 @@ if (fs.existsSync(ogNode)) {
 const nextBuildIdx = path.join(WURZEL, 'node_modules/next/dist/build/index.js')
 if (fs.existsSync(nextBuildIdx)) {
     const src = fs.readFileSync(nextBuildIdx, 'utf8')
-    const fixed = src.replace(
+    let fixed = src.replace(
         /await _fs\.promises\.rm\(exportOptions\.outdir, \{\s*recursive: true,\s*force: true\s*\}\);/g,
         'await _fs.promises.rm(exportOptions.outdir, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 }).catch(() => {});'
     )
+    fixed = fixed.replace(
+        /async function readManifest\(filePath\) \{\s*return JSON\.parse\(await readFileUtf8\(filePath\)\);\s*\}/g,
+        'async function readManifest(filePath) { for (let i = 0; i < 30; i++) { try { return JSON.parse(await readFileUtf8(filePath)); } catch (err) { if (err.code === "ENOENT" && i < 29) { await new Promise((r) => setTimeout(r, 200)); continue; } throw err; } } }'
+    )
     if (fixed !== src) fs.writeFileSync(nextBuildIdx, fixed)
+}
+
+const loadManifestPath = path.join(WURZEL, 'node_modules/next/dist/server/load-manifest.js')
+if (fs.existsSync(loadManifestPath)) {
+    const src = fs.readFileSync(loadManifestPath, 'utf8')
+    const target = 'let manifest = JSON.parse((0, _fs.readFileSync)(path, "utf8"));'
+    const replacement = 'let manifest; for (let i = 0; i < 30; i++) { try { manifest = JSON.parse((0, _fs.readFileSync)(path, "utf8")); break; } catch (err) { if (err.code === "ENOENT" && i < 29) { const s = Date.now(); while (Date.now() - s < 200) {} continue; } throw err; } }'
+    if (src.includes(target)) fs.writeFileSync(loadManifestPath, src.replace(target, replacement))
 }
 
 const next = path.join(WURZEL, 'node_modules/next/dist/bin/next')
@@ -75,7 +87,7 @@ try {
     const alt = fs.existsSync(NETZ) ? fs.readFileSync(NETZ, 'utf8') : ''
     lauf(process.execPath, ['utils/vernetzung/build.mjs', 'out'])
     if (fs.readFileSync(NETZ, 'utf8') !== alt) {
-        console.log('\nVernetzung hat sich geändert, zweiter Build, damit „Passt dazu“ aktuell ist.')
+        console.log('\nVernetzung hat sich geaendert, zweiter Build, damit "Passt dazu" aktuell ist.')
         lauf(process.execPath, [next, 'build'])
     }
     lauf(process.execPath, ['utils/export/fix-og.js'])
