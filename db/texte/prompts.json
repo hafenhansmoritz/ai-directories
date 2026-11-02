@@ -474,9 +474,9 @@
   "jean": "Ein Projekt ist wie eine eingerichtete Werkbank: Werkzeug liegt da, wo du es suchst."
  },
  "chatgpt-agent-auftrag": {
-  "intro": "Der Agent klickt sich selbst durch Webseiten. Das spart Zeit, solange klar ist, was er darf und was nicht. Dieser Prompt setzt die Leitplanken, bevor er losfährt.",
+  "intro": "ChatGPT Work erledigt längere Aufgaben in mehreren Schritten selbstständig. Das spart Zeit, solange klar ist, was erlaubt ist und was nicht. Dieser Prompt setzt die Leitplanken, bevor es losgeht. Laut OpenAI hat Work den früheren ChatGPT-Agenten abgelöst.",
   "tipp": "Schreib die Grenzen ausdrücklich hin, auch wenn sie dir selbstverständlich erscheinen. Für den Agenten ist nichts selbstverständlich.",
-  "fehler": "Den Agenten mit offenem Auftrag losschicken und hinterher wundern, wo er überall war.",
+  "fehler": "Einen offenen Auftrag losschicken und hinterher wundern, was alles passiert ist.",
   "jean": "Erst Leitplanken, dann Gas geben."
  },
  "chatgpt-bild-erstellen": {
@@ -516,9 +516,9 @@
   "jean": "Überarbeiten heißt nicht austauschen."
  },
  "chatgpt-custom-gpt-bauplan": {
-  "intro": "Ein eigener GPT ist schnell angeklickt, aber ohne Plan antwortet er beliebig. Dieser Prompt liefert Anweisungen, Gesprächsstarter, Dateiliste und Testfragen in einem Rutsch.",
-  "tipp": "Teste mit Fragen, deren Antwort nicht in den Dateien steht. Ein guter GPT sagt dann „steht nicht drin“.",
-  "fehler": "Interne Preislisten oder Kundendaten in einen GPT laden, den andere nutzen können.",
+  "intro": "Ein eigener Assistent ist schnell eingerichtet, aber ohne Plan antwortet er beliebig. Dieser Prompt liefert Anweisungen, Startfragen, Dateiliste und Testfragen in einem Rutsch. Hinweis: Laut OpenAI werden Custom GPTs am 11. Dezember 2026 abgeschaltet, private Konten können keine neuen mehr anlegen. Der Bauplan passt genauso für ein Projekt oder ein Plugin.",
+  "tipp": "Teste mit Fragen, deren Antwort nicht in den Dateien steht. Ein guter Assistent sagt dann „steht nicht drin“.",
+  "fehler": "Interne Preislisten oder Kundendaten in einen Assistenten laden, den andere nutzen können.",
   "jean": "Erst der Bauplan, dann das Werkzeug."
  },
  "chatgpt-antwort-gegenpruefen": {

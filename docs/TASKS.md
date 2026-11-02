@@ -31,25 +31,20 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
 
 ### Automatisch abzuarbeiten (Reihenfolge = Priorität)
 - Content-Plan Tool-Prompts (`docs/CONTENT-PLAN-TOOL-PROMPTS.md`): eine Woche pro Sitzung, von oben. Verlinkungsregel aus dem Plan beachten. Höchstens eine Woche pro Kalenderwoche, gesteuert über „fällig ab“. Nach jeder Veröffentlichung zwei Mess-Aufgaben direkt unter dieser Liste eintragen, nach Fälligkeit sortiert, Format: `- [ ] **Messung <Stück>** (fällig ab JJJJ-MM-TT, braucht Datei docs/gsc/JJJJ-MM-TT.csv): Ziel-Keyword, URL`.
+  - [ ] **Messung Prompt-Seiten je Tool** (fällig ab 2026-11-30, braucht Datei docs/gsc/2026-11-30.csv): „<tool> prompts“ laut Content-Plan; /prompts/tool/google-gemini, /prompts/tool/claude, /prompts/tool/microsoft-copilot, /prompts/tool/notebooklm, /prompts/tool/perplexity, /prompts/tool/suno, /prompts/tool/midjourney, /prompts/tool/elevenlabs, /prompts/tool/leonardo-ai, /prompts/tool/ideogram, /prompts/tool/runway, /prompts/tool/kling-ai, /prompts/tool/invideo-ai, /prompts/tool/heygen, /prompts/tool/gamma, /prompts/tool/canva
+  - [ ] **Messung Chat-Verlauf-Ratgeber** (fällig ab 2026-11-30, braucht Datei docs/gsc/2026-11-30.csv): chatgpt verlauf löschen, claude memory, chatgpt projekte, chatgpt chats exportieren, chatgpt memory; /ratgeber/chatgpt-verlauf-loeschen, /ratgeber/claude-memory, /ratgeber/chatgpt-projekte-vs-claude-projekte, /ratgeber/chats-exportieren-umziehen, /ratgeber/chatgpt-memory
+  - [ ] **Messung Vergleiche Gemini/Perplexity vs. ChatGPT** (fällig ab 2026-11-30, braucht Datei docs/gsc/2026-11-30.csv): gemini vs chatgpt, perplexity vs chatgpt; /tool-vergleiche/gemini-vs-chatgpt, /tool-vergleiche/perplexity-vs-chatgpt
+  - [ ] **Messung Steckbrief-Ausbau „So startest du“** (fällig ab 2026-11-30, braucht Datei docs/gsc/2026-11-30.csv): Keywords Cluster D laut Content-Plan; /tools/gamma, /tools/descript, /tools/runway, /tools/writesonic, /tools/surfer-seo, /tools/wordtune, /tools/leonardo-ai, /tools/make, /tools/elevenlabs, /tools/n8n, /tools/rytr, /tools/heygen
+  - [ ] **Messung Anwendungsfall-Hubs** (fällig ab 2026-11-30, braucht Datei docs/gsc/2026-11-30.csv): Keywords Cluster E laut Content-Plan; /ratgeber/chatgpt-bewerbung, /ratgeber/mit-chatgpt-uebersetzen, /ratgeber/prompt-vorlagen, /ratgeber/chatgpt-excel, /ratgeber/chatgpt-agent-erklaert, /ratgeber/seo-prompts-chatgpt, /ratgeber/gpts-erstellen, /ratgeber/prompt-engineering
+  - [ ] **Messung Prompt-Seiten je Tool** (fällig ab 2026-12-28, braucht Datei docs/gsc/2026-12-28.csv): „<tool> prompts“ laut Content-Plan; /prompts/tool/google-gemini, /prompts/tool/claude, /prompts/tool/microsoft-copilot, /prompts/tool/notebooklm, /prompts/tool/perplexity, /prompts/tool/suno, /prompts/tool/midjourney, /prompts/tool/elevenlabs, /prompts/tool/leonardo-ai, /prompts/tool/ideogram, /prompts/tool/runway, /prompts/tool/kling-ai, /prompts/tool/invideo-ai, /prompts/tool/heygen, /prompts/tool/gamma, /prompts/tool/canva
+  - [ ] **Messung Chat-Verlauf-Ratgeber** (fällig ab 2026-12-28, braucht Datei docs/gsc/2026-12-28.csv): chatgpt verlauf löschen, claude memory, chatgpt projekte, chatgpt chats exportieren, chatgpt memory; /ratgeber/chatgpt-verlauf-loeschen, /ratgeber/claude-memory, /ratgeber/chatgpt-projekte-vs-claude-projekte, /ratgeber/chats-exportieren-umziehen, /ratgeber/chatgpt-memory
+  - [ ] **Messung Vergleiche Gemini/Perplexity vs. ChatGPT** (fällig ab 2026-12-28, braucht Datei docs/gsc/2026-12-28.csv): gemini vs chatgpt, perplexity vs chatgpt; /tool-vergleiche/gemini-vs-chatgpt, /tool-vergleiche/perplexity-vs-chatgpt
+  - [ ] **Messung Steckbrief-Ausbau „So startest du“** (fällig ab 2026-12-28, braucht Datei docs/gsc/2026-12-28.csv): Keywords Cluster D laut Content-Plan; /tools/gamma, /tools/descript, /tools/runway, /tools/writesonic, /tools/surfer-seo, /tools/wordtune, /tools/leonardo-ai, /tools/make, /tools/elevenlabs, /tools/n8n, /tools/rytr, /tools/heygen
+  - [ ] **Messung Anwendungsfall-Hubs** (fällig ab 2026-12-28, braucht Datei docs/gsc/2026-12-28.csv): Keywords Cluster E laut Content-Plan; /ratgeber/chatgpt-bewerbung, /ratgeber/mit-chatgpt-uebersetzen, /ratgeber/prompt-vorlagen, /ratgeber/chatgpt-excel, /ratgeber/chatgpt-agent-erklaert, /ratgeber/seo-prompts-chatgpt, /ratgeber/gpts-erstellen, /ratgeber/prompt-engineering
   - [ ] **Messung ChatGPT-Prompts** (fällig ab 2026-11-30, braucht Datei docs/gsc/2026-11-30.csv): chatgpt prompts, /prompts/tool/chatgpt
   - [ ] **Messung Claude vs. ChatGPT** (fällig ab 2026-11-30, braucht Datei docs/gsc/2026-11-30.csv): claude vs chatgpt, /tool-vergleiche/claude-vs-chatgpt
   - [ ] **Messung ChatGPT-Prompts** (fällig ab 2026-12-28, braucht Datei docs/gsc/2026-12-28.csv): chatgpt prompts, /prompts/tool/chatgpt
   - [ ] **Messung Claude vs. ChatGPT** (fällig ab 2026-12-28, braucht Datei docs/gsc/2026-12-28.csv): claude vs chatgpt, /tool-vergleiche/claude-vs-chatgpt
-  - [ ] **Content-Plan Woche 2** (fällig ab 2026-11-09): ChatGPT-Verlauf löschen; Gemini vs. ChatGPT; Gemini-Prompts
-  - [ ] **Content-Plan Woche 3** (fällig ab 2026-11-16): Claude Memory; Suno-Prompts; ChatGPT für die Bewerbung
-  - [ ] **Content-Plan Woche 4** (fällig ab 2026-11-23): Gamma-Steckbrief-Ausbau; Mit ChatGPT übersetzen; Prompt-Vorlagen-Hub
-  - [ ] **Content-Plan Woche 5** (fällig ab 2026-11-30): Descript-Steckbrief-Ausbau; Copilot-Prompts; ChatGPT- vs. Claude-Projekte
-  - [ ] **Content-Plan Woche 6** (fällig ab 2026-12-07): Midjourney-Prompts; Perplexity vs. ChatGPT; Chats exportieren und umziehen
-  - [ ] **Content-Plan Woche 7** (fällig ab 2026-12-14): Claude-Prompts; ChatGPT und Excel; Runway-Ausbau
-  - [ ] **Content-Plan Woche 8** (fällig ab 2026-12-21): ChatGPT Agent erklärt; Writesonic-Ausbau; Surfer-Ausbau
-  - [ ] **Content-Plan Woche 9** (fällig ab 2026-12-28): Wordtune-Ausbau; Leonardo-Ausbau; ChatGPT Memory
-  - [ ] **Content-Plan Woche 10** (fällig ab 2027-01-04): NotebookLM-Prompts; Canva Magic Write; SEO-Prompts für ChatGPT
-  - [ ] **Content-Plan Woche 11** (fällig ab 2027-01-11): Rytr-Ausbau; Make-Ausbau; GPTs erstellen
-  - [ ] **Content-Plan Woche 12** (fällig ab 2027-01-18): n8n-Ausbau; ElevenLabs-Ausbau; HeyGen-Ausbau
-  - [ ] **Content-Plan Woche 13** (fällig ab 2027-01-25): Prompt-Engineering-Pillar; Gamma-Prompts
-  - [ ] **Content-Plan Woche 14** (fällig ab 2027-02-01): HeyGen-Prompts; Perplexity-Prompts; ElevenLabs-Prompts
-  - [ ] **Content-Plan Woche 15** (fällig ab 2027-02-08): Leonardo-AI-Prompts; Ideogram-Prompts; Runway-Prompts
-  - [ ] **Content-Plan Woche 16** (fällig ab 2027-02-15): Kling-Prompts; InVideo-Prompts
 Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die angegebene Menge). Ton immer nach `docs/BRAND-VOICE.md`, Fakten nur mit offizieller Quelle, Unikat-Texte in `db/texte/*.json`.
 - [ ] **Steckbriefe** je Runde 5 weitere Tools aus den Konsens-Tools (3/3 und 2/3) der KI-Tool-Datenbank in `db/tools.json`, dazu Jeans Meinung in `db/texte/tools.json`.
 - [ ] **Prompts** je Runde 6 neue in `lib/prompts.js` (Coding, Bild, Recht und Verträge, Vereinsarbeit, Agenturen), dazu Intro/Tipp/Fehler in `db/texte/prompts.json`.
@@ -63,6 +58,7 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - [ ] **Cursor-Steckbrief und Vergleich nachprüfen**: Preisseite zeigt seit Herbst 2026 ein Paket mit Grok und X (Plus 8 USD, nur Grok-Modelle). Beim nächsten Preis-Check im Browser bestätigen.
 - [ ] **Otter-Preis in `db/tools.json`**: 8,49 USD ist laut Preisseite ein Aktionspreis für Neukunden, regulär 16,99 USD monatlich. Beim Preis-Check korrigieren.
 - [ ] **StartupBase** (fällig ab 2027-02-01): „Sign ups are closed until January 31st“ prüfen, ob Anmeldung wieder offen ist.
+- [ ] **Ratgeber `ki-agenten-selbststaendige-deutschland` prüfen**: ChatGPT-Agent laut OpenAI-Hilfe (help.openai.com/en/articles/11752874) eingestellt, Verfügbarkeit von ChatGPT Work je Tarif auf chatgpt.com/work gegenprüfen (Hinweis aus der Hub-Recherche: Work auf dem Desktop in allen Tarifen, Cloud-Browser nicht in Free und Go).
 - [ ] **Top 50 als echter Lead-Magnet**: Sobald der Newsletter läuft, CSV-Download an das Abo koppeln. *wartet auf Newsletter*
 
 ## Herzstücke-Backlog (verworfene Ideen aus Runde 2, bei Bedarf umsetzen)
@@ -99,6 +95,8 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - **Täglich (GitHub Actions, 04:17 UTC):** Neubau der Seite, damit Deal und Tool des Tages wechseln. Danach berechnet `utils/vernetzung/build.mjs` die interne Verlinkung neu; hat sie sich geändert, baut der Workflow ein zweites Mal.
 
 ## Erledigt
+
+- 2026-11-02 · Content-Plan Wochen 2 bis 16 auf Wunsch von Jean vorgezogen: 16 Prompt-Seiten je Tool mit 101 tool-spezifischen Prompts (Gemini, Claude, Copilot, NotebookLM, Perplexity, Suno, Midjourney, ElevenLabs, Leonardo, Ideogram, Runway, Kling, invideo, HeyGen, Gamma, Canva Magic Write), Vergleiche Gemini vs. ChatGPT und Perplexity vs. ChatGPT, 5 Chat-Verlauf-Ratgeber, 8 Anwendungsfall-Hubs, „So startest du“ für 12 Steckbriefe. Mess-Aufgaben gebündelt je Cluster. ChatGPT-Agent laut OpenAI eingestellt: Prompts auf ChatGPT Work umgestellt, GPT-Bauplan auf Projekt/Plugin.
 
 - 2026-11-02 · Product-Hunt-Fakten in `product-hunt-launch-deutsch` und `ki-tool-launchen-30-tage` aktualisiert (500 Zeichen, Logo bis 2 MB, Galerie ab 1 Bild, Start ab Mitternacht PT, neue Hilfe-URL). Tekpon auf „Paid“ (249 $ einmalig) in `directories/t.ts`, `db/directories.json`, README und `db/checks.json`.
 
