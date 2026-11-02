@@ -27,6 +27,8 @@ export function generateStaticParams() {
 const JEAN_SAGT = {
     'claude-vs-chatgpt': 'Beide können fast alles. Entscheide nach dem, was du jeden Tag machst, nicht nach der letzten Schlagzeile.',
     'chatgpt-vs-claude-vs-gemini': 'Lebst du in Gmail und Drive, nimm Gemini. Sonst entscheidet, ob du eher Bilder machst oder lange Texte und Code schreibst.',
+    'gemini-vs-chatgpt': 'Die Frage ist nicht, welche KI klüger ist, sondern wo dein Arbeitstag stattfindet. In Gmail und Drive: Gemini. Verstreut über viele Apps: ChatGPT.',
+    'perplexity-vs-chatgpt': 'Willst du wissen, woher eine Zahl kommt, frag Perplexity. Soll aus der Zahl ein fertiger Text oder ein Bild werden, frag ChatGPT.',
     'lovable-vs-bolt-new-vs-v0': 'Alle drei bauen dir in Minuten eine App. Ob du sie in drei Monaten noch verstehst, liegt an dir, nicht am Tool.',
     'github-copilot-vs-cursor-vs-replit': 'Du hast einen Editor, den du liebst? Copilot. Du willst einen neuen? Cursor. Du willst gar keinen installieren? Replit.',
     'fireflies-ai-vs-tldv-vs-otter-ai': 'Erst Datenschutz, dann Funktionen. Ein Protokoll-Bot, den dein Kunde nicht im Meeting haben will, bringt dir gar nichts.',
