@@ -427,11 +427,6 @@ code {
     }
 }
 
-.site-header nav a:hover {
-    color: var(--accent-contrast);
-    animation: wobble 0.5s;
-}
-
 main {
     padding-bottom: 48px;
 }

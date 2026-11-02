@@ -61,6 +61,8 @@ export default function Herzstuecke() {
     // Einmal pro Seitenaufruf: Einstellungen anwenden, Saison, Besuche, Konsole, Pausen, Kopieren, Tab-Titel.
     useEffect(() => {
         const html = document.documentElement
+        const theme = lies('mentat-theme')
+        if (theme === 'dark' || theme === 'light') html.dataset.theme = theme
         const akzent = lies('mentat-akzent')
         if (akzent) html.dataset.akzent = akzent
         if (lies('mentat-ruhig')) html.dataset.ruhig = 'an'
