@@ -58,7 +58,6 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - [ ] **Cursor-Steckbrief und Vergleich nachprüfen**: Preisseite zeigt seit Herbst 2026 ein Paket mit Grok und X (Plus 8 USD, nur Grok-Modelle). Beim nächsten Preis-Check im Browser bestätigen.
 - [ ] **Otter-Preis in `db/tools.json`**: 8,49 USD ist laut Preisseite ein Aktionspreis für Neukunden, regulär 16,99 USD monatlich. Beim Preis-Check korrigieren.
 - [ ] **StartupBase** (fällig ab 2027-02-01): „Sign ups are closed until January 31st“ prüfen, ob Anmeldung wieder offen ist.
-- [ ] **Ratgeber `ki-agenten-selbststaendige-deutschland` prüfen**: ChatGPT-Agent laut OpenAI-Hilfe (help.openai.com/en/articles/11752874) eingestellt, Verfügbarkeit von ChatGPT Work je Tarif auf chatgpt.com/work gegenprüfen (Hinweis aus der Hub-Recherche: Work auf dem Desktop in allen Tarifen, Cloud-Browser nicht in Free und Go).
 - [ ] **Top 50 als echter Lead-Magnet**: Sobald der Newsletter läuft, CSV-Download an das Abo koppeln. *wartet auf Newsletter*
 
 ## Herzstücke-Backlog (verworfene Ideen aus Runde 2, bei Bedarf umsetzen)
@@ -95,6 +94,8 @@ Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die ange
 - **Täglich (GitHub Actions, 04:17 UTC):** Neubau der Seite, damit Deal und Tool des Tages wechseln. Danach berechnet `utils/vernetzung/build.mjs` die interne Verlinkung neu; hat sie sich geändert, baut der Workflow ein zweites Mal.
 
 ## Erledigt
+
+- 2026-11-02 · Ratgeber `ki-agenten-selbststaendige-deutschland`: Verfügbarkeit von ChatGPT Work laut chatgpt.com/work korrigiert (Desktop alle Tarife, Web und mobil ab Plus), Hinweis auf eingestellten ChatGPT-Agenten, zwei Quellen ergänzt.
 
 - 2026-11-02 · Content-Plan Wochen 2 bis 16 auf Wunsch von Jean vorgezogen: 16 Prompt-Seiten je Tool mit 101 tool-spezifischen Prompts (Gemini, Claude, Copilot, NotebookLM, Perplexity, Suno, Midjourney, ElevenLabs, Leonardo, Ideogram, Runway, Kling, invideo, HeyGen, Gamma, Canva Magic Write), Vergleiche Gemini vs. ChatGPT und Perplexity vs. ChatGPT, 5 Chat-Verlauf-Ratgeber, 8 Anwendungsfall-Hubs, „So startest du“ für 12 Steckbriefe. Mess-Aufgaben gebündelt je Cluster. ChatGPT-Agent laut OpenAI eingestellt: Prompts auf ChatGPT Work umgestellt, GPT-Bauplan auf Projekt/Plugin.
 
