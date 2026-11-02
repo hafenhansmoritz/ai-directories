@@ -26,6 +26,7 @@ export function generateStaticParams() {
 // „Jean sagt“ je Vergleich, nur aus den Angaben auf der jeweiligen Seite (BRAND-VOICE: pro Seite einzigartig).
 const JEAN_SAGT = {
     'claude-vs-chatgpt': 'Beide können fast alles. Entscheide nach dem, was du jeden Tag machst, nicht nach der letzten Schlagzeile.',
+    'chatgpt-vs-claude-vs-gemini': 'Lebst du in Gmail und Drive, nimm Gemini. Sonst entscheidet, ob du eher Bilder machst oder lange Texte und Code schreibst.',
     'lovable-vs-bolt-new-vs-v0': 'Alle drei bauen dir in Minuten eine App. Ob du sie in drei Monaten noch verstehst, liegt an dir, nicht am Tool.',
     'github-copilot-vs-cursor-vs-replit': 'Du hast einen Editor, den du liebst? Copilot. Du willst einen neuen? Cursor. Du willst gar keinen installieren? Replit.',
     'fireflies-ai-vs-tldv-vs-otter-ai': 'Erst Datenschutz, dann Funktionen. Ein Protokoll-Bot, den dein Kunde nicht im Meeting haben will, bringt dir gar nichts.',
