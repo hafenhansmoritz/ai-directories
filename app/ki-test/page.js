@@ -98,7 +98,7 @@ function KiTestPage() {
                                 {k.emoji}
                             </span>
                             <strong>{k.name}</strong>
-                            <span>{k.intro.split('.')[0]}.</span>
+                            <span>{k.intro.split(/[.?!]/)[0].trim()}.</span>
                             <span className="entry-count">{k.tests.length} Aufgaben</span>
                         </Link>
                     </li>
