@@ -717,5 +717,12 @@
   "quote": "A link back to our site is now mandatory for all free listings.",
   "source": "https://www.toolpilot.ai/pages/submit-your-ai-tool",
   "status": null
+ },
+ "tekpon": {
+  "approval": "Einmalige Gebühr von 249 $, bei Ablehnung volle Erstattung laut Anbieter",
+  "link_type": null,
+  "quote": "$ 249 /One-Time Fee",
+  "source": "https://tekpon.com/get-listed/",
+  "status": null
  }
 }
