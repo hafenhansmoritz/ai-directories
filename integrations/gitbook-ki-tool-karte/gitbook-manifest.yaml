@@ -1,0 +1,25 @@
+name: aigeddon-ki-tool-karte
+title: KI-Tool-Karte (AIGeddon)
+description: Fügt Karten zu KI-Tools aus AIGeddon ein, mit Preis, Gratis-Tarif und Anbieter-Link.
+summary: |
+    Tool auswählen oder einen AIGeddon-Steckbrief-Link einfügen, und der Block zeigt Kurzbeschreibung,
+    Preis ab, Gratis-Tarif, deutsche Oberfläche sowie einen Button zum Anbieter. Ist für das Tool ein
+    Partnerlink hinterlegt, ist er mit * gekennzeichnet. Daten: https://jmp-collab.github.io/ai-directories/api/tools.json
+# Hier die eigene GitBook-Organisation eintragen (ID oder Subdomain), dann `gitbook publish`.
+organization: DEINE-ORGANISATION
+visibility: private
+script: ./src/index.tsx
+scopes: []
+blocks:
+    - id: ki-tool-karte
+      title: KI-Tool-Karte
+      description: Steckbrief eines KI-Tools mit Preis und Anbieter-Link
+      urlUnfurl:
+          - https://jmp-collab.github.io/ai-directories/tools/
+configurations:
+    account:
+        properties:
+            api_url:
+                type: string
+                title: Daten-Adresse
+                description: JSON mit den Tool-Steckbriefen. Leer lassen für AIGeddon.

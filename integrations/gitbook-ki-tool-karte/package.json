@@ -1,0 +1,19 @@
+{
+    "name": "aigeddon-ki-tool-karte",
+    "private": true,
+    "version": "0.1.0",
+    "scripts": {
+        "dev": "gitbook dev",
+        "publish-integration": "gitbook publish .",
+        "typecheck": "tsc -p tsconfig.json"
+    },
+    "dependencies": {
+        "@gitbook/runtime": "^0.23.3",
+        "@gitbook/api": "^0.208.0"
+    },
+    "devDependencies": {
+        "@cloudflare/workers-types": "^5.20261102.1",
+        "@gitbook/cli": "^0.32.12",
+        "typescript": "^7.0.2"
+    }
+}
