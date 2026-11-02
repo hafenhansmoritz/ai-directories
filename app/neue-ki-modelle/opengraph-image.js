@@ -3,7 +3,7 @@ import { MODELLE, MODELLE_STAND } from '../../lib/modelle'
 
 export const size = ogSize
 export const contentType = 'image/png'
-export const alt = 'Neue KI-Modelle auf AIGeddon'
+export const alt = 'Neue KI-Modelle auf mentat.codes'
 
 export default function Image() {
     return ogImage({

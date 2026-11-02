@@ -122,7 +122,7 @@ function BegriffPage({ params }) {
             )}
             {b.href && (
                 <p className="service-hint">
-                    <strong>Weiter lernen:</strong> <Link href={b.href}>Passende Seite auf AIGeddon →</Link>
+                    <strong>Weiter lernen:</strong> <Link href={b.href}>Passende Seite auf mentat.codes →</Link>
                 </p>
             )}
             {verwandt.length > 0 && (

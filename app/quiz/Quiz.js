@@ -109,7 +109,7 @@ export default function Quiz({ options }) {
         setAnswers({})
     }
 
-    const teilText = `Meine passenden KI-Verzeichnisse laut AIGeddon-Quiz:\n${results.map((d, i) => `${i + 1}. ${d.name}`).join('\n')}\n\nSelbst ausprobieren:`
+    const teilText = `Meine passenden KI-Verzeichnisse laut mentat.codes-Quiz:\n${results.map((d, i) => `${i + 1}. ${d.name}`).join('\n')}\n\nSelbst ausprobieren:`
 
     return (
         <div className="quiz">

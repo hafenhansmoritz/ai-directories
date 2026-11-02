@@ -10,12 +10,12 @@ export const metadata = {
     title: 'Ratgeber: KI-Tools richtig in Verzeichnisse eintragen',
     description: 'Anleitungen und ehrliche Einordnungen rund um KI-Verzeichnisse, Backlinks, SEO und Product-Hunt-Launches. Auf Deutsch, mit Humor.',
     alternates: { canonical: '/ratgeber' },
-    openGraph: ogMeta({ url: '/ratgeber', bild: OG_BILDER.ratgeber, alt: 'Ratgeber auf AIGeddon' }),
+    openGraph: ogMeta({ url: '/ratgeber', bild: OG_BILDER.ratgeber, alt: 'Ratgeber auf mentat.codes' }),
 }
 
 function RatgeberIndex() {
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Ratgeber', path: '/ratgeber' },
     ]
     return (

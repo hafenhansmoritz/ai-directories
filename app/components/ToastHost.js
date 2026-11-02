@@ -41,11 +41,11 @@ export default function ToastHost() {
             const verdeckt = [...host.current.querySelectorAll('.toast')].some((t) => ueberlappt(t.getBoundingClientRect(), r))
             if (verdeckt) setListe([])
         }
-        window.addEventListener('aigeddon-toast', neu)
+        window.addEventListener('mentat-toast', neu)
         window.addEventListener('keydown', taste)
         document.addEventListener('focusin', fokus)
         return () => {
-            window.removeEventListener('aigeddon-toast', neu)
+            window.removeEventListener('mentat-toast', neu)
             window.removeEventListener('keydown', taste)
             document.removeEventListener('focusin', fokus)
         }

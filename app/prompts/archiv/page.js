@@ -56,7 +56,7 @@ function ArchivPage() {
             <PromptArchiv prompts={archiv.prompts} kategorien={KATEGORIEN} />
             <LeadMagnetBox id="prompt-paket" />
             <p className="source">
-                Prompt-Texte: <a href={archiv.quelle} rel="noopener">f/prompts.chat</a> und Mitwirkende, gemeinfrei (CC0 1.0). Auswahl, deutsche Titel und Kategorien: AIGeddon. Eigene Vorlagen mit Ausfüllfeldern: <Link href="/prompts">Prompt-Bibliothek</Link>.
+                Prompt-Texte: <a href={archiv.quelle} rel="noopener">f/prompts.chat</a> und Mitwirkende, gemeinfrei (CC0 1.0). Auswahl, deutsche Titel und Kategorien: mentat.codes. Eigene Vorlagen mit Ausfüllfeldern: <Link href="/prompts">Prompt-Bibliothek</Link>.
             </p>
         </>
     )

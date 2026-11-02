@@ -3,7 +3,7 @@ name: produkt-launch
 description: Plant den Launch eines Produkts, Tools oder Features in Phasen, mit eigenen, geliehenen und gemieteten Kanälen, Product Hunt, deutschsprachigen Verzeichnissen und einer Launch-Checkliste. Nutzen bei „Launch planen“, „Produkt veröffentlichen“, „Product Hunt Launch“, „Warteliste aufbauen“, „Beta starten“, „Feature ankündigen“, „Go-to-Market-Plan“ oder „Was haben wir diese Woche ausgeliefert?“.
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/launch"
 ---
@@ -83,4 +83,4 @@ Wenn es eine Datei mit Produkt- oder Marketingkontext im Projekt gibt, lies sie 
 - Keine Stimmenkäufe, Upvote-Ringe oder Fake-Bewertungen. Das verstößt gegen die Regeln der Plattformen und kann nach dem UWG unzulässig sein.
 - Rechtliche Hinweise ersetzen keine Rechtsberatung.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

@@ -43,7 +43,7 @@ function Spickzettel() {
                 <JeanIcon badge="prompt" cool size={72} />
                 <div>
                     <h1>Prompt-Spickzettel</h1>
-                    <p>AIGeddon · Prompt Engineering auf einer Seite</p>
+                    <p>mentat.codes · Prompt Engineering auf einer Seite</p>
                 </div>
             </header>
             <section>
@@ -76,7 +76,7 @@ function Spickzettel() {
                     ))}
                 </ol>
             </section>
-            <footer className="cheatsheet-foot">Mehr Prompts zum Absenden: AIGeddon → Prompt-Bibliothek und Prompt-Baukasten</footer>
+            <footer className="cheatsheet-foot">Mehr Prompts zum Absenden: mentat.codes → Prompt-Bibliothek und Prompt-Baukasten</footer>
         </article>
     )
 }

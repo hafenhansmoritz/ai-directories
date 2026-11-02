@@ -106,7 +106,7 @@ export default function NewsletterRechner() {
                     </div>
                 </dl>
                 <p className="rechner-hinweis">Alle Raten sind deine Annahmen. Starte konservativ und ersetze sie nach den ersten Ausgaben durch echte Zahlen aus deinem Newsletter-Tool.</p>
-                <RechnungTeilen titel="Was bringt mein Newsletter?" text={`Meine Newsletter-Rechnung auf AIGeddon: ${zusammenfassung}`} />
+                <RechnungTeilen titel="Was bringt mein Newsletter?" text={`Meine Newsletter-Rechnung auf mentat.codes: ${zusammenfassung}`} />
             </div>
         </div>
     )

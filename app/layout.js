@@ -54,10 +54,12 @@ const SITE_SCHEMA = [
         '@type': 'Organization',
         '@id': `${SITE_URL}/#organisation`,
         name: SITE_NAME,
+        alternateName: 'AIGeddon',
         url: SITE_URL,
         logo: absoluteUrl('/opengraph-image.png'),
         founder: { '@type': 'Person', '@id': AUTOR_ID, name: 'Jean Maurice Port', url: absoluteUrl('/ueber-jean') },
         sameAs: ['https://www.youtube.com/@AIGeddon', REPO_URL],
+        knowsAbout: ['KI-Verzeichnisse', 'AI Directories', 'KI-Tools', 'Prompt Engineering', 'Agent Skills', 'Technical SEO'],
         publishingPrinciples: absoluteUrl('/so-pruefen-wir'),
     },
     {
@@ -65,6 +67,7 @@ const SITE_SCHEMA = [
         '@type': 'WebSite',
         '@id': `${SITE_URL}/#website`,
         name: SITE_NAME,
+        alternateName: 'AIGeddon',
         url: SITE_URL,
         inLanguage: 'de-DE',
         publisher: { '@id': `${SITE_URL}/#organisation` },
@@ -141,7 +144,7 @@ const footerSpalten = () => [
 ]
 
 const TICKER = [
-    '☢️ Die KI-Apokalypse kommt. Dein Tool sollte vorher gelistet sein',
+    '⚡ Launch-Radar aktiv: Trag dein KI-Tool in die stärksten Verzeichnisse ein',
     '🚨 Eilmeldung: Backlink gesichtet, Gründer weint vor Glück',
     '🤖 Kein Roboter wurde beim Pflegen dieser Liste gelangweilt',
     '📈 DR 90 klingt toll, ist aber auch nur eine Zahl mit Selbstbewusstsein',
@@ -158,7 +161,7 @@ export const metadata = {
     },
     referrer: 'strict-origin-when-cross-origin',
     description:
-        'AIGeddon: die deutsche Liste der KI-Verzeichnisse mit Domain Rating, Traffic, Preis, Freischaltdauer und Einreichungs-Check. Dazu Launch-Kit, Ratgeber und KI-Use-Cases. Ehrlich, kostenlos und mit mehr Humor, als SEO erlaubt.',
+        'mentat.codes: die kuratierte Liste der KI-Verzeichnisse mit Domain Rating, Traffic, Preis, Freischaltdauer und Einreichungs-Check. Dazu Launch-Kit, Ratgeber und KI-Use-Cases. Ehrlich, kostenlos und mit mehr Humor, als SEO erlaubt.',
     applicationName: SITE_NAME,
     openGraph: {
         type: 'website',
@@ -175,8 +178,8 @@ export const metadata = {
 
 export const viewport = {
     themeColor: [
-        { media: '(prefers-color-scheme: light)', color: '#fbfaf7' },
-        { media: '(prefers-color-scheme: dark)', color: '#121417' },
+        { media: '(prefers-color-scheme: light)', color: '#f4f7fb' },
+        { media: '(prefers-color-scheme: dark)', color: '#0b0f19' },
     ],
 }
 
@@ -217,7 +220,7 @@ export default function RootLayout({ children }) {
                         <Link href="/" className="brand">
                             <JeanIcon cool badge="strahlung" size={44} className="brand-icon" />
                             <span>
-                                AIGEDDON <span aria-hidden="true">☢️</span>
+                                MENTAT.CODES <span aria-hidden="true">&gt;</span>
                             </span>
                             <span className="brand-sub">{SITE_TAGLINE}</span>
                         </Link>

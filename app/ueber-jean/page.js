@@ -7,8 +7,8 @@ import { AUTOR_ID } from '../../lib/autor'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 
 export const metadata = {
-    title: 'Über Jean Maurice Port: Autor von AIGeddon',
-    description: 'Jean Maurice Port schreibt und prüft die Inhalte auf AIGeddon. Senior SEO/SGE Manager bei der MotoMobilityGroup, Master of Arts in Wirtschaftswissenschaften der Universität Trier.',
+    title: 'Über Jean Maurice Port: Autor von mentat.codes',
+    description: 'Jean Maurice Port schreibt und prüft die Inhalte auf mentat.codes. Senior SEO/SGE Manager bei der MotoMobilityGroup, Master of Arts in Wirtschaftswissenschaften der Universität Trier.',
     alternates: { canonical: '/ueber-jean' },
     openGraph: { url: '/ueber-jean' },
 }
@@ -44,7 +44,7 @@ function AboutPage() {
             <section className="hero">
                 <p className="eyebrow">Der Autor hinter der Liste</p>
                 <h1>Jean Maurice Port</h1>
-                <p className="lead">Senior SEO/SGE Manager bei der MotoMobilityGroup. Auf AIGeddon schreibe und prüfe ich die Inhalte: KI-Verzeichnisse, Tools, Prompts und News.</p>
+                <p className="lead">Senior SEO/SGE Manager bei der MotoMobilityGroup. Auf mentat.codes schreibe und prüfe ich die Inhalte: KI-Verzeichnisse, Tools, Prompts und News.</p>
                 <Jean>Mehr gibt es über mich hier nicht zu lesen. Dafür umso mehr über KI-Tools.</Jean>
             </section>
 

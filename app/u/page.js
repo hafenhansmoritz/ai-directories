@@ -3,7 +3,7 @@ import Profil from './Profil'
 
 export const metadata = {
     title: 'Profil',
-    description: 'Mitgliederprofil in der AIGeddon-Community.',
+    description: 'Mitgliederprofil in der mentat.codes-Community.',
     robots: { index: false, follow: true },
 }
 

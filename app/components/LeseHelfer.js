@@ -18,8 +18,8 @@ export default function LeseHelfer() {
         setStelle(null)
         setRest(null)
         if (!LESESEITEN.test(pfad)) return
-        const stand = (lies('aigeddon-lesestand', {}) || {})[pfad]
-        const gelesen = (lies('aigeddon-gelesen', []) || []).includes(pfad)
+        const stand = (lies('mentat-lesestand', {}) || {})[pfad]
+        const gelesen = (lies('mentat-gelesen', []) || []).includes(pfad)
         if (stand && stand > 0.1 && stand < 0.9 && !gelesen) setStelle(stand)
 
         // textContent statt innerText: zählt die Wörter, ohne ein komplettes Layout zu erzwingen.
@@ -44,12 +44,12 @@ export default function LeseHelfer() {
             const jetzt = Date.now()
             if (jetzt - zuletzt > 1500) {
                 zuletzt = jetzt
-                const alle = lies('aigeddon-lesestand', {}) || {}
+                const alle = lies('mentat-lesestand', {}) || {}
                 alle[pfad] = Math.round(anteil * 100) / 100
                 // Nur die 30 jüngsten Artikel behalten.
                 const schluessel = Object.keys(alle)
                 if (schluessel.length > 30) delete alle[schluessel[0]]
-                schreib('aigeddon-lesestand', alle)
+                schreib('mentat-lesestand', alle)
             }
         }
         window.addEventListener('scroll', scroll, { passive: true })

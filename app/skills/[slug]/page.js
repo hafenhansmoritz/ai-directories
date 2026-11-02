@@ -38,7 +38,7 @@ function SkillPage({ params }) {
     const tools = s.tools.map(getTool).filter(Boolean)
     const verwandt = getSkills().filter((x) => x.kategorie === s.kategorie && x.name !== s.name)
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Skills', path: '/skills' },
         { name: s.titel, path: `/skills/${s.name}` },
     ]

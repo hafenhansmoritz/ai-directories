@@ -4,7 +4,7 @@ import { KONTO_AKTIV } from '../../lib/konto'
 
 export const metadata = {
     title: 'KI-Forum: Fragen, Tools und Prompts',
-    description: 'Das deutschsprachige KI-Forum von AIGeddon: Erfahrungen mit KI-Tools, Prompts und Skills teilen, Launch-Tipps, KI im Job. Kostenlos mitreden.',
+    description: 'Das deutschsprachige KI-Forum von mentat.codes: Erfahrungen mit KI-Tools, Prompts und Skills teilen, Launch-Tipps, KI im Job. Kostenlos mitreden.',
     alternates: { canonical: '/forum' },
     robots: KONTO_AKTIV ? { index: true, follow: true } : { index: false, follow: true },
 }

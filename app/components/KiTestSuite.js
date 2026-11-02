@@ -6,7 +6,7 @@ import konfetti from '../../lib/konfetti'
 import { BEWERTUNG, TEST_KIS } from '../../lib/kitests'
 import '../styles/e-inhalte.css'
 
-const KEY = 'aigeddon-kitest-v1'
+const KEY = 'mentat-kitest-v1'
 const PUNKTE = Object.fromEntries(BEWERTUNG.map(([k, , p]) => [k, p]))
 
 const load = () => {
@@ -96,7 +96,7 @@ export default function KiTestSuite({ tests, kategorien }) {
         return `${window.location.origin}${window.location.pathname}#ergebnis=${code}`
     }
     const teilenKlick = async () => {
-        const text = `Mein KI-Test auf AIGeddon:\n${teilen}\n\nSelbst testen:`
+        const text = `Mein KI-Test auf mentat.codes:\n${teilen}\n\nSelbst testen:`
         const url = teilLink()
         try {
             if (navigator.share) {
@@ -241,7 +241,7 @@ export default function KiTestSuite({ tests, kategorien }) {
                         <button
                             type="button"
                             className="copy-button"
-                            onClick={() => navigator.clipboard?.writeText(`Mein KI-Test auf AIGeddon:\n${teilen}`).catch(() => {})}
+                            onClick={() => navigator.clipboard?.writeText(`Mein KI-Test auf mentat.codes:\n${teilen}`).catch(() => {})}
                         >
                             Als Text kopieren
                         </button>

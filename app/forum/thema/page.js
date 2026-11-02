@@ -4,7 +4,7 @@ import Thema from './Thema'
 
 export const metadata = {
     title: 'Forum-Thema',
-    description: 'Ein Thema im AIGeddon-KI-Forum.',
+    description: 'Ein Thema im mentat.codes-KI-Forum.',
     robots: { index: false, follow: true },
 }
 

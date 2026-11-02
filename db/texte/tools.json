@@ -895,5 +895,44 @@
    "Lass es, wenn du hochkomplexe, verzweigte Workflows planst",
    "Lass es, wenn du alles selbst hosten möchtest"
   ]
+ },
+ "windsurf": {
+  "meinung": "Windsurf ist die komplette KI-Werkstatt der Macher hinter Codeium: ein VS-Code-Verwandter mit dem Cascade-Agenten, der nicht nur einzelne Zeilen vorschlägt, sondern quer durch dein Projekt Dateien anlegt, umbaut und Terminal-Befehle ausführt. Mit Gratis-Tarif, 14 Tagen Pro-Test und $15/Monat für den Pro-Plan liegt es preislich angenehm bodenständig. Wer ohnehin in VS Code zu Hause ist, steigt in fünf Minuten um; wer lieber im nackten Terminal arbeitet, greift eher zu einem CLI-Agenten.",
+  "jean": "Flotte KI-IDE mit Agenten-Motor und fairem Preisschild.",
+  "passt_wenn": [
+   "Passt, wenn du einen KI-Editor mit mehrstufigem Agenten-Modus suchst",
+   "Passt, wenn du deine gewohnten VS-Code-Extensions weiter nutzen willst",
+   "Passt, wenn du erst kostenlos testen möchtest"
+  ],
+  "lass_es_wenn": [
+   "Lass es, wenn du ausschließlich im Terminal ohne grafische IDE arbeitest",
+   "Lass es, wenn dein Unternehmen lokale On-Premise-Modelle ohne Cloud-Kontakt vorschreibt"
+  ]
+ },
+ "claude-code": {
+  "meinung": "Claude Code verzichtet auf bunte Schieberegler und zieht direkt in dein Terminal ein. Du gibst ihm eine Aufgabe, und der Agent liest das Repository, bearbeitet Dateien, lässt die Test-Suite laufen und bereitet auf Wunsch den Git-Commit vor. Abgerechnet wird über dein bestehendes Claude-Abo ab $20/Monat oder nach API-Verbrauch. Für große Refactorings, Fehlersuche über viele Dateien und saubere Shell-Workflows ist das derzeit eines der schärfsten Werkzeuge am Markt, verlangt aber, dass du dich auf der Kommandozeile wohlfühlst.",
+  "jean": "Kein Schnickschnack, nur Terminal und Tiefgang: liest das ganze Repo und liefert ab.",
+  "passt_wenn": [
+   "Passt, wenn du komplexe Änderungen über viele Dateien hinweg delegieren willst",
+   "Passt, wenn du gerne im Terminal und mit Git-Workflows arbeitest",
+   "Passt, wenn Tests und Build-Skripte direkt vom Agenten geprüft werden sollen"
+  ],
+  "lass_es_wenn": [
+   "Lass es, wenn du ohne Programmierkenntnisse per Klick eine Website zusammenbauen willst",
+   "Lass es, wenn du das Terminal meidest"
+  ]
+ },
+ "openrouter": {
+  "meinung": "OpenRouter ist der Hauptbahnhof für Sprachmodelle: Ein einziger API-Key und ein OpenAI-kompatibler Endpunkt reichen, um zwischen Claude, GPT, Gemini, Llama, Mistral und DeepSeek umzuschalten. Fällt ein Anbieter aus, springt auf Wunsch automatisch das nächste Modell ein, und abgerechnet wird nach tatsächlichem Token-Verbrauch inklusive einiger Gratis-Endpunkte zum Experimentieren. Für eigene KI-Apps, Skripte und Agenten spart das jede Menge Integrationsarbeit.",
+  "jean": "Ein API-Stecker für fast jedes Sprachmodell auf dem Planeten.",
+  "passt_wenn": [
+   "Passt, wenn du in deiner App oder deinem Agenten mehrere KI-Modelle vergleichen willst",
+   "Passt, wenn du automatisches Fallback bei API-Ausfällen brauchst",
+   "Passt, wenn du lieber nach Verbrauch statt mit fünf einzelnen Monatsabos zahlst"
+  ],
+  "lass_es_wenn": [
+   "Lass es, wenn du nur ein fertiges Chat-Fenster für den Büroalltag suchst",
+   "Lass es, wenn du überhaupt nicht mit APIs oder eigenen Integrationen arbeitest"
+  ]
  }
 }

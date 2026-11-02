@@ -13,7 +13,7 @@ import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 const stats = kbStats()
 
 export const metadata = {
-    title: { absolute: `KI-Tools 2026: ${stats.gesamt} Tools im Überblick | AIGeddon` },
+    title: { absolute: `KI-Tools 2026: ${stats.gesamt} Tools im Überblick | mentat.codes` },
     description: `${stats.gesamt} KI-Tools aus den drei größten offenen KI-Tool-Listen auf GitHub, durchsuchbar nach Rubrik, Open Source und Gratis. ${stats.konsens} Tools stehen in mindestens zwei Listen.`,
     alternates: { canonical: '/ki-tools' },
 }
@@ -29,7 +29,7 @@ function KiToolsPage() {
         {
             '@context': 'https://schema.org',
             '@type': 'Dataset',
-            name: 'AIGeddon KI-Tool-Datenbank',
+            name: 'mentat.codes KI-Tool-Datenbank',
             description: `${stats.gesamt} KI-Tools mit Rubrik, Link und Konsens-Signal aus drei offenen GitHub-Listen.`,
             dateModified: KB_STAND,
             isBasedOn: KB_SOURCES.map((s) => s.url),
@@ -118,7 +118,7 @@ function KiToolsPage() {
                         <a href={s.url} rel="noopener">{s.repo}</a> ({s.license})
                     </span>
                 ))}{' '}
-                · Stand {datumDe(KB_STAND)} · <Link href="/ki-tools/quellen">Lizenzen und Methode</Link>. Beschreibungen in Englisch aus der jeweiligen Liste; Konsens und Rubriken von AIGeddon.
+                · Stand {datumDe(KB_STAND)} · <Link href="/ki-tools/quellen">Lizenzen und Methode</Link>. Beschreibungen in Englisch aus der jeweiligen Liste; Konsens und Rubriken von mentat.codes.
             </p>
         </>
     )

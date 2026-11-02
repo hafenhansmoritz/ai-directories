@@ -90,7 +90,7 @@ export default function Konto() {
         const datei = new Blob([JSON.stringify({ exportiert: new Date().toISOString(), email: user.email, ...tabellen }, null, 2)], { type: 'application/json' })
         const a = document.createElement('a')
         a.href = URL.createObjectURL(datei)
-        a.download = 'aigeddon-meine-daten.json'
+        a.download = 'mentat-codes-meine-daten.json'
         a.click()
         URL.revokeObjectURL(a.href)
     }

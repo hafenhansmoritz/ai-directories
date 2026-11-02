@@ -9,7 +9,7 @@ import { KONTO_AKTIV } from '../../lib/konto'
 
 export const metadata = {
     title: 'Datenschutzerklärung',
-    description: 'Welche Daten AIGeddon verarbeitet: Hosting bei GitHub Pages, Kontaktformular über FormSubmit, Speicherung im eigenen Browser, keine Analyse-Tools und keine Werbe-Cookies.',
+    description: 'Welche Daten mentat.codes verarbeitet: Hosting bei GitHub Pages, Kontaktformular über FormSubmit, Speicherung im eigenen Browser, keine Analyse-Tools und keine Werbe-Cookies.',
     alternates: { canonical: '/datenschutz' },
     robots: { index: false, follow: true },
 }
@@ -27,8 +27,8 @@ const ABSCHNITTE = [
         'Kurz gesagt',
         [
             KONTO_AKTIV
-                ? 'AIGeddon setzt keine Analyse-Tools, keine Werbe-Cookies und keine Tracking-Pixel ein. Personenbezogene Daten verarbeiten wir, wenn du uns über das Formular schreibst, beim Abruf der Seite durch den Hosting-Anbieter und, falls du ein Konto anlegst, für dein Konto: E-Mail-Adresse, Profil, Sammlung, Kommentare und Forenbeiträge sowie deine Einwilligungen (siehe Abschnitt Benutzerkonto).'
-                : 'AIGeddon setzt keine Analyse-Tools, keine Werbe-Cookies und keine Tracking-Pixel ein. Personenbezogene Daten verarbeiten wir nur, wenn du uns über das Formular schreibst, und beim Abruf der Seite durch den Hosting-Anbieter.',
+                ? 'mentat.codes setzt keine Analyse-Tools, keine Werbe-Cookies und keine Tracking-Pixel ein. Personenbezogene Daten verarbeiten wir, wenn du uns über das Formular schreibst, beim Abruf der Seite durch den Hosting-Anbieter und, falls du ein Konto anlegst, für dein Konto: E-Mail-Adresse, Profil, Sammlung, Kommentare und Forenbeiträge sowie deine Einwilligungen (siehe Abschnitt Benutzerkonto).'
+                : 'mentat.codes setzt keine Analyse-Tools, keine Werbe-Cookies und keine Tracking-Pixel ein. Personenbezogene Daten verarbeiten wir nur, wenn du uns über das Formular schreibst, und beim Abruf der Seite durch den Hosting-Anbieter.',
         ],
     ],
     [
@@ -96,7 +96,7 @@ const ABSCHNITTE = [
         'Links zu anderen Anbietern',
         [
             'Links zu Tools, Verzeichnissen, YouTube oder KI-Diensten führen auf fremde Websites. Erst mit dem Klick werden dort Daten verarbeitet, nach den Regeln des jeweiligen Anbieters. Bei den Buttons „Prompt senden an …“ wird der Text des Prompts in der Adresse an den gewählten KI-Dienst übergeben.',
-            'Manche Links sind Partnerlinks. Der Anbieter erfährt dadurch, dass du von AIGeddon kommst. Mehr dazu auf der Seite Transparenz.',
+            'Manche Links sind Partnerlinks. Der Anbieter erfährt dadurch, dass du von mentat.codes kommst. Mehr dazu auf der Seite Transparenz.',
         ],
     ],
     [
@@ -126,7 +126,7 @@ function DatenschutzPage() {
             <section className="hero">
                 <p className="eyebrow">Stand: {STAND}</p>
                 <h1>Datenschutzerklärung</h1>
-                <p className="lead">Was mit deinen Daten passiert, wenn du AIGeddon besuchst oder uns schreibst. Ohne Juristendeutsch, so weit es geht.</p>
+                <p className="lead">Was mit deinen Daten passiert, wenn du mentat.codes besuchst oder uns schreibst. Ohne Juristendeutsch, so weit es geht.</p>
             </section>
             <div className="prose">
                 {ABSCHNITTE.map(([h, absaetze], i) => (

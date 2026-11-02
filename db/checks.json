@@ -613,6 +613,34 @@
   "source": "https://www.startupspotlight.co/submit",
   "status": null
  },
+ "glama-mcp-registry": {
+  "approval": "kostenlos per GitHub-Sync, Freischaltung nach automatischem Build-Check meist innerhalb von 24 Stunden",
+  "link_type": "dofollow",
+  "quote": "Add your MCP server to the open-source registry.",
+  "source": "https://glama.ai/mcp/servers",
+  "status": null
+ },
+ "smithery": {
+  "approval": "sofort nach Verknüpfung des MCP-Repositories oder der Server-Konfiguration",
+  "link_type": "dofollow",
+  "quote": "Publish and deploy Model Context Protocol servers.",
+  "source": "https://smithery.ai/new",
+  "status": null
+ },
+ "best-of-ai": {
+  "approval": "kostenlose Warteschlange mit redaktioneller Prüfung",
+  "link_type": "dofollow",
+  "quote": "Submit your AI tool to Best of AI directory.",
+  "source": "https://bestofai.com/submit",
+  "status": null
+ },
+ "showmebest-ai": {
+  "approval": "kostenlose Einreichung mit Prüfung vor Veröffentlichung",
+  "link_type": null,
+  "quote": "Submit your tool to reach thousands of AI enthusiasts.",
+  "source": "https://showmebest.ai/submit",
+  "status": null
+ },
  "ai-tools-up": {
   "approval": "kostenlos innerhalb von 30 Tagen; Fast Track (19 $ einmalig) ohne Warteschlange innerhalb von 24 Stunden",
   "link_type": "dofollow",

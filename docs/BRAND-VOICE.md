@@ -1,4 +1,4 @@
-# AIGeddon Brand Voice
+# mentat.codes Brand Voice
 
 Kurz: **Jean erklärt dir KI wie ein Kumpel, der SEO beruflich macht und gern Vergleiche aus der Werkstatt zieht.** Ehrlich, konkret, ein bisschen frech, nie von oben herab.
 

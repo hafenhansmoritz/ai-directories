@@ -10,7 +10,7 @@ import { TESTS, TEST_KATEGORIEN, getTestKategorien } from '../../lib/kitests'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 
 export const metadata = {
-    title: { absolute: 'KI-Test 2026: ChatGPT, Claude & Gemini selbst testen | AIGeddon' },
+    title: { absolute: 'KI-Test 2026: ChatGPT, Claude & Gemini selbst testen | mentat.codes' },
     description: `Der interaktive KI-Test: ${TESTS.length} standardisierte Aufgaben zu Logik, Fakten, Halluzinationen, Deutsch, Kreativität und Code. Mit einem Klick an jede KI senden, Antworten bewerten, eigene Rangliste erhalten. Kostenlos, im Browser.`,
     alternates: { canonical: '/ki-test' },
 }
@@ -21,7 +21,7 @@ const FAQ = [
         a: 'Das hängt von der Aufgabe ab. Ein Modell kann bei Code vorn liegen und bei deutscher Grammatik schwächeln. Deshalb testet der KI-Test sechs Bereiche getrennt; dein Ergebnis zeigt, welche KI für deine Aufgaben am besten ist.',
     },
     {
-        q: 'Warum veröffentlicht AIGeddon keine eigenen Testergebnisse?',
+        q: 'Warum veröffentlicht mentat.codes keine eigenen Testergebnisse?',
         a: 'Weil sich KI-Modelle laufend ändern und Ergebnisse von Tarif, Modellversion und Einstellungen abhängen. Ein Test von gestern kann heute falsch sein. Mit dem Selbsttest bekommst du ein Ergebnis für genau deine Version und deinen Tarif.',
     },
     {
@@ -49,7 +49,7 @@ function KiTestPage() {
         {
             '@context': 'https://schema.org',
             '@type': 'WebApplication',
-            name: 'AIGeddon KI-Test',
+            name: 'mentat.codes KI-Test',
             applicationCategory: 'UtilitiesApplication',
             operatingSystem: 'Web',
             offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
@@ -98,7 +98,7 @@ function KiTestPage() {
                                 {k.emoji}
                             </span>
                             <strong>{k.name}</strong>
-                            <span>{k.intro.split('.')[0]}.</span>
+                            <span>{k.intro.split(/[.?!]/)[0].trim()}.</span>
                             <span className="entry-count">{k.tests.length} Aufgaben</span>
                         </Link>
                     </li>
@@ -118,7 +118,7 @@ function KiTestPage() {
                     <li>Aufgaben mit eindeutiger Lösung (Logik, Fakten, Code) prüfen Korrektheit, die anderen prüfen Vorgaben wie Wortlimit, Reimschema oder Sie-Form.</li>
                     <li>Die Kategorie „Halluzinationen“ belohnt Ehrlichkeit: Wer nicht erfindet, gewinnt.</li>
                     <li>Bewertung: richtig 2 Punkte, teilweise 1, falsch 0. Die Rangliste zeigt den Anteil der möglichen Punkte.</li>
-                    <li>AIGeddon veröffentlicht bewusst keine eigenen Testwerte: Modelle ändern sich wöchentlich, dein Ergebnis gilt für deine Version und deinen Tarif.</li>
+                    <li>mentat.codes veröffentlicht bewusst keine eigenen Testwerte: Modelle ändern sich wöchentlich, dein Ergebnis gilt für deine Version und deinen Tarif.</li>
                 </ul>
             </Band>
 

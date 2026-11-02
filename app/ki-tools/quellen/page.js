@@ -7,7 +7,7 @@ import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 
 export const metadata = {
     title: 'KI-Tool-Datenbank: Quellen, Lizenzen und Methode',
-    description: 'Woher die Einträge der AIGeddon KI-Tool-Datenbank stammen, unter welchen Lizenzen sie stehen und wie Konsens und Rubriken entstehen.',
+    description: 'Woher die Einträge der mentat.codes KI-Tool-Datenbank stammen, unter welchen Lizenzen sie stehen und wie Konsens und Rubriken entstehen.',
     alternates: { canonical: '/ki-tools/quellen' },
 }
 
@@ -63,7 +63,7 @@ function QuellenPage() {
                     <strong>Konsens</strong> zählt, in wie vielen der drei Listen ein Tool steht. Die Listen werden unabhängig gepflegt; mehrfache Nennung ist deshalb ein Qualitätssignal, kein Testergebnis.
                 </li>
                 <li>Für jedes Tool der Datenbank gibt es eine eigene deutsche Kurzbeschreibung (db/kb-de.json), formuliert auf Basis der Quellenangaben ohne neue Behauptungen.</li>
-                <li>Die Rubriken und Einleitungstexte sind von AIGeddon. Lernmaterial, Linklisten und Forschungsrubriken der Quellen sind nicht enthalten.</li>
+                <li>Die Rubriken und Einleitungstexte sind von mentat.codes. Lernmaterial, Linklisten und Forschungsrubriken der Quellen sind nicht enthalten.</li>
                 <li>
                     Tools mit <strong>🧔 Steckbrief</strong> hat Jean einzeln mit Preisen und Gratis-Tarif erfasst (<Link href="/tools">Tool-Verzeichnis</Link>).
                 </li>

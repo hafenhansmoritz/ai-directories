@@ -467,6 +467,66 @@
   "fehler": "Eine Anzeige für alle Phasen schreiben und Leute, die noch das Problem verstehen wollen, direkt zum Kaufbutton schicken.",
   "jean": "Im Chat fragt jemand nach Hilfe. Antworte mit Hilfe, nicht mit Marktgeschrei."
  },
+ "chatgpt-projekte-strukturieren": {
+  "intro": "Du legst in ChatGPT ein Projekt an, wirfst drei Dateien rein und wunderst dich, warum die Antworten trotzdem jedes Mal anders klingen. Dieser Prompt entwirft dir eine saubere Projektstruktur mit knappen Systemanweisungen, klaren Dateinamen für deine Wissensbasis und einem ersten Testlauf.",
+  "tipp": "Halte die Systemanweisungen im Projekt unter 250 Wörtern und lagere lange Beispiele oder Preislisten in hochgeladene Dateien aus, damit das Modell die Kernregeln nicht überliest.",
+  "fehler": "Widersprüchliche Regeln in die Projektanweisungen schreiben und gleichzeitig veraltete Dokumente im Projektordner liegen lassen.",
+  "jean": "Ein gutes Projekt braucht fünf klare Verbote statt fünfzig frommer Wünsche."
+ },
+ "chatgpt-agent-steuern": {
+  "intro": "Bei mehrstufigen Recherchen verheddert sich ChatGPT gern im ersten Teilschritt und vergisst den Rest der Aufgabe. Dieser Prompt zwingt das Modell zuerst in einen kurzen Drei-Schritte-Plan, verlangt Zwischenprüfungen und lässt offene Punkte rückfragen, bevor die Abschlusstabelle entsteht.",
+  "tipp": "Grenze bei „quellen“ genau ein, welche Domains oder Dokumenttypen zählen, und lass dir nach dem Plan erst kurz bestätigen, ob die Richtung stimmt.",
+  "fehler": "Fünf verschiedene Teilaufgaben ohne Ausgabestruktur in einen einzigen Satz packen und ungeprüfte Zahlen übernehmen.",
+  "jean": "Wer keinen Plan verlangt, bekommt selbstbewusstes Raten in Tabellenform."
+ },
+ "chatgpt-bild-generieren": {
+  "intro": "Ein kurzer Zuruf im Chat liefert bei der Bildgenerierung meist austauschbare Stockfoto-Optik mit krummen Details. Dieser Prompt übersetzt dein Motiv samt Stil und Seitenverhältnis in eine präzise englische Bildbeschreibung mit Lichtsetzung, Perspektive und klaren Ausschlüssen.",
+  "tipp": "Verzichte auf langen Text im Bild und füge Überschriften lieber nachträglich in Canva oder Figma ein, weil Schrift in generierten Bildern oft buchstabiert wird wie nach drei Espresso.",
+  "fehler": "Zehn widerstreitende Kunststile gleichzeitig verlangen, bis das Motiv unter lauter Effekten verschwindet.",
+  "jean": "Beschreib das Licht und die Kamera, nicht nur den Gegenstand."
+ },
+ "chatgpt-excel-analysieren": {
+  "intro": "Du starrst auf eine Tabelle mit tausend Zeilen und suchst die richtige Formel, während ein falscher Zellbezug deine ganze Auswertung kippt. Dieser Prompt liefert dir wahlweise die passenden Excel- und Google-Sheets-Formeln mit Erklärung oder wertet eingefügte CSV-Daten direkt auf Ausreißer aus.",
+  "tipp": "Kopiere immer die echten Spaltenüberschriften und drei anonymisierte Beispielzeilen mit hinein, damit Zellbezüge und Datumsformate sofort zur echten Datei passen.",
+  "fehler": "Kundennamen, E-Mail-Adressen oder vertrauliche Umsatzzahlen ungekürzt in den Chat kopieren.",
+  "jean": "Drei echte Musterzeilen sparen dir zehn Runden Formel-Pingpong."
+ },
+ "chatgpt-uebersetzen-lokalisieren": {
+  "intro": "Wörtliche Übersetzungen aus dem Englischen erkennt man im Deutschen sofort an steifen Satzbauten und unfreiwilliger Komik. Dieser Prompt überträgt deinen Text sinngemäß in den gewünschten Tonfall, bietet für schwierige Stellen Alternativen an und erklärt seine kulturellen Anpassungen.",
+  "tipp": "Gib feste Fachbegriffe oder Produktnamen vorab an, die auf keinen Fall mitübersetzt werden dürfen, und lies die fertige Fassung einmal laut vor.",
+  "fehler": "Ohne Angabe von Zielgruppe und Sie- oder Du-Form übersetzen lassen und sich über den Behördenton wundern.",
+  "jean": "Gute Lokalisierung merkt man daran, dass niemand merkt, dass übersetzt wurde."
+ },
+ "chatgpt-code-refactoring": {
+  "intro": "Der Code läuft zwar irgendwie, aber niemand im Team traut sich mehr, eine Zeile anzufassen. Dieser Prompt prüft deinen Ausschnitt zuerst auf drei konkrete Schwachstellen, räumt ihn nach modernen Standards auf und liefert zwei kleine Testfälle für die wichtigsten Randfälle mit.",
+  "tipp": "Nenne bei der Sprache auch Laufzeit und Framework-Version, etwa Node 22 oder React 18, damit keine veralteten Hilfsfunktionen im Vorschlag landen.",
+  "fehler": "Den umgebauten Code ohne eigenen Testlauf direkt in Produktion übernehmen.",
+  "jean": "Erst die Tests lesen, dann den neuen Code kopieren."
+ },
+ "chatgpt-meeting-zusammenfassen": {
+  "intro": "Nach einer Stunde Call hast du zwei Seiten Stichpunkte, aber am nächsten Morgen weiß niemand mehr, wer eigentlich was bis wann erledigen wollte. Dieser Prompt destilliert aus deinen Rohnotizen eine kurze Zusammenfassung, klare Beschlüsse, eine Aufgabentabelle und offene Fragen.",
+  "tipp": "Schreib schon während des Gesprächs hinter wichtige Sätze kurz das Namenskürzel der verantwortlichen Person, damit die Zuordnung in der Tabelle ohne Nacharbeit stimmt.",
+  "fehler": "Automatische Transkripte unbesehen verteilen, ohne Namen, Zahlen und Fristen kurz gegenzulesen.",
+  "jean": "Ein Protokoll ohne Namen und Datum ist kein Protokoll, sondern ein Tagebuch."
+ },
+ "chatgpt-seo-content-plan": {
+  "intro": "Einfach drauflos zu bloggen bringt selten Sichtbarkeit, wenn sich Artikel gegenseitig die Suchbegriffe wegnehmen. Dieser Prompt gliedert dein Thema in drei klare Säulen, plant zwölf konkrete Artikel mit Suchintention für vier Wochen und legt fest, wie die Beiträge intern aufeinander verweisen.",
+  "tipp": "Prüfe die vorgeschlagenen Suchbegriffe vor dem Schreiben kurz in der Google Search Console oder einem Keyword-Tool gegen echte Suchanfragen deiner Kunden.",
+  "fehler": "Zwölf ähnliche Überschriften zum selben Suchbegriff planen und damit eigene Seiten gegeneinander antreten lassen.",
+  "jean": "Ein starker Artikel pro Suchabsicht schlägt fünf halbherzige Kopien."
+ },
+ "chatgpt-feedback-analysieren": {
+  "intro": "Wenn fünfzig Support-Mails und Bewertungen durcheinanderliegen, gewinnt bei der Produktplanung oft einfach die lauteste Einzelmeinung. Dieser Prompt sortiert das Feedback nach Häufigkeit und Schwere in die drei größten Schmerzpunkte, drei Stärken und konkrete nächste Schritte.",
+  "tipp": "Entferne vor dem Einfügen alle Namen und E-Mail-Adressen und lass dir zu jedem Schmerzpunkt ein wörtliches Zitat aus den Rückmeldungen ausgeben.",
+  "fehler": "Nur fünf ausgewählte Nachrichten reingeben, die ohnehin die eigene Lieblingsidee bestätigen.",
+  "jean": "Zähl die echten Hürden deiner Nutzer, nicht die lautesten Sonderwünsche."
+ },
+ "chatgpt-social-media-posts": {
+  "intro": "Dein neuer Fachartikel steckt voller Arbeit, wird aber nach dem Veröffentlichen nur einmal lieblos mit Link geteilt. Dieser Prompt zieht aus deinem Kernthema einen strukturierten LinkedIn-Beitrag, einen fünfteiligen Thread und einen knappen Anreißer für deinen Newsletter.",
+  "tipp": "Füge statt des bloßen Titels lieber die drei wichtigsten Absätze oder Zahlen aus deinem Artikel ein, damit die Beiträge echte Substanz statt leerer Ankündigungen enthalten.",
+  "fehler": "Den Entwurf eins zu eins ohne eigene Haltung und ohne echte Erfahrungswerte veröffentlichen.",
+  "jean": "Teile die beste Erkenntnis direkt im Post, statt nur auf den Link zu verweisen."
+ },
  "chatgpt-projekt-anweisungen": {
   "intro": "Du erklärst ChatGPT jede Woche wieder, wer deine Zielgruppe ist und wie du schreibst? Dafür gibt es Projekte mit eigenen Anweisungen. Dieser Prompt schreibt sie dir so, dass jeder neue Chat im Projekt schon Bescheid weiß.",
   "tipp": "Halte die Anweisungen kurz und konkret. Lieber fünf klare Regeln als eine Seite Wunschzettel, die ChatGPT dann halb befolgt.",

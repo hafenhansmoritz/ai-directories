@@ -9,9 +9,9 @@ export function useLetzterBesuch() {
     useEffect(() => {
         let wert = null
         try {
-            wert = sessionStorage.getItem('aigeddon-vorher')
+            wert = sessionStorage.getItem('mentat-vorher')
         } catch {}
-        if (wert === null) wert = lies('aigeddon-zuletzt', '')
+        if (wert === null) wert = lies('mentat-zuletzt', '')
         if (wert) setVorher(wert)
     }, [])
     return vorher

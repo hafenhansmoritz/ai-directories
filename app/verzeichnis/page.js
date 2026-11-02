@@ -6,7 +6,7 @@ import { absoluteUrl } from '../../lib/site'
 
 export const metadata = {
     title: 'Alle KI-Verzeichnisse von A bis Z',
-    description: 'Jedes KI-Verzeichnis aus der AIGeddon-Liste alphabetisch, mit Link zur Detailseite: Domain Rating, Preis, Einreichung und Alternativen.',
+    description: 'Jedes KI-Verzeichnis aus der mentat.codes-Liste alphabetisch, mit Link zur Detailseite: Domain Rating, Preis, Einreichung und Alternativen.',
     alternates: { canonical: '/verzeichnis' },
     openGraph: { url: '/verzeichnis', images: [{ url: absoluteUrl('/opengraph-image.png'), width: 1200, height: 630 }] },
 }
@@ -26,7 +26,7 @@ export default function Register() {
         gruppen.get(k).push(d)
     })
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'KI-Verzeichnisse', path: '/verzeichnis' },
     ]
     return (

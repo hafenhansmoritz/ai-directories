@@ -5,10 +5,10 @@ import { lies, schreib, toast, setzeRuhe, kuerzelAus, setzeKuerzel } from '../..
 
 // Farbwahl, Ruhe-Modus, Tastenkürzel-Schalter und ein Gruß zum Wochentag im Footer.
 const FARBEN = [
-    ['', 'Pink', '#b3164f'],
-    ['blau', 'Blau', '#1d4ed8'],
-    ['gruen', 'Grün', '#0f7a4a'],
-    ['lila', 'Lila', '#6d28d9'],
+    ['', 'Cyan', '#0369a1'],
+    ['blau', 'Kobalt', '#1d4ed8'],
+    ['gruen', 'Terminal-Grün', '#0f7a4a'],
+    ['lila', 'Violett', '#6d28d9'],
 ]
 const WOCHE = [
     'Schönen Sonntag! Heute darf die KI auch mal Pause machen.',
@@ -27,24 +27,24 @@ export default function FooterExtras() {
     const [kuerzel, setKuerzel] = useState(true)
 
     useEffect(() => {
-        setAkzent(lies('aigeddon-akzent', '') || '')
-        setStill(Boolean(lies('aigeddon-ruhig')))
+        setAkzent(lies('mentat-akzent', '') || '')
+        setStill(Boolean(lies('mentat-ruhig')))
         setKuerzel(!kuerzelAus())
         setGruss(WOCHE[new Date().getDay()])
         // Andere Schalter (Kopfzeile, Tastenkürzel-Hilfe) melden ihre Änderungen.
         const ruheWechsel = (e) => setStill(e.detail.an)
         const kuerzelWechsel = (e) => setKuerzel(e.detail.an)
-        window.addEventListener('aigeddon-ruhe', ruheWechsel)
-        window.addEventListener('aigeddon-kuerzel', kuerzelWechsel)
+        window.addEventListener('mentat-ruhe', ruheWechsel)
+        window.addEventListener('mentat-kuerzel', kuerzelWechsel)
         return () => {
-            window.removeEventListener('aigeddon-ruhe', ruheWechsel)
-            window.removeEventListener('aigeddon-kuerzel', kuerzelWechsel)
+            window.removeEventListener('mentat-ruhe', ruheWechsel)
+            window.removeEventListener('mentat-kuerzel', kuerzelWechsel)
         }
     }, [])
 
     const farbe = (wert, name) => {
         setAkzent(wert)
-        schreib('aigeddon-akzent', wert)
+        schreib('mentat-akzent', wert)
         if (wert) document.documentElement.dataset.akzent = wert
         else delete document.documentElement.dataset.akzent
         toast(`Neue Lieblingsfarbe: ${name}. Steht dir!`, '🎨')
@@ -82,7 +82,7 @@ export default function FooterExtras() {
                 <button type="button" className="ruhe-knopf" aria-pressed={still} onClick={ruhe}>
                     <span aria-hidden="true">{still ? '🌙' : '✨'}</span> {still ? 'Ruhe-Modus an' : 'Ruhe-Modus'}
                 </button>
-                <button type="button" className="ruhe-knopf" onClick={() => window.dispatchEvent(new CustomEvent('aigeddon-kuerzel-hilfe'))}>
+                <button type="button" className="ruhe-knopf" onClick={() => window.dispatchEvent(new CustomEvent('mentat-kuerzel-hilfe'))}>
                     <span aria-hidden="true">⌨️</span> Tastenkürzel{kuerzel ? ' (?)' : ''}
                 </button>
                 <button type="button" className="ruhe-knopf" onClick={() => setzeKuerzel(!kuerzel)}>

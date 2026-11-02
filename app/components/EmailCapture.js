@@ -18,7 +18,7 @@ export default function EmailCapture({ cta }) {
         )
     return (
         <a className="button" href={SUBSCRIBE_URL} target="_blank" rel="noopener">
-            {cta || (NEWSLETTER_URL ? `${NEWSLETTER_NAME} kostenlos abonnieren →` : 'AIGeddon auf YouTube abonnieren →')}
+            {cta || (NEWSLETTER_URL ? `${NEWSLETTER_NAME} kostenlos abonnieren →` : 'Auf YouTube abonnieren →')}
         </a>
     )
 }

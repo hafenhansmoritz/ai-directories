@@ -12,12 +12,12 @@ export const metadata = {
     title: 'Neue KI-Modelle 2026: GPT-6, Gemini 4, Claude 5.5',
     description: `Alle neuen KI-Modelle im Überblick: GPT-6, Gemini 4 Argon, Claude Opus 5.5, Grok 4.7, Mistral Large 4 und mehr. Starttermine, API-Preise von offiziellen Seiten und ein Gerüchte-Check. Stand ${MODELLE_STAND}.`,
     alternates: { canonical: '/neue-ki-modelle' },
-    openGraph: ogMeta({ url: '/neue-ki-modelle', bild: OG_BILDER.modelle, alt: 'Neue KI-Modelle auf AIGeddon' }),
+    openGraph: ogMeta({ url: '/neue-ki-modelle', bild: OG_BILDER.modelle, alt: 'Neue KI-Modelle auf mentat.codes' }),
 }
 
 function NeueModelle() {
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Neue KI-Modelle', path: '/neue-ki-modelle' },
     ]
     const liste = modelleNachDatum()

@@ -19,7 +19,7 @@ export const metadata = {
 
 function VergleichPage() {
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Vergleich', path: '/vergleich' },
     ]
     const options = [...getDirectories()]

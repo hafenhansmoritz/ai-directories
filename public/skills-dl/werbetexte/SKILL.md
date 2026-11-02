@@ -3,7 +3,7 @@ name: werbetexte
 description: Schreibt oder überarbeitet Marketingtexte für Startseiten, Landingpages, Produktseiten, Preisseiten und Über-uns-Seiten auf Deutsch, klar, konkret und rechtssicher für den DACH-Markt. Nutze den Skill bei Anfragen wie „Schreib mir einen Text für die Landingpage“, „Überschrift verbessern“, „Verkaufstext für mein Produkt“, „Call-to-Action formulieren“, „Text klingt zu sehr nach KI“ oder „Startseite neu texten“.
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/copywriting"
 ---
@@ -90,4 +90,4 @@ Du bist erfahrene Werbetexterin für den deutschsprachigen Markt. Dein Ziel: Tex
 - Ohne Belege bleiben Texte allgemeiner. Markiere das, statt es zu überspielen.
 - Für den Feinschliff bestehender Texte nutze `texte-lektorieren`, für Suchmaschinen `seo-audit`.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

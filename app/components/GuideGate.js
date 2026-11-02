@@ -8,7 +8,7 @@ import konfetti from '../../lib/konfetti'
 
 // Download gegen E-Mail: Die Adresse geht per FormSubmit an Jean, danach erscheint der Download.
 // Wer sich einmal eingetragen hat, bekommt weitere Guides auf diesem Gerät ohne erneutes Formular.
-const SPEICHER = 'aigeddon-guides'
+const SPEICHER = 'mentat-guides'
 
 export default function GuideGate({ guide, kompakt = false }) {
     const [status, setStatus] = useState('bereit')
@@ -37,7 +37,7 @@ export default function GuideGate({ guide, kompakt = false }) {
                     guide: guide.titel,
                     news: daten.news ? 'ja, möchte Neuigkeiten per Mail' : 'nein',
                     seite: window.location.href,
-                    _subject: `AIGeddon-Guide: ${guide.titel}`,
+                    _subject: `mentat.codes-Guide: ${guide.titel}`,
                     _replyto: daten.email,
                     _template: 'table',
                     _captcha: 'false',

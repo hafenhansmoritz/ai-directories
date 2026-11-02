@@ -8,7 +8,7 @@ import KontoEinladung from './KontoEinladung'
 import useKonto from './useKonto'
 
 // Herz, Merken und Teilen unter jeder Seite. Gespeichert wird nur im eigenen Browser, gezählt wird nichts.
-const sauber = (t) => (t || '').replace(/\s*\|\s*AIGeddon\s*$/, '').trim()
+const sauber = (t) => (t || '').replace(/\s*\|\s*(?:mentat\.codes|mentat.codes)\s*$/i, '').trim()
 
 function herzRegen(knopf) {
     if (ruhig() || !knopf) return
@@ -39,20 +39,20 @@ export default function SeitenAktionen() {
 
     useEffect(() => {
         const lesen = () => {
-            setHerz((lies('aigeddon-herzen', []) || []).includes(pfad))
-            setGemerkt((lies('aigeddon-merkliste', []) || []).some((m) => m.pfad === pfad))
+            setHerz((lies('mentat-herzen', []) || []).includes(pfad))
+            setGemerkt((lies('mentat-merkliste', []) || []).some((m) => m.pfad === pfad))
         }
         lesen()
         setBereit(true)
         setTeilenOffen(false)
-        window.addEventListener('aigeddon-sync', lesen)
-        return () => window.removeEventListener('aigeddon-sync', lesen)
+        window.addEventListener('mentat-sync', lesen)
+        return () => window.removeEventListener('mentat-sync', lesen)
     }, [pfad])
 
     if (pfad === '/merkliste' || pfad === '/merkliste/') return null
 
     const herzKlick = (e) => {
-        const alle = new Set(lies('aigeddon-herzen', []) || [])
+        const alle = new Set(lies('mentat-herzen', []) || [])
         if (alle.has(pfad)) {
             alle.delete(pfad)
             setHerz(false)
@@ -63,17 +63,17 @@ export default function SeitenAktionen() {
             if (alle.size === 5) verleihe('Herzensmensch-Abzeichen', { auto: false })
             else toast(alle.size === 1 ? 'Dein erstes Herz! Danke, das freut uns wirklich.' : 'Danke für dein Herz!', '❤️')
         }
-        schreib('aigeddon-herzen', [...alle])
+        schreib('mentat-herzen', [...alle])
     }
 
     const merkKlick = () => {
-        const liste = (lies('aigeddon-merkliste', []) || []).filter((m) => m.pfad !== pfad)
+        const liste = (lies('mentat-merkliste', []) || []).filter((m) => m.pfad !== pfad)
         if (gemerkt) {
-            schreib('aigeddon-merkliste', liste)
+            schreib('mentat-merkliste', liste)
             setGemerkt(false)
             toast('Von der Merkliste genommen.', '🗑️')
         } else {
-            schreib('aigeddon-merkliste', [{ pfad, titel: sauber(document.title), zeit: Date.now() }, ...liste].slice(0, 100))
+            schreib('mentat-merkliste', [{ pfad, titel: sauber(document.title), zeit: Date.now() }, ...liste].slice(0, 100))
             setGemerkt(true)
             if (liste.length + 1 >= 3) setEinladen(true)
             toast('Gemerkt! Du findest die Seite oben unter dem Stern und in deiner Merkliste.', '⭐')

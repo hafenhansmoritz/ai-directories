@@ -25,7 +25,7 @@ const FAQ = [
     },
     {
         "q": "Make, Zapier oder n8n?",
-        "a": "Zapier ist besonders einfach, Make stark bei verzweigten Abläufen und günstig im Einstieg, n8n lässt sich selbst hosten. Der Vergleich auf AIGeddon gibt je Anwendungsfall eine Empfehlung."
+        "a": "Zapier ist besonders einfach, Make stark bei verzweigten Abläufen und günstig im Einstieg, n8n lässt sich selbst hosten. Der Vergleich auf mentat.codes gibt je Anwendungsfall eine Empfehlung."
     },
     {
         "q": "Wie lange dauert der Aufbau?",

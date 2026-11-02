@@ -4,7 +4,7 @@ import { StrahlenHerz } from '../components/HerzIcons'
 
 export const metadata = {
     title: 'Anmelden oder kostenlos registrieren',
-    description: 'Melde dich ohne Passwort per E-Mail-Link an. Dein kostenloses AIGeddon-Konto sichert Merkliste, Abzeichen und mehr auf allen Geräten.',
+    description: 'Melde dich ohne Passwort per E-Mail-Link an. Dein kostenloses mentat.codes-Konto sichert Merkliste, Abzeichen und mehr auf allen Geräten.',
     alternates: { canonical: '/anmelden' },
     robots: { index: false, follow: true },
 }
@@ -22,7 +22,7 @@ export default function AnmeldenPage() {
             <Breadcrumbs items={[{ name: 'Startseite', path: '/' }, { name: 'Anmelden' }]} />
             <section className="hero">
                 <StrahlenHerz size={56} />
-                <h1>Willkommen bei AIGeddon</h1>
+                <h1>Willkommen bei mentat.codes</h1>
                 <p className="lead">Ein Konto, kein Passwort, null Kosten. Gib deine E-Mail-Adresse ein und klick auf den Link, den wir dir schicken.</p>
             </section>
             <div className="konto-zwei">

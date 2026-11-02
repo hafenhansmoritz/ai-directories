@@ -19,7 +19,7 @@ export const metadata = {
 const FAQ = [
     ['Was ist ein Skill?', 'Ein Ordner mit einer Datei namens SKILL.md: Name, Beschreibung und eine Arbeitsanleitung. Der Assistent liest zuerst nur Name und Beschreibung und lädt die Anleitung, wenn deine Aufgabe dazu passt. Das Format ist ein offener Standard, den laut Anthropic über 70 Plattformen unterstützen.'],
     ['Kosten die Skills etwas?', 'Nein. Die Skills sind kostenlos und stehen unter der MIT-Lizenz. Du brauchst nur einen Zugang zu einem Assistenten, der Skills unterstützt. Bei Claude gibt es Skills laut Anthropic auch im Gratis-Tarif, bei ChatGPT und Gemini gelten die Voraussetzungen der jeweiligen Hilfeseiten.'],
-    ['Woher stammen die Skills?', 'Grundlage ist die Sammlung marketingskills von Corey Haines (MIT-Lizenz). AIGeddon hat die Skills übersetzt, gekürzt und an den deutschsprachigen Markt angepasst, etwa an UWG, DSGVO, Preisangabenverordnung und Impressumspflicht.'],
+    ['Woher stammen die Skills?', 'Grundlage ist die Sammlung marketingskills von Corey Haines (MIT-Lizenz). mentat.codes hat die Skills übersetzt, gekürzt und an den deutschsprachigen Markt angepasst, etwa an UWG, DSGVO, Preisangabenverordnung und Impressumspflicht.'],
     ['Sind fremde Skills gefährlich?', 'Skills können Skripte enthalten, und das ist fremder Code. Die Skills hier enthalten keine Skripte, nur Text. Prüf trotzdem jede SKILL.md, bevor du sie installierst, das geht auf jeder Skill-Seite mit einem Klick.'],
     ['Ersetzen die Skills eine Rechtsberatung?', 'Nein. Skills wie Kaltakquise oder Preisgestaltung weisen auf rechtliche Fallstricke hin, ersetzen aber keine Prüfung im Einzelfall.'],
 ]
@@ -27,7 +27,7 @@ const FAQ = [
 function SkillsIndex() {
     const skills = getSkills()
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Skills', path: '/skills' },
     ]
     const schema = [
@@ -119,7 +119,7 @@ function SkillsIndex() {
             </section>
 
             <p>
-                Grundlage: <a href={SKILLS_QUELLE.url}>{SKILLS_QUELLE.name}</a> ({SKILLS_QUELLE.lizenz}-Lizenz), übersetzt und für den deutschsprachigen Markt angepasst von AIGeddon. Mehr zum Thema im Ratgeber{' '}
+                Grundlage: <a href={SKILLS_QUELLE.url}>{SKILLS_QUELLE.name}</a> ({SKILLS_QUELLE.lizenz}-Lizenz), übersetzt und für den deutschsprachigen Markt angepasst von mentat.codes. Mehr zum Thema im Ratgeber{' '}
                 <Link href="/ratgeber/ki-skills-wiederkehrende-aufgaben">KI-Skills statt Copy-Paste-Prompts</Link>.
             </p>
         </>

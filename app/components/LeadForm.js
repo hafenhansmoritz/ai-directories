@@ -10,7 +10,7 @@ import konfetti from '../../lib/konfetti'
 // Das Honeypot-Feld _honey fängt einfache Bots ab; die Seite, von der die Anfrage kommt, steht im Betreff.
 export const ANLIEGEN = [
     ['tool-eintragen', 'Mein KI-Tool in Verzeichnisse eintragen lassen'],
-    ['werbung', 'Werbung oder Featured-Platz auf AIGeddon'],
+    ['werbung', 'Werbung oder Featured-Platz auf mentat.codes'],
     ['beratung', 'Beratung: welche KI-Tools passen zu uns?'],
     ['tool-vorschlag', 'Tool oder Verzeichnis vorschlagen'],
     ['fehler', 'Fehler auf der Seite melden'],
@@ -58,7 +58,7 @@ export default function LeadForm({ titel, text, vorauswahl = 'tool-eintragen', i
                     website: daten.website || '',
                     nachricht: daten.nachricht || '',
                     seite: window.location.href,
-                    _subject: `AIGeddon-Anfrage: ${anliegen} (${pfad})`,
+                    _subject: `mentat.codes-Anfrage: ${anliegen} (${pfad})`,
                     _replyto: daten.email,
                     _template: 'table',
                     _captcha: 'false',

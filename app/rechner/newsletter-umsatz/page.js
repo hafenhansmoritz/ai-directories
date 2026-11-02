@@ -28,7 +28,7 @@ const FAQ = [
     },
     {
         "q": "Welches Newsletter-Tool soll ich nehmen?",
-        "a": "Der Vergleich beehiiv vs. Kit vs. GetResponse vs. Brevo auf AIGeddon zeigt, welches Tool zu welchem Ziel passt."
+        "a": "Der Vergleich beehiiv vs. Kit vs. GetResponse vs. Brevo auf mentat.codes zeigt, welches Tool zu welchem Ziel passt."
     }
 ]
 

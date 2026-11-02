@@ -3,7 +3,7 @@ import { getTutorials } from '../../lib/tutorials'
 
 export const size = ogSize
 export const contentType = 'image/png'
-export const alt = 'Tutorials auf AIGeddon'
+export const alt = 'Tutorials auf mentat.codes'
 
 export default function Image() {
     return ogImage({

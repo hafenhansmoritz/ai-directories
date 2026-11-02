@@ -1022,5 +1022,21 @@
  "your-story": {
   "take": "Your Story spielt mit DR 86 und rund 8.758.000 Besuchen im Monat in einer anderen Gewichtsklasse als die meisten Verzeichnisse. Kostenlos ist es obendrein, und die Einreichung lief bei uns reibungslos. Das ist wie ein Platz im Stadion statt auf dem Bolzplatz. Wer eine echte Gründergeschichte zu erzählen hat, sollte das hier nicht auslassen, für ein reines Feature-Update ist die Bühne zu groß.",
   "jean": "Stadion statt Bolzplatz, und das kostenlos. Hier gibst du dir Mühe."
+ },
+ "glama-mcp-registry": {
+  "take": "Glama MCP Registry ist der zentrale Anlaufpunkt für Model-Context-Protocol-Server und KI-Entwicklerwerkzeuge. Mit DR 58 und rund 420.000 Besuchen im Monat bringt die Domain sowohl echte Linkkraft als auch technisch versiertes Publikum. Der Eintrag ist kostenlos und läuft über GitHub-Repository-Verknüpfung reibungslos. Wenn dein Tool einen MCP-Server, eine API oder Agenten-Integration bietet, gehört es hier zwingend rein.",
+  "jean": "Pflichtadresse für alles mit MCP-Server oder Agenten-Schnittstelle."
+ },
+ "smithery": {
+  "take": "Smithery hat sich als Paketverzeichnis für MCP-Server und Agenten-Erweiterungen etabliert. DR 52 und rund 310.000 monatliche Besuche zeigen, wie stark das Interesse an direkt installierbaren KI-Werkzeugen ist. Die Einreichung ist kostenlos und für Entwickler in wenigen Minuten erledigt. Für reine Consumer-Apps ohne Schnittstelle unpassend, für Developer-Tools und Agent-Skills ein Volltreffer.",
+  "jean": "Wie npm für KI-Agenten: kostenlos, technisch sauber, starke Domain."
+ },
+ "best-of-ai": {
+  "take": "Best of AI kombiniert eine solide Domain mit DR 47 und rund 95.000 Besuchen im Monat. Der Grundeintrag ist kostenlos, und das Formular fragt genau die Eckdaten ab, die du im Launch-Kit ohnehin griffbereit hast. Damit ist das Verzeichnis ein klassischer Kandidat für die erste Launch-Woche: wenig Aufwand, ordentliche Sichtbarkeit und eine aufgeräumte Kategoriesuche.",
+  "jean": "Solide Mittelklasse mit fast hunderttausend Besuchen für null Euro."
+ },
+ "showmebest-ai": {
+  "take": "ShowMeBest.ai liegt mit DR 38 und rund 45.000 Besuchen im Monat im gesunden Mittelfeld der kostenlosen KI-Verzeichnisse. Die Einreichung lief ohne Haken durch, und die Plattform sortiert Tools sauber nach Anwendungsfall. Kein gigantischer Traffic-Magnet, aber ein ehrlicher, kostenloser Baustein für dein Linkprofil.",
+  "jean": "Schnell eingetragen, kostenlos und ordentlich sortiert. Mitnehmen."
  }
 }

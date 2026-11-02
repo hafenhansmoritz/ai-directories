@@ -39,7 +39,7 @@ export default function LeadBox({ title, text }) {
     const pfad = usePathname() || '/'
     return (
         <aside className="leadbox" aria-label={hasNewsletter ? 'Newsletter abonnieren' : 'YouTube-Kanal abonnieren'}>
-            <p className="leadbox-title">{title || (hasNewsletter ? `${NEWSLETTER_NAME}: der Prompt-Newsletter ☢️` : 'AIGeddon auf YouTube ☢️')}</p>
+            <p className="leadbox-title">{title || (hasNewsletter ? `${NEWSLETTER_NAME}: der Prompt-Newsletter ⚡` : 'YouTube-Kanal für KI-Praxis ⚡')}</p>
             <p>
                 {text ||
                     (hasNewsletter

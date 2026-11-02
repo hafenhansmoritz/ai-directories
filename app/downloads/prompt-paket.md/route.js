@@ -6,7 +6,7 @@ export const dynamic = 'force-static'
 // Alle Prompt-Vorlagen als eine Markdown-Datei, wächst automatisch mit der Bibliothek.
 export function GET() {
     const body = [
-        '# AIGeddon Prompt-Paket',
+        '# mentat.codes Prompt-Paket',
         '',
         `Alle Vorlagen aus ${absoluteUrl('/prompts')}. Platzhalter in [GROSSBUCHSTABEN] ersetzen, dann einfügen.`,
         '',
@@ -31,9 +31,9 @@ export function GET() {
             ]
         }),
         '---',
-        'AIGeddon · KI-Verzeichnisse, Tools & Prompts · ' + absoluteUrl('/'),
+        'mentat.codes · KI-Verzeichnisse, Tools & Prompts · ' + absoluteUrl('/'),
     ].join('\n')
     return new Response(body, {
-        headers: { 'Content-Type': 'text/markdown; charset=utf-8', 'Content-Disposition': 'attachment; filename="aigeddon-prompt-paket.md"' },
+        headers: { 'Content-Type': 'text/markdown; charset=utf-8', 'Content-Disposition': 'attachment; filename="mentat-codes-prompt-paket.md"' },
     })
 }

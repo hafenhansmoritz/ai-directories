@@ -109,7 +109,7 @@ ${KI_GLOSSAR.map(([term, text]) => `- [${term}](${absoluteUrl(`/glossar/${glossa
 
 ## KI-Test
 
-Interaktiver Selbsttest für KI-Chatbots (ChatGPT, Claude, Gemini, Perplexity, Grok, Copilot) mit ${TESTS.length} Aufgaben und Lösungen: ${absoluteUrl('/ki-test')}. Kategorien: ${getTestKategorien().map((k) => `[${k.name}](${absoluteUrl(`/ki-test/${k.key}`)})`).join(', ')}. AIGeddon veröffentlicht keine eigenen Testwerte; Nutzer bewerten selbst.
+Interaktiver Selbsttest für KI-Chatbots (ChatGPT, Claude, Gemini, Perplexity, Grok, Copilot) mit ${TESTS.length} Aufgaben und Lösungen: ${absoluteUrl('/ki-test')}. Kategorien: ${getTestKategorien().map((k) => `[${k.name}](${absoluteUrl(`/ki-test/${k.key}`)})`).join(', ')}. mentat.codes veröffentlicht keine eigenen Testwerte; Nutzer bewerten selbst.
 
 ## KI-Tool-Datenbank
 

@@ -1,10 +1,10 @@
-<p align="center"><img src="./assets/icon.svg" width="48" height="48" alt="AIGeddon Logo"></p>
+<p align="center"><img src="./assets/icon.svg" width="48" height="48" alt="mentat.codes Logo"></p>
 
-# AIGeddon: 256 KI-Verzeichnisse (AI Directories), in die du dein KI-Tool eintragen kannst
+# mentat.codes: 260 KI-Verzeichnisse (AI Directories), in die du dein KI-Tool eintragen kannst
 
-**Kurz gesagt:** Das ist eine gepflegte Liste mit 256 KI-Verzeichnissen, Startup-Plattformen und Launch-Seiten. Zu jedem Eintrag stehen Domain Rating, geschätzte Besuche pro Monat, ob der Eintrag kostenlos ist und wie reibungslos die Einreichung läuft. 164 davon kosten nichts, bei 158 ist der Eintrag kostenlos **und** unkompliziert.
+**Kurz gesagt:** Das ist eine gepflegte Liste mit 260 KI-Verzeichnissen, Startup-Plattformen und Launch-Seiten. Zu jedem Eintrag stehen Domain Rating, geschätzte Besuche pro Monat, ob der Eintrag kostenlos ist und wie reibungslos die Einreichung läuft. 168 davon kosten nichts, bei 162 ist der Eintrag kostenlos **und** unkompliziert.
 
-Stand: September 2026 · **Live:** [jmp-collab.github.io/ai-directories](https://jmp-collab.github.io/ai-directories/) · Daten als JSON: [`db/directories.json`](db/directories.json)
+Stand: November 2026 · **Live:** [mentat.codes](https://mentat.codes/) · Daten als JSON: [`db/directories.json`](db/directories.json)
 
 ---
 > ❗️ Diese `README.md` und der Ordner `/db` werden automatisch erzeugt. Bitte nicht direkt bearbeiten. Änderungen an Verzeichnissen gehören in den Ordner `/directories`, siehe [Mitmachen](CONTRIBUTING.md).

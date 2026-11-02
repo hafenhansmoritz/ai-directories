@@ -5,7 +5,7 @@ import { KONTO_AKTIV } from '../../lib/konto'
 
 export const metadata = {
     title: 'Deine Merkliste',
-    description: `Deine gemerkten Seiten, Herzen und Abzeichen bei AIGeddon. ${KONTO_AKTIV ? 'Gespeichert im Browser, auf Wunsch auch im Konto.' : 'Alles bleibt nur in deinem Browser gespeichert.'}`,
+    description: `Deine gemerkten Seiten, Herzen und Abzeichen bei mentat.codes. ${KONTO_AKTIV ? 'Gespeichert im Browser, auf Wunsch auch im Konto.' : 'Alles bleibt nur in deinem Browser gespeichert.'}`,
     alternates: { canonical: '/merkliste' },
     robots: { index: false, follow: true },
 }

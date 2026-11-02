@@ -3,7 +3,7 @@ import { NEWS, NEWS_STAND } from '../../lib/news'
 
 export const size = ogSize
 export const contentType = 'image/png'
-export const alt = 'KI-News auf AIGeddon'
+export const alt = 'KI-News auf mentat.codes'
 
 export default function Image() {
     return ogImage({

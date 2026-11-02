@@ -11,7 +11,7 @@ import { ogMeta, OG_BILDER } from '../../lib/og-meta'
 
 export const metadata = {
     title: 'Gratis-Guides als PDF: KI-Agenten, KI-Sichtbarkeit, Skills',
-    description: 'Kostenlose PDF-Guides von AIGeddon: KI-Agenten-Fahrplan 2026, 30-Tage-Checkliste für Sichtbarkeit in ChatGPT und Google KI-Modus, KI-Skills-Starterkit. E-Mail eintragen, sofort herunterladen.',
+    description: 'Kostenlose PDF-Guides von mentat.codes: KI-Agenten-Fahrplan 2026, 30-Tage-Checkliste für Sichtbarkeit in ChatGPT und Google KI-Modus, KI-Skills-Starterkit. E-Mail eintragen, sofort herunterladen.',
     alternates: { canonical: '/guides' },
     openGraph: ogMeta({ url: '/guides' }),
     ...(getGuides().length ? {} : { robots: { index: false, follow: true } }),
@@ -20,14 +20,14 @@ export const metadata = {
 const FAQ = [
     ['Kosten die Guides etwas?', 'Nein. Du trägst deine E-Mail-Adresse ein und bekommst den Download sofort. Neuigkeiten per Mail gibt es nur, wenn du das zusätzliche Häkchen setzt.'],
     ['Was passiert mit meiner E-Mail-Adresse?', 'Sie wird über den Formulardienst FormSubmit an Jean geschickt und nur für den Zweck genutzt, dem du zugestimmt hast. Details stehen in der Datenschutzerklärung. Du kannst jederzeit Auskunft oder Löschung verlangen.'],
-    ['Wie aktuell sind die Inhalte?', 'Die Guides fassen die Ratgeber von AIGeddon zusammen, Stand Oktober 2026. Jede Angabe stammt aus offiziellen Quellen der Anbieter, die Ratgeber auf der Website werden laufend aktualisiert und nennen alle Quellen.'],
+    ['Wie aktuell sind die Inhalte?', 'Die Guides fassen die Ratgeber von mentat.codes zusammen, Stand Oktober 2026. Jede Angabe stammt aus offiziellen Quellen der Anbieter, die Ratgeber auf der Website werden laufend aktualisiert und nennen alle Quellen.'],
     ['Womit wurden die Guides gestaltet?', 'Mit Gamma, einem KI-Werkzeug für Präsentationen und Dokumente. Die Inhalte stammen aus den geprüften Ratgebern, Gamma hat Layout und Illustrationen übernommen.'],
 ]
 
 function GuidesSeite() {
     const GUIDES = getGuides()
     const crumbs = [
-        { name: 'AIGeddon', path: '/' },
+        { name: 'mentat.codes', path: '/' },
         { name: 'Guides', path: '/guides' },
     ]
     const schema = [
@@ -35,7 +35,7 @@ function GuidesSeite() {
         {
             '@context': 'https://schema.org',
             '@type': 'ItemList',
-            name: 'Gratis-Guides von AIGeddon',
+            name: 'Gratis-Guides von mentat.codes',
             itemListElement: GUIDES.map((g, i) => ({ '@type': 'ListItem', position: i + 1, name: g.titel, url: absoluteUrl(`/guides#${g.id}`) })),
         },
         ...(GUIDES.length ? [faqSchema(FAQ)] : []),

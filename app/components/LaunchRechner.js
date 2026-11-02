@@ -76,7 +76,7 @@ export default function LaunchRechner({ gratis, reibungslos, gesamt }) {
                     </div>
                 </dl>
                 <p className="rechner-hinweis">Annahme: Ohne vorbereitete Texte kostet jeder Eintrag rund 15 Minuten extra fürs Formulieren; die Vorbereitung dauert einmalig etwa 20 Minuten.</p>
-                <RechnungTeilen titel="Mein Launch-Plan" text={`Mein Launch-Plan laut AIGeddon: ${zusammenfassung}`} />
+                <RechnungTeilen titel="Mein Launch-Plan" text={`Mein Launch-Plan laut mentat.codes: ${zusammenfassung}`} />
             </div>
         </div>
     )

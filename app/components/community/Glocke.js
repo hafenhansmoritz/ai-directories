@@ -91,7 +91,7 @@ export default function Glocke() {
                             {liste.map((b) => (
                                 <li key={b.id} className={b.gelesen ? '' : 'neu'}>
                                     <Link href={b.link} onClick={() => setOffen(false)}>
-                                        <span aria-hidden="true">{ICON[b.art]}</span> <strong>{b.von?.anzeigename || 'AIGeddon'}</strong> {b.text}
+                                        <span aria-hidden="true">{ICON[b.art]}</span> <strong>{b.von?.anzeigename || 'mentat.codes'}</strong> {b.text}
                                         <span className="c-zeit"> · {zeitText(b.erstellt)}</span>
                                     </Link>
                                 </li>

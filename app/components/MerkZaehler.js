@@ -9,15 +9,15 @@ import { lies } from '../../lib/herz'
 export default function MerkZaehler() {
     const [zahl, setZahl] = useState(0)
     useEffect(() => {
-        const lesen = () => setZahl((lies('aigeddon-merkliste', []) || []).length)
+        const lesen = () => setZahl((lies('mentat-merkliste', []) || []).length)
         const geaendert = (e) => {
-            if (!e.detail || e.detail.key === 'aigeddon-merkliste') lesen()
+            if (!e.detail || e.detail.key === 'mentat-merkliste') lesen()
         }
         lesen()
-        window.addEventListener('aigeddon-speicher', geaendert)
+        window.addEventListener('mentat-speicher', geaendert)
         window.addEventListener('storage', lesen)
         return () => {
-            window.removeEventListener('aigeddon-speicher', geaendert)
+            window.removeEventListener('mentat-speicher', geaendert)
             window.removeEventListener('storage', lesen)
         }
     }, [])

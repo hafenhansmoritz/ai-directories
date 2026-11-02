@@ -3,7 +3,7 @@ import { ARTIKEL } from '../../lib/ratgeber'
 
 export const size = ogSize
 export const contentType = 'image/png'
-export const alt = 'Ratgeber auf AIGeddon'
+export const alt = 'Ratgeber auf mentat.codes'
 
 export default function Image() {
     return ogImage({

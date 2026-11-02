@@ -3,7 +3,7 @@ name: content-strategie
 description: "Plant eine Content-Strategie für Blog, Ratgeber, Newsletter und Video im deutschsprachigen Markt: Themensäulen, Themencluster, Redaktionsplan und Priorisierung nach Kundennutzen und Suchpotenzial. Nutzen, wenn jemand fragt „Worüber soll ich schreiben?“, „Content-Strategie erstellen“, „Redaktionsplan“, „Themenideen für den Blog“, „Content-Pillars“ oder „Ich weiß nicht, was ich posten soll“."
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/content-strategy"
 ---
@@ -80,4 +80,4 @@ Wenn es eine Datei mit Produkt- oder Marketingkontext im Projekt gibt, lies sie 
 - Bei Inhalten zu Gesundheit, Recht oder Finanzen auf fachliche Prüfung hinweisen.
 - Wer KI-Texte zur Information der Öffentlichkeit ohne redaktionelle Prüfung veröffentlicht, muss sie nach dem EU AI Act kennzeichnen. Plane deshalb immer eine menschliche Redaktion ein.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

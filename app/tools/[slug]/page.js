@@ -8,8 +8,7 @@ import Breadcrumbs, { breadcrumbSchema } from '../../components/Breadcrumbs'
 import { SITE_NAME, absoluteUrl } from '../../../lib/site'
 import { getTools, getTool, getAlternatives, toolHref, toolRel, TOOLS_STAND } from '../../../lib/tools'
 import { comparisonsForTool } from '../../../lib/comparisons'
-import { getPrompts, PROMPT_KATEGORIEN } from '../../../lib/prompts'
-import { getToolPromptSeite } from '../../../lib/prompt-tools'
+import { getPrompts, getPromptsForTool, PROMPT_KATEGORIEN } from '../../../lib/prompts'
 import { getKbTools, getKbRubrik } from '../../../lib/kb'
 import { RUBRIK_RATGEBER } from '../../../lib/rubrik-ratgeber'
 import { ZIELGRUPPEN } from '../../../lib/zielgruppen'
@@ -356,15 +355,10 @@ function ToolPage({ params }) {
                     <strong>Im direkten Vergleich:</strong> <Link href={`/tool-vergleiche/${c.slug}`}>{c.title} →</Link>
                 </p>
             ))}
-            {getToolPromptSeite(t.slug) && (
-                <p className="service-hint">
-                    <strong>Prompts für {t.name}:</strong>{' '}
-                    <Link href={`/prompts/tool/${t.slug}`}>{getToolPromptSeite(t.slug).prompts.length} Vorlagen zum Ausfüllen →</Link>
-                </p>
-            )}
             {(() => {
                 const passend = getPrompts().filter((p) => p.tools.includes(t.slug)).slice(0, 4)
-                return passend.length > 0 ? (
+                const toolPrompts = getPromptsForTool(t.slug)
+                return passend.length > 0 || toolPrompts.length > 0 ? (
                     <section aria-labelledby="prompts">
                         <h2 id="prompts">Fertige Prompts für {t.name}</h2>
                         <ul className="link-cards">
@@ -378,6 +372,14 @@ function ToolPage({ params }) {
                                 </li>
                             ))}
                         </ul>
+                        {toolPrompts.length > 0 && (
+                            <p className="service-hint">
+                                <strong>Speziell für {t.name}:</strong>{' '}
+                                <Link href={`/prompts/tool/${t.slug}`}>
+                                    Prompts für {t.name} ({toolPrompts.length} Vorlagen) →
+                                </Link>
+                            </p>
+                        )}
                     </section>
                 ) : null
             })()}

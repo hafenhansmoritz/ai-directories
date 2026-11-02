@@ -135,7 +135,7 @@ export default function ToolFinder({ quelle }) {
     const teilen = async () => {
         const url = window.location.href
         const aufgabe = AUFGABEN.find((a) => a[0] === antw.aufgabe)?.[2]
-        const text = `Meine Top ${treffer.length} KI-Tools für „${aufgabe}“ laut AIGeddon-Tool-Finder`
+        const text = `Meine Top ${treffer.length} KI-Tools für „${aufgabe}“ laut mentat.codes-Tool-Finder`
         try {
             if (navigator.share) await navigator.share({ title: 'KI-Tool-Finder', text, url })
             else {

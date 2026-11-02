@@ -14,18 +14,18 @@ export default function Merkliste() {
     const [runde, setRunde] = useState(0)
     useEffect(() => {
         const neu = () => setRunde((r) => r + 1)
-        window.addEventListener('aigeddon-sync', neu)
-        return () => window.removeEventListener('aigeddon-sync', neu)
+        window.addEventListener('mentat-sync', neu)
+        return () => window.removeEventListener('mentat-sync', neu)
     }, [])
     useEffect(() => {
         setDaten({
-            liste: lies('aigeddon-merkliste', []) || [],
-            verlauf: lies('aigeddon-verlauf', []) || [],
-            herzen: (lies('aigeddon-herzen', []) || []).length,
-            gelesen: (lies('aigeddon-gelesen', []) || []).length,
-            bereiche: (lies('aigeddon-bereiche', []) || []).length,
-            abzeichen: lies('aigeddon-abzeichen', []) || [],
-            besuche: lies('aigeddon-besuche', 0) || 0,
+            liste: lies('mentat-merkliste', []) || [],
+            verlauf: lies('mentat-verlauf', []) || [],
+            herzen: (lies('mentat-herzen', []) || []).length,
+            gelesen: (lies('mentat-gelesen', []) || []).length,
+            bereiche: (lies('mentat-bereiche', []) || []).length,
+            abzeichen: lies('mentat-abzeichen', []) || [],
+            besuche: lies('mentat-besuche', 0) || 0,
         })
     }, [runde])
 
@@ -33,7 +33,7 @@ export default function Merkliste() {
 
     const entfernen = (pfad) => {
         const liste = daten.liste.filter((m) => m.pfad !== pfad)
-        schreib('aigeddon-merkliste', liste)
+        schreib('mentat-merkliste', liste)
         setDaten({ ...daten, liste })
     }
     const verdient = ABZEICHEN_KATALOG.filter(([n]) => daten.abzeichen.includes(n)).length
@@ -80,7 +80,7 @@ export default function Merkliste() {
             <h2>🏅 Dein Sammelalbum</h2>
             <p>
                 {verdient} von {ABZEICHEN_KATALOG.length} Abzeichen gesammelt.{' '}
-                {verdient === ABZEICHEN_KATALOG.length ? 'Alle! Du bist offiziell ein AIGeddon-Herzensmensch. 💖' : 'Die mit Schloss warten noch auf dich.'}
+                {verdient === ABZEICHEN_KATALOG.length ? 'Alle! Du bist offiziell ein mentat.codes-Herzensmensch. 💖' : 'Die mit Schloss warten noch auf dich.'}
             </p>
             <ul className="merk-stats">
                 <li>

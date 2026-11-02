@@ -3,7 +3,7 @@ import { KI_GLOSSAR } from '../../lib/ki-glossar'
 
 export const size = ogSize
 export const contentType = 'image/png'
-export const alt = 'KI-Glossar auf AIGeddon'
+export const alt = 'KI-Glossar auf mentat.codes'
 
 export default function Image() {
     return ogImage({

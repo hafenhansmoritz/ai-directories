@@ -32,7 +32,7 @@ import MemeChat from './components/MemeChat'
 export function generateMetadata() {
     const stats = getSiteStats()
     return {
-        title: { absolute: `KI-Verzeichnisse & KI-Tools 2026: ${stats.total} Directories | AIGeddon` },
+        title: { absolute: `KI-Verzeichnisse & KI-Tools 2026: ${stats.total} Directories | mentat.codes` },
         description: `Die deutsche Liste der KI-Verzeichnisse: ${stats.total} AI Directories mit Domain Rating, Traffic, Preis und Einreichungs-Check. ${stats.free.length} davon kostenlos. Dazu ${kbStats().gesamt} KI-Tools, KI-Test und Rechner.`,
         alternates: { canonical: '/' },
         openGraph: { url: '/' },
@@ -55,7 +55,7 @@ function Home() {
         },
         {
             q: 'Welche KI ist die beste: ChatGPT, Claude oder Gemini?',
-            a: 'Das hängt von der Aufgabe ab. Im KI-Test auf AIGeddon schickst du dieselben Aufgaben an mehrere KIs, bewertest die Antworten selbst und bekommst eine Rangliste. Ohne gekaufte Testsieger.',
+            a: 'Das hängt von der Aufgabe ab. Im KI-Test auf mentat.codes schickst du dieselben Aufgaben an mehrere KIs, bewertest die Antworten selbst und bekommst eine Rangliste. Ohne gekaufte Testsieger.',
         },
         {
             q: 'Kann ich mein KI-Tool eintragen lassen, statt es selbst zu machen?',
@@ -286,7 +286,7 @@ function Home() {
             <MemeChat />
 
             <Band farbe="lila" id="einstieg" titel="Wohin als Nächstes? 🧭" sticker="Neu: KI-Tool-Datenbank">
-                <p>Vier Wege durch AIGeddon, jeweils in der Reihenfolge, die Jean selbst nehmen würde. Darunter alle Bereiche auf einen Blick.</p>
+                <p>Vier Wege durch mentat.codes, jeweils in der Reihenfolge, die Jean selbst nehmen würde. Darunter alle Bereiche auf einen Blick.</p>
                 <ul className="pfade">
                     {[
                         ['🚀', 'Mein KI-Tool launchen', '#fde68a', [['/launch-kit', 'Texte und Unterlagen mit dem Launch-Kit erstellen'], ['/liste/kostenlos', 'Mit den kostenlosen Verzeichnissen starten'], ['/freischaltung', 'Freischaltdauer nachschlagen, von sofort bis 80 Tage'], ['/ratgeber', 'Ratgeber: Eintragen, SEO-Einordnung, Product Hunt'], ['/neu-entdeckt', 'Frisch entdeckte Verzeichnisse mitnehmen'], ['/rechner/launch-zeit', 'Aufwand mit dem Launch-Zeit-Rechner planen'], ['#anfrage-tool-eintragen', 'Oder: Jean trägt für dich ein']]],

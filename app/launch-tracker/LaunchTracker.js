@@ -140,7 +140,7 @@ export default function LaunchTracker({ verzeichnisse }) {
         const url = URL.createObjectURL(new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' }))
         const a = document.createElement('a')
         a.href = url
-        a.download = 'aigeddon-launch-tracker.csv'
+        a.download = 'mentat-codes-launch-tracker.csv'
         a.click()
         URL.revokeObjectURL(url)
     }

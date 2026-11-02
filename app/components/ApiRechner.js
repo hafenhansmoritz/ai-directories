@@ -52,8 +52,8 @@ export default function ApiRechner() {
     const zahlDe = (v) => new Intl.NumberFormat('de-DE').format(v)
     const ansage = guenstigstes ? `Günstigstes Modell: ${guenstigstes.name}, ${usd(guenstigstes.monat)} pro Monat.` : ''
     const teilText = guenstigstes
-        ? `Meine API-Kosten laut AIGeddon-Rechner: ${zahlDe(anfragen)} Anfragen pro Tag, am günstigsten ${guenstigstes.name} mit ${usd(guenstigstes.monat)} pro Monat.`
-        : 'Mein API-Kostenvergleich auf AIGeddon'
+        ? `Meine API-Kosten laut mentat.codes-Rechner: ${zahlDe(anfragen)} Anfragen pro Tag, am günstigsten ${guenstigstes.name} mit ${usd(guenstigstes.monat)} pro Monat.`
+        : 'Mein API-Kostenvergleich auf mentat.codes'
 
     return (
         <div className="rechner">

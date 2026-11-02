@@ -7,6 +7,7 @@ import JeanIcon from '../../components/JeanIcon'
 import Faq from '../../components/Faq'
 import { SITE_NAME, absoluteUrl } from '../../../lib/site'
 import { getComparisons, getComparison } from '../../../lib/comparisons'
+import { getPromptsForTool } from '../../../lib/prompts'
 import { getTool, toolHref, toolRel, TOOLS_STAND } from '../../../lib/tools'
 import Kurzantwort from '../../components/Kurzantwort'
 import { autorRef } from '../../../lib/autor'
@@ -25,7 +26,7 @@ export function generateStaticParams() {
 
 // „Jean sagt“ je Vergleich, nur aus den Angaben auf der jeweiligen Seite (BRAND-VOICE: pro Seite einzigartig).
 const JEAN_SAGT = {
-    'claude-vs-chatgpt': 'Beide können fast alles. Entscheide nach dem, was du jeden Tag machst, nicht nach der letzten Schlagzeile.',
+    'claude-vs-chatgpt': 'Monatlich gleicher Preis, im Jahresabo spart Claude drei Dollar: Für Code mit Claude 5.5, Artefakte und lange Dokumente nimmst du Claude, für GPT-6, Bilder, Sprachmodus und den Alltags-Einsatz ChatGPT.',
     'chatgpt-vs-claude-vs-gemini': 'Lebst du in Gmail und Drive, nimm Gemini. Sonst entscheidet, ob du eher Bilder machst oder lange Texte und Code schreibst.',
     'gemini-vs-chatgpt': 'Die Frage ist nicht, welche KI klüger ist, sondern wo dein Arbeitstag stattfindet. In Gmail und Drive: Gemini. Verstreut über viele Apps: ChatGPT.',
     'perplexity-vs-chatgpt': 'Willst du wissen, woher eine Zahl kommt, frag Perplexity. Soll aus der Zahl ein fertiger Text oder ein Bild werden, frag ChatGPT.',
@@ -241,6 +242,16 @@ function ComparisonPage({ params }) {
                     </ul>
                 </section>
             )}
+            {c.items
+                .filter((t) => getPromptsForTool(t.slug).length > 0)
+                .map((t) => (
+                    <p key={t.slug} className="service-hint">
+                        <strong>Passende Vorlagen:</strong>{' '}
+                        <Link href={`/prompts/tool/${t.slug}`}>
+                            Prompts für {t.name} ({getPromptsForTool(t.slug).length} Vorlagen) →
+                        </Link>
+                    </p>
+                ))}
             <Pruefer datum={c.geprueft} />
             <p>
                 <Link href="/tool-vergleiche">← Alle Tool-Vergleiche</Link> · <Link href="/tools">KI-Tool-Verzeichnis</Link>

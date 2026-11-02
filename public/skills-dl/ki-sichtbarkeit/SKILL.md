@@ -3,7 +3,7 @@ name: ki-sichtbarkeit
 description: Hilft, in KI-Antworten genannt und zitiert zu werden, etwa in Google KI-Übersichten und im KI-Modus, in ChatGPT, Perplexity, Claude, Gemini und Copilot. Nutze den Skill bei Anfragen wie „KI-SEO“, „GEO“, „in ChatGPT sichtbar werden“, „Warum nennt mich die KI nicht?“, „KI-Übersichten optimieren“, „llms.txt“, „KI-Crawler in der robots.txt“ oder „Die KI erzählt Falsches über uns“.
 license: MIT
 metadata:
-  author: "AIGeddon (jmp-collab/ai-directories)"
+  author: "mentat.codes (jmp-collab/ai-directories)"
   version: "1.0"
   source: "https://github.com/coreyhaines31/marketingskills/tree/main/skills/ai-seo"
 ---
@@ -97,4 +97,4 @@ Ausgabe auf Deutsch. Frag, ob Du- oder Sie-Form gewünscht ist.
 - Plattformen ändern ihr Verhalten häufig. Prüfe Crawler-Namen und Funktionen in der aktuellen Dokumentation der Anbieter.
 - Für das technische und inhaltliche SEO-Fundament nutze den Skill `seo-audit`.
 
-*Angepasst von AIGeddon für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*
+*Angepasst von mentat.codes für den deutschsprachigen Markt. Grundlage: marketingskills von Corey Haines, MIT-Lizenz.*

@@ -9,7 +9,7 @@ import { getGuides } from '../../lib/guides'
 
 export const metadata = {
     title: 'Gratis-Downloads: Prompt-Spickzettel & Prompt-Paket',
-    description: 'Gratis-Downloads von AIGeddon: Prompt-Spickzettel zum Ausdrucken, alle Prompt-Vorlagen als Datei und die Top 50 KI-Verzeichnisse als Tabelle.',
+    description: 'Gratis-Downloads von mentat.codes: Prompt-Spickzettel zum Ausdrucken, alle Prompt-Vorlagen als Datei und die Top 50 KI-Verzeichnisse als Tabelle.',
     alternates: { canonical: '/downloads' },
 }
 
