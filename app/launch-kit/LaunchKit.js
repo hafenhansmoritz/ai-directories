@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import CopyButton from '../components/CopyButton'
 import { verleihe } from '../../lib/herz'
+import { baueUtmLink } from '../../lib/launch'
 import '../styles/e-inhalte.css'
 
 const KEY = 'kiv-launch-kit'
@@ -91,19 +92,6 @@ function build(f) {
     }
 }
 
-function utm(url, slug) {
-    if (!url) return ''
-    try {
-        const u = new URL(url)
-        u.searchParams.set('utm_source', slug)
-        u.searchParams.set('utm_medium', 'referral')
-        u.searchParams.set('utm_campaign', 'launch')
-        return u.toString()
-    } catch {
-        return ''
-    }
-}
-
 const LIMITS = { einzeilerDe: 60, einzeilerEn: 60, kurzDe: 160, kurzEn: 160 }
 
 const OUTPUTS = [
@@ -144,6 +132,7 @@ export default function LaunchKit({ directories }) {
     useEffect(() => {
         try {
             localStorage.setItem(KEY, JSON.stringify(f))
+            window.dispatchEvent(new Event('storage'))
         } catch {
             // Ohne Speicher geht es trotzdem, nur ohne Erinnerung.
         }
@@ -153,7 +142,7 @@ export default function LaunchKit({ directories }) {
     const out = useMemo(() => build(f), [f])
     const words = out.langDe.split(/\s+/).filter(Boolean).length
     const chosen = directories.find((d) => d.slug === dir)
-    const link = utm(f.url, dir)
+    const link = baueUtmLink(f.url, dir)
 
     return (
         <div className="kit">

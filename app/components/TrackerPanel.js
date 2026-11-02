@@ -1,23 +1,37 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import useTracker, { RANKS, rankFor } from './useTracker'
 import { KONTO_AKTIV } from '../../lib/konto'
+import { ladeLaunchKitDaten, baueUtmLink } from '../../lib/launch'
 
 // Fortschritt, Rang und CSV-Export der eigenen Einträge.
 export default function TrackerPanel({ directories }) {
     const { done, imKonto } = useTracker()
+    const [kit, setKit] = useState({ url: '', name: '' })
     const total = directories.length
     const count = directories.filter((d) => done.has(d.slug)).length
     const [, rank, text] = rankFor(count)
     const next = RANKS.find(([min]) => min > count)
     const percent = Math.round((count / total) * 100)
 
+    useEffect(() => {
+        setKit(ladeLaunchKitDaten())
+    }, [])
+
     const exportCsv = () => {
-        const rows = [['Verzeichnis', 'Website', 'Einreichung', 'Status']]
-        directories.forEach((d) =>
-            rows.push([d.name, d.link, d.submission_link, done.has(d.slug) ? 'eingetragen' : 'offen'])
-        )
+        const rows = [['Verzeichnis', 'Website', 'Einreichung', 'Status', 'Dein UTM-Link (Website + UTM)']]
+        directories.forEach((d) => {
+            const utm = baueUtmLink(kit.url, d.slug)
+            rows.push([
+                d.name,
+                d.link,
+                d.submission_link,
+                done.has(d.slug) ? 'eingetragen' : 'offen',
+                utm || `?utm_source=${d.slug}&utm_medium=directory&utm_campaign=launch`,
+            ])
+        })
         const csv = rows.map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(';')).join('\n')
         const url = URL.createObjectURL(new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' }))
         const a = document.createElement('a')
@@ -48,6 +62,15 @@ export default function TrackerPanel({ directories }) {
                 <button type="button" className="button button-small" onClick={exportCsv}>
                     Meine Liste als CSV
                 </button>
+                {kit.url ? (
+                    <span className="tracker-utm-badge" title={`Projekt-URL: ${kit.url}`}>
+                        UTM aktiv ({kit.url.replace(/^https?:\/\//, '')})
+                    </span>
+                ) : (
+                    <Link href="/launch-kit" className="tracker-utm-link" title="Projekt-URL im Launch-Kit hinterlegen">
+                        + UTM im CSV aktivieren
+                    </Link>
+                )}
                 <span className="tracker-hint">
                     {imKonto ? (
                         <>

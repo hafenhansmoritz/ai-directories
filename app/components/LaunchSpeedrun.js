@@ -6,8 +6,9 @@ import { PriceBadge, ExperienceBadge } from './Badges'
 import { formatRating, formatVisits } from '../../utils/i18n-de'
 import { submitRel } from '../../lib/monetization'
 import { toast } from '../../lib/herz'
+import { baueUtmLink, haengeUtmAn } from '../../lib/launch'
 
-export default function LaunchSpeedrun({ directories, done, onToggle }) {
+export default function LaunchSpeedrun({ directories, done, onToggle, launchKit, utmAktiv = false }) {
     const [open, setOpen] = useState(false)
     const [skipped, setSkipped] = useState(() => new Set())
 
@@ -147,9 +148,40 @@ export default function LaunchSpeedrun({ directories, done, onToggle }) {
                             : 'Schnell eingereicht, kostenlos und bringt die ersten echten Erwähnungen. Kurz ausfüllen und den nächsten Backlink sichern!'}
                     </p>
 
+                    {launchKit?.url && (
+                        <div className="speedrun-utm-row">
+                            <span className="speedrun-utm-label">Dein persönlicher UTM-Link für {naechstes.name}:</span>
+                            <div className="speedrun-utm-input-wrap">
+                                <input
+                                    type="text"
+                                    readOnly
+                                    value={baueUtmLink(launchKit.url, naechstes.slug)}
+                                    className="speedrun-utm-input"
+                                    title="Diesen Link im Verzeichnisformular als Website deines Tools eintragen"
+                                />
+                                <button
+                                    type="button"
+                                    className="speedrun-utm-btn"
+                                    onClick={() => {
+                                        const l = baueUtmLink(launchKit.url, naechstes.slug)
+                                        try {
+                                            navigator.clipboard.writeText(l)
+                                            toast(`UTM-Link für ${naechstes.name} kopiert!`, '📋')
+                                        } catch {
+                                            toast('Kopieren fehlgeschlagen.', '⚠️')
+                                        }
+                                    }}
+                                    title="UTM-Link in die Zwischenablage kopieren"
+                                >
+                                    📋 Kopieren
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
                     <div className="speedrun-actions">
                         <a
-                            href={naechstes.submission_link}
+                            href={utmAktiv ? haengeUtmAn(naechstes.submission_link, naechstes.slug) : naechstes.submission_link}
                             target="_blank"
                             rel={submitRel(naechstes)}
                             className="button speedrun-btn-submit"

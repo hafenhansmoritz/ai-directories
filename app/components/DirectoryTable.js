@@ -10,8 +10,8 @@ import useTracker, { RANKS } from './useTracker'
 import konfetti from '../../lib/konfetti'
 import { submitRel } from '../../lib/monetization'
 import '../styles/c-start.css'
-import { kuerzelAus } from '../../lib/herz'
-import { LOKAL_EVENT, lokalLaunch, setzeLokal, datumDe } from '../../lib/launch'
+import { kuerzelAus, toast } from '../../lib/herz'
+import { LOKAL_EVENT, lokalLaunch, setzeLokal, datumDe, ladeLaunchKitDaten, baueUtmLink, haengeUtmAn } from '../../lib/launch'
 
 // Erwartet schlanke Zeilen aus tabellenZeilen() (lib/data.js): Score und Sperre kommen fertig vom Server.
 const SORTS = {
@@ -56,7 +56,7 @@ function abstand(a, b, max) {
     return prev[b.length]
 }
 
-const Zeile = memo(function Zeile({ d, erledigt, onToggle, logEintrag, onSpeichernLog }) {
+const Zeile = memo(function Zeile({ d, erledigt, onToggle, logEintrag, onSpeichernLog, utmAktiv = false, projectUrl = '', onCopyUtm }) {
     const [offen, setOffen] = useState(false)
     const hatLog = Boolean(logEintrag?.datum || logEintrag?.listingUrl || logEintrag?.notiz)
 
@@ -113,15 +113,28 @@ const Zeile = memo(function Zeile({ d, erledigt, onToggle, logEintrag, onSpeiche
                     {d.blocked ? (
                         <span className="submit-closed">gerade zu</span>
                     ) : (
-                        <a
-                            className="submit-link"
-                            href={d.submission_link}
-                            target="_blank"
-                            rel={submitRel(d)}
-                            aria-label={`${d.name}: Tool eintragen (externer Link, öffnet in neuem Tab)${d.affiliate ? ', Partnerlink' : ''}`}
-                        >
-                            Eintragen ↗{d.affiliate && <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup>}
-                        </a>
+                        <div className="table-submit-cell">
+                            <a
+                                className="submit-link"
+                                href={utmAktiv ? haengeUtmAn(d.submission_link, d.slug) : d.submission_link}
+                                target="_blank"
+                                rel={submitRel(d)}
+                                aria-label={`${d.name}: Tool eintragen (externer Link, öffnet in neuem Tab)${d.affiliate ? ', Partnerlink' : ''}${utmAktiv ? ', mit UTM-Tracking' : ''}`}
+                            >
+                                Eintragen ↗{d.affiliate && <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup>}
+                            </a>
+                            {projectUrl && onCopyUtm && (
+                                <button
+                                    type="button"
+                                    className="table-utm-copy-btn"
+                                    onClick={() => onCopyUtm(d.slug, d.name)}
+                                    title={`Persönlichen UTM-Link für ${d.name} kopieren: ${baueUtmLink(projectUrl, d.slug)}`}
+                                    aria-label={`UTM-Link für ${d.name} kopieren`}
+                                >
+                                    UTM
+                                </button>
+                            )}
+                        </div>
                     )}
                 </td>
                 <td className="num">
@@ -222,6 +235,43 @@ export default function DirectoryTable({ directories, interactive = true, defaul
     const onSpeichernLog = useCallback((slug, felder) => {
         setzeLokal(slug, felder)
     }, [])
+    const [launchKit, setLaunchKit] = useState({ url: '', name: '' })
+    const [utmAktiv, setUtmAktiv] = useState(false)
+
+    useEffect(() => {
+        const syncKit = () => {
+            const lk = ladeLaunchKitDaten()
+            setLaunchKit(lk)
+            try {
+                const w = localStorage.getItem('mentat-utm-aktiv')
+                if (w !== null) {
+                    setUtmAktiv(w === 'true')
+                } else if (lk.url) {
+                    setUtmAktiv(true)
+                }
+            } catch {}
+        }
+        syncKit()
+        window.addEventListener('storage', syncKit)
+        return () => window.removeEventListener('storage', syncKit)
+    }, [])
+
+    const toggleUtm = useCallback((aktiv) => {
+        setUtmAktiv(aktiv)
+        try {
+            localStorage.setItem('mentat-utm-aktiv', String(aktiv))
+        } catch {}
+    }, [])
+
+    const handleCopyUtm = useCallback((slug, name) => {
+        const url = baueUtmLink(launchKit.url || 'https://dein-projekt.de', slug)
+        try {
+            navigator.clipboard.writeText(url)
+            toast(`UTM-Link für ${name} kopiert!`, '📋')
+        } catch {
+            toast('Kopieren fehlgeschlagen.', '⚠️')
+        }
+    }, [launchKit.url])
     const searchRef = useRef(null)
     const urlGelesen = useRef(false)
 
@@ -329,7 +379,37 @@ export default function DirectoryTable({ directories, interactive = true, defaul
             {tracker && <TrackerPanel directories={directories} />}
             {interactive && (
                 <>
-                    <LaunchSpeedrun directories={directories} done={done} onToggle={onToggle} />
+                    <LaunchSpeedrun directories={directories} done={done} onToggle={onToggle} launchKit={launchKit} utmAktiv={utmAktiv} />
+                    <div className="table-utm-bar">
+                        <label className="table-utm-toggle">
+                            <input
+                                type="checkbox"
+                                checked={utmAktiv}
+                                onChange={(e) => toggleUtm(e.target.checked)}
+                            />
+                            <span>
+                                <strong>🔗 UTM-Tracking an Eintragen-Links anhängen</strong>
+                                {launchKit.url ? (
+                                    <span className="table-utm-url" title={`Projekt: ${launchKit.url}`}>
+                                        {' '}(Projekt: {launchKit.url.replace(/^https?:\/\//, '').replace(/\/$/, '')})
+                                    </span>
+                                ) : (
+                                    <span className="table-utm-hint">
+                                        {' '}(Projekt-URL im <Link href="/launch-kit">Launch-Kit</Link> hinterlegen)
+                                    </span>
+                                )}
+                            </span>
+                        </label>
+                        {launchKit.url ? (
+                            <span className="table-utm-subtext">
+                                Hängt <code>utm_source=&lt;slug&gt;&amp;utm_medium=directory&amp;utm_campaign=launch</code> an.
+                            </span>
+                        ) : (
+                            <Link href="/launch-kit" className="table-utm-link-action">
+                                Projekt-URL im Launch-Kit eingeben →
+                            </Link>
+                        )}
+                    </div>
                     <form className="filters" role="search" aria-label="Verzeichnisse filtern" onSubmit={(e) => e.preventDefault()}>
                     <label>
                         <span>
@@ -431,7 +511,7 @@ export default function DirectoryTable({ directories, interactive = true, defaul
                         </thead>
                         <tbody>
                             {rows.map((d) => (
-                                <Zeile key={d.slug} d={d} erledigt={done.has(d.slug)} onToggle={onToggle} logEintrag={launchEintraege.get(d.slug)} onSpeichernLog={onSpeichernLog} />
+                                <Zeile key={d.slug} d={d} erledigt={done.has(d.slug)} onToggle={onToggle} logEintrag={launchEintraege.get(d.slug)} onSpeichernLog={onSpeichernLog} utmAktiv={utmAktiv} projectUrl={launchKit.url} onCopyUtm={handleCopyUtm} />
                             ))}
                         </tbody>
                     </table>
