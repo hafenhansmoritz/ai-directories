@@ -52,7 +52,6 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
   - [ ] **Content-Plan Woche 16** (fällig ab 2027-02-15): Kling-Prompts; InVideo-Prompts
 Stand 26.10.2026. Je Sitzung genau eine Aufgabe (bei „je Runde“ nur die angegebene Menge). Ton immer nach `docs/BRAND-VOICE.md`, Fakten nur mit offizieller Quelle, Unikat-Texte in `db/texte/*.json`.
 - [ ] **Ratgeber „KI-Musik und Rechte: was das GEMA-Urteil gegen Suno bedeutet“** (LG München I, 42 O 763/25, nur belegte Fakten, Hinweis keine Rechtsberatung).
-- [ ] **Zielgruppe Agenturen** und **Zielgruppe Vereine und Ehrenamt** in `lib/zielgruppen.js` (je 5 Aufgaben-Karten, Warnbox, FAQ mit Quellen).
 - [ ] **Steckbriefe** je Runde 5 weitere Tools aus den Konsens-Tools (3/3 und 2/3) der KI-Tool-Datenbank in `db/tools.json`, dazu Jeans Meinung in `db/texte/tools.json`.
 - [ ] **Prompts** je Runde 6 neue in `lib/prompts.js` (Coding, Bild, Recht und Verträge, Vereinsarbeit, Agenturen), dazu Intro/Tipp/Fehler in `db/texte/prompts.json`.
 - [ ] **Glossar** je Runde 5 neue Begriffe in `lib/ki-glossar.js` plus Schrauber-Erklärung in `db/texte/glossar.json`.
