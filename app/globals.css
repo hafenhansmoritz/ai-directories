@@ -460,8 +460,9 @@ main {
     color: inherit;
 }
 
+:root[data-theme='dark'] .lead strong,
 @media (prefers-color-scheme: dark) {
-    .lead strong {
+    :root:not([data-theme='light']) .lead strong {
         background: linear-gradient(transparent 55%, color-mix(in srgb, var(--pop) 35%, transparent) 55%);
     }
 }
@@ -4948,22 +4949,29 @@ ul.kb-hero-chips {
     outline-color: var(--ink);
 }
 
+:root[data-theme='dark'] .kompass a:focus-visible,
+:root[data-theme='dark'] .toc-label ~ a:focus-visible,
+:root[data-theme='dark'] .news-themen a:focus-visible,
+:root[data-theme='dark'] .vernetzt :focus-visible,
+:root[data-theme='dark'] .hero .quick-links :focus-visible,
 @media (prefers-color-scheme: dark) {
-    /* Auf hellen Flächen im Dunkelmodus: Tinte; neben dunklen Flächen bleibt das Pink */
-    .kompass a:focus-visible,
-    .toc-label ~ a:focus-visible,
-    .news-themen a:focus-visible {
+    :root:not([data-theme='light']) .kompass a:focus-visible,
+    :root:not([data-theme='light']) .toc-label ~ a:focus-visible,
+    :root:not([data-theme='light']) .news-themen a:focus-visible {
         outline-color: var(--accent);
     }
 
-    .vernetzt :focus-visible,
-    .hero .quick-links :focus-visible {
+    :root:not([data-theme='light']) .vernetzt :focus-visible,
+    :root:not([data-theme='light']) .hero .quick-links :focus-visible {
         outline-color: var(--pop);
     }
 
-    .vernetzt .vernetzt-news :focus-visible {
+    :root:not([data-theme='light']) .vernetzt .vernetzt-news :focus-visible {
         outline-color: var(--ink);
     }
+}
+:root[data-theme='dark'] .vernetzt .vernetzt-news :focus-visible {
+    outline-color: var(--ink);
 }
 
 /* Kacheln mit eigener heller Fläche: Rahmen innen, in Tinte */
