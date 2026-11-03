@@ -14,6 +14,7 @@ import { getComparison } from '../../../../lib/comparisons'
 import { getTestKategorie } from '../../../../lib/kitests'
 import { toolHref, toolRel } from '../../../../lib/tools'
 import Vernetzt, { seitenPfad } from '../../../components/Vernetzt'
+import PromptCardList from '../../../components/PromptCardList'
 
 export const dynamicParams = false
 
@@ -83,17 +84,7 @@ function ToolPromptPage({ params }) {
             />
             <section aria-labelledby="vorlagen">
                 <h2 id="vorlagen">Alle {s.prompts.length} Vorlagen für {t.name} 💬</h2>
-                <ul className="link-cards">
-                    {s.prompts.map((p) => (
-                        <li key={p.slug}>
-                            <Link href={`/prompts/${p.slug}`}>
-                                <strong>{p.title}</strong>
-                            </Link>
-                            <span>{p.ziel}</span>
-                            <span>{p.techniken.map((x) => TECHNIKEN[x][0]).join(' · ')}</span>
-                        </li>
-                    ))}
-                </ul>
+                <PromptCardList prompts={s.prompts} />
             </section>
             <Band farbe="mint" id="tipps" titel={`So holst du mehr aus ${t.name} raus 🧭`} sticker={`${s.tipps.length} Tipps`}>
                 <ul className="kriterien-grid">

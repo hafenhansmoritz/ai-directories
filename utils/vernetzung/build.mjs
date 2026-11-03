@@ -15,7 +15,14 @@ const MIN_EINGEHEND = 3
 
 const seiten = []
 const lauf = (dir) => {
-    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    let entries
+    try {
+        entries = fs.readdirSync(dir, { withFileTypes: true })
+    } catch (err) {
+        if (err.code === 'ENOENT') return
+        throw err
+    }
+    for (const e of entries) {
         const p = path.join(dir, e.name)
         if (e.isDirectory()) {
             if (!['_next', 'api', '404', 'opengraph-image'].includes(e.name)) lauf(p)

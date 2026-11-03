@@ -6,6 +6,7 @@ import JeanIcon from '../components/JeanIcon'
 import { SITE_NAME } from '../../lib/site'
 import { promptsByKategorie, getPrompts, TECHNIKEN } from '../../lib/prompts'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import PromptCardList from '../components/PromptCardList'
 
 export const metadata = {
     title: 'KI-Prompts auf Deutsch: Vorlagen für ChatGPT & Claude',
@@ -48,17 +49,7 @@ function PromptsPage() {
                     <h2 id={`kat-${k.key}`} className="with-icon">
                         <JeanIcon badge={k.icon} size={34} /> <Link href={`/prompts/kategorie/${k.key}`}>{k.name}</Link>
                     </h2>
-                    <ul className="link-cards">
-                        {k.prompts.map((p) => (
-                            <li key={p.slug}>
-                                <Link href={`/prompts/${p.slug}`}>
-                                    <strong>{p.title}</strong>
-                                </Link>
-                                <span>{p.ziel}</span>
-                                <span>{p.techniken.map((t) => TECHNIKEN[t][0]).join(' · ')}</span>
-                            </li>
-                        ))}
-                    </ul>
+                    <PromptCardList prompts={k.prompts} />
                 </section>
             ))}
             <section aria-labelledby="techniken">

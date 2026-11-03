@@ -15,6 +15,7 @@ import { getTutorial } from '../../../../lib/tutorials'
 import { getZielgruppe } from '../../../../lib/zielgruppen'
 import { getKbRubrik } from '../../../../lib/kb'
 import Vernetzt, { seitenPfad } from '../../../components/Vernetzt'
+import PromptCardList from '../../../components/PromptCardList'
 
 export const dynamicParams = false
 
@@ -89,17 +90,7 @@ function PromptKategoriePage({ params }) {
             />
             <section aria-labelledby="vorlagen">
                 <h2 id="vorlagen">Alle {k.prompts.length} Vorlagen 💬</h2>
-                <ul className="link-cards">
-                    {k.prompts.map((p) => (
-                        <li key={p.slug}>
-                            <Link href={`/prompts/${p.slug}`}>
-                                <strong>{p.title}</strong>
-                            </Link>
-                            <span>{p.ziel}</span>
-                            <span>{p.techniken.map((t) => TECHNIKEN[t][0]).join(' · ')}</span>
-                        </li>
-                    ))}
-                </ul>
+                <PromptCardList prompts={k.prompts} />
             </section>
             <Band farbe="mint" id="tipps" titel="So holst du mehr raus 🧭" sticker={`${k.tipps.length} Tipps`}>
                 <ul className="kriterien-grid">

@@ -60,9 +60,9 @@ Jeder automatische Lauf (alle 10 Minuten) wählt die **erste offene Aufgabe (`- 
 
 - [x] **Task 19: Echtzeit-Suche, Preis-Filter & „DSGVO/EU"-Filter auf `/tools/` (67 Tool-Steckbriefe)**
   Die Seite `/tools/` hat aktuell nur 15 Sprungmarken ohne Suche. Baue eine schnelle Client-Suchleiste sowie Schnellfilter („Gratis-Tarif verfügbar", „Deutsche Oberfläche", „EU/Server") über die 67 Steckbriefe ein.
-- [ ] **Task 20: Inline-Prompt-Vorschau (Aufklappen & 1-Klick-Kopieren) auf `/prompts/tool/*` und Rubrikseiten**
+- [x] **Task 20: Inline-Prompt-Vorschau (Aufklappen & 1-Klick-Kopieren) auf `/prompts/tool/*` und Rubrikseiten**
   Auf `/prompts/tool/chatgpt/` sieht man bisher nur Links zu den Unterseiten. Ergänze an jeder Prompt-Karte einen „Vorschau & Kopieren"-Toggle, der den Prompt-Text direkt inline ausklappt und mit einem Klick in die Zwischenablage kopiert.
-- [ ] **Task 21: Neue Tool-Prompt-Sammlungen für Claude (`/prompts/tool/claude/`) und Cursor/Coding**
+- [x] **Task 21: Neue Tool-Prompt-Sammlungen für Claude (`/prompts/tool/claude/`) und Cursor/Coding**
   Aktuell hat nur ChatGPT eigene `fuer`-Prompts in `lib/prompts.js` (und `db/texte/prompts.json`). Erstelle 8 maßgeschneiderte, hochwertige deutsche Prompts speziell für `claude` (inkl. `db/texte/prompts.json`-Einträgen), sodass `/prompts/tool/claude/` als vollwertige Seite live geht.
 - [ ] **Task 22: `/launch-kit/` Upgrade: Komplett-Download als Markdown & bessere Englisch-Vorlage**
   Ergänze im `/launch-kit/` einen Button „📦 Komplettes Launch-Paket als `.md` herunterladen" (mit allen Texten, Tags und einer Top-25-Checkliste) und verbessere den englischen Text-Generator, damit bei fehlenden englischen Eingaben kein unfreiwilliges Denglisch entsteht.
