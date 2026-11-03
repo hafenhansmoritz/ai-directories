@@ -385,6 +385,26 @@ function Home() {
             </section>
 
             <ToolPartners limit={6} />
+            <section aria-labelledby="mentat-herkunft">
+                <h2 id="mentat-herkunft">Woher kommt der Name mentat.codes? 🛠️</h2>
+                <p>
+                    Bevor hier KI-Verzeichnisse standen, war mentat.codes ab 2023 die Heimat von Mentat, einem der ersten
+                    Open-Source-Assistenten, der direkt im Terminal Code geschrieben hat. Das Projekt ist seit Januar 2025
+                    archiviert. <Link href="/ratgeber/was-wurde-aus-mentat">Was aus Mentat wurde und was du heute stattdessen nimmst →</Link>
+                </p>
+                <ul className="quick-links">
+                    <li><Link href="/ratgeber/terminal-coding-agenten-vergleich">Terminal-Coding-Agenten im Vergleich</Link></li>
+                    <li><Link href="/ratgeber/claude-code-anleitung">Claude Code auf Deutsch</Link></li>
+                    <li><Link href="/ratgeber/claude-code-installieren">Claude Code installieren</Link></li>
+                    <li><Link href="/ratgeber/claude-code-kosten">Was kostet Claude Code?</Link></li>
+                    <li><Link href="/ratgeber/codex-cli-anleitung">Codex CLI Anleitung</Link></li>
+                    <li><Link href="/ratgeber/claude-code-vs-codex">Claude Code oder Codex?</Link></li>
+                    <li><Link href="/ratgeber/agents-md-claude-md">AGENTS.md und CLAUDE.md</Link></li>
+                    <li><Link href="/ratgeber/gemini-cli-antigravity-cli">Von Gemini CLI zu Antigravity CLI</Link></li>
+                    <li><Link href="/ratgeber/aider-ollama-lokal">Aider mit Ollama lokal</Link></li>
+                    <li><Link href="/ratgeber/cursor-alternative-kostenlos">Cursor-Alternativen</Link></li>
+                </ul>
+            </section>
             <section aria-labelledby="wer">
                 <h2 id="wer">Wer steckt dahinter? 🧔</h2>
                 <div className="about-head">
