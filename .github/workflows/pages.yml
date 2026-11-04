@@ -31,6 +31,10 @@ jobs:
             NEXT_PUBLIC_GSC_VERIFICATION: ${{ vars.GSC_VERIFICATION }}
             NEXT_PUBLIC_LEAD_EMAIL: ${{ vars.LEAD_EMAIL }}
             NEXT_PUBLIC_LEAD_ALIAS: ${{ vars.LEAD_ALIAS }}
+            # Newsletter: Brevo-Formular-URL (https://….sibforms.com/serve/…). Leer = alle Lead-Bausteine zeigen das YouTube-Abo.
+            NEXT_PUBLIC_NEWSLETTER_URL: ${{ vars.NEWSLETTER_URL }}
+            # Postfach für mailto-Links (/werben). Leer = hello@mentat.codes
+            NEXT_PUBLIC_CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
             # Konten, Profile und Community einschalten: Variable KONTO auf 1 setzen (siehe docs/TRAUMSEITE-30.md)
             NEXT_PUBLIC_KONTO: ${{ vars.KONTO }}
             # Erst auf 1 setzen, wenn der AV-Vertrag mit Supabase unterschrieben ist. Ohne diese Variable bleiben Konten aus.

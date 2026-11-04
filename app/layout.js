@@ -303,7 +303,7 @@ export default function RootLayout({ children }) {
                         <p>
                             Gebaut von <Link href="/ueber-jean">Jean Maurice Port</Link>, Senior SEO/SGE Manager bei der MotoMobilityGroup. ·{' '}
                             <Link href="/werben">Werben</Link> · <Link href="/transparenz">Transparenz</Link> · <Link href="/so-pruefen-wir">So prüfen wir</Link> ·{' '}
-                            <Link href="/datenschutz">Datenschutz</Link> · <Link href="/merkliste">
+                            <Link href="/impressum">Impressum</Link> · <Link href="/datenschutz">Datenschutz</Link> · <Link href="/merkliste">
                                 Merkliste <span aria-hidden="true">⭐</span>
                             </Link> ·{' '}
                             {KONTO_AKTIV && (

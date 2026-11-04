@@ -2,9 +2,10 @@
 
 ## Der einfachste Weg zu E-Mails (ohne Server, ohne Cookie-Banner)
 
-1. Newsletter **PromptGott** bei beehiiv (empfohlen: Empfehlungsprogramm, Werbenetzwerk, Lead-Magnet-Auslieferung) oder Substack anlegen, mit eigener Domain-Mail als Absender.
-2. Im Pages-Workflow (`.github/workflows/pages.yml`, Schritt `npx next build`, Block `env`) eintragen:
-   - `NEXT_PUBLIC_NEWSLETTER_URL`: Adresse des Newsletters, z. B. `https://promptgott.substack.com`
+1. Newsletter **PromptGott** anlegen. Gewählt ist Brevo (Formular mit Double-Opt-in unter Kontakte → Formulare); beehiiv oder Substack funktionieren ebenfalls.
+2. Im GitHub-Repo unter Settings → Secrets and variables → Actions → Variables die Variable `NEWSLETTER_URL` anlegen (der Pages-Workflow reicht sie als `NEXT_PUBLIC_NEWSLETTER_URL` an den Build weiter, siehe `.env.example`):
+   - Brevo: die Formular-URL `https://….sibforms.com/serve/…`. Sie wird direkt verlinkt (ohne `/subscribe`), und /datenschutz zeigt automatisch den Brevo-Abschnitt.
+   - Substack/beehiiv: Adresse des Newsletters, z. B. `https://promptgott.substack.com`
    - nur bei beehiiv zusätzlich `NEXT_PUBLIC_NEWSLETTER_EMBED`: Embed-URL aus *Grow → Subscribe Forms*
 3. Ab dem nächsten Build zeigen alle Lead-Bausteine das eingebettete Formular (Substack: automatisch `/embed`). Double-Opt-in, Abmeldelink und Speicherung erledigt der Anbieter, also auch der DSGVO-Nachweis.
 4. In der **Willkommensmail** die Links zu den gesperrten Downloads eintragen (Tabelle unten, Spalte „gesperrt“).

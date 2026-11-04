@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { NEWSLETTER_NAME, NEWSLETTER_URL, YOUTUBE_SUBSCRIBE_URL } from '../../lib/monetization'
+import { NEWSLETTER_NAME, NEWSLETTER_URL, SUBSCRIBE_URL } from '../../lib/monetization'
 
 // Lead-Baustein für jede Seite: Newsletter, solange keiner hinterlegt ist der YouTube-Kanal.
 // Pro Seite ein anderer Spruch, damit nicht auf 1.300 Seiten derselbe Satz steht.
@@ -48,7 +48,7 @@ export default function LeadBox({ title, text }) {
             </p>
             <a
                 className="button"
-                href={hasNewsletter ? `${NEWSLETTER_URL.replace(/\/$/, '')}/subscribe` : YOUTUBE_SUBSCRIBE_URL}
+                href={SUBSCRIBE_URL}
                 target="_blank"
                 rel="noopener"
             >
