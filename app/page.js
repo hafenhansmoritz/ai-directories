@@ -29,6 +29,7 @@ import { formatNumber } from '../utils/i18n-de'
 import Vernetzt, { seitenPfad } from './components/Vernetzt'
 import MemeChat from './components/MemeChat'
 import AngebotBox from './components/AngebotBox'
+import { featuredFuer } from '../lib/featured'
 
 export function generateMetadata() {
     const stats = getSiteStats()
@@ -232,7 +233,7 @@ function Home() {
                     Filtern, sortieren, eintragen, abhaken. Ein Klick auf den Namen zeigt Details, Einschätzung und Alternativen.
                     Deine Filter stehen in der Adresszeile, du kannst die gefilterte Liste also als Link teilen.
                 </p>
-                <DirectoryTable directories={tabellenZeilen(directories)} defaultSort="score" tracker caption={`Alle ${stats.total} KI-Verzeichnisse mit Jean-Score, Domain Rating, Besuchen, Preis und Einreichung`} />
+                <DirectoryTable directories={tabellenZeilen(directories)} defaultSort="score" tracker featured={featuredFuer('start')} caption={`Alle ${stats.total} KI-Verzeichnisse mit Jean-Score, Domain Rating, Besuchen, Preis und Einreichung`} />
             </section>
 
             <Band farbe="blau" id="legende" titel="So liest du die Tabelle 🔍">

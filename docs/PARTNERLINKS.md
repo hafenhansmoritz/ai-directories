@@ -4,7 +4,7 @@ Automatisch erzeugt aus `db/partners.json` (Programme, Stand 2026-11-02) und der
 
 **Alle eigenen Affiliate-Links aller Projekte:** 6 Einträge in `db/affiliate-links.json`.
 
-**Stand:** 239 Programme · aktiv 4 · beantragt 0 · nicht registriert 188 · Code anfragen 22 · Code angefragt 0 · abgelehnt 0
+**Stand:** 240 Programme · aktiv 5 · beantragt 0 · nicht registriert 188 · Code anfragen 22 · Code angefragt 0 · abgelehnt 0
 
 ## Live auf der Website
 
@@ -12,6 +12,7 @@ Automatisch erzeugt aus `db/partners.json` (Programme, Stand 2026-11-02) und der
 |---|---|---|
 | Systeme.io | https://systeme.io/de?sa=sa0174191115fa520c2f58a4c2498f7d364a1799d4 | – |
 | Okara AI | https://okara.ai/?via=jean | – |
+| Insighto AI | https://insighto.ai?aff=2pOWs06wWLEn | – |
 | Kaiber AI (Superstudio) | https://kaiber.ai/?via=jean-maurice | – |
 | GoHighLevel (HighLevel) | https://www.gohighlevel.com/?fp_ref=3w6dr | – |
 | Tiiny Host | https://tiiny.cello.so/VSfOsTdniC6 | – |
@@ -350,6 +351,7 @@ Programme ohne Mindest-Traffic und ohne Einladung, laut offizieller Seite geprü
 | Bolt.new | nicht registriert | Cello | „you earn 15% of what they pay Bolt, up to $50 per referral“ | unbekannt | https://bolt.new/platform/referral | – |
 | v0 | kein Programm | Dub | früher Credits, eingestellt am 15.7.2026 | unbekannt | – | – |
 | Okara AI | aktiv | Rewardful | 20 % wiederkehrend für 6 Monate | 60 Tage | https://okara.ai/affiliates | https://okara.ai/?via=jean |
+| Insighto AI | aktiv | eigenes Partnerportal (affiliates.insighto.ai) | 25 % für die ersten 12 Monate | – | https://affiliates.insighto.ai/ | https://insighto.ai?aff=2pOWs06wWLEn |
 | Kaiber AI (Superstudio) | aktiv | Rewardful | 10 % auf jede Zahlung, wiederkehrend solange Abo läuft | – | https://kaiber.getrewardful.com/signup | https://kaiber.ai/?via=jean-maurice |
 | GoHighLevel (HighLevel) | aktiv | FirstPromoter | 40 % wiederkehrend, plus 5 % auf Tier 2 | – | https://www.gohighlevel.com/joinaffiliate/ | https://www.gohighlevel.com/?fp_ref=3w6dr |
 | Tiiny Host | aktiv | Cello (Referral Programm) | 30 % des Umsatzes, max. 50 USD pro Empfehlung | – | https://tiiny.host/affiliates | https://tiiny.cello.so/VSfOsTdniC6 |
