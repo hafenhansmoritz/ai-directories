@@ -49,6 +49,7 @@ const JEAN_SAGT = {
     'wordtune-vs-rytr': 'Englisch glätten: Wordtune. Deutsch neu schreiben: Rytr. Das ist die ganze Weiche.',
     'runway-vs-invideo-ai': 'Für das eine scharfe Video nimm Runway, für den wöchentlichen Upload-Rhythmus InVideo AI.',
     'otter-ai-vs-descript': 'Willst du ein Protokoll oder einen fertigen Schnitt? Die Antwort entscheidet, nicht der Preis.',
+    'gohighlevel-vs-systeme-io': 'Verwaltest du Funnels für mehrere Kunden, schau dir GoHighLevel an. Baust du dein eigenes Geschäft allein auf, fängst du mit Systeme.io bei $0 an.',
     'systeme-io-vs-kit': 'Willst du den ganzen Laden aus einer Hand, nimm Systeme.io. Lebt dein Geschäft vom Newsletter, nimm Kit.',
     'surfer-seo-vs-writesonic': 'Wer nur Artikel poliert, ist bei Surfer richtig. Wer Audits und KI-Artikel dazu will, testet Writesonic erst 7 Tage.',
 }
