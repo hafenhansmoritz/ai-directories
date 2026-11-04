@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import JsonLd from '../components/JsonLd'
 import { SITE_NAME } from '../../lib/site'
-import { LEAD_EMAIL, NEWSLETTER_EMBED, NEWSLETTER_NAME, NEWSLETTER_URL } from '../../lib/monetization'
+import { CONTACT_EMAIL, LEAD_EMAIL, NEWSLETTER_BREVO, NEWSLETTER_EMBED, NEWSLETTER_NAME, NEWSLETTER_SUBSTACK, NEWSLETTER_URL } from '../../lib/monetization'
 import { getGuides } from '../../lib/guides'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import { KONTO_AKTIV } from '../../lib/konto'
@@ -27,8 +27,10 @@ const ABSCHNITTE = [
         'Kurz gesagt',
         [
             KONTO_AKTIV
-                ? 'mentat.codes setzt keine Analyse-Tools, keine Werbe-Cookies und keine Tracking-Pixel ein. Personenbezogene Daten verarbeiten wir, wenn du uns über das Formular schreibst, beim Abruf der Seite durch den Hosting-Anbieter und, falls du ein Konto anlegst, für dein Konto: E-Mail-Adresse, Profil, Sammlung, Kommentare und Forenbeiträge sowie deine Einwilligungen (siehe Abschnitt Benutzerkonto).'
-                : 'mentat.codes setzt keine Analyse-Tools, keine Werbe-Cookies und keine Tracking-Pixel ein. Personenbezogene Daten verarbeiten wir nur, wenn du uns über das Formular schreibst, und beim Abruf der Seite durch den Hosting-Anbieter.',
+                ? 'mentat.codes setzt keine Analyse-Tools, keine Werbe-Cookies und keine Tracking-Pixel ein. Personenbezogene Daten verarbeiten wir, wenn du uns über das Formular schreibst, beim Abruf der Seite durch den Hosting-Anbieter und, falls du ein Konto anlegst, für dein Konto: E-Mail-Adresse, Profil, Sammlung, Kommentare und Forenbeiträge sowie deine Einwilligungen (siehe Abschnitt Benutzerkonto).' +
+                  (NEWSLETTER_URL ? ` Den Newsletter ${NEWSLETTER_NAME} abonnierst du direkt beim Anbieter (siehe Abschnitt Newsletter).` : '')
+                : 'mentat.codes setzt keine Analyse-Tools, keine Werbe-Cookies und keine Tracking-Pixel ein. Personenbezogene Daten verarbeiten wir nur, wenn du uns über das Formular schreibst, und beim Abruf der Seite durch den Hosting-Anbieter.' +
+                  (NEWSLETTER_URL ? ` Den Newsletter ${NEWSLETTER_NAME} abonnierst du direkt beim Anbieter (siehe Abschnitt Newsletter).` : ''),
         ],
     ],
     [
@@ -71,7 +73,31 @@ const ABSCHNITTE = [
               ],
           ]
         : []),
-    ...(NEWSLETTER_URL || NEWSLETTER_EMBED
+    ...(NEWSLETTER_BREVO
+        ? [
+              [
+                  'Newsletter',
+                  [
+                      'Wenn du unseren Newsletter abonnierst, verarbeiten wir deine E-Mail-Adresse, den Zeitpunkt der Anmeldung und der Bestätigung sowie die dabei verwendete IP-Adresse. Rechtsgrundlage ist deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO.',
+                      'Die Anmeldung erfolgt im Double-Opt-in-Verfahren: Du erhältst zuerst eine E-Mail mit einem Bestätigungslink. Erst nach dem Klick wirst du eingetragen. Die Protokollierung von Anmeldung und Bestätigung dient dem Nachweis deiner Einwilligung (Art. 7 Abs. 1 DSGVO).',
+                      'Für den Versand nutzen wir Brevo, einen Dienst der Brevo GmbH, Köpenicker Str. 126, 10179 Berlin. Brevo verarbeitet deine Daten in unserem Auftrag auf Grundlage eines Vertrags zur Auftragsverarbeitung nach Art. 28 DSGVO. Das Anmeldeformular liegt bei Brevo: Erst wenn du auf den Anmelde-Button klickst, wird es geöffnet und deine Angaben gehen beim Absenden direkt an Brevo. Vorher lädt diese Website keine Inhalte von Brevo. Weitere Informationen stehen in der Datenschutzerklärung von Brevo.',
+                      'Wir werten Öffnungs- und Klickraten nicht aus; das Tracking ist in Brevo deaktiviert.',
+                      `Du kannst deine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, über den Abmeldelink in jeder E-Mail oder per E-Mail an ${CONTACT_EMAIL}. Nach der Abmeldung löschen wir deine Adresse aus der Verteilerliste. Den Nachweis der früheren Einwilligung bewahren wir bis zu drei Jahre auf, um uns gegen Ansprüche verteidigen zu können (Art. 6 Abs. 1 lit. f DSGVO).`,
+                  ],
+              ],
+          ]
+        : NEWSLETTER_SUBSTACK && !NEWSLETTER_EMBED
+        ? [
+              [
+                  'Newsletter',
+                  [
+                      `Unser Newsletter ${NEWSLETTER_NAME} erscheint auf Substack. Die Anmeldung erfolgt auf substack.com. Verantwortlich für die Verarbeitung deiner Daten dort ist Substack Inc., USA, nach deren Datenschutzerklärung (substack.com/privacy).`,
+                      'mentat.codes verlinkt nur auf die Anmeldeseite. Wir binden keine Inhalte von Substack ein und übertragen keine Daten an Substack. Erst wenn du dem Link folgst, verarbeitet Substack Daten wie deine IP-Adresse und, bei der Anmeldung, deine E-Mail-Adresse.',
+                      'Abmelden kannst du dich jederzeit über den Abmeldelink in jeder Ausgabe.',
+                  ],
+              ],
+          ]
+        : NEWSLETTER_URL || NEWSLETTER_EMBED
         ? [
               [
                   'Newsletter',
