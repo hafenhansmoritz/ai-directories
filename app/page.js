@@ -29,6 +29,7 @@ import getFaq from '../utils/faq-de'
 import { formatNumber } from '../utils/i18n-de'
 import Vernetzt, { seitenPfad } from './components/Vernetzt'
 import MemeChat from './components/MemeChat'
+import PromptGottFeed from './components/PromptGottFeed'
 
 export function generateMetadata() {
     const stats = getSiteStats()
@@ -386,6 +387,7 @@ function Home() {
             </section>
 
             <ToolPartners limit={6} />
+            <PromptGottFeed />
             <section aria-labelledby="mentat-herkunft">
                 <h2 id="mentat-herkunft">Woher kommt der Name mentat.codes? 🛠️</h2>
                 <p>

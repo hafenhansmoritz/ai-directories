@@ -140,6 +140,8 @@ const footerSpalten = () => [
             ['/downloads', 'Downloads'],
             ['/ratgeber', 'Ratgeber'],
             ['/glossar', 'KI-Glossar'],
+            ['https://promptgott.mentat.codes', 'PromptGott-Blog'],
+            ['https://promptgott.substack.com', 'PromptGott-Newsletter'],
         ],
     ],
 ]
