@@ -11,6 +11,7 @@ import { autorRef } from '../../../lib/autor'
 import Pruefer from '../../components/Pruefer'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 import GuideGate from '../../components/GuideGate'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
 import { guideFuerRatgeber } from '../../../lib/guides'
 import { ogMeta, OG_BILDER, publisherRef } from '../../../lib/og-meta'
 
@@ -118,6 +119,7 @@ function ArtikelPage({ params }) {
                 </section>
             )}
             <Pruefer datum={a.geprueft} />
+            {a.magnet && <LeadMagnetBox id={a.magnet} />}
             {guideFuerRatgeber(a.slug) && (
                 <aside className="leadform guide-formular" aria-label="Gratis-Guide als PDF">
                     <p className="leadform-titel">📥 Diesen Ratgeber als PDF-Guide mitnehmen</p>
