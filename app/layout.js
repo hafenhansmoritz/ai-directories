@@ -311,7 +311,10 @@ export default function RootLayout({ children }) {
                                     <Link href="/forum">Forum</Link> · <Link href="/community-regeln">Community-Regeln</Link> ·{' '}
                                 </>
                             )}
-                            <a href="https://www.youtube.com/@AIGeddon">YouTube</a>
+                            <a href="https://www.youtube.com/@AIGeddon">YouTube</a> ·{' '}
+                            <a href="https://me.developers.google.com/u/portai" rel="me noopener">
+                                Google Developer Profil
+                            </a>
                         </p>
                         <p>
                             Open Source auf <a href={REPO_URL}>GitHub</a> (Pull Requests werden mit Konfetti empfangen) · Rohdaten als{' '}
