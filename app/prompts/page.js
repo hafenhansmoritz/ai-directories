@@ -8,6 +8,7 @@ import { promptsByKategorie, getPrompts, TECHNIKEN } from '../../lib/prompts'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import PromptCardList from '../components/PromptCardList'
 import LeadMagnetBox from '../components/LeadMagnetBox'
+import PromptGottFeed from '../components/PromptGottFeed'
 
 export const metadata = {
     title: 'KI-Prompts auf Deutsch: Vorlagen für ChatGPT & Claude',
@@ -76,6 +77,7 @@ export default function Seite() {
     return (
         <>
             <PromptsPage />
+            <PromptGottFeed />
             <Vernetzt pfad={seitenPfad('/prompts')} />
         </>
     )
