@@ -303,7 +303,7 @@ export default function RootLayout({ children }) {
                         <p>
                             Gebaut von <Link href="/ueber-jean">Jean Maurice Port</Link>, Senior SEO/SGE Manager bei der MotoMobilityGroup. ·{' '}
                             <Link href="/werben">Werben</Link> · <Link href="/transparenz">Transparenz</Link> · <Link href="/so-pruefen-wir">So prüfen wir</Link> ·{' '}
-                            <Link href="/datenschutz">Datenschutz</Link> · <Link href="/merkliste">
+                            <Link href="/impressum">Impressum</Link> · <Link href="/datenschutz">Datenschutz</Link> · <Link href="/merkliste">
                                 Merkliste <span aria-hidden="true">⭐</span>
                             </Link> ·{' '}
                             {KONTO_AKTIV && (
@@ -311,7 +311,10 @@ export default function RootLayout({ children }) {
                                     <Link href="/forum">Forum</Link> · <Link href="/community-regeln">Community-Regeln</Link> ·{' '}
                                 </>
                             )}
-                            <a href="https://www.youtube.com/@AIGeddon">YouTube</a>
+                            <a href="https://www.youtube.com/@AIGeddon">YouTube</a> ·{' '}
+                            <a href="https://me.developers.google.com/u/portai" rel="me noopener">
+                                Google Developer Profil
+                            </a>
                         </p>
                         <p>
                             Open Source auf <a href={REPO_URL}>GitHub</a> (Pull Requests werden mit Konfetti empfangen) · Rohdaten als{' '}

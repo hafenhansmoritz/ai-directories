@@ -3,6 +3,7 @@ import JsonLd from '../components/JsonLd'
 import Jean from '../components/Jean'
 import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import { SITE_NAME } from '../../lib/site'
+import { CONTACT_EMAIL, mailto } from '../../lib/monetization'
 import { getSiteStats } from '../../lib/data'
 import { kbStats } from '../../lib/kb'
 import { getTools } from '../../lib/tools'
@@ -128,6 +129,9 @@ function AdvertisePage() {
                     ))}
                 </ul>
             </section>
+            <p className="box box-info" id="kontakt">
+                Lieber direkt per Mail? Schreib an <a href={mailto('Anfrage über mentat.codes/werben')}>{CONTACT_EMAIL}</a>, ein Satz zu deinem Tool oder Verzeichnis reicht.
+            </p>
             <Band farbe="mint" id="ablauf" titel="So läuft die Zusammenarbeit 🤝" sticker="4 Schritte">
                 <ol className="kriterien-grid">
                     {ABLAUF.map(([icon, titel, text]) => (

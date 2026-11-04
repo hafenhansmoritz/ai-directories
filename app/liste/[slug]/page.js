@@ -9,6 +9,7 @@ import { LISTS, getList, tabellenZeilen } from '../../../lib/data'
 import { dateiStand } from '../../../lib/stand'
 import { absoluteUrl } from '../../../lib/site'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import { featuredFuer } from '../../../lib/featured'
 
 export const dynamicParams = false
 
@@ -93,7 +94,7 @@ function ListPage({ params }) {
                     <h2>Alle Codes als Tabelle</h2>
                 </>
             )}
-            {list.items.length > 0 && <DirectoryTable directories={tabellenZeilen(list.items)} caption={`${list.title}: ${list.items.length} Einträge`} />}
+            {list.items.length > 0 && <DirectoryTable directories={tabellenZeilen(list.items)} featured={featuredFuer('liste')} caption={`${list.title}: ${list.items.length} Einträge`} />}
 
             <section aria-labelledby="weitere">
                 <h2 id="weitere">Weitere Listen, weil du noch nicht genug hast 📚</h2>
