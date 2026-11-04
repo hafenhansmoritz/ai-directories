@@ -28,7 +28,6 @@ import getFaq from '../utils/faq-de'
 import { formatNumber } from '../utils/i18n-de'
 import Vernetzt, { seitenPfad } from './components/Vernetzt'
 import MemeChat from './components/MemeChat'
-import AngebotBox from './components/AngebotBox'
 import { featuredFuer } from '../lib/featured'
 
 export function generateMetadata() {
@@ -283,7 +282,6 @@ function Home() {
                     </li>
                 </ol>
             </Band>
-            <AngebotBox thema="website" />
             <Trenner art="strahlung" farbe="orange" />
 
             <MemeChat />
@@ -339,7 +337,6 @@ function Home() {
                     ))}
                 </ul>
             </Band>
-            <AngebotBox thema="coding" />
             <section className="kb-hero-suche" aria-labelledby="tool-suche">
                 <h2 id="tool-suche">Welches KI-Tool suchst du? 🔎</h2>
                 <form action={withBase('/ki-tools/')} method="get" role="search" aria-label="KI-Tool-Datenbank durchsuchen">

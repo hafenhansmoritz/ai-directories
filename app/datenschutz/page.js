@@ -20,7 +20,7 @@ const ABSCHNITTE = [
     [
         'Verantwortlich',
         [
-            `Hans Moritz Hafen, Grabenstraße 28, 66538 Neunkirchen, Deutschland (siehe Impressum), erreichbar per E-Mail an ${CONTACT_EMAIL} oder über das Kontaktformular am Ende jeder Seite.`,
+            `Jean Maurice Port (siehe Impressum), erreichbar per E-Mail an ${CONTACT_EMAIL} oder über das Kontaktformular am Ende jeder Seite. mentat.codes ist ein privates, nichtkommerzielles Projekt zu Unterhaltungs- und Demonstrationszwecken.`,
         ],
     ],
     [

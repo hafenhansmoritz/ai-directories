@@ -5,13 +5,12 @@ import { SITE_NAME } from '../../lib/site'
 
 export const metadata = {
     title: 'Impressum',
-    description: 'Anbieterkennzeichnung von mentat.codes nach § 5 DDG und Verantwortlicher für den Inhalt nach § 18 Abs. 2 MStV.',
+    description: 'Wer hinter mentat.codes steht und wie du Jean erreichst: ein privates, nichtkommerzielles Projekt zu Unterhaltungs- und Demonstrationszwecken.',
     alternates: { canonical: '/impressum' },
     robots: { index: false, follow: true },
 }
 
-const NAME = 'Hans Moritz Hafen'
-const ANSCHRIFT = ['Grabenstraße 28', '66538 Neunkirchen', 'Deutschland']
+const NAME = 'Jean Maurice Port'
 const EMAIL = 'hello@mentat.codes'
 
 export default function ImpressumPage() {
@@ -25,30 +24,22 @@ export default function ImpressumPage() {
             <Breadcrumbs items={crumbs} />
             <section className="hero">
                 <h1>Impressum</h1>
-                <p className="lead">Angaben gemäß § 5 DDG</p>
+                <p className="lead">Wer hinter mentat.codes steht und wie du Kontakt aufnimmst.</p>
             </section>
             <div className="prose">
                 <section aria-labelledby="impressum-anbieter">
-                    <h2 id="impressum-anbieter">Anbieter</h2>
-                    <address>
-                        {NAME}
-                        {ANSCHRIFT.map((zeile) => (
-                            <span key={zeile}>
-                                <br />
-                                {zeile}
-                            </span>
-                        ))}
-                    </address>
+                    <h2 id="impressum-anbieter">Betrieben von</h2>
+                    <p>{NAME}</p>
+                </section>
+                <section aria-labelledby="impressum-projekt">
+                    <h2 id="impressum-projekt">Über das Projekt</h2>
+                    <p>mentat.codes ist ein privates, nichtkommerzielles Projekt zu Unterhaltungs- und Demonstrationszwecken.</p>
                 </section>
                 <section aria-labelledby="impressum-kontakt">
                     <h2 id="impressum-kontakt">Kontakt</h2>
                     <p>
                         E-Mail: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
                     </p>
-                </section>
-                <section aria-labelledby="impressum-mstv">
-                    <h2 id="impressum-mstv">Verantwortlich für den Inhalt</h2>
-                    <p>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: {NAME}, Anschrift wie oben.</p>
                 </section>
             </div>
             <p className="box box-info">

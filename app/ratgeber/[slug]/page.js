@@ -15,8 +15,6 @@ import GuideGate from '../../components/GuideGate'
 import LeadMagnetBox from '../../components/LeadMagnetBox'
 import { guideFuerRatgeber } from '../../../lib/guides'
 import { magnetFuer } from '../../../lib/leadmagnets'
-import AngebotBox from '../../components/AngebotBox'
-import { RATGEBER_THEMA } from '../../../lib/angebote'
 import { ogMeta, OG_BILDER, publisherRef } from '../../../lib/og-meta'
 
 export const dynamicParams = false
@@ -139,8 +137,6 @@ function ArtikelPage({ params }) {
                     <GuideGate guide={guide} kompakt />
                 </aside>
             )}
-            {/* Service-Angebot passend zum Thema, kein Mail-Baustein (zählt nicht gegen die 2er-Grenze). */}
-            {RATGEBER_THEMA[a.slug] && <AngebotBox thema={RATGEBER_THEMA[a.slug]} />}
             {a.faq && (
                 <section aria-labelledby="faq">
                     <h2 id="faq">Häufige Fragen 🙋</h2>

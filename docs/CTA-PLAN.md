@@ -52,7 +52,7 @@ Seitenzahlen aus `out/` (Build vom 2026-11-04). „Vorher“ = Lead-Bausteine im
 | Neue KI-Modelle, Übersicht | `app/neue-ki-modelle/page.js` | 1 | nichts | vor „Gerüchte“ | prompt-spickzettel |
 | Glossar-Eintrag | `app/glossar/[slug]/page.js` | 79 | nichts | nach Beispiel/Tipp, vor „Verwandte Begriffe“ | `magnetFuer(Begriff, Zielseite)` |
 | Glossar, Übersicht | `app/glossar/page.js` | 1 | nichts | zwischen KI- und SEO-Teil | prompt-spickzettel |
-| Ratgeber-Artikel (plus AngebotBox laut `RATGEBER_THEMA`) | `app/ratgeber/[slug]/page.js` | 38 | LeadMagnetBox am Ende (nur mit `magnet`), GuideGate (kein Guide bereit) | **verschoben** nach dem ersten Drittel der Abschnitte, jetzt auf allen Artikeln; ist ein PDF-Guide bereit, ersetzt der GuideGate die Box | `a.magnet` oder `magnetFuer(slug, Titel)` |
+| Ratgeber-Artikel | `app/ratgeber/[slug]/page.js` | 38 | LeadMagnetBox am Ende (nur mit `magnet`), GuideGate (kein Guide bereit) | **verschoben** nach dem ersten Drittel der Abschnitte, jetzt auf allen Artikeln; ist ein PDF-Guide bereit, ersetzt der GuideGate die Box | `a.magnet` oder `magnetFuer(slug, Titel)` |
 | Prompt | `app/prompts/[slug]/page.js` | ~200 | LeadMagnetBox + SlideInLead | unverändert | prompt-paket |
 | Prompts, Kategorie / Tool / Archiv | `app/prompts/kategorie/[key]`, `tool/[slug]`, `archiv` | 28 | LeadMagnetBox | unverändert | prompt-paket |
 | Prompts, Übersicht | `app/prompts/page.js` | 1 | nichts | vor „Techniken“ | prompt-paket (gesperrt: mit Brevo Anmeldung) |
@@ -70,12 +70,11 @@ Seitenzahlen aus `out/` (Build vom 2026-11-04). „Vorher“ = Lead-Bausteine im
 | Guides | `app/guides/page.js` | 1 | GuideGate je Guide | unverändert | Guides |
 | Hubs: Ratgeber, Verzeichnis A bis Z, Listen, Tool-Vergleiche, Alternativen, Für wen | `app/ratgeber`, `verzeichnis`, `liste`, `tool-vergleiche`, `ki-tools/alternativen`, `ki-tools/fuer` | 6 | nichts | bewusst nur End-Box (reine Navigation) | |
 | Startseite, Über Jean | `app/page.js`, `app/ueber-jean/page.js` | 2 | | **nicht angefasst** (anderer Agent) | |
-| Beratung, Website erstellen lassen | `/beratung`, `/website-erstellen-lassen` | | | **nicht angefasst** (anderer Agent, AngebotBox) | |
 | Rechtliches, Konto, Forum, Werben, So prüfen wir, Transparenz, Merkliste, Quellen | diverse | ~20 | | bewusst nur End-Box | |
 
 ## Offene Integrationsschritte
 
-1. **AngebotBox im Ratgeber: erledigt.** `app/ratgeber/[slug]/page.js` zeigt `<AngebotBox thema={RATGEBER_THEMA[a.slug]} />` nach „Quellen und Stand“ bzw. nach dem PDF-Guide, nur für Artikel mit Eintrag in `RATGEBER_THEMA` (`lib/angebote.js`). Service-Angebot, kein Mail-Baustein, zählt also nicht gegen die 2er-Grenze.
+1. **Keine Service-Angebote (Stand 4. November 2026).** mentat.codes bleibt vorerst ein privates, nichtkommerzielles Projekt. `/beratung`, `/website-erstellen-lassen`, die AngebotBox und `lib/angebote.js` wurden entfernt. Neue Service- oder Beratungsangebote nur nach ausdrücklicher Entscheidung des Users.
 2. **Willkommensmail in Brevo:** Die Bestätigungs- oder Willkommensmail sollte die Links zu `/downloads/prompt-paket.md` und `/top-50.csv` (oder einfach `/downloads/`) enthalten, falls die Weiterleitung nicht greift.
 3. **Quelle als Attribut:** In Brevo ein Kontaktattribut `QUELLE` (Text) anlegen, im Formular als verstecktes Feld ergänzen und `NEXT_PUBLIC_BREVO_SOURCE_FIELD=QUELLE` setzen. Dann sieht man, welcher Baustein auf welcher Seite die Anmeldungen bringt.
 4. **Echter Test:** Einmal mit einer eigenen Adresse eintragen und prüfen, ob Brevo die Mail schickt und nach der Bestätigung auf `/downloads/` weiterleitet.
