@@ -9,8 +9,6 @@ import konfetti from '../../lib/konfetti'
 // Lead-Formular für jede Seite. Ohne eigenen Server: FormSubmit leitet die Anfrage per Mail weiter (LEAD_EMAIL).
 // Das Honeypot-Feld _honey fängt einfache Bots ab; die Seite, von der die Anfrage kommt, steht im Betreff.
 export const ANLIEGEN = [
-    ['tool-eintragen', 'Mein KI-Tool in Verzeichnisse eintragen lassen'],
-    ['beratung', 'Beratung: welche KI-Tools passen zu uns?'],
     ['tool-vorschlag', 'Tool oder Verzeichnis vorschlagen'],
     ['fehler', 'Fehler auf der Seite melden'],
     ['sonstiges', 'Etwas anderes'],
@@ -101,7 +99,7 @@ export default function LeadForm({ titel, text, optionen = ANLIEGEN, vorauswahl 
                 <p className="leadform-titel" id={`${id}-titel`}>
                     {titel || 'Frag Jean direkt ✉️'}
                 </p>
-                <p>{text || 'Tool eintragen lassen, KI-Beratung oder einfach eine Frage: Schreib kurz, worum es geht. Antwort kommt persönlich, nicht vom Bot.'}</p>
+                <p>{text || 'Tool vorschlagen, Fehler melden oder einfach eine Frage: Schreib kurz, worum es geht. Antwort kommt persönlich, nicht vom Bot.'}</p>
             </div>
             <form className="leadform-form" onSubmit={senden}>
                 <label>

@@ -37,7 +37,7 @@ export default function SeitenAnhang() {
             {ANLIEGEN.map(([k]) => (
                 <span key={k} id={`anfrage-${k}`} />
             ))}
-            Fragen, Tool eintragen lassen oder einen Fehler gefunden?{' '}
+            Fragen, Tool-Vorschlag oder einen Fehler gefunden?{' '}
             <button type="button" className="a-frag-jean-knopf" aria-expanded="false" onClick={() => (setPerKlick(true), setOffen(true))}>
                 Frag Jean direkt →
             </button>

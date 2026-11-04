@@ -1,4 +1,5 @@
 import LaunchKit from './LaunchKit'
+import EintragsserviceWarteliste from '../components/EintragsserviceWarteliste'
 import ToolPartners from '../components/ToolPartners'
 import Jean from '../components/Jean'
 import JsonLd from '../components/JsonLd'
@@ -54,6 +55,7 @@ function LaunchKitPage() {
                 </Jean>
             </section>
             <LaunchKit directories={directories} />
+            <EintragsserviceWarteliste />
             <LeadMagnetBox id="top-50" anlass="Texte fertig? Dann brauchst du noch die Liste, wo sie hinkommen." />
             <ToolPartners />
         </>
