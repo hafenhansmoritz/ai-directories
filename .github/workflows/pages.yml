@@ -33,6 +33,8 @@ jobs:
             NEXT_PUBLIC_LEAD_ALIAS: ${{ vars.LEAD_ALIAS }}
             # Newsletter: leer = https://promptgott.substack.com (Fallback in lib/monetization.js). Optional andere URL, z. B. Brevo-Formular.
             NEXT_PUBLIC_NEWSLETTER_URL: ${{ vars.NEWSLETTER_URL }}
+            # Download-Sperre bis zur Willkommensmail: nur 1 setzen, wenn die Willkommensmail die Download-Links enthält
+            NEXT_PUBLIC_NEWSLETTER_GATE: ${{ vars.NEWSLETTER_GATE }}
             # Postfach für mailto-Links (/werben). Leer = hello@mentat.codes
             NEXT_PUBLIC_CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
             # Konten, Profile und Community einschalten: Variable KONTO auf 1 setzen (siehe docs/TRAUMSEITE-30.md)

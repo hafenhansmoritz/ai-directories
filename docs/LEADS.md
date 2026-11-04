@@ -8,12 +8,12 @@
    - Substack/beehiiv: Adresse des Newsletters, z. B. `https://promptgott.substack.com`
    - nur bei beehiiv zusätzlich `NEXT_PUBLIC_NEWSLETTER_EMBED`: Embed-URL aus *Grow → Subscribe Forms*
 3. Ab dem nächsten Build verlinken alle Lead-Bausteine die Anmeldeseite. Ein eingebettetes Formular gibt es nur mit ausdrücklich gesetztem `NEXT_PUBLIC_NEWSLETTER_EMBED`; dann /datenschutz anpassen. Double-Opt-in, Abmeldelink und Speicherung erledigt der Anbieter.
-4. In der **Willkommensmail** die Links zu den gesperrten Downloads eintragen (Tabelle unten, Spalte „gesperrt“).
+4. Downloads sind standardmäßig frei, daneben steht „PromptGott abonnieren“. Die Sperre (Tabelle unten, Spalte „gesperrt“) greift nur mit Repository-Variable `NEWSLETTER_GATE` = `1` (Build-Variable `NEXT_PUBLIC_NEWSLETTER_GATE`). Vorher in der **Willkommensmail** die Links zu den gesperrten Downloads eintragen und mit einer Testanmeldung prüfen, sonst gehen Abonnenten leer aus.
 5. /datenschutz zeigt den passenden Newsletter-Abschnitt automatisch (Substack, Brevo oder allgemein).
 
 ## Downloads und wo sie stehen
 
-| Download | Datei | gesperrt nach Newsletter-Start | steht auf |
+| Download | Datei | gesperrt mit NEWSLETTER_GATE=1 | steht auf |
 |---|---|---|---|
 | Prompt-Spickzettel | `/downloads/prompt-spickzettel` (Drucken → PDF) | nein, bewusst frei: wird geteilt und verlinkt | Tutorials-Übersicht, Prompt-Baukasten, Prompt-Check, Downloads |
 | Prompt-Paket | `/downloads/prompt-paket.md` (wächst mit der Bibliothek) | ja | jede Prompt-Seite, Tutorial „Prompt-Kette“, Downloads |
