@@ -6,7 +6,7 @@ import LeadForm, { ANLIEGEN } from './LeadForm'
 
 // Das Anfrageformular steht nur dort ausgeklappt, wo es zur Aufgabe passt. Überall sonst reicht eine Zeile,
 // die das Formular auf Klick öffnet. Links wie #anfrage-fehler öffnen es ebenfalls und wählen das Anliegen vor.
-const VOLL = /^\/(werben|launch-kit|ueber-jean|verzeichnis\/[^/]+)\/?$/
+const VOLL = /^\/(launch-kit|ueber-jean|verzeichnis\/[^/]+)\/?$/
 
 export default function SeitenAnhang() {
     const pfad = usePathname() || '/'

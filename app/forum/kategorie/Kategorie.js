@@ -80,7 +80,6 @@ export default function Kategorie() {
                     {kat.emoji} {kat.name}
                 </h1>
                 <p className="lead">{kat.beschreibung}</p>
-                {kat.gesponsert_von && <p className="f-sponsor">Diese Kategorie wird präsentiert von {kat.gesponsert_von}* (Anzeige)</p>}
             </section>
             <div className="f-leiste">
                 <div className="f-sortierung" role="group" aria-label="Sortierung">

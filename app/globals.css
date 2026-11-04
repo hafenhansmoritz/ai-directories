@@ -5086,55 +5086,6 @@ ul.kb-hero-chips {
     color: var(--accent);
 }
 
-/* Angebotskarten auf /werben */
-.angebote {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
-    gap: 16px;
-}
-
-.angebote > li {
-    background: var(--surface);
-    border: 2px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 16px;
-    display: grid;
-    gap: 8px;
-    align-content: start;
-    min-width: 0;
-}
-
-.angebote h3 {
-    margin: 0;
-}
-
-.angebote p {
-    margin: 0;
-}
-
-.angebote ul {
-    margin: 0;
-    padding-left: 18px;
-    font-size: var(--fs-body-sm);
-}
-
-.angebote .button {
-    justify-self: start;
-    margin-top: 4px;
-}
-
-.angebot-fuer {
-    font-size: var(--fs-2xs);
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted);
-}
-
 /* Startseite: Wege nach Ziel */
 .pfade {
     list-style: none;
@@ -6695,7 +6646,6 @@ h2 a {
 }
 .f-kat-emoji { font-size: 2rem; }
 .f-zahl { min-width: 36px; padding: 4px 10px; border-radius: var(--radius-pill); background: var(--pop); color: var(--ink); font-weight: 800; text-align: center; }
-.f-sponsor { margin-left: 8px; font-size: var(--fs-xs); color: var(--muted); }
 .f-themen li { padding: 12px 14px; border: 2px solid var(--border); border-radius: var(--radius); background: var(--surface); }
 .f-angepinnt { background: var(--warn-bg) !important; }
 .f-thema-titel { font-weight: 800; font-size: var(--fs-md); }

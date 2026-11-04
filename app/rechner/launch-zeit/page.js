@@ -29,7 +29,7 @@ const FAQ = [
     },
     {
         "q": "Kann ich das abgeben?",
-        "a": "Ja, der Launch-Service von mentat.codes übernimmt das Eintragen. Details auf der Seite Werben."
+        "a": "Ja, Jean trägt dein Tool auf Anfrage ein. Schreib ihm dazu über das Formular am Ende der Seite."
     }
 ]
 

@@ -82,7 +82,7 @@ function QuellenPage() {
                 </li>
             </ul>
             <p>
-                Fehlt ein Tool oder ist ein Link tot? Trag es in einer der drei Listen ein, beim nächsten Abgleich ist es auch hier. Oder <Link href="/werben">melde dich direkt</Link>.
+                Fehlt ein Tool oder ist ein Link tot? Trag es in einer der drei Listen ein, beim nächsten Abgleich ist es auch hier. Oder <a href="#anfrage-tool-vorschlag">melde dich direkt</a>.
             </p>
             <p>
                 <Link href="/ki-tools">← Zur KI-Tool-Datenbank</Link>

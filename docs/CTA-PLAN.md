@@ -7,7 +7,7 @@ Stand: 2026-11-04. Ziel: Auf jeder Seite von mentat.codes eine sinnvolle Möglic
 - **Höchstens 2 Lead-Bausteine pro Seite.** Gezählt werden Bausteine im Seitenfluss, die auf die Mail-Liste zielen: `LeadBox`, `LeadMagnetBox`, `GuideGate`.
 - **Baustein 1 (Ende):** `LeadBox` steht global in `app/layout.js` unter jedem Inhalt. Kein Template braucht eine eigene End-Box.
 - **Baustein 2 (inline):** eine `LeadMagnetBox` nach dem ersten Drittel bzw. direkt nach dem Ergebnis (Rechner, Quiz, Tool-Finder). Thema über `magnetFuer()` aus `lib/leadmagnets.js`: Coding schlägt Launch/Verzeichnisse schlägt Prompts (Standard). Mit `anlass` steht ein Satz davor, der zur Seite passt.
-- **Nicht mitgezählt:** `SlideInLead` (nur auf Prompt- und Tutorial-Seiten, wie bisher, nichts Neues dazu) und das Anfrageformular `LeadForm` aus `SeitenAnhang` (Service-Anfrage, nur auf /werben, /launch-kit, /ueber-jean, /verzeichnis/[slug] ausgeklappt).
+- **Nicht mitgezählt:** `SlideInLead` (nur auf Prompt- und Tutorial-Seiten, wie bisher, nichts Neues dazu) und das Anfrageformular `LeadForm` aus `SeitenAnhang` (Service-Anfrage, nur auf /launch-kit, /ueber-jean, /verzeichnis/[slug] ausgeklappt; /werben ist seit 2026-11-04 entfernt).
 - **Bewusst ohne Inline-Box:** Rechtliches, Konto, Forum, Moderation, reine Navigations-Hubs. Dort reicht die globale End-Box.
 
 ## Newsletter-Anbindung (Brevo)
@@ -70,7 +70,7 @@ Seitenzahlen aus `out/` (Build vom 2026-11-04). „Vorher“ = Lead-Bausteine im
 | Guides | `app/guides/page.js` | 1 | GuideGate je Guide | unverändert | Guides |
 | Hubs: Ratgeber, Verzeichnis A bis Z, Listen, Tool-Vergleiche, Alternativen, Für wen | `app/ratgeber`, `verzeichnis`, `liste`, `tool-vergleiche`, `ki-tools/alternativen`, `ki-tools/fuer` | 6 | nichts | bewusst nur End-Box (reine Navigation) | |
 | Startseite, Über Jean | `app/page.js`, `app/ueber-jean/page.js` | 2 | | **nicht angefasst** (anderer Agent) | |
-| Rechtliches, Konto, Forum, Werben, So prüfen wir, Transparenz, Merkliste, Quellen | diverse | ~20 | | bewusst nur End-Box | |
+| Rechtliches, Konto, Forum, So prüfen wir, Transparenz, Merkliste, Quellen | diverse | ~20 | | bewusst nur End-Box | |
 
 ## Offene Integrationsschritte
 

@@ -1,4 +1,0 @@
-{
- "hinweis": "Verkaufte Featured-Plätze (Anzeige) über den Verzeichnis-Tabellen. Standardmäßig leer. Jeder Eintrag: name, url (https://, Link des Kunden ohne fremde Tracking-Parameter), text (ein Satz), von und bis (JJJJ-MM-TT, beide Tage inklusive), orte (leer = überall; sonst z. B. 'start', 'liste'). Abgelaufene Einträge blendet der Build aus. Preise stehen nicht hier.",
- "eintraege": []
-}

@@ -10,7 +10,6 @@ import konfetti from '../../lib/konfetti'
 // Das Honeypot-Feld _honey fängt einfache Bots ab; die Seite, von der die Anfrage kommt, steht im Betreff.
 export const ANLIEGEN = [
     ['tool-eintragen', 'Mein KI-Tool in Verzeichnisse eintragen lassen'],
-    ['werbung', 'Werbung oder Featured-Platz auf mentat.codes'],
     ['beratung', 'Beratung: welche KI-Tools passen zu uns?'],
     ['tool-vorschlag', 'Tool oder Verzeichnis vorschlagen'],
     ['fehler', 'Fehler auf der Seite melden'],
@@ -25,7 +24,7 @@ export default function LeadForm({ titel, text, optionen = ANLIEGEN, vorauswahl 
     const [fehler, setFehler] = useState('')
     const [anliegen, setAnliegen] = useState(vorauswahl)
 
-    // Links wie #anfrage-werbung springen zum Formular und wählen das Anliegen vor.
+    // Links wie #anfrage-fehler springen zum Formular und wählen das Anliegen vor.
     useEffect(() => {
         const aus = () => {
             const m = window.location.hash.match(new RegExp(`^#${id}-([a-z-]+)$`))
@@ -94,7 +93,7 @@ export default function LeadForm({ titel, text, optionen = ANLIEGEN, vorauswahl 
 
     return (
         <section className="leadform" id={id} aria-labelledby={`${id}-titel`}>
-            {/* Sprungziele für Links wie #anfrage-werbung, damit sie auch vor dem Laden von JavaScript ankommen. */}
+            {/* Sprungziele für Links wie #anfrage-fehler, damit sie auch vor dem Laden von JavaScript ankommen. */}
             {optionen.map(([k]) => (
                 <span key={k} id={`${id}-${k}`} />
             ))}
@@ -102,7 +101,7 @@ export default function LeadForm({ titel, text, optionen = ANLIEGEN, vorauswahl 
                 <p className="leadform-titel" id={`${id}-titel`}>
                     {titel || 'Frag Jean direkt ✉️'}
                 </p>
-                <p>{text || 'Tool eintragen lassen, Werbung buchen, KI-Beratung oder einfach eine Frage: Schreib kurz, worum es geht. Antwort kommt persönlich, nicht vom Bot.'}</p>
+                <p>{text || 'Tool eintragen lassen, KI-Beratung oder einfach eine Frage: Schreib kurz, worum es geht. Antwort kommt persönlich, nicht vom Bot.'}</p>
             </div>
             <form className="leadform-form" onSubmit={senden}>
                 <label>

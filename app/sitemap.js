@@ -30,7 +30,6 @@ const STATISCH = {
     '/ratgeber': ['lib/ratgeber.js'],
     '/glossar': ['lib/ki-glossar.js'],
     '/freischaltung': ['db/checks.json'],
-    '/werben': [],
     '/transparenz': [],
     '/tools': ['db/tools.json'],
     '/mein-stack': ['app/mein-stack/MeinStack.js', 'lib/stack.js', 'lib/abo-preise.js'],

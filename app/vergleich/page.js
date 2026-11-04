@@ -6,7 +6,6 @@ import { getDirectories } from '../../lib/data'
 import { getScore, scoreLabel } from '../../lib/score'
 import { hasStatusIssue } from '../../lib/checks'
 import { absoluteUrl } from '../../lib/site'
-import ServiceHint from '../components/ServiceHint'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import LeadMagnetBox from '../components/LeadMagnetBox'
 
@@ -55,7 +54,6 @@ function VergleichPage() {
             </section>
             <Vergleich options={options} />
             <LeadMagnetBox id="top-50" anlass="Noch nicht die richtigen drei gefunden?" />
-            <ServiceHint text="Keine Lust, alle drei selbst auszufüllen?" />
         </>
     )
 }
