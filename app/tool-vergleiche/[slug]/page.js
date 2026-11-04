@@ -49,6 +49,7 @@ const JEAN_SAGT = {
     'wordtune-vs-rytr': 'Englisch glätten: Wordtune. Deutsch neu schreiben: Rytr. Das ist die ganze Weiche.',
     'runway-vs-invideo-ai': 'Für das eine scharfe Video nimm Runway, für den wöchentlichen Upload-Rhythmus InVideo AI.',
     'otter-ai-vs-descript': 'Willst du ein Protokoll oder einen fertigen Schnitt? Die Antwort entscheidet, nicht der Preis.',
+    'gohighlevel-vs-systeme-io': 'Verwaltest du Funnels für mehrere Kunden, schau dir GoHighLevel an. Baust du dein eigenes Geschäft allein auf, fängst du mit Systeme.io bei $0 an.',
     'systeme-io-vs-kit': 'Willst du den ganzen Laden aus einer Hand, nimm Systeme.io. Lebt dein Geschäft vom Newsletter, nimm Kit.',
     'surfer-seo-vs-writesonic': 'Wer nur Artikel poliert, ist bei Surfer richtig. Wer Audits und KI-Artikel dazu will, testet Writesonic erst 7 Tage.',
 }
@@ -93,6 +94,10 @@ function ComparisonPage({ params }) {
         ? { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }
         : null
     const anyAffiliate = c.items.some((t) => t.affiliate)
+    // Gewinner-Box: redaktioneller Sieger (optional c.sieger = [Fall, slug], sonst die erste Empfehlung), nie nach Provision.
+    // CTA mit Partnerlink, wenn einer bestätigt ist, sonst zum Steckbrief.
+    const [siegerFall, siegerSlug, siegerWarum] = c.sieger || c.picks[0]
+    const sieger = getTool(siegerSlug)
     return (
         <>
             <JsonLd
@@ -123,6 +128,32 @@ function ComparisonPage({ params }) {
                     {`Kommt auf deinen Einsatz an. ${c.picks.map(([frage, slug]) => `${frage.replace(/[.!?]$/, '')}: ${getTool(slug)?.name}`).join('. ')}.`}
                 </Kurzantwort>
             </section>
+
+            {sieger && (
+                <section aria-labelledby="gewinner" className="box box-info gewinner-box">
+                    <p className="eyebrow">
+                        <JeanIcon badge="pokal" size={24} /> Unsere Wahl
+                    </p>
+                    <h2 id="gewinner">
+                        {siegerFall.replace(/[.!?]$/, '')}: {sieger.name}
+                    </h2>
+                    <p>{siegerWarum || sieger.summary_de}</p>
+                    <p className="cta-row">
+                        {sieger.affiliate ? (
+                            <a className="button" href={toolHref(sieger)} target="_blank" rel={toolRel(sieger)}>
+                                {sieger.name} testen ↗<sup>*</sup>
+                            </a>
+                        ) : (
+                            <Link className="button" href={`/tools/${sieger.slug}`}>
+                                {sieger.name} im Steckbrief →
+                            </Link>
+                        )}
+                        {sieger.affiliate && <Link href={`/tools/${sieger.slug}`}>Steckbrief mit Preisen</Link>}
+                        <a href="#empfehlung">Andere Fälle, andere Sieger ↓</a>
+                    </p>
+                    <PartnerHinweis zeigen={Boolean(sieger.affiliate)} />
+                </section>
+            )}
 
             <section aria-labelledby="empfehlung">
                 <h2 id="empfehlung">Jeans Empfehlung je Anwendungsfall</h2>

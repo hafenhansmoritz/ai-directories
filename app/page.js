@@ -28,6 +28,8 @@ import getFaq from '../utils/faq-de'
 import { formatNumber } from '../utils/i18n-de'
 import Vernetzt, { seitenPfad } from './components/Vernetzt'
 import MemeChat from './components/MemeChat'
+import AngebotBox from './components/AngebotBox'
+import { featuredFuer } from '../lib/featured'
 
 export function generateMetadata() {
     const stats = getSiteStats()
@@ -231,7 +233,7 @@ function Home() {
                     Filtern, sortieren, eintragen, abhaken. Ein Klick auf den Namen zeigt Details, Einschätzung und Alternativen.
                     Deine Filter stehen in der Adresszeile, du kannst die gefilterte Liste also als Link teilen.
                 </p>
-                <DirectoryTable directories={tabellenZeilen(directories)} defaultSort="score" tracker caption={`Alle ${stats.total} KI-Verzeichnisse mit Jean-Score, Domain Rating, Besuchen, Preis und Einreichung`} />
+                <DirectoryTable directories={tabellenZeilen(directories)} defaultSort="score" tracker featured={featuredFuer('start')} caption={`Alle ${stats.total} KI-Verzeichnisse mit Jean-Score, Domain Rating, Besuchen, Preis und Einreichung`} />
             </section>
 
             <Band farbe="blau" id="legende" titel="So liest du die Tabelle 🔍">
@@ -281,6 +283,7 @@ function Home() {
                     </li>
                 </ol>
             </Band>
+            <AngebotBox thema="website" />
             <Trenner art="strahlung" farbe="orange" />
 
             <MemeChat />
@@ -336,6 +339,7 @@ function Home() {
                     ))}
                 </ul>
             </Band>
+            <AngebotBox thema="coding" />
             <section className="kb-hero-suche" aria-labelledby="tool-suche">
                 <h2 id="tool-suche">Welches KI-Tool suchst du? 🔎</h2>
                 <form action={withBase('/ki-tools/')} method="get" role="search" aria-label="KI-Tool-Datenbank durchsuchen">
