@@ -3,7 +3,6 @@ import JsonLd from '../components/JsonLd'
 import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import Jean from '../components/Jean'
 import LeadBox from '../components/LeadBox'
-import ServiceHint from '../components/ServiceHint'
 import { SITE_NAME, absoluteUrl, withBase } from '../../lib/site'
 import { getTop50 } from '../../lib/top50'
 import { formatRating, formatVisits, pricingLabel, dealLabel } from '../../utils/i18n-de'
@@ -90,7 +89,6 @@ function Top50Page() {
                     </li>
                 ))}
             </ol>
-            <ServiceHint text="50 Einträge sind ein Wochenende Arbeit." />
             <LeadBox title="Neue Top-Verzeichnisse zuerst ☢️" text="Wenn ein Verzeichnis in die Top 50 aufsteigt oder rausfliegt, erfährst du es zuerst." />
         </>
     )

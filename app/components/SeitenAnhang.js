@@ -6,7 +6,7 @@ import LeadForm, { ANLIEGEN } from './LeadForm'
 
 // Das Anfrageformular steht nur dort ausgeklappt, wo es zur Aufgabe passt. Überall sonst reicht eine Zeile,
 // die das Formular auf Klick öffnet. Links wie #anfrage-fehler öffnen es ebenfalls und wählen das Anliegen vor.
-const VOLL = /^\/(werben|launch-kit|ueber-jean|verzeichnis\/[^/]+)\/?$/
+const VOLL = /^\/(launch-kit|ueber-jean|verzeichnis\/[^/]+)\/?$/
 
 export default function SeitenAnhang() {
     const pfad = usePathname() || '/'
@@ -37,7 +37,7 @@ export default function SeitenAnhang() {
             {ANLIEGEN.map(([k]) => (
                 <span key={k} id={`anfrage-${k}`} />
             ))}
-            Fragen, Tool eintragen lassen oder einen Fehler gefunden?{' '}
+            Fragen, Tool-Vorschlag oder einen Fehler gefunden?{' '}
             <button type="button" className="a-frag-jean-knopf" aria-expanded="false" onClick={() => (setPerKlick(true), setOffen(true))}>
                 Frag Jean direkt →
             </button>

@@ -214,25 +214,7 @@ const Zeile = memo(function Zeile({ d, erledigt, onToggle, logEintrag, onSpeiche
     )
 })
 
-// Optionaler Featured-Slot über der ersten Zeile: bezahlte Platzierung, sichtbar als „Anzeige“ und mit rel="sponsored".
-// Einträge kommen fertig gefiltert vom Server (lib/featured.js); ohne Einträge erscheint nichts.
-function FeaturedZeilen({ eintraege }) {
-    return eintraege.map((e) => (
-        <tr key={e.url} className="dt-featured">
-            <td>
-                <span className="dt-anzeige">Anzeige</span>
-            </td>
-            <th scope="row">
-                <a href={e.url} target="_blank" rel="sponsored noopener noreferrer">
-                    {e.name} ↗<span className="sr-only"> (Anzeige, öffnet in neuem Tab)</span>
-                </a>
-            </th>
-            <td colSpan={6}>{e.text}</td>
-        </tr>
-    ))
-}
-
-export default function DirectoryTable({ directories, interactive = true, defaultSort = 'rating', caption, tracker = false, featured = [] }) {
+export default function DirectoryTable({ directories, interactive = true, defaultSort = 'rating', caption, tracker = false }) {
     const START = useMemo(() => ({ query: '', pricing: 'all', experience: 'all', minDr: 'all', linkType: 'all', status: 'all', sort: defaultSort }), [defaultSort])
     const [filter, setFilter] = useState(START)
     const setze = (feld, wert) => setFilter((f) => ({ ...f, [feld]: wert }))
@@ -528,7 +510,6 @@ export default function DirectoryTable({ directories, interactive = true, defaul
                             </tr>
                         </thead>
                         <tbody>
-                            {featured.length > 0 && <FeaturedZeilen eintraege={featured} />}
                             {rows.map((d) => (
                                 <Zeile key={d.slug} d={d} erledigt={done.has(d.slug)} onToggle={onToggle} logEintrag={launchEintraege.get(d.slug)} onSpeichernLog={onSpeichernLog} utmAktiv={utmAktiv} projectUrl={launchKit.url} onCopyUtm={handleCopyUtm} />
                             ))}

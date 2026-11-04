@@ -14,7 +14,6 @@ import ScoreBar from '../../components/ScoreBar'
 import CopyButton from '../../components/CopyButton'
 import VerzeichnisHeroStatus from '../../components/VerzeichnisHeroStatus'
 import VerzeichnisLaunchKitBox from '../../components/VerzeichnisLaunchKitBox'
-import ServiceHint from '../../components/ServiceHint'
 import FreshBox from '../../components/FreshBox'
 import CheckBox from '../../components/CheckBox'
 import { getCheck, hasStatusIssue } from '../../../lib/checks'
@@ -178,8 +177,6 @@ function DirectoryPage({ params }) {
 
             <VerzeichnisLaunchKitBox slug={d.slug} directoryName={d.name} />
 
-            {/* Launch-Service im Inhalt, damit er auch mobil sichtbar ist (die Seitenleiste fehlt dort). */}
-            <ServiceHint text={`Keine Zeit für ${d.name} und 50 weitere Formulare?`} href="/werben#anfrage-tool-eintragen" />
 
             <div className={`verdict verdict-${verdict.tone}`}>
                 <p className="verdict-label">Jeans Urteil: {verdict.short}</p>

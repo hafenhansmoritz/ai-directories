@@ -14,7 +14,7 @@ Leitidee: **AIGeddon wird die deutsche Zentrale für „KI wirklich benutzen“*
 4. `[ ]` Custom Domain in GitHub Pages: Datei `public/CNAME`, im Workflow `BASE_PATH` leer und `NEXT_PUBLIC_SITE_URL=https://aigeddon.de`, DNS-Einträge (4× A auf GitHub-IP, `www` als CNAME), HTTPS erzwingen. **T**
 5. `[ ]` 301-Weiterleitungen: HF-Space und alte GitHub-Pages-URL zeigen auf aigeddon.de (Meta-Refresh + Canonical). **T**
 6. `[J]` Impressum und Datenschutz (Pflicht vor Newsletter und Affiliate in Deutschland). Danach baue ich `/impressum` und `/datenschutz`.
-7. `[J]` Geschäfts-Mail auf der Domain (z. B. hallo@aigeddon.de), dann Kontakt-Buttons auf `/werben`. **S**
+7. `[J]` Geschäfts-Mail auf der Domain (z. B. hallo@aigeddon.de), dann Kontaktformular (`/werben` ist seit 2026-11-04 entfernt). **S**
 8. `[ ]` Google Search Console und Bing Webmaster Tools: Verifizierungs-Meta-Tag per Env-Variable vorbereiten. **T**
 9. `[ ]` Datensparsame Analyse (Plausible oder Umami, ohne Cookie-Banner) per Env-Variable; Klick-Events auf Senden-Buttons, Partnerlinks, Abo. **L A**
 10. `[ ]` Leistungs-Check: Lighthouse ≥ 95 auf Startseite, Prompt-Seite, Tool-Seite; Bilder und Schriften prüfen. **T**
@@ -88,7 +88,7 @@ Leitidee: **AIGeddon wird die deutsche Zentrale für „KI wirklich benutzen“*
 66. `[ ]` Shorts-Galerie mit den besten Prompt-Tricks. **L**
 67. `[ ]` „Tool-Test“-Format: einheitliche Bewertungsmatrix für Video und Seite. **A**
 68. `[ ]` Kanal-Statistik auf der Seite (Abonnenten, Videos), wenn Jean einen API-Schlüssel hinterlegt. **L**
-69. `[ ]` Sponsoring-Paket „Video + Case Study + Newsletter“ auf `/werben`. **S**
+69. `[x]` ~~Sponsoring-Paket „Video + Case Study + Newsletter“ auf `/werben`.~~ *Verworfen 2026-11-04: /werben entfernt, keine Werbung, kein Sponsoring, keine Featured-Plätze.*
 70. `[J]` Einheitlicher Kanal-Auftritt: Banner, Kanal-Link auf aigeddon.de, angepinnter Kommentar mit Prompt-Link.
 
 ## Block 6: PromptGott Newsletter und Leads (71–80)
@@ -101,7 +101,7 @@ Leitidee: **AIGeddon wird die deutsche Zentrale für „KI wirklich benutzen“*
 76. `[ ]` Newsletter-Archiv auf der Seite (`/promptgott`), jede Ausgabe als indexierbare Seite. **T L**
 77. `[ ]` Empfehlungsprogramm (beehiiv Referral): Prämien = Prompt-Pakete. **L**
 78. `[ ]` Willkommensserie: 5 Mails mit den besten Prompts, Tools und Case Studies. **L A**
-79. `[ ]` Newsletter-Sponsoring-Plätze auf `/werben` mit Mediadaten. **S**
+79. `[x]` ~~Newsletter-Sponsoring-Plätze auf `/werben` mit Mediadaten.~~ *Verworfen 2026-11-04: /werben entfernt, keine Werbung, kein Sponsoring, keine Featured-Plätze.*
 80. `[ ]` Lead-Formular für B2B: „KI-Workshop für dein Team“ (Prompt-Schulung). **S**
 
 ## Block 7: Monetarisierung (81–92)
@@ -113,7 +113,7 @@ Leitidee: **AIGeddon wird die deutsche Zentrale für „KI wirklich benutzen“*
 85. `[ ]` „Bester Deal“-Box pro Tool-Kategorie. **A**
 86. `[ ]` Weitere Vergleiche (Backlog): ElevenLabs vs. Murf, Tally vs. Typeform, Descript vs. Pictory, ChatGPT vs. Claude vs. Gemini vs. Perplexity. **A**
 87. `[ ]` „ChatGPT-Alternativen“, „Claude vs. ChatGPT für …“: suchstarke Vergleichsseiten. **A T**
-88. `[ ]` Featured Listings für Tools und Verzeichnisse (Preisliste auf `/werben`). **S**
+88. `[x]` ~~Featured Listings für Tools und Verzeichnisse (Preisliste auf `/werben`).~~ *Verworfen 2026-11-04: /werben entfernt, keine Werbung, kein Sponsoring, keine Featured-Plätze.*
 89. `[ ]` Launch-Service als buchbares Paket mit Checkout-Link. **S**
 90. `[ ]` Digitale Produkte: Prompt-Pakete, Notion-Vorlagen, Launch-Checkliste Pro. **P**
 91. `[ ]` Monatlicher Umsatz-Report aus Partnerprogrammen (manuell eingetragen) in `docs/`. **A**

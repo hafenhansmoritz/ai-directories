@@ -19,7 +19,7 @@ const REGELN = [
     ['🏷️', 'Herstellerangaben markiert', 'Was nur der Anbieter behauptet, steht als „laut Anbieter“ da. Kundenzitate und Benchmarks der Hersteller sind keine unabhängigen Tests, und wir schreiben das dazu.'],
     ['📅', 'Sichtbares Prüfdatum', 'Ratgeber, Vergleiche und News tragen ein Prüfdatum. Bis zu diesem Tag wurden alle Angaben mit den genannten Quellen abgeglichen. Die Quellen stehen am Ende jeder Seite.'],
     ['🧮', 'Nachvollziehbare Bewertung', 'Der Jean-Score für Verzeichnisse setzt sich aus festen Teilen zusammen: Domain Rating bis 45 Punkte, Besuche bis 25, Preis bis 20 und Einreichung bis 10. Domain Rating und Besuche sind Schätzwerte von Analyse-Tools.'],
-    ['🤝', 'Geld kauft keinen Platz', 'Partnerlinks sind mit Sternchen markiert, Anzeigen als Anzeige. Bewertungen, Reihenfolgen und Prüfdaten ändern sich dadurch nicht. Details stehen auf der Seite Transparenz.'],
+    ['🤝', 'Geld kauft keinen Platz', 'Partnerlinks sind mit Sternchen markiert. Bezahlte Plätze und Anzeigen gibt es nicht. Bewertungen, Reihenfolgen und Prüfdaten ändern sich dadurch nicht. Details stehen auf der Seite Transparenz.'],
 ]
 
 const FAQ = [

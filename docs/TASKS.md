@@ -21,7 +21,7 @@ Diese Datei steuert die automatischen Arbeitssitzungen. Jede Sitzung liest sie, 
 
 ### Wartet auf Jean
 - [ ] **Impressum und Datenschutz**: Name, ladungsfähige Anschrift, E-Mail fehlen. Danach Seiten `/impressum` und `/datenschutz` bauen und im Footer verlinken. *wartet auf Jean*
-- [ ] **Geschäfts-E-Mail** setzen (`NEXT_PUBLIC_CONTACT_EMAIL` im Pages-Workflow), dann erscheinen die Anfrage-Buttons auf `/werben`. *wartet auf Jean*
+- [ ] **Geschäfts-E-Mail** setzen (`NEXT_PUBLIC_CONTACT_EMAIL` im Pages-Workflow), (Hinweis 2026-11-04: `/werben` ist entfernt, die Adresse wirkt im Kontaktformular und im Datenschutz.) *wartet auf Jean*
 - [ ] **PromptGott-Newsletter-URL** setzen (`NEXT_PUBLIC_NEWSLETTER_URL`); gefunden nur prmoptgenie.substack.com über dev.to/promptgott, nicht abrufbar. Empfehlung beehiiv. *wartet auf Jean*
 - [ ] **Videoliste AIGeddon** (Titel, URL, Thema) für `db/videos.json` und `/case-studies`. *wartet auf Jean*
 - [ ] **Domains** aigeddon.de und promptgott.de registrieren (Plan: `docs/ROADMAP-100.md`, Block 1). *wartet auf Jean*

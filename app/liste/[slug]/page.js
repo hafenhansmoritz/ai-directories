@@ -10,7 +10,6 @@ import { dateiStand } from '../../../lib/stand'
 import { absoluteUrl } from '../../../lib/site'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 import LeadMagnetBox from '../../components/LeadMagnetBox'
-import { featuredFuer } from '../../../lib/featured'
 
 export const dynamicParams = false
 
@@ -95,7 +94,7 @@ function ListPage({ params }) {
                     <h2>Alle Codes als Tabelle</h2>
                 </>
             )}
-            {list.items.length > 0 && <DirectoryTable directories={tabellenZeilen(list.items)} featured={featuredFuer('liste')} caption={`${list.title}: ${list.items.length} Einträge`} />}
+            {list.items.length > 0 && <DirectoryTable directories={tabellenZeilen(list.items)} caption={`${list.title}: ${list.items.length} Einträge`} />}
 
             {list.slug !== 'rabattcodes' && <LeadMagnetBox id="top-50" anlass="Über diese Liste hinaus: die Top 50 zum Abhaken." />}
 

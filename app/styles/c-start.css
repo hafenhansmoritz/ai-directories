@@ -209,16 +209,3 @@
     }
 }
 
-/* Featured-Slot (Anzeige) über der ersten Tabellenzeile, siehe db/featured.json */
-.dt-featured > * {
-    background: var(--band-gelb, var(--pop));
-}
-.dt-anzeige {
-    font-size: var(--fs-2xs);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    border: 2px solid var(--border);
-    padding: 1px 6px;
-    border-radius: var(--radius-xs);
-}

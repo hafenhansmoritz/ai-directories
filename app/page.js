@@ -2,6 +2,7 @@ import Link from 'next/link'
 import DirectoryTable from './components/DirectoryTable'
 import JsonLd from './components/JsonLd'
 import Faq, { faqSchema } from './components/Faq'
+import EintragsserviceWarteliste from './components/EintragsserviceWarteliste'
 import SchicksalsWuerfel from './components/SchicksalsWuerfel'
 import Jean, { HELLO } from './components/Jean'
 import ToolPartners from './components/ToolPartners'
@@ -28,7 +29,6 @@ import getFaq from '../utils/faq-de'
 import { formatNumber } from '../utils/i18n-de'
 import Vernetzt, { seitenPfad } from './components/Vernetzt'
 import MemeChat from './components/MemeChat'
-import { featuredFuer } from '../lib/featured'
 
 export function generateMetadata() {
     const stats = getSiteStats()
@@ -60,7 +60,7 @@ function Home() {
         },
         {
             q: 'Kann ich mein KI-Tool eintragen lassen, statt es selbst zu machen?',
-            a: 'Ja. Über das Formular am Ende jeder Seite kannst du den Eintragsservice anfragen. Jean meldet sich in der Regel innerhalb von zwei Werktagen mit einem Angebot.',
+            a: 'Bald. Der Eintragsservice ist in Vorbereitung: Jean trägt dein Tool dann in die passenden Verzeichnisse ein. Trag dich auf der Warteliste unten auf dieser Seite ein, dann bekommst du eine Mail, sobald es losgeht.',
         },
     ]
     const beliebt = getKbTools()
@@ -232,7 +232,7 @@ function Home() {
                     Filtern, sortieren, eintragen, abhaken. Ein Klick auf den Namen zeigt Details, Einschätzung und Alternativen.
                     Deine Filter stehen in der Adresszeile, du kannst die gefilterte Liste also als Link teilen.
                 </p>
-                <DirectoryTable directories={tabellenZeilen(directories)} defaultSort="score" tracker featured={featuredFuer('start')} caption={`Alle ${stats.total} KI-Verzeichnisse mit Jean-Score, Domain Rating, Besuchen, Preis und Einreichung`} />
+                <DirectoryTable directories={tabellenZeilen(directories)} defaultSort="score" tracker caption={`Alle ${stats.total} KI-Verzeichnisse mit Jean-Score, Domain Rating, Besuchen, Preis und Einreichung`} />
             </section>
 
             <Band farbe="blau" id="legende" titel="So liest du die Tabelle 🔍">
@@ -290,7 +290,7 @@ function Home() {
                 <p>Vier Wege durch mentat.codes, jeweils in der Reihenfolge, die Jean selbst nehmen würde. Darunter alle Bereiche auf einen Blick.</p>
                 <ul className="pfade">
                     {[
-                        ['🚀', 'Mein KI-Tool launchen', '#fde68a', [['/launch-kit', 'Texte und Unterlagen mit dem Launch-Kit erstellen'], ['/liste/kostenlos', 'Mit den kostenlosen Verzeichnissen starten'], ['/freischaltung', 'Freischaltdauer nachschlagen, von sofort bis 80 Tage'], ['/ratgeber', 'Ratgeber: Eintragen, SEO-Einordnung, Product Hunt'], ['/neu-entdeckt', 'Frisch entdeckte Verzeichnisse mitnehmen'], ['/rechner/launch-zeit', 'Aufwand mit dem Launch-Zeit-Rechner planen'], ['#anfrage-tool-eintragen', 'Oder: Jean trägt für dich ein']]],
+                        ['🚀', 'Mein KI-Tool launchen', '#fde68a', [['/launch-kit', 'Texte und Unterlagen mit dem Launch-Kit erstellen'], ['/liste/kostenlos', 'Mit den kostenlosen Verzeichnissen starten'], ['/freischaltung', 'Freischaltdauer nachschlagen, von sofort bis 80 Tage'], ['/ratgeber', 'Ratgeber: Eintragen, SEO-Einordnung, Product Hunt'], ['/neu-entdeckt', 'Frisch entdeckte Verzeichnisse mitnehmen'], ['/rechner/launch-zeit', 'Aufwand mit dem Launch-Zeit-Rechner planen'], ['#warteliste-eintragsservice', 'Bald: Jean trägt für dich ein (Warteliste)']]],
                         ['🎯', 'Das richtige KI-Tool finden', '#bfdbfe', [['/tool-finder', 'Drei Fragen im Tool-Finder beantworten'], ['/beste-ki-tools', 'Die besten Tools nach Aufgabe ansehen'], ['/tools', 'Preise laut Anbieter vergleichen'], ['/rechner/abo-monatlich-oder-jaehrlich', 'Monatlich oder jährlich zahlen?']]],
                         ['🎓', 'KI besser nutzen', '#a7f3d0', [['/tutorials/chatgpt-richtig-nutzen', 'Einsteigerkurs: ChatGPT richtig nutzen'], ['/prompts', 'Fertige Prompts zum Ausfüllen'], ['/prompt-check', 'Eigene Prompts prüfen lassen'], ['/glossar', 'Begriffe im KI-Glossar nachschlagen']]],
                         ['🥊', 'KIs fair vergleichen', '#fbcfe8', [['/ki-news', 'KI-News der Woche, verständlich erklärt'], ['/neue-ki-modelle', 'Neue Modelle: GPT-6, Gemini 4, Claude 5.5'], ['/ki-test', 'Den KI-Test mit 50 Aufgaben machen'], ['/tool-vergleiche', 'Tool-Duelle mit klarer Empfehlung'], ['/ki-tools/alternativen', 'Alternativen zu bekannten Tools'], ['/ki-tools/chatgpt-alternativen', 'ChatGPT-Alternativen im Überblick']]],
@@ -420,6 +420,7 @@ function Home() {
             <Band farbe="pink" id="faq" titel="Häufige Fragen zu KI-Verzeichnissen 🙋">
                 <Faq items={faq} />
             </Band>
+            <EintragsserviceWarteliste />
         </>
     )
 }

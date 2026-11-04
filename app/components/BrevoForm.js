@@ -10,7 +10,8 @@ import { BREVO_FORM_URL, BREVO_SOURCE_FIELD } from '../../lib/monetization'
 // Anmeldung angenommen oder abgelehnt wurde. Ein fetch mit mode 'no-cors' könnte Ablehnungen nicht erkennen
 // und würde Erfolg vortäuschen. Das Formular bleibt sichtbar, damit man es erneut versuchen kann.
 // Die Prüfung von Pflichtfeld und E-Mail-Format übernimmt der Browser. email_address_check ist Brevos Honeypot.
-export default function BrevoForm({ quelle = 'newsletter', knopf = 'Kostenlos eintragen', kompakt = false }) {
+// formUrl: anderes Brevo-Formular (z. B. die Warteliste), Standard ist der Newsletter.
+export default function BrevoForm({ quelle = 'newsletter', knopf = 'Kostenlos eintragen', kompakt = false, formUrl = BREVO_FORM_URL }) {
     const pfad = usePathname() || '/'
     const id = useId().replace(/:/g, '')
     const [gesendet, setGesendet] = useState(false)
@@ -24,7 +25,7 @@ export default function BrevoForm({ quelle = 'newsletter', knopf = 'Kostenlos ei
     }
 
     return (
-        <form className={`brevo-form${kompakt ? ' is-kompakt' : ''}`} action={BREVO_FORM_URL} method="post" target="_blank" onSubmit={senden}>
+        <form className={`brevo-form${kompakt ? ' is-kompakt' : ''}`} action={formUrl} method="post" target="_blank" onSubmit={senden}>
             <div className="brevo-zeile">
                 <label htmlFor={`brevo-${id}`} className="sr-only">
                     E-Mail-Adresse
