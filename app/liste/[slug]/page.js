@@ -9,6 +9,7 @@ import { LISTS, getList, tabellenZeilen } from '../../../lib/data'
 import { dateiStand } from '../../../lib/stand'
 import { absoluteUrl } from '../../../lib/site'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
 import { featuredFuer } from '../../../lib/featured'
 
 export const dynamicParams = false
@@ -95,6 +96,8 @@ function ListPage({ params }) {
                 </>
             )}
             {list.items.length > 0 && <DirectoryTable directories={tabellenZeilen(list.items)} featured={featuredFuer('liste')} caption={`${list.title}: ${list.items.length} Einträge`} />}
+
+            {list.slug !== 'rabattcodes' && <LeadMagnetBox id="top-50" anlass="Über diese Liste hinaus: die Top 50 zum Abhaken." />}
 
             <section aria-labelledby="weitere">
                 <h2 id="weitere">Weitere Listen, weil du noch nicht genug hast 📚</h2>

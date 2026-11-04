@@ -13,6 +13,8 @@ import Pruefer from '../../components/Pruefer'
 import '../../styles/e-inhalte.css'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 import { ogMeta, OG_BILDER, publisherRef } from '../../../lib/og-meta'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
+import { magnetFuer } from '../../../lib/leadmagnets'
 
 export const dynamicParams = false
 
@@ -169,6 +171,7 @@ function NewsPage({ params }) {
                 </ol>
             </section>
 
+            <LeadMagnetBox id={magnetFuer(n.titel, n.thema)} anlass="Damit du die nächste Meldung gleich umsetzen kannst:" />
             <section aria-labelledby="auf-mentat">
                 <h2 id="auf-mentat">Passend dazu auf mentat.codes 🔗</h2>
                 <ul className="link-cards">

@@ -9,6 +9,7 @@ import { Band } from '../components/Deko'
 import { absoluteUrl } from '../../lib/site'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import { ogMeta, OG_BILDER } from '../../lib/og-meta'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'KI-Glossar: KI- und SEO-Begriffe einfach erklärt',
@@ -66,6 +67,7 @@ function GlossarPage() {
                     ))}
                 </dl>
             </Band>
+            <LeadMagnetBox id="prompt-spickzettel" anlass="Genug Theorie? Die Praxis passt auf eine Seite." />
             <h2 id="seo">🔗 KI-Verzeichnisse & SEO ({GLOSSAR.length})</h2>
             <dl className="legend glossar">
                 {GLOSSAR.map(([term, text]) => (

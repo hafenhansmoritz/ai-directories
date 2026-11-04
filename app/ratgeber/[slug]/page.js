@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Fragment } from 'react'
 import { notFound } from 'next/navigation'
 import Breadcrumbs, { breadcrumbSchema } from '../../components/Breadcrumbs'
 import JsonLd from '../../components/JsonLd'
@@ -13,6 +14,9 @@ import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 import GuideGate from '../../components/GuideGate'
 import LeadMagnetBox from '../../components/LeadMagnetBox'
 import { guideFuerRatgeber } from '../../../lib/guides'
+import { magnetFuer } from '../../../lib/leadmagnets'
+import AngebotBox from '../../components/AngebotBox'
+import { RATGEBER_THEMA } from '../../../lib/angebote'
 import { ogMeta, OG_BILDER, publisherRef } from '../../../lib/og-meta'
 
 export const dynamicParams = false
@@ -66,6 +70,9 @@ function ArtikelPage({ params }) {
     if (a.faq) schema.push(faqSchema(a.faq))
     const others = ARTIKEL.filter((x) => x.slug !== a.slug)
     const gesehen = new Set()
+    const guide = guideFuerRatgeber(a.slug)
+    // Nach diesem Abschnitt steht der Lead-Baustein (erstes Drittel, bei kurzen Artikeln nach dem ersten Abschnitt).
+    const drittel = Math.max(0, Math.ceil(a.sections.length / 3) - 1)
     return (
         <article>
             <JsonLd data={schema} />
@@ -89,15 +96,19 @@ function ArtikelPage({ params }) {
                 </ol>
             </nav>
             <div className="prose">
-                {a.sections.map((s) => (
-                    <section key={s.h} aria-labelledby={slugId(s.h)}>
-                        <h2 id={slugId(s.h)}>{s.h}</h2>
-                        {s.p.map((p) => (
-                            <p key={p.slice(0, 40)}>
-                                <GlossarText text={p} gesehen={gesehen} />
-                            </p>
-                        ))}
-                    </section>
+                {a.sections.map((s, i) => (
+                    <Fragment key={s.h}>
+                        <section aria-labelledby={slugId(s.h)}>
+                            <h2 id={slugId(s.h)}>{s.h}</h2>
+                            {s.p.map((p) => (
+                                <p key={p.slice(0, 40)}>
+                                    <GlossarText text={p} gesehen={gesehen} />
+                                </p>
+                            ))}
+                        </section>
+                        {/* Ein Lead-Baustein nach dem ersten Drittel: der PDF-Guide, wenn es einen gibt, sonst der passende Download. */}
+                        {i === drittel && !guide && <LeadMagnetBox id={a.magnet || magnetFuer(a.slug, a.title)} anlass="Kurze Pause vom Lesen, das hier spart dir später Zeit:" />}
+                    </Fragment>
                 ))}
             </div>
             {a.quellen && (
@@ -119,16 +130,17 @@ function ArtikelPage({ params }) {
                 </section>
             )}
             <Pruefer datum={a.geprueft} />
-            {a.magnet && <LeadMagnetBox id={a.magnet} />}
-            {guideFuerRatgeber(a.slug) && (
+            {guide && (
                 <aside className="leadform guide-formular" aria-label="Gratis-Guide als PDF">
                     <p className="leadform-titel">📥 Diesen Ratgeber als PDF-Guide mitnehmen</p>
                     <p>
-                        <strong>{guideFuerRatgeber(a.slug).titel}</strong>: kompakt zum Ausdrucken und Abhaken. E-Mail eintragen, sofort herunterladen. <Link href="/guides">Alle Guides</Link>
+                        <strong>{guide.titel}</strong>: kompakt zum Ausdrucken und Abhaken. E-Mail eintragen, sofort herunterladen. <Link href="/guides">Alle Guides</Link>
                     </p>
-                    <GuideGate guide={guideFuerRatgeber(a.slug)} kompakt />
+                    <GuideGate guide={guide} kompakt />
                 </aside>
             )}
+            {/* Service-Angebot passend zum Thema, kein Mail-Baustein (zählt nicht gegen die 2er-Grenze). */}
+            {RATGEBER_THEMA[a.slug] && <AngebotBox thema={RATGEBER_THEMA[a.slug]} />}
             {a.faq && (
                 <section aria-labelledby="faq">
                     <h2 id="faq">Häufige Fragen 🙋</h2>

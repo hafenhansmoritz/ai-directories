@@ -10,6 +10,8 @@ import { KB_RUBRIKEN, KB_STAND } from '../../../../lib/kb'
 import { datumDe } from '../../../../lib/text'
 import { ALTERNATIVEN, getAlternativenHub, getAlternativenHubs, alternativenFaq } from '../../../../lib/alternativen'
 import Vernetzt, { seitenPfad } from '../../../components/Vernetzt'
+import LeadMagnetBox from '../../../components/LeadMagnetBox'
+import { magnetFuer } from '../../../../lib/leadmagnets'
 
 export const dynamicParams = false
 
@@ -102,6 +104,7 @@ function AlternativenPage({ params }) {
                     </Link>
                 </p>
             </section>
+            <LeadMagnetBox id={magnetFuer(h.tool.rubrik)} anlass={`Egal, welche ${n}-Alternative du nimmst:`} />
             <section aria-labelledby="faq">
                 <h2 id="faq">Häufige Fragen zu {n}-Alternativen 🙋</h2>
                 <Faq items={faq} />

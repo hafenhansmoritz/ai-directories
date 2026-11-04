@@ -7,6 +7,7 @@ import { FAMILIEN, GERUECHTE, MODELLE_STAND, ANBIETER, modelleNachDatum } from '
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import NeuMarke from '../components/NeuMarke'
 import { ogMeta, OG_BILDER } from '../../lib/og-meta'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'Neue KI-Modelle 2026: GPT-6, Gemini 4, Claude 5.5',
@@ -73,6 +74,7 @@ function NeueModelle() {
                 </ul>
             </section>
 
+            <LeadMagnetBox id="prompt-spickzettel" anlass="Egal, welches Modell gerade vorn liegt: Gute Prompts funktionieren überall." />
             <section aria-labelledby="geruechte">
                 <h2 id="geruechte">Gerüchte-Check: was es (noch) nicht gibt 🕵️</h2>
                 <p>Viele Suchanfragen drehen sich um Modelle, die nicht erschienen sind. Hier der Stand vom {MODELLE_STAND}.</p>

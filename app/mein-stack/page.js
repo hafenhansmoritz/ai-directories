@@ -4,6 +4,7 @@ import MeinStack from './MeinStack'
 import { getTools, toolHref, TOOLS_STAND } from '../../lib/tools'
 import { getComparisons } from '../../lib/comparisons'
 import { ABO_PREISE } from '../../lib/abo-preise'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'Mein KI-Stack: alle KI-Abos und ihre Kosten im Blick',
@@ -36,6 +37,7 @@ export default function MeinStackPage() {
                 </p>
             </section>
             <MeinStack tools={tools} abo={ABO_PREISE} stand={TOOLS_STAND} vergleiche={vergleiche} />
+            <LeadMagnetBox id="prompt-spickzettel" anlass="Mehr aus deinem Stack holen, ohne ein Tool mehr zu bezahlen." />
             <p className="widget-note">
                 Preisangaben aus unseren <Link href="/tools">Tool-Steckbriefen</Link> (laut Anbieter, Stand {TOOLS_STAND}). Wir rechnen nicht zwischen Euro und Dollar um. Ob sich
                 ein Jahresabo lohnt, zeigt auch der Rechner <Link href="/rechner/abo-monatlich-oder-jaehrlich">Monatlich oder jährlich?</Link>

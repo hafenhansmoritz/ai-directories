@@ -6,6 +6,7 @@ import Faq, { faqSchema } from '../components/Faq'
 import NEU from '../../db/neu-entdeckt.json'
 import { getDirectories } from '../../lib/data'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 const TYPEN = [
     ['dach', 'Deutsch und DACH 🇩🇪', 'Verzeichnisse auf Deutsch oder mit deutscher Version. Für deutschsprachige Tools die erste Adresse.'],
@@ -90,6 +91,7 @@ function NeuEntdeckt() {
                     </section>
                 )
             })}
+            <LeadMagnetBox id="top-50" anlass="Neu ist nett, bewährt bringt Besucher: die Top 50." />
             <section aria-labelledby="faq">
                 <h2 id="faq">Häufige Fragen 🙋</h2>
                 <Faq items={faq} />

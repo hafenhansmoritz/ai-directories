@@ -1,6 +1,7 @@
 import Breadcrumbs from '../components/Breadcrumbs'
 import LaunchTracker from './LaunchTracker'
 import { getDirectories } from '../../lib/data'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'Launch-Tracker: Einreichungen planen und abhaken',
@@ -23,6 +24,7 @@ export default function LaunchTrackerPage() {
                 </p>
             </section>
             <LaunchTracker verzeichnisse={verzeichnisse} />
+            <LeadMagnetBox id="top-50" anlass="Noch Lücken im Tracker? Die Top 50 als Tabelle zum Abhaken." />
         </>
     )
 }

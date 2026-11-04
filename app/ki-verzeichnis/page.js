@@ -9,6 +9,7 @@ import { getSiteStats } from '../../lib/data'
 import { getTop50 } from '../../lib/top50'
 import { pricingLabel } from '../../utils/i18n-de'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 const FAQ = [
     {
@@ -83,6 +84,7 @@ function KiVerzeichnis() {
                     </li>
                 </ul>
             </Band>
+            <LeadMagnetBox id="top-50" anlass="Theorie verstanden? Hier sind die 50 Verzeichnisse, die sich lohnen." />
             <section aria-labelledby="kriterien">
                 <h2 id="kriterien">Woran du ein gutes KI-Verzeichnis erkennst</h2>
                 <ol className="checklist">
