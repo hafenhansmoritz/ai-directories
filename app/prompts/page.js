@@ -7,6 +7,7 @@ import { SITE_NAME } from '../../lib/site'
 import { promptsByKategorie, getPrompts, TECHNIKEN } from '../../lib/prompts'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import PromptCardList from '../components/PromptCardList'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'KI-Prompts auf Deutsch: Vorlagen für ChatGPT & Claude',
@@ -52,6 +53,7 @@ function PromptsPage() {
                     <PromptCardList prompts={k.prompts} />
                 </section>
             ))}
+            <LeadMagnetBox id="prompt-paket" anlass="Alle Vorlagen aus der Bibliothek auf einmal, statt jede einzeln zu kopieren." />
             <section aria-labelledby="techniken">
                 <h2 id="techniken">Die 8 Techniken hinter guten Prompts</h2>
                 <dl className="technik-liste">

@@ -6,6 +6,7 @@ import { SITE_NAME, absoluteUrl } from '../../lib/site'
 import { getTools, getCategories, TOOLS_STAND } from '../../lib/tools'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import ToolsExplorer from './ToolsExplorer'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'KI-Tools mit Preisen und Gratis-Tarif im Vergleich',
@@ -55,6 +56,7 @@ function ToolsPage() {
             </p>
 
             <ToolsExplorer tools={tools} categories={categories} />
+            <LeadMagnetBox id="prompt-spickzettel" anlass="Tool gefunden? Mit diesen Prompt-Techniken holst du mehr raus." />
 
             <p className="source">
                 Preise ändern sich oft. Maßgeblich ist immer die Preisseite des Anbieters. Partnerlinks in den Steckbriefen sind mit * markiert,{' '}

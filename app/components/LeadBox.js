@@ -1,7 +1,8 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { NEWSLETTER_NAME, NEWSLETTER_URL, YOUTUBE_SUBSCRIBE_URL } from '../../lib/monetization'
+import { BREVO_FORM_URL, HAS_NEWSLETTER, NEWSLETTER_NAME, NEWSLETTER_URL, YOUTUBE_SUBSCRIBE_URL } from '../../lib/monetization'
+import BrevoForm from './BrevoForm'
 
 // Lead-Baustein für jede Seite: Newsletter, solange keiner hinterlegt ist der YouTube-Kanal.
 // Pro Seite ein anderer Spruch, damit nicht auf 1.300 Seiten derselbe Satz steht.
@@ -34,8 +35,8 @@ const SPRUECHE = [
 
 const hash = (s) => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7)
 
-export default function LeadBox({ title, text }) {
-    const hasNewsletter = Boolean(NEWSLETTER_URL)
+export default function LeadBox({ title, text, quelle = 'leadbox' }) {
+    const hasNewsletter = HAS_NEWSLETTER
     const pfad = usePathname() || '/'
     return (
         <aside className="leadbox" aria-label={hasNewsletter ? 'Newsletter abonnieren' : 'YouTube-Kanal abonnieren'}>
@@ -46,14 +47,18 @@ export default function LeadBox({ title, text }) {
                         ? 'Jede Woche die besten Prompts, neue KI-Tools und Deals, bevor sie hier stehen. Einmal pro Woche, jederzeit kündbar.'
                         : SPRUECHE[hash(pfad) % SPRUECHE.length])}
             </p>
-            <a
-                className="button"
-                href={hasNewsletter ? `${NEWSLETTER_URL.replace(/\/$/, '')}/subscribe` : YOUTUBE_SUBSCRIBE_URL}
-                target="_blank"
-                rel="noopener"
-            >
-                {hasNewsletter ? 'Kostenlos abonnieren →' : 'Kanal abonnieren →'}
-            </a>
+            {BREVO_FORM_URL ? (
+                <BrevoForm quelle={quelle} knopf="Kostenlos abonnieren" />
+            ) : (
+                <a
+                    className="button"
+                    href={NEWSLETTER_URL ? `${NEWSLETTER_URL.replace(/\/$/, '')}/subscribe` : YOUTUBE_SUBSCRIBE_URL}
+                    target="_blank"
+                    rel="noopener"
+                >
+                    {hasNewsletter ? 'Kostenlos abonnieren →' : 'Kanal abonnieren →'}
+                </a>
+            )}
         </aside>
     )
 }

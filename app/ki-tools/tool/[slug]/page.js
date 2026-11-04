@@ -12,6 +12,8 @@ import { getPrompt } from '../../../../lib/prompts'
 import { getTutorial } from '../../../../lib/tutorials'
 import { hatAlternativenHub } from '../../../../lib/alternativen'
 import Vernetzt, { seitenPfad } from '../../../components/Vernetzt'
+import LeadMagnetBox from '../../../components/LeadMagnetBox'
+import { magnetFuer } from '../../../../lib/leadmagnets'
 
 export const dynamicParams = false
 
@@ -133,6 +135,7 @@ function KbToolPage({ params }) {
                     ? `${t.name} steht unabhängig voneinander in ${t.konsens === 3 ? 'allen drei' : 'zwei der drei'} größten offenen KI-Tool-Listen auf GitHub. Das ist ein gutes Zeichen, ersetzt aber keinen eigenen Test.`
                     : `${t.name} steht in einer der drei großen offenen KI-Tool-Listen. Mehr als diese eine Empfehlung haben wir noch nicht.`}
             </p>)}
+            <LeadMagnetBox id={magnetFuer(t.rubrik)} anlass={`Für deinen ersten Test mit ${t.name}:`} />
             {alternativen.length > 0 && (
                 <section aria-labelledby="alternativen">
                     <h2 id="alternativen">Alternativen zu {t.name}</h2>

@@ -6,6 +6,7 @@ import { Band } from '../components/Deko'
 import { SITE_NAME } from '../../lib/site'
 import { RECHNER } from '../../lib/rechner'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'KI-Rechner: Abo, API-Kosten, Automatisierung & mehr',
@@ -41,6 +42,7 @@ function RechnerHub() {
                     </li>
                 ))}
             </ul>
+            <LeadMagnetBox id="prompt-spickzettel" anlass="Die Rechnung geht auf, wenn die Prompts sitzen." />
             <Band farbe="mint" id="schnell" titel="Schnellcheck: Lohnt sich ein KI-Abo für dich? ⏱️">
                 <ZeitRechner />
             </Band>

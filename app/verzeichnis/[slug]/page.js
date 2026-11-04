@@ -24,6 +24,7 @@ import { submitRel } from '../../../lib/monetization'
 import { dealLabel, formatRating, formatVisits, pricingLabel } from '../../../utils/i18n-de'
 import TEXTE from '../../../db/texte/verzeichnisse.json'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
 
 export const dynamicParams = false
 
@@ -233,6 +234,8 @@ function DirectoryPage({ params }) {
                 <FreshBox directory={d} />
                 <CheckBox slug={d.slug} />
             </section>
+
+            <LeadMagnetBox id="top-50" anlass={`Neben ${d.name}: die 50 stärksten Verzeichnisse auf einen Blick.`} />
 
             <section aria-labelledby="staerken">
                 <h2 id="staerken">Wofür sich {d.name} eignet 🎯</h2>

@@ -12,6 +12,7 @@ import Pruefer from '../../components/Pruefer'
 import { getTools, getTool, TOOLS_STAND } from '../../../lib/tools'
 import { getNewsArtikel } from '../../../lib/news'
 import { dateiStand } from '../../../lib/stand'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
 
 // Auswahlhilfe: je Einsatzzweck das passende Tool aus den Steckbriefen (db/tools.json, best_for_de).
 const WAHL = [
@@ -176,6 +177,7 @@ function ChatgptAlternativen() {
             <p className="box box-tipp">
                 Nicht raten, testen: Im <Link href="/ki-test">KI-Test</Link> schickst du dieselben Aufgaben an ChatGPT, Claude, Gemini, Perplexity und Grok und bekommst deine eigene Rangliste.
             </p>
+            <LeadMagnetBox id="prompt-spickzettel" anlass="Welcher Chatbot es auch wird: Diese Techniken klappen in allen." />
             <section aria-labelledby="chatbots">
                 <h2 id="chatbots">🤖 Chatbots als ChatGPT-Alternative</h2>
                 <ToolCards tools={chat.slice(0, 18)} />

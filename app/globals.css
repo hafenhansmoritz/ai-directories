@@ -2630,6 +2630,54 @@ td.wrap {
     }
 }
 
+/* Brevo-Anmeldung (EmailCapture mit NEXT_PUBLIC_BREVO_FORM_URL) */
+.brevo-form {
+    margin: 8px 0 0;
+}
+
+.brevo-zeile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.brevo-zeile input[type='email'] {
+    flex: 1 1 200px;
+    min-width: 0;
+    padding: 10px 12px;
+    font: inherit;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg, #fff);
+    color: inherit;
+}
+
+.brevo-honig {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.brevo-form .brevo-hinweis,
+.brevo-ok {
+    font-size: var(--fs-sm);
+    color: var(--muted);
+    margin: 8px 0 0;
+}
+
+.brevo-ok {
+    color: inherit;
+    font-weight: 700;
+}
+
+.magnet-anlass {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--muted);
+}
+
 .slide-in {
     position: fixed;
     right: 16px;

@@ -9,6 +9,8 @@ import { getSkills, getSkill, installBefehle, PLATTFORMEN, SKILL_KATEGORIEN, SKI
 import { getPrompt } from '../../../lib/prompts'
 import { getTool } from '../../../lib/tools'
 import NETZ from '../../../db/vernetzung.json'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
+import { magnetFuer } from '../../../lib/leadmagnets'
 
 export const dynamicParams = false
 
@@ -119,6 +121,7 @@ function SkillPage({ params }) {
                 ))}
             </section>
 
+            <LeadMagnetBox id={magnetFuer(s.kategorie, s.name)} anlass="Skill installiert? Das hier gehört daneben:" />
             <section aria-labelledby="skill-inhalt">
                 <h2 id="skill-inhalt">Was im Skill steht</h2>
                 <p>Lies die Anleitung, bevor du sie installierst. Sie enthält nur Text, keine Skripte.</p>

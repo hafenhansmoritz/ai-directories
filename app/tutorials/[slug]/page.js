@@ -12,7 +12,7 @@ import { getTutorials, getTutorial } from '../../../lib/tutorials'
 import { getPrompt } from '../../../lib/prompts'
 import { getTool, toolHref, toolRel } from '../../../lib/tools'
 import { getLeadmagnet } from '../../../lib/leadmagnets'
-import { NEWSLETTER_NAME, NEWSLETTER_URL } from '../../../lib/monetization'
+import { HAS_NEWSLETTER, NEWSLETTER_NAME } from '../../../lib/monetization'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 
 export const dynamicParams = false
@@ -104,8 +104,8 @@ function TutorialPage({ params }) {
                     </ul>
                 </section>
             )}
-            <SlideInLead id={`tutorial-${t.slug}`} title={NEWSLETTER_URL ? `Jede Woche neue Prompts von ${NEWSLETTER_NAME} 📬` : 'Mehr davon als Video? 🎬'}>
-                <p>{NEWSLETTER_URL ? 'Die besten Prompts der Woche, ein Trick, ein Tool. Kostenlos, jederzeit kündbar.' : 'Prompt-Tricks, Tool-Tests und Case Studies auf dem mentat.codes-Kanal.'}</p>
+            <SlideInLead id={`tutorial-${t.slug}`} title={HAS_NEWSLETTER ? `Jede Woche neue Prompts von ${NEWSLETTER_NAME} 📬` : 'Mehr davon als Video? 🎬'}>
+                <p>{HAS_NEWSLETTER ? 'Die besten Prompts der Woche, ein Trick, ein Tool. Kostenlos, jederzeit kündbar.' : 'Prompt-Tricks, Tool-Tests und Case Studies auf dem mentat.codes-Kanal.'}</p>
                 <EmailCapture />
             </SlideInLead>
             <p>

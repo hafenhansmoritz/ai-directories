@@ -7,6 +7,7 @@ import { Band } from '../../components/Deko'
 import { SITE_NAME } from '../../../lib/site'
 import { TEST_KATEGORIEN, getTestKategorie, getTestKategorien } from '../../../lib/kitests'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
 
 export const dynamicParams = false
 
@@ -48,6 +49,7 @@ function KategoriePage({ params }) {
                 <h2 id="aufgaben">{k.tests.length} Aufgaben zum Selbsttesten</h2>
                 <KiTestSuite tests={k.tests} kategorien={TEST_KATEGORIEN} />
             </section>
+            <LeadMagnetBox id="prompt-spickzettel" anlass={`Bessere Antworten im Test ${k.name}? Fang beim Prompt an:`} />
             <Band farbe={k.farbe === 'dunkel' ? 'blau' : k.farbe} id="mehr" titel="Weitere Testkategorien">
                 <ul className="link-cards">
                     {andere.map((x) => (

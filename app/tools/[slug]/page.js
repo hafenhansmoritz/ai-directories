@@ -23,6 +23,8 @@ import { dateiStand } from '../../../lib/stand'
 import Kurzantwort from '../../components/Kurzantwort'
 import PartnerHinweis from '../../components/PartnerHinweis'
 import { kuerzen } from '../../../lib/text'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
+import { magnetFuer } from '../../../lib/leadmagnets'
 
 export const dynamicParams = false
 
@@ -296,6 +298,7 @@ function ToolPage({ params }) {
                     </div>
                 </section>
             )}
+            <LeadMagnetBox id={magnetFuer(t.category)} anlass={`Für deinen ersten Test mit ${t.name}:`} />
             <section aria-labelledby="kosten" className="box box-info">
                 <h2 id="kosten">Was kostet {t.name}? 💸</h2>
                 <p>

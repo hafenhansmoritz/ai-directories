@@ -7,6 +7,7 @@ import { SITE_NAME } from '../../lib/site'
 import { kbStats } from '../../lib/kb'
 import { KB_DATEN } from '../../lib/kb-client'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'KI-Tool-Finder: Welches KI-Tool passt zu mir?',
@@ -31,6 +32,7 @@ function ToolFinderPage() {
             <Band farbe="lila" id="finder" titel="Los geht's 🎯">
                 <ToolFinder quelle={KB_DATEN} />
             </Band>
+            <LeadMagnetBox id="prompt-spickzettel" anlass="Tool gefunden? Mit diesen Prompt-Techniken holst du mehr raus:" />
             <p className="box box-tipp">
                 Treffer gefunden? Teste die Chatbots im <Link href="/ki-test">KI-Test</Link> und rechne mit dem <Link href="/rechner/ki-zeitersparnis">Zeitersparnis-Rechner</Link> nach, ob sich das Abo lohnt.
             </p>

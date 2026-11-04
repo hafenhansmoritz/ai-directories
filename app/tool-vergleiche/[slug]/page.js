@@ -17,6 +17,8 @@ import PartnerHinweis from '../../components/PartnerHinweis'
 import { kuerzen, datumDe } from '../../../lib/text'
 import SendToAI from '../../components/SendToAI'
 import { getToolPromptSeite } from '../../../lib/prompt-tools'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
+import { magnetFuer } from '../../../lib/leadmagnets'
 
 export const dynamicParams = false
 
@@ -189,6 +191,7 @@ function ComparisonPage({ params }) {
                 </p>
                 <PartnerHinweis zeigen={anyAffiliate} />
             </section>
+            <LeadMagnetBox id={magnetFuer(c.title, c.picks.map(([, s]) => getTool(s)?.category))} anlass="Egal, wer den Vergleich gewinnt:" />
             {c.unterschiede?.length > 0 && (
                 <section aria-labelledby="unterschiede">
                     <h2 id="unterschiede">Die wichtigsten Unterschiede 🔍</h2>

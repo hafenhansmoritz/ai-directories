@@ -45,7 +45,7 @@ function DownloadsPage() {
             </section>
             )}
             {LEADMAGNETS.map((m) => (
-                <LeadMagnetBox key={m.id} id={m.id} />
+                <LeadMagnetBox key={m.id} id={m.id} frei />
             ))}
         </>
     )

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import JsonLd from '../components/JsonLd'
 import { SITE_NAME } from '../../lib/site'
-import { LEAD_EMAIL, NEWSLETTER_EMBED, NEWSLETTER_NAME, NEWSLETTER_URL } from '../../lib/monetization'
+import { BREVO_FORM_URL, LEAD_EMAIL, NEWSLETTER_EMBED, NEWSLETTER_NAME, NEWSLETTER_URL } from '../../lib/monetization'
 import { getGuides } from '../../lib/guides'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import { KONTO_AKTIV } from '../../lib/konto'
@@ -71,7 +71,18 @@ const ABSCHNITTE = [
               ],
           ]
         : []),
-    ...(NEWSLETTER_URL || NEWSLETTER_EMBED
+    ...(BREVO_FORM_URL
+        ? [
+              [
+                  'Newsletter',
+                  [
+                      'Für den Newsletter nutzen wir Brevo (Brevo GmbH, Köpenicker Str. 126, 10179 Berlin) als Auftragsverarbeiter nach Art. 28 DSGVO. Trägst du dich in eines der Formulare ein, schickt dein Browser deine E-Mail-Adresse direkt an Brevo. Dabei erfährt Brevo wie bei jedem Abruf deine IP-Adresse. Skripte oder Cookies von Brevo laden wir auf mentat.codes nicht.',
+                      'Du bekommst danach eine Mail mit Bestätigungslink (Double-Opt-in). Erst mit dem Klick darauf bist du eingetragen. Brevo speichert Zeitpunkt der Anmeldung und der Bestätigung als Nachweis.',
+                      'Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Du kannst sie jederzeit mit dem Abmeldelink in jeder Mail widerrufen, danach löschen wir deine Adresse aus der Liste.',
+                  ],
+              ],
+          ]
+        : NEWSLETTER_URL || NEWSLETTER_EMBED
         ? [
               [
                   'Newsletter',

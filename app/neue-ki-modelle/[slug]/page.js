@@ -11,6 +11,8 @@ import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 import { ogMeta, OG_BILDER, publisherRef } from '../../../lib/og-meta'
 import { autorRef } from '../../../lib/autor'
 import { dateiStand } from '../../../lib/stand'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
+import { magnetFuer } from '../../../lib/leadmagnets'
 
 export const dynamicParams = false
 
@@ -164,6 +166,7 @@ function ModellPage({ params }) {
             ) : (
                 <ModellBlock m={m} titel="Die Fakten" />
             )}
+            <LeadMagnetBox id={magnetFuer(fam ? fam.titel : m.name, item.anbieter)} anlass={`Damit du ${fam ? 'die neuen Modelle' : m.name} gleich richtig nutzt:`} />
             <section aria-labelledby="faq">
                 <h2 id="faq">Häufige Fragen 🙋</h2>
                 <Faq items={faq} />

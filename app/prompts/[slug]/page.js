@@ -11,7 +11,7 @@ import PromptRunner from '../../components/PromptRunner'
 import LeadMagnetBox from '../../components/LeadMagnetBox'
 import SlideInLead from '../../components/SlideInLead'
 import EmailCapture from '../../components/EmailCapture'
-import { NEWSLETTER_NAME, NEWSLETTER_URL } from '../../../lib/monetization'
+import { HAS_NEWSLETTER, NEWSLETTER_NAME } from '../../../lib/monetization'
 import { SITE_NAME } from '../../../lib/site'
 import { getPrompts, getPrompt, PROMPT_KATEGORIEN, TECHNIKEN } from '../../../lib/prompts'
 import { getTool, toolHref, toolRel } from '../../../lib/tools'
@@ -129,8 +129,8 @@ function PromptPage({ params }) {
                     </ul>
                 </section>
             )}
-            <SlideInLead id="prompt" title={NEWSLETTER_URL ? `Jeden Freitag 5 neue Prompts von ${NEWSLETTER_NAME} 📬` : 'Prompt-Tricks als Video 🎬'}>
-                <p>{NEWSLETTER_URL ? 'Getestet, auf Deutsch, sofort nutzbar. Kostenlos, jederzeit kündbar.' : 'Neue Prompts, Tool-Tests und Case Studies auf dem mentat.codes-Kanal.'}</p>
+            <SlideInLead id="prompt" title={HAS_NEWSLETTER ? `Jeden Freitag 5 neue Prompts von ${NEWSLETTER_NAME} 📬` : 'Prompt-Tricks als Video 🎬'}>
+                <p>{HAS_NEWSLETTER ? 'Getestet, auf Deutsch, sofort nutzbar. Kostenlos, jederzeit kündbar.' : 'Neue Prompts, Tool-Tests und Case Studies auf dem mentat.codes-Kanal.'}</p>
                 <EmailCapture />
             </SlideInLead>
             <p>

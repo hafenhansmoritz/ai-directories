@@ -7,6 +7,7 @@ import { PriceBadge } from '../components/Badges'
 import { DACH, DACH_STAND } from '../../lib/dach'
 import { formatNumber } from '../../utils/i18n-de'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: `Deutsche KI-Verzeichnisse: ${DACH.length} Portale für den DACH-Raum`,
@@ -125,6 +126,7 @@ function DachPage() {
                 </p>
             </section>
 
+            <LeadMagnetBox id="top-50" anlass="Die deutschen reichen dir nicht? Die internationalen Top 50 als Tabelle." />
             <section aria-labelledby="tipps">
                 <h2 id="tipps">So klappt der Eintrag in deutschen Verzeichnissen</h2>
                 <ol className="checklist">
