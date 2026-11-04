@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import JsonLd from '../components/JsonLd'
 import { SITE_NAME } from '../../lib/site'
-import { CONTACT_EMAIL, LEAD_EMAIL, NEWSLETTER_BREVO, NEWSLETTER_EMBED, NEWSLETTER_NAME, NEWSLETTER_SUBSTACK, NEWSLETTER_URL } from '../../lib/monetization'
+import { CONTACT_EMAIL, NEWSLETTER_BREVO, NEWSLETTER_EMBED, NEWSLETTER_NAME, NEWSLETTER_SUBSTACK, NEWSLETTER_URL } from '../../lib/monetization'
 import { getGuides } from '../../lib/guides'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import { KONTO_AKTIV } from '../../lib/konto'
@@ -20,7 +20,7 @@ const ABSCHNITTE = [
     [
         'Verantwortlich',
         [
-            `Jean Maurice Port, erreichbar per E-Mail an ${LEAD_EMAIL} oder über das Kontaktformular am Ende jeder Seite.`,
+            `Hans Moritz Hafen, Grabenstraße 28, 66538 Neunkirchen, Deutschland (siehe Impressum), erreichbar per E-Mail an ${CONTACT_EMAIL} oder über das Kontaktformular am Ende jeder Seite.`,
         ],
     ],
     [
@@ -165,7 +165,7 @@ function DatenschutzPage() {
                 ))}
             </div>
             <p className="box box-info">
-                Fragen zum Datenschutz? Nutze das Formular unten oder schreib an <span className="leadform-adresse">{LEAD_EMAIL}</span>. Zur <Link href="/transparenz">Transparenz-Seite</Link>.
+                Fragen zum Datenschutz? Nutze das Formular unten oder schreib an <span className="leadform-adresse">{CONTACT_EMAIL}</span>. Zur <Link href="/transparenz">Transparenz-Seite</Link>.
             </p>
         </>
     )
