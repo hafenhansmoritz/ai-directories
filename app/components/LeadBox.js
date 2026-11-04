@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { BREVO_FORM_URL, HAS_NEWSLETTER, NEWSLETTER_NAME, NEWSLETTER_URL, YOUTUBE_SUBSCRIBE_URL } from '../../lib/monetization'
+import { BREVO_FORM_URL, HAS_NEWSLETTER, NEWSLETTER_NAME, NEWSLETTER_SUBSTACK, SUBSCRIBE_URL } from '../../lib/monetization'
 import BrevoForm from './BrevoForm'
 
 // Lead-Baustein für jede Seite: Newsletter, solange keiner hinterlegt ist der YouTube-Kanal.
@@ -48,14 +48,19 @@ export default function LeadBox({ title, text, quelle = 'leadbox' }) {
                         : SPRUECHE[hash(pfad) % SPRUECHE.length])}
             </p>
             {BREVO_FORM_URL ? (
-                <BrevoForm quelle={quelle} knopf="Kostenlos abonnieren" />
+                <>
+                    <BrevoForm quelle={quelle} knopf="Kostenlos abonnieren" />
+                    {NEWSLETTER_SUBSTACK && (
+                        <p className="brevo-hinweis">
+                            Lieber im Feed-Reader?{' '}
+                            <a href={SUBSCRIBE_URL} target="_blank" rel="noopener">
+                                {NEWSLETTER_NAME} auf Substack →
+                            </a>
+                        </p>
+                    )}
+                </>
             ) : (
-                <a
-                    className="button"
-                    href={NEWSLETTER_URL ? `${NEWSLETTER_URL.replace(/\/$/, '')}/subscribe` : YOUTUBE_SUBSCRIBE_URL}
-                    target="_blank"
-                    rel="noopener"
-                >
+                <a className="button" href={SUBSCRIBE_URL} target="_blank" rel="noopener">
                     {hasNewsletter ? 'Kostenlos abonnieren →' : 'Kanal abonnieren →'}
                 </a>
             )}

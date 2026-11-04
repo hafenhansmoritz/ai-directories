@@ -22,7 +22,7 @@ import Pruefer from '../../components/Pruefer'
 import { dateiStand } from '../../../lib/stand'
 import Kurzantwort from '../../components/Kurzantwort'
 import PartnerHinweis from '../../components/PartnerHinweis'
-import { kuerzen } from '../../../lib/text'
+import { kuerzen, datumDe } from '../../../lib/text'
 import LeadMagnetBox from '../../components/LeadMagnetBox'
 import { magnetFuer } from '../../../lib/leadmagnets'
 
@@ -86,6 +86,7 @@ const formatTestphase = (t) => {
 // Steckbrief-Kategorie → Rubrik der KI-Tool-Datenbank (für Auswahlkriterien und Datenbank-Link)
 const KAT_RUBRIK = {
     'KI-Chat & Recherche': 'chatbots',
+    'Chatbots & Voice-Agenten': 'chatbots',
     Schreiben: 'schreiben',
     SEO: 'schreiben',
     Produktivität: 'produktivitaet',
@@ -235,6 +236,7 @@ function ToolPage({ params }) {
             {t.source && (
                 <p className="source">
                     Quelle: <a href={t.source} target="_blank" rel="nofollow noopener noreferrer">{new URL(t.source).hostname}</a>
+                    {t.geprueft && `, abgerufen am ${datumDe(t.geprueft)}`}
                 </p>
             )}
             {START[t.slug] && (

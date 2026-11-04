@@ -5,6 +5,7 @@ import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import { SITE_NAME, absoluteUrl } from '../../lib/site'
 import { AUTOR_ID } from '../../lib/autor'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import AngebotBox from '../components/AngebotBox'
 
 export const metadata = {
     title: 'Über Jean Maurice Port: Autor von mentat.codes',
@@ -66,6 +67,14 @@ function AboutPage() {
                     Nach welchen Regeln Fakten, Preise und Quellen geprüft werden, steht unter <Link href="/so-pruefen-wir">So prüfen wir</Link>. Wie sich die Seite finanziert, erklärt{' '}
                     <Link href="/transparenz">Transparenz</Link>.
                 </p>
+            </section>
+            <section aria-labelledby="zusammenarbeit">
+                <h2 id="zusammenarbeit">Mit Jean arbeiten</h2>
+                <p>
+                    Neben der Seite kannst du mich buchen: für Coding-Agenten im Team, KI-Workflows und Sichtbarkeit in Google und KI-Antworten unter{' '}
+                    <Link href="/beratung">Beratung</Link>, für eine neue Seite unter <Link href="/website-erstellen-lassen">Website erstellen lassen</Link>.
+                </p>
+                <AngebotBox thema="seo" />
             </section>
             <p>
                 <Link href="/">← Zurück zu den KI-Verzeichnissen</Link>

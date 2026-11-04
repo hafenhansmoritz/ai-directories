@@ -183,7 +183,7 @@ function RubrikPage({ params }) {
 
 // Rubrik der Datenbank -> Kategorie im geprüften Tool-Verzeichnis (db/tools.json)
 const KB_TOOLCAT = {
-    chatbots: ['KI-Chat & Recherche'],
+    chatbots: ['KI-Chat & Recherche', 'Chatbots & Voice-Agenten'],
     suche: ['KI-Chat & Recherche'],
     recherche: ['KI-Chat & Recherche'],
     schreiben: ['Schreiben', 'SEO'],

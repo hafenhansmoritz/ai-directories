@@ -17,7 +17,9 @@ export const ANLIEGEN = [
     ['sonstiges', 'Etwas anderes'],
 ]
 
-export default function LeadForm({ titel, text, vorauswahl = 'tool-eintragen', id = 'anfrage' }) {
+// Optionale Props (rückwärtskompatibel): eigene Auswahlliste `optionen` im Format von ANLIEGEN, `auswahlLabel`,
+// `mitWebsite` (Feld „Website oder Tool“ zeigen) und `newsletter` (zusätzliches, nicht vorausgewähltes Häkchen).
+export default function LeadForm({ titel, text, optionen = ANLIEGEN, vorauswahl = optionen[0][0], id = 'anfrage', auswahlLabel = 'Worum geht es?', mitWebsite = true, newsletter = false }) {
     const pfad = usePathname() || '/'
     const [status, setStatus] = useState('bereit')
     const [fehler, setFehler] = useState('')
@@ -27,7 +29,7 @@ export default function LeadForm({ titel, text, vorauswahl = 'tool-eintragen', i
     useEffect(() => {
         const aus = () => {
             const m = window.location.hash.match(new RegExp(`^#${id}-([a-z-]+)$`))
-            if (m && ANLIEGEN.some(([k]) => k === m[1])) {
+            if (m && optionen.some(([k]) => k === m[1])) {
                 setAnliegen(m[1])
                 setStatus('bereit')
                 document.getElementById(id)?.scrollIntoView({ block: 'start' })
@@ -37,6 +39,8 @@ export default function LeadForm({ titel, text, vorauswahl = 'tool-eintragen', i
         aus()
         window.addEventListener('hashchange', aus)
         return () => window.removeEventListener('hashchange', aus)
+        // optionen ist pro Seite fest; ein neues Array bei jedem Rendern soll den Listener nicht neu setzen.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
     async function senden(e) {
@@ -44,7 +48,7 @@ export default function LeadForm({ titel, text, vorauswahl = 'tool-eintragen', i
         const form = e.currentTarget
         const daten = Object.fromEntries(new FormData(form).entries())
         if (daten._honey) return
-        const anliegen = ANLIEGEN.find(([k]) => k === daten.anliegen)?.[1] || daten.anliegen
+        const anliegen = optionen.find(([k]) => k === daten.anliegen)?.[1] || daten.anliegen
         setStatus('sendet')
         setFehler('')
         try {
@@ -57,6 +61,7 @@ export default function LeadForm({ titel, text, vorauswahl = 'tool-eintragen', i
                     anliegen,
                     website: daten.website || '',
                     nachricht: daten.nachricht || '',
+                    ...(newsletter ? { newsletter: daten.newsletter ? 'ja, bitte Newsletter-Anmeldung mit Bestätigungsmail schicken' : 'nein' } : {}),
                     seite: window.location.href,
                     _subject: `mentat.codes-Anfrage: ${anliegen} (${pfad})`,
                     _replyto: daten.email,
@@ -90,7 +95,7 @@ export default function LeadForm({ titel, text, vorauswahl = 'tool-eintragen', i
     return (
         <section className="leadform" id={id} aria-labelledby={`${id}-titel`}>
             {/* Sprungziele für Links wie #anfrage-werbung, damit sie auch vor dem Laden von JavaScript ankommen. */}
-            {ANLIEGEN.map(([k]) => (
+            {optionen.map(([k]) => (
                 <span key={k} id={`${id}-${k}`} />
             ))}
             <div className="leadform-kopf">
@@ -101,9 +106,9 @@ export default function LeadForm({ titel, text, vorauswahl = 'tool-eintragen', i
             </div>
             <form className="leadform-form" onSubmit={senden}>
                 <label>
-                    <span>Worum geht es?</span>
+                    <span>{auswahlLabel}</span>
                     <select name="anliegen" value={anliegen} onChange={(e) => setAnliegen(e.target.value)} id={`${id}-anliegen`}>
-                        {ANLIEGEN.map(([k, label]) => (
+                        {optionen.map(([k, label]) => (
                             <option key={k} value={k}>
                                 {label}
                             </option>
@@ -122,10 +127,12 @@ export default function LeadForm({ titel, text, vorauswahl = 'tool-eintragen', i
                         <input name="email" type="email" required autoComplete="email" id={`${id}-email`} placeholder="du@firma.de" />
                     </label>
                 </div>
-                <label>
-                    <span>Website oder Tool (optional)</span>
-                    <input name="website" type="text" inputMode="url" id={`${id}-website`} placeholder="https://dein-tool.de" />
-                </label>
+                {mitWebsite && (
+                    <label>
+                        <span>Website oder Tool (optional)</span>
+                        <input name="website" type="text" inputMode="url" id={`${id}-website`} placeholder="https://dein-tool.de" />
+                    </label>
+                )}
                 <label>
                     <span>Nachricht</span>
                     <textarea name="nachricht" rows="3" id={`${id}-nachricht`} placeholder="Kurz und knackig reicht völlig." />
@@ -141,6 +148,12 @@ export default function LeadForm({ titel, text, vorauswahl = 'tool-eintragen', i
                         <Link href="/datenschutz">Datenschutzerklärung</Link>).
                     </span>
                 </label>
+                {newsletter && (
+                    <label className="leadform-check">
+                        <input type="checkbox" name="newsletter" id={`${id}-newsletter`} />
+                        <span>Optional: Schick mir auch Jeans Newsletter. Eingetragen wirst du erst, wenn du die Bestätigungsmail anklickst. Abmelden geht jederzeit.</span>
+                    </label>
+                )}
                 <button type="submit" className="button" disabled={status === 'sendet'}>
                     {status === 'sendet' ? 'Wird gesendet …' : 'Anfrage abschicken →'}
                 </button>

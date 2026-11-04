@@ -14,8 +14,8 @@ Stand: 2026-11-04. Ziel: Auf jeder Seite von mentat.codes eine sinnvolle Möglic
 
 - `lib/monetization.js`: `BREVO_FORM_URL` (Default: Formular der Liste „mentat.codes Newsletter“, per `NEXT_PUBLIC_BREVO_FORM_URL` überschreibbar, leerer String schaltet ab), `BREVO_SOURCE_FIELD` (optional), `HAS_NEWSLETTER`.
 - `app/components/BrevoForm.js`: POST direkt an Brevo (Simple HTML: `EMAIL`, leerer Honeypot `email_address_check`, `locale=de`, `html_type=simple`). fetch mit `mode: 'no-cors'`, danach „Fast geschafft: Bitte bestätige den Link in der Mail“. Netzwerkfehler oder kein JavaScript: normales Formular in neuem Tab. Kein Skript, kein Cookie von Brevo.
-- `EmailCapture`, `LeadBox` und `LeadMagnetBox` nutzen das Formular automatisch, sobald `BREVO_FORM_URL` gesetzt ist. Ohne Brevo bleibt alles wie vorher (Embed, Anmeldeseite oder YouTube).
-- Gesperrte Downloads (`gated: true`: Prompt-Paket, Top-50-CSV) zeigen mit Brevo das Formular. Nach der Bestätigung leitet Brevo auf `/downloads/` weiter, dort stehen alle Downloads frei (`<LeadMagnetBox frei />`).
+- Brevo ist das primäre System (Entscheidung D57). `EmailCapture`, `LeadBox` und `LeadMagnetBox` zeigen das Brevo-Formular, sobald `BREVO_FORM_URL` gesetzt ist. PromptGott auf Substack (`NEWSLETTER_URL`, `SUBSCRIBE_URL`) ist dann nur Zweitlink in der LeadBox; ohne Brevo ist es der Fallback (Link zur Anmeldeseite), ohne beides YouTube.
+- Download-Sperre: `DOWNLOAD_GATE = BREVO_FORM_URL || NEWSLETTER_GATE`. Mit Brevo sind gesperrte Downloads (`gated: true`: Prompt-Paket, Top-50-CSV) immer hinter der Anmeldung, weil Brevo nach der Bestätigung auf `/downloads/` leitet und dort alle Downloads frei stehen (`<LeadMagnetBox frei />`). Ohne Brevo gilt die Regel von main: Sperre nur mit `NEXT_PUBLIC_NEWSLETTER_GATE=1`.
 - Quelle: Nur wenn in Brevo ein Kontaktattribut (Text) existiert und im Formular als verstecktes Feld angelegt ist, `NEXT_PUBLIC_BREVO_SOURCE_FIELD` auf dessen Namen setzen. Dann geht `<baustein> <pfad>` mit.
 - Datenschutz: Abschnitt „Newsletter“ für Brevo in `app/datenschutz/page.js`, erscheint nur mit gesetzter `BREVO_FORM_URL`.
 
@@ -52,7 +52,7 @@ Seitenzahlen aus `out/` (Build vom 2026-11-04). „Vorher“ = Lead-Bausteine im
 | Neue KI-Modelle, Übersicht | `app/neue-ki-modelle/page.js` | 1 | nichts | vor „Gerüchte“ | prompt-spickzettel |
 | Glossar-Eintrag | `app/glossar/[slug]/page.js` | 79 | nichts | nach Beispiel/Tipp, vor „Verwandte Begriffe“ | `magnetFuer(Begriff, Zielseite)` |
 | Glossar, Übersicht | `app/glossar/page.js` | 1 | nichts | zwischen KI- und SEO-Teil | prompt-spickzettel |
-| Ratgeber-Artikel | `app/ratgeber/[slug]/page.js` | 38 | LeadMagnetBox am Ende (nur mit `magnet`), GuideGate (kein Guide bereit) | **verschoben** nach dem ersten Drittel der Abschnitte, jetzt auf allen Artikeln; ist ein PDF-Guide bereit, ersetzt der GuideGate die Box | `a.magnet` oder `magnetFuer(slug, Titel)` |
+| Ratgeber-Artikel (plus AngebotBox laut `RATGEBER_THEMA`) | `app/ratgeber/[slug]/page.js` | 38 | LeadMagnetBox am Ende (nur mit `magnet`), GuideGate (kein Guide bereit) | **verschoben** nach dem ersten Drittel der Abschnitte, jetzt auf allen Artikeln; ist ein PDF-Guide bereit, ersetzt der GuideGate die Box | `a.magnet` oder `magnetFuer(slug, Titel)` |
 | Prompt | `app/prompts/[slug]/page.js` | ~200 | LeadMagnetBox + SlideInLead | unverändert | prompt-paket |
 | Prompts, Kategorie / Tool / Archiv | `app/prompts/kategorie/[key]`, `tool/[slug]`, `archiv` | 28 | LeadMagnetBox | unverändert | prompt-paket |
 | Prompts, Übersicht | `app/prompts/page.js` | 1 | nichts | vor „Techniken“ | prompt-paket (gesperrt: mit Brevo Anmeldung) |
@@ -75,7 +75,7 @@ Seitenzahlen aus `out/` (Build vom 2026-11-04). „Vorher“ = Lead-Bausteine im
 
 ## Offene Integrationsschritte
 
-1. **AngebotBox im Ratgeber:** `lib/angebote.js` und `app/components/AngebotBox.js` gibt es auf `main` noch nicht (anderer Agent). Sobald sie gemergt sind, in `app/ratgeber/[slug]/page.js` eine `AngebotBox` nach „Quellen und Stand“ einbinden. Sie ist ein Service-Angebot, kein Mail-Baustein, zählt also nicht gegen die 2er-Grenze.
+1. **AngebotBox im Ratgeber: erledigt.** `app/ratgeber/[slug]/page.js` zeigt `<AngebotBox thema={RATGEBER_THEMA[a.slug]} />` nach „Quellen und Stand“ bzw. nach dem PDF-Guide, nur für Artikel mit Eintrag in `RATGEBER_THEMA` (`lib/angebote.js`). Service-Angebot, kein Mail-Baustein, zählt also nicht gegen die 2er-Grenze.
 2. **Willkommensmail in Brevo:** Die Bestätigungs- oder Willkommensmail sollte die Links zu `/downloads/prompt-paket.md` und `/top-50.csv` (oder einfach `/downloads/`) enthalten, falls die Weiterleitung nicht greift.
 3. **Quelle als Attribut:** In Brevo ein Kontaktattribut `QUELLE` (Text) anlegen, im Formular als verstecktes Feld ergänzen und `NEXT_PUBLIC_BREVO_SOURCE_FIELD=QUELLE` setzen. Dann sieht man, welcher Baustein auf welcher Seite die Anmeldungen bringt.
 4. **Echter Test:** Einmal mit einer eigenen Adresse eintragen und prüfen, ob Brevo die Mail schickt und nach der Bestätigung auf `/downloads/` weiterleitet.

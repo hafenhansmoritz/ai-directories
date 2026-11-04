@@ -2,17 +2,18 @@ import Link from 'next/link'
 import JeanIcon from './JeanIcon'
 import EmailCapture from './EmailCapture'
 import { getLeadmagnet } from '../../lib/leadmagnets'
-import { BREVO_FORM_URL, HAS_NEWSLETTER, NEWSLETTER_NAME } from '../../lib/monetization'
+import { BREVO_FORM_URL, DOWNLOAD_GATE, NEWSLETTER_NAME, NEWSLETTER_URL, SUBSCRIBE_URL } from '../../lib/monetization'
 import { withBase } from '../../lib/site'
 
-// Content-Upgrade: ein Download passend zur Seite. Gesperrte Downloads gibt es per Willkommensmail,
-// solange kein Newsletter läuft, direkt. Freie Downloads bleiben frei; mit Brevo steht darunter zusätzlich die Anmeldung.
+// Content-Upgrade: ein Download passend zur Seite. Gesperrte Downloads (gated) gibt es nur mit DOWNLOAD_GATE
+// (Brevo aktiv oder NEXT_PUBLIC_NEWSLETTER_GATE=1) erst nach der Anmeldung, sonst direkt, mit dem Newsletter daneben.
+// Mit Brevo steht das Anmeldeformular in der Box, ohne Brevo ein Link zu PromptGott (Substack).
 // anlass: ein Satz, der den Download mit genau dieser Seite verbindet (statt desselben Textes auf hunderten Seiten).
 // frei: Download immer direkt zeigen (auf /downloads, wohin Brevo nach der Bestätigung weiterleitet).
 export default function LeadMagnetBox({ id, anlass, frei = false }) {
     const m = getLeadmagnet(id)
     if (!m) return null
-    const locked = m.gated && HAS_NEWSLETTER && !frei
+    const locked = m.gated && DOWNLOAD_GATE && !frei
     const isPage = !/\.\w+$/.test(m.href)
     return (
         <aside className="magnet-box" aria-label={`Download: ${m.title}`}>
@@ -34,22 +35,36 @@ export default function LeadMagnetBox({ id, anlass, frei = false }) {
                         </p>
                         <EmailCapture quelle={`magnet-${m.id}`} knopf="Download per Mail holen" />
                     </>
-                ) : isPage ? (
+                ) : (
                     <>
-                        <Link className="button" href={m.href}>
-                            Jetzt öffnen →
-                        </Link>
-                        {BREVO_FORM_URL && !frei && (
+                        <p>
+                            {isPage ? (
+                                <Link className="button" href={m.href}>
+                                    Jetzt öffnen →
+                                </Link>
+                            ) : (
+                                <a className="button" href={withBase(m.href)} download>
+                                    Herunterladen ↓
+                                </a>
+                            )}
+                        </p>
+                        {!frei && BREVO_FORM_URL ? (
                             <>
                                 <p className="magnet-format">Neue Spickzettel und die besten Prompts der Woche per Mail:</p>
                                 <EmailCapture quelle={`magnet-${m.id}`} />
                             </>
+                        ) : (
+                            !BREVO_FORM_URL &&
+                            NEWSLETTER_URL && (
+                                <p>
+                                    Mehr davon jede Woche:{' '}
+                                    <a href={SUBSCRIBE_URL} target="_blank" rel="noopener">
+                                        {NEWSLETTER_NAME} abonnieren →
+                                    </a>
+                                </p>
+                            )
                         )}
                     </>
-                ) : (
-                    <a className="button" href={withBase(m.href)} download>
-                        Herunterladen ↓
-                    </a>
                 )}
             </div>
         </aside>
