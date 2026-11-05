@@ -1,4 +1,5 @@
-import { PROMPTGOTT_BLOG_URL, PROMPTGOTT_SUBSTACK_URL, getBlogBeitraege, getNewsletterAusgaben } from '../../lib/promptgott'
+import { PROMPTGOTT_BLOG_URL, PROMPTGOTT_NEWSLETTER_URL, getBlogBeitraege, getNewsletterAusgaben } from '../../lib/promptgott'
+import EmailCapture from './EmailCapture'
 
 const datum = (s) => {
     const d = new Date(s)
@@ -32,9 +33,7 @@ export default async function PromptGottFeed({ blog = 4, newsletter = 2 }) {
                     <ul className="quick-links">
                         {ausgaben.map((a) => (
                             <li key={a.url}>
-                                <a href={a.url} rel="noopener">
-                                    {a.title}
-                                </a>
+                                <a href={a.url}>{a.title}</a>
                                 {a.datum && <small> · {datum(a.datum)}</small>}
                             </li>
                         ))}
@@ -42,11 +41,9 @@ export default async function PromptGottFeed({ blog = 4, newsletter = 2 }) {
                 </>
             )}
             <p>
-                <a href={PROMPTGOTT_BLOG_URL}>Zum PromptGott-Blog →</a> ·{' '}
-                <a href={`${PROMPTGOTT_SUBSTACK_URL}/subscribe?utm_source=mentat&utm_medium=feed`} rel="noopener">
-                    Newsletter kostenlos abonnieren →
-                </a>
+                <a href={PROMPTGOTT_BLOG_URL}>Zum PromptGott-Blog →</a> · <a href={PROMPTGOTT_NEWSLETTER_URL}>Alle Newsletter-Ausgaben →</a>
             </p>
+            <EmailCapture quelle="promptgott-feed" knopf="Dienstags-Digest abonnieren" />
         </section>
     )
 }
