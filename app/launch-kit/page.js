@@ -1,6 +1,6 @@
 import LaunchKit from './LaunchKit'
+import EintragsserviceWarteliste from '../components/EintragsserviceWarteliste'
 import ToolPartners from '../components/ToolPartners'
-import ServiceHint from '../components/ServiceHint'
 import Jean from '../components/Jean'
 import JsonLd from '../components/JsonLd'
 import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
@@ -8,6 +8,7 @@ import { getDirectories } from '../../lib/data'
 import { absoluteUrl } from '../../lib/site'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import { ogMeta, OG_BILDER } from '../../lib/og-meta'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'Launch-Kit: Texte für KI-Verzeichnisse erstellen',
@@ -54,7 +55,8 @@ function LaunchKitPage() {
                 </Jean>
             </section>
             <LaunchKit directories={directories} />
-            <ServiceHint text="Texte fertig, aber keine Zeit zum Eintragen?" />
+            <EintragsserviceWarteliste />
+            <LeadMagnetBox id="top-50" anlass="Texte fertig? Dann brauchst du noch die Liste, wo sie hinkommen." />
             <ToolPartners />
         </>
     )

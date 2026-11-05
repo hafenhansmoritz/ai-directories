@@ -5,7 +5,7 @@ import useUeberScroll from './useUeberScroll'
 
 // Jean mit Sonnenbrille bringt dich nach oben, sobald du weit genug gescrollt hast.
 export default function BackToTop() {
-    const show = useUeberScroll(700)
+    const show = useUeberScroll(600)
     return (
         <button
             type="button"

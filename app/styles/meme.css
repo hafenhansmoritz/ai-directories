@@ -10,9 +10,14 @@
 .meme-uebersetzung { margin: 12px 0 0; max-width: 560px; }
 .meme-uebersetzung summary { cursor: pointer; font-weight: 700; }
 .meme-weiter { margin: 12px 0 0; font-weight: 700; }
+:root[data-theme='dark'] .meme-figur { background: #2a2333; }
+:root[data-theme='dark'] .meme-blase { background: #3a3245; color: #f4efe6; }
+:root[data-theme='dark'] .meme-rechts { background: #2f4a2a; }
+:root[data-theme='dark'] .meme-figur figcaption { color: #cfc6da; }
+
 @media (prefers-color-scheme: dark) {
-    .meme-figur { background: #2a2333; }
-    .meme-blase { background: #3a3245; color: #f4efe6; }
-    .meme-rechts { background: #2f4a2a; }
-    .meme-figur figcaption { color: #cfc6da; }
+    :root:not([data-theme='light']) .meme-figur { background: #2a2333; }
+    :root:not([data-theme='light']) .meme-blase { background: #3a3245; color: #f4efe6; }
+    :root:not([data-theme='light']) .meme-rechts { background: #2f4a2a; }
+    :root:not([data-theme='light']) .meme-figur figcaption { color: #cfc6da; }
 }

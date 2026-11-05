@@ -368,5 +368,30 @@
   "bild": "Statt eines fertig lackierten Sondermodells bekommst du jetzt einen Werkzeugkoffer: Anleitung, Spezialwerkzeug und Ersatzteilliste in einer Kiste. Das Plugin ist dieser Koffer, der Custom GPT war das Sondermodell.",
   "beispiel": "Dein Custom GPT „Produkttexter“ zieht zum Plugin um. Die Anweisungen landen als Skill im Plugin, die Produktliste als Referenzdatei, die Shopify-Verbindung als App.",
   "merksatz": "Der GPT war ein Auto, das Plugin ist der Werkzeugkoffer."
+ },
+ "deep-research": {
+  "bild": "Normale Chat-Antworten sind wie ein Anruf beim Kumpel, der aus dem Kopf antwortet. Deep Research ist wie ein Praktikant, der einen Nachmittag in der Bibliothek verbringt und mit einem Ordner voller Belege zurückkommt.",
+  "beispiel": "Du fragst nach Förderprogrammen für E-Lastenräder in Sachsen. Deep Research liest die Seiten von Land und Förderbanken und liefert eine Tabelle mit Links.",
+  "merksatz": "Langsamer, gründlicher, mit Belegen, aber die Belege öffnest du trotzdem selbst."
+ },
+ "projekte": {
+  "bild": "Ein Projekt ist eine eingerichtete Werkbank: Werkzeug, Pläne und Notizzettel liegen schon da, wenn du morgens kommst.",
+  "beispiel": "Im Projekt „Newsletter“ liegen deine alten Ausgaben und die Anweisung „Du-Form, kurze Sätze“. Jeder neue Chat dort schreibt sofort im richtigen Ton.",
+  "merksatz": "Was du jede Woche erklärst, gehört ins Projekt."
+ },
+ "gedaechtnis": {
+  "bild": "Wie der Stammkunden-Zettel beim Bäcker: Die Verkäuferin weiß, dass du das Brot geschnitten willst. Praktisch, solange auf dem Zettel nichts steht, was dort nicht hingehört.",
+  "beispiel": "Du sagst einmal, dass du Marketing für einen Onlineshop machst. Künftige Antworten berücksichtigen das, ohne dass du es wiederholst.",
+  "merksatz": "Ab und zu nachsehen, was auf dem Zettel steht."
+ },
+ "sprechererkennung": {
+  "bild": "Ohne Sprechererkennung ist das Protokoll ein Hörspiel ohne Rollennamen. Mit ihr steht vor jedem Satz, wer ihn gesagt hat.",
+  "beispiel": "Im Transkript steht nicht mehr nur „Wir liefern bis Freitag“, sondern „Sprecher 2: Wir liefern bis Freitag“, und du ordnest Sprecher 2 einmal dem Lieferanten zu.",
+  "merksatz": "Wer hat was gesagt? Das beantwortet die Diarisierung."
+ },
+ "auftragsverarbeitungsvertrag": {
+  "bild": "Wie der Werkstattvertrag, wenn du dein Auto abgibst: Er regelt, was die Werkstatt damit darf und was nicht. Nur geht es hier um Daten statt um Autos.",
+  "beispiel": "Bevor dein Team Kundengespräche mit einem Transkriptions-Tool aufzeichnet, schließt du mit dem Anbieter einen AVV ab. Viele Anbieter stellen ihn zum Download oder per Klick in den Einstellungen bereit.",
+  "merksatz": "Kein Dienstleister mit Kundendaten ohne AVV."
  }
 }

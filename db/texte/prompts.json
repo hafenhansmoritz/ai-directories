@@ -1,4 +1,10 @@
 {
+ "agentur-kundenbriefing": {
+  "intro": "Nach dem Erstgespräch hast du drei Seiten Notizen und kein Briefing. Dieser Prompt sortiert sie in feste Abschnitte und markiert, was noch fehlt.",
+  "tipp": "Schick das Briefing zur Freigabe, bevor du anfängst. Eine Unterschrift unter dem Umfang spart später lange Diskussionen.",
+  "fehler": "Mit der Arbeit beginnen, bevor Ziel und Budget schriftlich stehen.",
+  "jean": "Ein gutes Briefing ist die halbe Kampagne."
+ },
  "alt-texte": {
   "intro": "Auf deiner Seite sind 30 Bilder, und bei allen steht als Alt-Text „IMG_4711“ oder gar nichts. Dieser Prompt schreibt kurze, beschreibende Alt-Texte, die sagen, was zu sehen ist, und markiert rein dekorative Bilder. Das hilft Menschen mit Screenreader und der Bildersuche, ohne dass du Keywords reinstopfen musst.",
   "tipp": "Beschreib bei „bilder“ jedes Bild kurz selbst, mit Farbe, Gegenstand und Situation, denn die KI sieht deine Bilder nur, wenn du sie hochlädst. Prüf, ob der Alt-Text auch ohne Bild Sinn ergibt, wenn du ihn laut vorliest.",
@@ -16,6 +22,12 @@
   "tipp": "Füg bei „stelle“ die komplette Anzeige ein und bei „erfahrung“ konkrete Ergebnisse mit Zahlen, die du belegen kannst. Lies das Ergebnis laut: Wenn du einen Satz im Gespräch nicht so sagen würdest, schreib ihn um.",
   "fehler": "Ein Anschreiben für zehn Stellen verwenden und nur den Firmennamen austauschen.",
   "jean": "Personaler riechen Serienbriefe. Schreib für genau diese eine Stelle."
+ },
+ "app-idee-zu-bauplan": {
+  "intro": "Ein Riesenprompt erzeugt eine Riesen-App, die keiner versteht. Dieser Prompt zerlegt deine Idee in kleine Schritte, die du nacheinander in Lovable, Bolt oder v0 gibst.",
+  "tipp": "Arbeite den Plan wirklich Schritt für Schritt ab und speicher nach jedem Schritt in GitHub. So weißt du immer, welche Änderung was kaputt gemacht hat.",
+  "fehler": "Alle Schritte auf einmal einfügen, weil es schneller geht.",
+  "jean": "Kleine Schritte, großer Fortschritt."
  },
  "arbeitszeugnis-entschluesseln": {
   "intro": "Im Zeugnis steht „Er bemühte sich stets“ und du fragst dich, ob das ein Lob oder eine versteckte Ohrfeige ist. Dieser Prompt ordnet jede Formulierung in einer Tabelle ein und achtet auf fehlende Standardsätze und die Schlussformel. Am Ende gibt es eine Gesamteinschätzung, ausdrücklich ohne Rechtsberatung.",
@@ -41,17 +53,203 @@
   "fehler": "Fünf Stile in einen Prompt packen und sich über ein unentschlossenes Bild wundern.",
   "jean": "Sag dem Generator, wo das Licht herkommt. Er rät sonst."
  },
+ "bildserie-einheitlicher-stil": {
+  "intro": "Sechs Bilder, sechs Stile: Das sieht auf deinem Profil aus wie ein Flohmarkt. Mit einem festen Stil-Block passt die ganze Serie zusammen.",
+  "tipp": "Speichere den Stil-Block als Notiz und häng ihn an jede künftige Bildbeschreibung. So bleibt dein Auftritt auch in drei Monaten einheitlich.",
+  "fehler": "Bei jedem Bild den Stil neu beschreiben, mit anderen Worten.",
+  "jean": "Ein Stil, viele Bilder."
+ },
  "blogartikel-gliederung": {
   "intro": "Du willst über ein Thema schreiben, das schon 200 andere Seiten abdecken, und fragst dich, wie deiner überhaupt auffallen soll. Dieser Prompt stellt erst Rückfragen, baut dann eine Gliederung mit H2 und H3 und zeigt dir, an welcher Stelle deine eigene Erfahrung hingehört. Das ist der Teil, den die Konkurrenz nicht kopieren kann.",
   "tipp": "Steck die meiste Mühe ins Feld „erfahrung“: ein konkreter Fall, ein Fehler, eine Zahl aus deinem Alltag. Beantworte die Rückfragen ausführlich, statt sie abzunicken, denn genau daraus entsteht die Gliederung.",
   "fehler": "Eine Gliederung abschreiben, die einfach die Top-3-Ergebnisse zusammenmischt und nichts Eigenes enthält.",
   "jean": "Ohne deine Erfahrung ist es nur der 201. Artikel zum Thema."
  },
+ "chatgpt-agent-auftrag": {
+  "intro": "ChatGPT Work erledigt längere Aufgaben in mehreren Schritten selbstständig. Das spart Zeit, solange klar ist, was erlaubt ist und was nicht. Dieser Prompt setzt die Leitplanken, bevor es losgeht. Laut OpenAI hat Work den früheren ChatGPT-Agenten abgelöst.",
+  "tipp": "Schreib die Grenzen ausdrücklich hin, auch wenn sie dir selbstverständlich erscheinen. Für den Agenten ist nichts selbstverständlich.",
+  "fehler": "Einen offenen Auftrag losschicken und hinterher wundern, was alles passiert ist.",
+  "jean": "Erst Leitplanken, dann Gas geben."
+ },
+ "chatgpt-agent-steuern": {
+  "intro": "Bei mehrstufigen Recherchen verheddert sich ChatGPT gern im ersten Teilschritt und vergisst den Rest der Aufgabe. Dieser Prompt zwingt das Modell zuerst in einen kurzen Drei-Schritte-Plan, verlangt Zwischenprüfungen und lässt offene Punkte rückfragen, bevor die Abschlusstabelle entsteht.",
+  "tipp": "Grenze bei „quellen“ genau ein, welche Domains oder Dokumenttypen zählen, und lass dir nach dem Plan erst kurz bestätigen, ob die Richtung stimmt.",
+  "fehler": "Fünf verschiedene Teilaufgaben ohne Ausgabestruktur in einen einzigen Satz packen und ungeprüfte Zahlen übernehmen.",
+  "jean": "Wer keinen Plan verlangt, bekommt selbstbewusstes Raten in Tabellenform."
+ },
+ "chatgpt-antwort-gegenpruefen": {
+  "intro": "ChatGPT klingt immer sicher, auch wenn es danebenliegt. Dieser Prompt zerlegt eine Antwort in einzelne Behauptungen und zeigt, welche du prüfen musst.",
+  "tipp": "Nutze für die Prüfung einen neuen Chat oder ein anderes Modell. Wer seinen eigenen Text prüft, übersieht gern dieselben Fehler.",
+  "fehler": "Die Prüfung selbst wieder ungeprüft glauben.",
+  "jean": "Zweite Meinung kostet nichts, falsche Fakten schon."
+ },
+ "chatgpt-anzeige-texten": {
+  "intro": "Seit August 2026 zeigt ChatGPT in Deutschland Anzeigen, und die stehen direkt neben einer Antwort auf eine echte Frage. Klassische Banner-Sprüche wirken da fehl am Platz. Dieser Prompt ordnet die Fragen deiner Zielgruppe nach Kaufphase und schreibt pro Phase ehrliche Anzeigen mit Überschrift, Text und dem, was auf der Zielseite stehen muss.",
+  "tipp": "Sammle bei „fragen“ echte Formulierungen aus Kundenmails, Bewertungen oder Foren, nicht deine Marketing-Sprache. Je näher die Anzeige am Wortlaut der Frage ist, desto eher passt sie.",
+  "fehler": "Eine Anzeige für alle Phasen schreiben und Leute, die noch das Problem verstehen wollen, direkt zum Kaufbutton schicken.",
+  "jean": "Im Chat fragt jemand nach Hilfe. Antworte mit Hilfe, nicht mit Marktgeschrei."
+ },
+ "chatgpt-bild-erstellen": {
+  "intro": "„Mach mal ein schönes Bild“ führt zu Bildern, die keiner bestellt hat. Mit Motiv, Zweck, Stil und Textwunsch trifft ChatGPT meist schon beim ersten Versuch.",
+  "tipp": "Sag dazu, wofür das Bild ist. Ein Titelbild braucht Platz für die Überschrift, ein Social Post ein anderes Format.",
+  "fehler": "Echte Marken oder Personen ins Bild wünschen und sich über Rechte erst hinterher Gedanken machen.",
+  "jean": "Ein gutes Bild beginnt mit einer guten Bestellung."
+ },
+ "chatgpt-bild-generieren": {
+  "intro": "Ein kurzer Zuruf im Chat liefert bei der Bildgenerierung meist austauschbare Stockfoto-Optik mit krummen Details. Dieser Prompt übersetzt dein Motiv samt Stil und Seitenverhältnis in eine präzise englische Bildbeschreibung mit Lichtsetzung, Perspektive und klaren Ausschlüssen.",
+  "tipp": "Verzichte auf langen Text im Bild und füge Überschriften lieber nachträglich in Canva oder Figma ein, weil Schrift in generierten Bildern oft buchstabiert wird wie nach drei Espresso.",
+  "fehler": "Zehn widerstreitende Kunststile gleichzeitig verlangen, bis das Motiv unter lauter Effekten verschwindet.",
+  "jean": "Beschreib das Licht und die Kamera, nicht nur den Gegenstand."
+ },
+ "chatgpt-canvas-text-ueberarbeiten": {
+  "intro": "Bei langen Texten schreibt ChatGPT gern alles neu, und plötzlich klingt dein Text nicht mehr nach dir. Dieser Prompt erzwingt erst eine Diagnose und dann Änderungen Abschnitt für Abschnitt.",
+  "tipp": "Gib das Okay nur für die Punkte, die dir wirklich wichtig sind. Weniger Änderungen, mehr von deiner Stimme.",
+  "fehler": "„Mach den Text besser“ ohne Ziel schreiben.",
+  "jean": "Überarbeiten heißt nicht austauschen."
+ },
+ "chatgpt-code-refactoring": {
+  "intro": "Der Code läuft zwar irgendwie, aber niemand im Team traut sich mehr, eine Zeile anzufassen. Dieser Prompt prüft deinen Ausschnitt zuerst auf drei konkrete Schwachstellen, räumt ihn nach modernen Standards auf und liefert zwei kleine Testfälle für die wichtigsten Randfälle mit.",
+  "tipp": "Nenne bei der Sprache auch Laufzeit und Framework-Version, etwa Node 22 oder React 18, damit keine veralteten Hilfsfunktionen im Vorschlag landen.",
+  "fehler": "Den umgebauten Code ohne eigenen Testlauf direkt in Produktion übernehmen.",
+  "jean": "Erst die Tests lesen, dann den neuen Code kopieren."
+ },
+ "chatgpt-custom-gpt-bauplan": {
+  "intro": "Ein eigener Assistent ist schnell eingerichtet, aber ohne Plan antwortet er beliebig. Dieser Prompt liefert Anweisungen, Startfragen, Dateiliste und Testfragen in einem Rutsch. Hinweis: Laut OpenAI werden Custom GPTs am 11. Dezember 2026 abgeschaltet, private Konten können keine neuen mehr anlegen. Der Bauplan passt genauso für ein Projekt oder ein Plugin.",
+  "tipp": "Teste mit Fragen, deren Antwort nicht in den Dateien steht. Ein guter Assistent sagt dann „steht nicht drin“.",
+  "fehler": "Interne Preislisten oder Kundendaten in einen Assistenten laden, den andere nutzen können.",
+  "jean": "Erst der Bauplan, dann das Werkzeug."
+ },
+ "chatgpt-deep-research-auftrag": {
+  "intro": "Deep Research liest viele Seiten und schreibt einen Bericht. Ohne Eingrenzung wird der lang und landet bei Quellen, die du nicht willst. Dieser Prompt legt Frage, Quellen und Umfang fest.",
+  "tipp": "Nenne die zulässigen Quellen ausdrücklich. Bei Förderung, Recht und Steuern zählen nur offizielle Seiten.",
+  "fehler": "Den Bericht als Beleg nehmen, ohne die verlinkten Quellen selbst zu öffnen.",
+  "jean": "Ein Bericht ist so gut wie seine Quellen."
+ },
+ "chatgpt-excel-analysieren": {
+  "intro": "Du starrst auf eine Tabelle mit tausend Zeilen und suchst die richtige Formel, während ein falscher Zellbezug deine ganze Auswertung kippt. Dieser Prompt liefert dir wahlweise die passenden Excel- und Google-Sheets-Formeln mit Erklärung oder wertet eingefügte CSV-Daten direkt auf Ausreißer aus.",
+  "tipp": "Kopiere immer die echten Spaltenüberschriften und drei anonymisierte Beispielzeilen mit hinein, damit Zellbezüge und Datumsformate sofort zur echten Datei passen.",
+  "fehler": "Kundennamen, E-Mail-Adressen oder vertrauliche Umsatzzahlen ungekürzt in den Chat kopieren.",
+  "jean": "Drei echte Musterzeilen sparen dir zehn Runden Formel-Pingpong."
+ },
+ "chatgpt-excel-tabelle-auswerten": {
+  "intro": "Du lädst eine Tabelle hoch und bekommst eine Auswertung, deren Zahlen du nicht nachvollziehen kannst? Dieser Prompt verlangt den Rechenweg und eine Selbstprüfung, bevor du dich auf das Ergebnis verlässt.",
+  "tipp": "Entferne vor dem Hochladen Spalten mit personenbezogenen Daten, die für die Auswertung nicht nötig sind.",
+  "fehler": "Das Ergebnis ungeprüft in die Präsentation übernehmen.",
+  "jean": "Vertrauen ist gut, nachgerechnet ist besser."
+ },
+ "chatgpt-feedback-analysieren": {
+  "intro": "Wenn fünfzig Support-Mails und Bewertungen durcheinanderliegen, gewinnt bei der Produktplanung oft einfach die lauteste Einzelmeinung. Dieser Prompt sortiert das Feedback nach Häufigkeit und Schwere in die drei größten Schmerzpunkte, drei Stärken und konkrete nächste Schritte.",
+  "tipp": "Entferne vor dem Einfügen alle Namen und E-Mail-Adressen und lass dir zu jedem Schmerzpunkt ein wörtliches Zitat aus den Rückmeldungen ausgeben.",
+  "fehler": "Nur fünf ausgewählte Nachrichten reingeben, die ohnehin die eigene Lieblingsidee bestätigen.",
+  "jean": "Zähl die echten Hürden deiner Nutzer, nicht die lautesten Sonderwünsche."
+ },
+ "chatgpt-meeting-zusammenfassen": {
+  "intro": "Nach einer Stunde Call hast du zwei Seiten Stichpunkte, aber am nächsten Morgen weiß niemand mehr, wer eigentlich was bis wann erledigen wollte. Dieser Prompt destilliert aus deinen Rohnotizen eine kurze Zusammenfassung, klare Beschlüsse, eine Aufgabentabelle und offene Fragen.",
+  "tipp": "Schreib schon während des Gesprächs hinter wichtige Sätze kurz das Namenskürzel der verantwortlichen Person, damit die Zuordnung in der Tabelle ohne Nacharbeit stimmt.",
+  "fehler": "Automatische Transkripte unbesehen verteilen, ohne Namen, Zahlen und Fristen kurz gegenzulesen.",
+  "jean": "Ein Protokoll ohne Namen und Datum ist kein Protokoll, sondern ein Tagebuch."
+ },
+ "chatgpt-memory-steckbrief": {
+  "intro": "ChatGPT kann sich Dinge über dich merken. Gut, wenn es das Richtige ist. Dieser Prompt hilft dir, einen knappen Steckbrief zu formulieren und Sensibles draußen zu lassen.",
+  "tipp": "Schau nach einigen Wochen in die Einstellungen, was gespeichert ist, und räum auf.",
+  "fehler": "Gesundheitsdaten oder Kundennamen dauerhaft im Gedächtnis ablegen.",
+  "jean": "Merken lassen, was hilft. Vergessen lassen, was niemanden etwas angeht."
+ },
+ "chatgpt-projekt-anweisungen": {
+  "intro": "Du erklärst ChatGPT jede Woche wieder, wer deine Zielgruppe ist und wie du schreibst? Dafür gibt es Projekte mit eigenen Anweisungen. Dieser Prompt schreibt sie dir so, dass jeder neue Chat im Projekt schon Bescheid weiß.",
+  "tipp": "Halte die Anweisungen kurz und konkret. Lieber fünf klare Regeln als eine Seite Wunschzettel, die ChatGPT dann halb befolgt.",
+  "fehler": "Alles in die Anweisungen packen, auch Dinge, die nur einmal gelten.",
+  "jean": "Ein Projekt ist wie eine eingerichtete Werkbank: Werkzeug liegt da, wo du es suchst."
+ },
+ "chatgpt-projekte-strukturieren": {
+  "intro": "Du legst in ChatGPT ein Projekt an, wirfst drei Dateien rein und wunderst dich, warum die Antworten trotzdem jedes Mal anders klingen. Dieser Prompt entwirft dir eine saubere Projektstruktur mit knappen Systemanweisungen, klaren Dateinamen für deine Wissensbasis und einem ersten Testlauf.",
+  "tipp": "Halte die Systemanweisungen im Projekt unter 250 Wörtern und lagere lange Beispiele oder Preislisten in hochgeladene Dateien aus, damit das Modell die Kernregeln nicht überliest.",
+  "fehler": "Widersprüchliche Regeln in die Projektanweisungen schreiben und gleichzeitig veraltete Dokumente im Projektordner liegen lassen.",
+  "jean": "Ein gutes Projekt braucht fünf klare Verbote statt fünfzig frommer Wünsche."
+ },
+ "chatgpt-seo-content-plan": {
+  "intro": "Einfach drauflos zu bloggen bringt selten Sichtbarkeit, wenn sich Artikel gegenseitig die Suchbegriffe wegnehmen. Dieser Prompt gliedert dein Thema in drei klare Säulen, plant zwölf konkrete Artikel mit Suchintention für vier Wochen und legt fest, wie die Beiträge intern aufeinander verweisen.",
+  "tipp": "Prüfe die vorgeschlagenen Suchbegriffe vor dem Schreiben kurz in der Google Search Console oder einem Keyword-Tool gegen echte Suchanfragen deiner Kunden.",
+  "fehler": "Zwölf ähnliche Überschriften zum selben Suchbegriff planen und damit eigene Seiten gegeneinander antreten lassen.",
+  "jean": "Ein starker Artikel pro Suchabsicht schlägt fünf halbherzige Kopien."
+ },
+ "chatgpt-social-media-posts": {
+  "intro": "Dein neuer Fachartikel steckt voller Arbeit, wird aber nach dem Veröffentlichen nur einmal lieblos mit Link geteilt. Dieser Prompt zieht aus deinem Kernthema einen strukturierten LinkedIn-Beitrag, einen fünfteiligen Thread und einen knappen Anreißer für deinen Newsletter.",
+  "tipp": "Füge statt des bloßen Titels lieber die drei wichtigsten Absätze oder Zahlen aus deinem Artikel ein, damit die Beiträge echte Substanz statt leerer Ankündigungen enthalten.",
+  "fehler": "Den Entwurf eins zu eins ohne eigene Haltung und ohne echte Erfahrungswerte veröffentlichen.",
+  "jean": "Teile die beste Erkenntnis direkt im Post, statt nur auf den Link zu verweisen."
+ },
+ "chatgpt-uebersetzen-lokalisieren": {
+  "intro": "Wörtliche Übersetzungen aus dem Englischen erkennt man im Deutschen sofort an steifen Satzbauten und unfreiwilliger Komik. Dieser Prompt überträgt deinen Text sinngemäß in den gewünschten Tonfall, bietet für schwierige Stellen Alternativen an und erklärt seine kulturellen Anpassungen.",
+  "tipp": "Gib feste Fachbegriffe oder Produktnamen vorab an, die auf keinen Fall mitübersetzt werden dürfen, und lies die fertige Fassung einmal laut vor.",
+  "fehler": "Ohne Angabe von Zielgruppe und Sie- oder Du-Form übersetzen lassen und sich über den Behördenton wundern.",
+  "jean": "Gute Lokalisierung merkt man daran, dass niemand merkt, dass übersetzt wurde."
+ },
+ "chatgpt-uebersetzen-mit-glossar": {
+  "intro": "Fachbegriffe, die in jedem Absatz anders übersetzt werden, fallen Kundschaft sofort auf. Mit festem Glossar bleibt ChatGPT bei deinen Begriffen und zeigt dir, wo es frei übersetzt hat.",
+  "tipp": "Pflege dein Glossar in einer Datei und kopier es jedes Mal mit. Einmal sauber angelegt, sparst du dir viele Korrekturschleifen.",
+  "fehler": "Rechtstexte oder Sicherheitshinweise ohne Prüfung durch eine Muttersprachlerin veröffentlichen.",
+  "jean": "Ein Begriff, eine Übersetzung. Immer."
+ },
+ "claude-artefakt-ablaufdiagramm": {
+  "intro": "Diagramme und Flussdiagramme gehören laut Anthropic zu den typischen Artefakten. Dieser Prompt macht aus deiner Beschreibung eines Ablaufs ein Diagramm mit einer Spalte pro Beteiligtem und sagt dir, was Claude dazugedichtet hat.",
+  "tipp": "Beschreib den Ablauf so, wie er wirklich läuft, nicht wie er im Handbuch steht. Sonst bekommst du ein schönes Diagramm für einen Prozess, den es nicht gibt.",
+  "fehler": "Ergänzte Schritte übersehen. Lies die Liste unter dem Artefakt.",
+  "jean": "Ein Ablaufdiagramm zeigt dir sofort, wo die Akte drei Tage rumliegt."
+ },
+ "claude-artefakt-rechner": {
+  "intro": "Artefakte sind eigenständige Inhalte, die Claude in einem eigenen Fenster neben dem Chat zeigt, etwa Dokumente, Code oder interaktive Anwendungen. Dieser Prompt baut dir einen kleinen Rechner, den du sofort benutzt und mit einem Rechenbeispiel prüfst.",
+  "tipp": "Laut Anthropic brauchen Artefakte die Einstellung „Code execution and file creation“ unter Settings und Capabilities. Ist sie aus, schalte sie dort ein.",
+  "fehler": "Dem Rechner vertrauen, ohne ihn einmal mit einem bekannten Ergebnis zu testen.",
+  "jean": "Ein Rechner ohne Testrechnung ist wie eine Waage, die nie geeicht wurde."
+ },
+ "claude-dokumente-abgleichen": {
+  "intro": "Der Vermieter schickt einen „leicht angepassten“ Vertrag. Dieser Prompt vergleicht alte und neue Fassung und zeigt nur die inhaltlichen Änderungen, mit Zitat aus beiden Fassungen.",
+  "tipp": "Lade beide Fassungen im gleichen Format hoch, am besten beide als PDF oder beide als DOCX. Das macht die Zuordnung der Abschnitte leichter.",
+  "fehler": "Den Abgleich als rechtliche Prüfung verstehen. Bei Verträgen schaut am Ende eine Fachperson drauf.",
+  "jean": "Die gefährlichste Änderung steht meistens in dem Absatz, den du für unverändert hältst."
+ },
+ "claude-excel-tabelle-analysieren": {
+  "intro": "Claude kann laut Anthropic XLSX-Dateien verarbeiten, wenn Code-Ausführung und Dateierstellung eingeschaltet sind. Dieser Prompt lässt erst die Daten prüfen und dann mit der Datei rechnen, statt Zahlen zu schätzen.",
+  "tipp": "Gib Spaltennamen, die sich selbst erklären. „Umsatz netto EUR“ verhindert mehr Fehler als jede Zeile im Prompt.",
+  "fehler": "Die Datenprüfung überspringen und sich später über doppelte Monate wundern.",
+  "jean": "Erst Daten putzen, dann rechnen. Wie beim Lackieren: Vorarbeit ist die halbe Miete."
+ },
+ "claude-langes-pdf-befragen": {
+  "intro": "Claude liest laut Anthropic PDFs bis 1.000 Seiten, bei bis zu 100 Seiten auch Bilder und Grafiken darin. Dieser Prompt holt nur die Stellen heraus, die du brauchst, jeweils mit Zitat und Seitenzahl.",
+  "tipp": "Anthropic rät, Seitenzahlen so anzugeben, wie dein PDF-Viewer sie zeigt, nicht wie sie im Dokument gedruckt sind. Deshalb fragt der Prompt genau danach.",
+  "fehler": "Die Antworten übernehmen, ohne die zitierten Stellen einmal selbst aufzuschlagen.",
+  "jean": "Das Zitat mit Seitenzahl ist der Kassenbon der Antwort. Ohne kannst du nichts zurückgeben."
+ },
+ "claude-projekt-anweisungen": {
+  "intro": "In einem Claude-Projekt legst du über „Set project instructions“ fest, wie Claude in allen Chats des Projekts arbeitet. Dieser Prompt schreibt dir die Anweisungen und sagt dir, was eher ins Projektwissen gehört.",
+  "tipp": "Laut Anthropic teilen Chats in einem Projekt keinen Kontext miteinander, außer er steht im Projektwissen. Was Claude immer wissen soll, gehört also dorthin.",
+  "fehler": "Die Anweisungen mit Fakten vollstopfen, die sich jeden Monat ändern. Fakten in Dateien, Regeln in die Anweisungen.",
+  "jean": "Anweisungen sind die Hausordnung, das Projektwissen ist das Ersatzteillager. Beides braucht seinen Platz."
+ },
+ "claude-projektwissen-aufbauen": {
+  "intro": "Alles ins Projekt kippen und hoffen, dass Claude das Richtige findet, klappt selten. Dieser Prompt sortiert deine Dateien, bevor sie im Projektwissen landen, und schlägt Namen vor, die den Inhalt verraten.",
+  "tipp": "Laut Anthropic gilt für Projektdateien ein Limit von 30 MB pro Datei, und der gesamte Inhalt muss ins Kontextfenster passen. In Bezahltarifen schaltet Claude bei viel Wissen automatisch auf einen RAG-Modus um.",
+  "fehler": "300 Seiten Katalog hochladen, obwohl nur drei Kapitel gebraucht werden.",
+  "jean": "Ein aufgeräumtes Regal spart mehr Zeit als ein großes."
+ },
+ "claude-schreibstil-aus-beispielen": {
+  "intro": "Claude schreibt gut, aber nicht wie du. Dieser Prompt leitet aus deinen eigenen Texten Stilregeln ab, testet sie an einem Absatz und gibt sie dir zum Speichern als Projektanweisung.",
+  "tipp": "Nimm Texte, die du ohne KI geschrieben hast und mit denen du zufrieden bist. Sonst lernt Claude den Stil einer anderen KI.",
+  "fehler": "Nur einen einzigen Text als Beispiel geben. Aus einem Text werden Zufälle zu Regeln.",
+  "jean": "Ein Stil ist das, was du nie tun würdest. Deshalb fragt der Prompt genau danach."
+ },
  "code-erklaeren": {
   "intro": "Du erbst ein Skript vom Kollegen, der inzwischen woanders arbeitet, und keiner traut sich, es anzufassen. Dieser Prompt erklärt Zweck und Ablauf auf deinem Niveau, nennt Risiken wie leere Eingaben oder Sicherheitslücken und schlägt eine kommentierte Fassung vor. Danach weißt du wenigstens, was du da anfasst.",
   "tipp": "Gib bei „niveau“ ehrlich an, was du kannst, etwa „kann HTML, kein JavaScript“, dann bleibt die Erklärung verständlich. Entferne Passwörter und API-Schlüssel aus dem Code, bevor du ihn einfügst.",
   "fehler": "Die verbesserte Fassung ungetestet in die Produktion kopieren.",
   "jean": "Erst verstehen, dann umbauen. Wie beim Motor."
+ },
+ "code-review-ki": {
+  "intro": "Die KI hat dir eine Funktion geschrieben, sie läuft, alles gut? Vielleicht. Dieser Prompt lässt einen zweiten, kritischen Blick drüberlaufen und listet Lücken mit Fundstelle und Schwere auf.",
+  "tipp": "Nutze für die Prüfung einen neuen Chat oder ein anderes Modell als das, das den Code geschrieben hat. Wer seine eigene Arbeit prüft, ist betriebsblind, auch als KI.",
+  "fehler": "Die Prüfung überspringen, weil die Vorschau funktioniert. Funktionieren und sicher sein sind zwei verschiedene Dinge.",
+  "jean": "Läuft heißt nicht dicht."
  },
  "content-briefing": {
   "intro": "Du lässt einen Artikel von einer Autorin schreiben und bekommst etwas, das am Thema vorbeigeht, weil dein Briefing aus einem Keyword bestand. Dieser Prompt baut ein Briefing mit Suchintention, Gliederung, Pflichtfragen, verwandten Begriffen und internen Links. Dazu steht drin, was den Artikel besser als die Konkurrenz machen soll.",
@@ -64,6 +262,54 @@
   "tipp": "Gib den kompletten Artikeltext ein, nicht nur die Überschriften, damit wirklich jede veraltete Stelle gefunden wird. Prüf jede [PRÜFEN]-Markierung mit einer aktuellen Quelle, bevor du das neue Datum drüberschreibst.",
   "fehler": "Nur das Datum aktualisieren, ohne am Inhalt etwas zu ändern.",
   "jean": "Ein neues Datum auf altem Inhalt ist wie Politur auf Rost."
+ },
+ "cursor-api-integration": {
+  "intro": "Eine externe API anbinden bedeutet oft: JSON parsen, Typen tippen, Fehler fangen. Dieser Prompt baut dir eine saubere Client-Funktion mit Zod-Validierung, Timeout und verständlichen Fehlermeldungen.",
+  "tipp": "Nimm ein echtes JSON-Beispiel aus den Netzwerk-Logs deiner API als Vorlage. Dokumentationen im Web sind leider nicht immer aktuell.",
+  "fehler": "Auf den HTTP-Status 200 vertrauen und annehmen, dass der Payload immer das erwartete Feld enthält.",
+  "jean": "Wenn die API abraucht, soll der Nutzer einen klaren Hinweis sehen und nicht ein weißes Browserfenster."
+ },
+ "cursor-bug-recherche-agent": {
+  "intro": "Mit @Dateiname und dem Composer findet Cursor Fehler über mehrere Dateien hinweg. Dieser Prompt zwingt den Agenten dazu, erst die Ursache zu belegen, bevor er wild Codezeilen austauscht.",
+  "tipp": "Gib dem Composer die Fehlermeldung im Originaltext samt Zeilennummer mit. Je präziser der Stacktrace, desto kleiner der Eingriff.",
+  "fehler": "Den generierten Code sofort ungesehen annehmen. Schau dir jeden Diff im Editor vorher an.",
+  "jean": "Wer ohne Diagnose am Motor schraubt, tauscht am Ende die Lichtmaschine, obwohl nur die Zündkerze locker war."
+ },
+ "cursor-codebase-dokumentation": {
+  "intro": "Neue Entwickler brauchen oft Tage, um zu verstehen, wo was liegt. Dieser Prompt analysiert deine Ordnerstruktur und fasst Architektur, Datenfluss und Setup in einer kompakten ARCHITECTURE.md zusammen.",
+  "tipp": "Aktualisiere die ARCHITECTURE.md immer dann, wenn ein neues Hauptmodul oder ein neuer externer Dienst dazukommt.",
+  "fehler": "Eine 40-seitige Dokumentation schreiben, die schon beim nächsten Sprint veraltet ist.",
+  "jean": "Drei Sätze zum Datenfluss sparen dem neuen Kollegen drei Stunden Suchen im Code."
+ },
+ "cursor-pull-request-review": {
+  "intro": "Vier Augen sehen mehr als zwei, und Cursor findet Tippfehler und Sicherheitslücken oft schneller als müde Augen um 23 Uhr. Dieser Prompt prüft deinen Git-Diff gezielt auf Leaks, Edge-Cases und Performance-Fallen.",
+  "tipp": "Nutze den Review-Prompt vor dem Erstellen des Pull Requests. So sparst du deinen Kollegen unnötige Review-Runden.",
+  "fehler": "Einem positiven KI-Review blind vertrauen. Die fachliche Verantwortung für den Code bleibt bei dir.",
+  "jean": "Lieber meckert die KI im stillen Kämmerlein als der Kunde am Montagmorgen."
+ },
+ "cursor-refactoring-plan": {
+  "intro": "Jeder kennt die 900-Zeilen-Datei, an die sich seit zwei Jahren niemand mehr rantraut. Dieser Prompt zerlegt den Umbau in vier risikoarme Etappen, die du einzeln testen und committen kannst.",
+  "tipp": "Schreib vor dem Refactoring einen einfachen Integrationstest für den bestehenden Zustand. Wenn der grün bleibt, kannst du ruhig schlafen.",
+  "fehler": "Alles auf einmal umschreiben wollen. Nach zwei Stunden kompiliert nichts mehr und du machst git reset.",
+  "jean": "Große Umbauten machst du wie beim Hausbau: Raum für Raum, nicht alles gleichzeitig einreißen."
+ },
+ "cursor-rules-erstellen": {
+  "intro": "In der Datei .cursorrules legst du fest, wie Cursor in deinem Repository denkt und arbeitet. Dieser Prompt schreibt dir glasklare Regeln für Framework, Ordnerstruktur und Tabus, damit der Editor dir nicht bei jedem Refactoring den halben Stack umbaut.",
+  "tipp": "Halt die Regeln kurz und konkret. Zehn scharfe Verbote wie „kein any in TypeScript“ bewirken mehr als 50 Seiten Architektur-Prosa.",
+  "fehler": "Schwammige Wünsche formulieren wie „sauberer Code“. Cursor braucht handfeste Kriterien.",
+  "jean": "Eine gute .cursorrules ist wie eine Werkstattordnung: Wer das Werkzeug nicht aufräumt, fliegt raus."
+ },
+ "cursor-sql-query-optimierung": {
+  "intro": "Mit 100 Testzeilen ist jede SQL-Query schnell. Wenn die Tabelle auf zwei Millionen Zeilen anwächst, geht die Seite in die Knie. Dieser Prompt findet den Flaschenhals, schlägt passende Indizes vor und schreibt die Migration.",
+  "tipp": "Führ vor dem Index ein EXPLAIN ANALYZE in deiner Staging-Datenbank aus, um zu sehen, wo die Zeit wirklich verloren geht.",
+  "fehler": "Einen Index auf jede Spalte klatschen. Das macht Lesezugriffe schneller, bremst aber jeden Insert und Update aus.",
+  "jean": "Ein fehlender Index auf einem Fremdschlüssel ist der Klassiker unter den Server-Schmelzern."
+ },
+ "cursor-unit-tests-schreiben": {
+  "intro": "Gute Tests schreiben kostet Zeit, rettet dir aber beim nächsten Release den Feierabend. Dieser Prompt generiert echte Grenzfälle, ungültige Werte und Rechenfehler statt nur den offensichtlichen Schönwetter-Pfad.",
+  "tipp": "Prüf die Tests einmal, indem du die Funktion absichtlich kaputt machst. Wenn kein Test rot wird, taugt die Testsuite nichts.",
+  "fehler": "Reine Berechnungen mocken. Mocke die Datenbank oder das Netzwerk, aber lass deine Geschäftslogik echt durchlaufen.",
+  "jean": "Ein Test, der nie scheitern kann, ist kein Sicherheitsnetz, sondern Dekoration."
  },
  "daten-bereinigen": {
   "intro": "In deiner Kundenliste stehen „Müller“, „mueller“ und „MÜLLER“, Datumsangaben in drei Formaten und Dubletten ohne Ende. Dieser Prompt erkennt die Probleme an Beispielzeilen, gibt dir pro Problem eine Formel oder einen Menüweg und schlägt eine sinnvolle Reihenfolge vor. So bearbeitest du nichts doppelt.",
@@ -125,6 +371,12 @@
   "fehler": "Mit privaten Gründen argumentieren statt mit dem Wert der eigenen Arbeit.",
   "jean": "Deine Miete ist kein Argument. Dein Ergebnis schon."
  },
+ "gpt-anweisungen-zu-skill": {
+  "intro": "Am 11. Dezember 2026 schaltet OpenAI die Custom GPTs ab, und in deinem steckt ein Jahr Feinschliff. Dieser Prompt nimmt die alten Anweisungen und baut daraus eine SKILL.md im offenen Agent-Skills-Format, die du in ChatGPT-Plugins, Claude oder Cursor wiederverwenden kannst. Er markiert auch, was nur in ChatGPT funktioniert hat.",
+  "tipp": "Kopier die Anweisungen aus dem GPT-Editor vollständig, auch die Sätze, die dir peinlich sind. Gerade die kleinen Korrekturen von damals machen den Unterschied. Teste den Skill danach mit drei Aufgaben, die dein GPT gut gelöst hat.",
+  "fehler": "Nur die erste Zeile der Anweisungen übernehmen und sich wundern, warum der neue Assistent den Ton nicht trifft.",
+  "jean": "Was du einmal sauber als Skill aufschreibst, nimmst du zu jedem Anbieter mit. Umzugskartons, die nie wieder ausgepackt werden müssen."
+ },
  "hausarbeit-gliederung": {
   "intro": "Abgabe in sechs Wochen, Thema steht, aber die Gliederung ist noch ein leeres Word-Dokument mit „1. Einleitung“. Dieser Prompt schlägt drei Forschungsfragen vor, die zum Umfang passen, baut zur besten eine Gliederung mit Seitenanteilen und Leitfragen. Dazu sagt er dir, welche Arten von Quellen du suchen solltest.",
   "tipp": "Gib bei „umfang“ Seitenzahl und Art der Arbeit an, etwa „Hausarbeit, 15 Seiten, Bachelor“, dann wird die Forschungsfrage nicht zu groß. Zeig die Gliederung deinem Dozenten in der Sprechstunde, bevor du losschreibst.",
@@ -178,6 +430,12 @@
   "tipp": "Formuliere „grenzen“ als konkrete Verbote, etwa „keine Dateien löschen, nichts versenden, keine Käufe“. Lies den Plan in Schritt 2 wirklich, bevor du OK sagst, denn dort erkennst du Missverständnisse am billigsten.",
   "fehler": "Keine Abnahmekriterien festlegen und dann endlos nachbessern lassen.",
   "jean": "Ein Agent ohne Grenzen ist ein Azubi mit Firmenkreditkarte."
+ },
+ "ki-modell-umstellen-testplan": {
+  "intro": "Irgendwo in deinem Make-Szenario steht noch ein Modell, das bald abgeschaltet wird, etwa gpt-4o-mini am 14. Januar 2027. Dieser Prompt baut dir einen Testplan mit echten Testfällen, prüfbaren Formatkriterien und einer Checkliste samt Rückfallplan, damit nach dem Umstieg keine leeren Felder in deinem Shop landen.",
+  "tipp": "Beschreib bei „einsatz“ genau, was mit der Antwort passiert, zum Beispiel ob sie als JSON weiterverarbeitet wird. Nimm echte Eingaben der letzten Woche als Testfälle, keine ausgedachten.",
+  "fehler": "Das Modell im Live-Szenario austauschen und erst am nächsten Morgen merken, dass das JSON ein Feld anders nennt.",
+  "jean": "Ein neues Modell ist wie ein neuer Vergaser: Erst auf dem Prüfstand, dann auf die Straße."
  },
  "kuendigung-schreiben": {
   "intro": "Fitnessstudio, Handyvertrag oder Job sollen endlich weg, und du hast Angst, eine Formalie zu vergessen. Dieser Prompt schreibt eine sachliche Kündigung mit Betreff, Termin und Bitte um Bestätigung, bei Jobs inklusive Zeugniswunsch. Fehlende Angaben werden als Platzhalter markiert oder erfragt.",
@@ -389,6 +647,18 @@
   "fehler": "Markennamen und Produktbezeichnungen mitübersetzen, die eigentlich gleich bleiben sollten.",
   "jean": "Übersetzen heißt nicht, Wörter tauschen. Es heißt, Leute erreichen."
  },
+ "verein-mitgliederbrief": {
+  "intro": "Jedes Jahr dieselbe Einladung, jedes Jahr Kopfzerbrechen. Dieser Prompt schreibt den Brief aus deinen Stichpunkten, gleich in einer Fassung für E-Mail und einer für die WhatsApp-Gruppe.",
+  "tipp": "Prüf Datum, Uhrzeit und Fristen gegen die Satzung, bevor du verschickst. Bei der Einladung zur Versammlung entscheidet die Form manchmal darüber, ob Beschlüsse gelten.",
+  "fehler": "Die KI Fristen oder Tagesordnungspunkte ergänzen lassen, die nicht abgestimmt sind.",
+  "jean": "Ehrenamt braucht Zeit. Der Brief nicht."
+ },
+ "vertrag-verstehen": {
+  "intro": "Zehn Seiten Kleingedrucktes, und irgendwo versteckt sich die automatische Verlängerung um zwei Jahre. Dieser Prompt holt Fristen, Kosten und Stolperstellen nach oben.",
+  "tipp": "Entferne vorher Namen, Adressen und Kontodaten. Für das Verständnis braucht die KI sie nicht.",
+  "fehler": "Die Zusammenfassung als rechtliche Prüfung behandeln. Bei hohen Beträgen oder langen Laufzeiten gehört der Vertrag zu jemandem vom Fach.",
+  "jean": "Verstehen vor unterschreiben."
+ },
  "verzeichnis-beschreibungen": {
   "intro": "Zwanzig KI-Verzeichnisse warten auf dein Tool, und jedes Formular will eine andere Textlänge. Dieser Prompt schreibt dir einmal sauber Einzeiler, Kurz- und Langbeschreibung auf Deutsch und Englisch, plus Tags. Danach kopierst du nur noch, statt bei jedem Eintrag wieder bei null anzufangen.",
   "tipp": "Trag im Feld „preis“ den exakten Preis von deiner eigenen Preisseite ein, inklusive Gratis-Tarif, denn falsche Preise in Verzeichnissen ärgern Nutzer. Speicher das Ergebnis als Textbaustein-Datei, damit alle Einträge gleich klingen.",
@@ -448,83 +718,5 @@
   "tipp": "Kopier in „infos“ echte Zitate aus Bewertungen, Support-Mails oder Gesprächen, denn daraus entstehen die „Wörter, die sie selbst benutzt“. Kläre die [ANNAHME]-Punkte in den nächsten Kundengesprächen, bevor du die Persona im Team verteilst.",
   "fehler": "Eine Persona komplett aus Annahmen bauen und sie dann wie Marktforschung behandeln.",
   "jean": "Eine Persona ohne echte Kundenstimmen ist ein Fantasiefreund."
- },
- "gpt-anweisungen-zu-skill": {
-  "intro": "Am 11. Dezember 2026 schaltet OpenAI die Custom GPTs ab, und in deinem steckt ein Jahr Feinschliff. Dieser Prompt nimmt die alten Anweisungen und baut daraus eine SKILL.md im offenen Agent-Skills-Format, die du in ChatGPT-Plugins, Claude oder Cursor wiederverwenden kannst. Er markiert auch, was nur in ChatGPT funktioniert hat.",
-  "tipp": "Kopier die Anweisungen aus dem GPT-Editor vollständig, auch die Sätze, die dir peinlich sind. Gerade die kleinen Korrekturen von damals machen den Unterschied. Teste den Skill danach mit drei Aufgaben, die dein GPT gut gelöst hat.",
-  "fehler": "Nur die erste Zeile der Anweisungen übernehmen und sich wundern, warum der neue Assistent den Ton nicht trifft.",
-  "jean": "Was du einmal sauber als Skill aufschreibst, nimmst du zu jedem Anbieter mit. Umzugskartons, die nie wieder ausgepackt werden müssen."
- },
- "ki-modell-umstellen-testplan": {
-  "intro": "Irgendwo in deinem Make-Szenario steht noch ein Modell, das bald abgeschaltet wird, etwa gpt-4o-mini am 14. Januar 2027. Dieser Prompt baut dir einen Testplan mit echten Testfällen, prüfbaren Formatkriterien und einer Checkliste samt Rückfallplan, damit nach dem Umstieg keine leeren Felder in deinem Shop landen.",
-  "tipp": "Beschreib bei „einsatz“ genau, was mit der Antwort passiert, zum Beispiel ob sie als JSON weiterverarbeitet wird. Nimm echte Eingaben der letzten Woche als Testfälle, keine ausgedachten.",
-  "fehler": "Das Modell im Live-Szenario austauschen und erst am nächsten Morgen merken, dass das JSON ein Feld anders nennt.",
-  "jean": "Ein neues Modell ist wie ein neuer Vergaser: Erst auf dem Prüfstand, dann auf die Straße."
- },
- "chatgpt-anzeige-texten": {
-  "intro": "Seit August 2026 zeigt ChatGPT in Deutschland Anzeigen, und die stehen direkt neben einer Antwort auf eine echte Frage. Klassische Banner-Sprüche wirken da fehl am Platz. Dieser Prompt ordnet die Fragen deiner Zielgruppe nach Kaufphase und schreibt pro Phase ehrliche Anzeigen mit Überschrift, Text und dem, was auf der Zielseite stehen muss.",
-  "tipp": "Sammle bei „fragen“ echte Formulierungen aus Kundenmails, Bewertungen oder Foren, nicht deine Marketing-Sprache. Je näher die Anzeige am Wortlaut der Frage ist, desto eher passt sie.",
-  "fehler": "Eine Anzeige für alle Phasen schreiben und Leute, die noch das Problem verstehen wollen, direkt zum Kaufbutton schicken.",
-  "jean": "Im Chat fragt jemand nach Hilfe. Antworte mit Hilfe, nicht mit Marktgeschrei."
- },
- "chatgpt-projekte-strukturieren": {
-  "intro": "Du legst in ChatGPT ein Projekt an, wirfst drei Dateien rein und wunderst dich, warum die Antworten trotzdem jedes Mal anders klingen. Dieser Prompt entwirft dir eine saubere Projektstruktur mit knappen Systemanweisungen, klaren Dateinamen für deine Wissensbasis und einem ersten Testlauf.",
-  "tipp": "Halte die Systemanweisungen im Projekt unter 250 Wörtern und lagere lange Beispiele oder Preislisten in hochgeladene Dateien aus, damit das Modell die Kernregeln nicht überliest.",
-  "fehler": "Widersprüchliche Regeln in die Projektanweisungen schreiben und gleichzeitig veraltete Dokumente im Projektordner liegen lassen.",
-  "jean": "Ein gutes Projekt braucht fünf klare Verbote statt fünfzig frommer Wünsche."
- },
- "chatgpt-agent-steuern": {
-  "intro": "Bei mehrstufigen Recherchen verheddert sich ChatGPT gern im ersten Teilschritt und vergisst den Rest der Aufgabe. Dieser Prompt zwingt das Modell zuerst in einen kurzen Drei-Schritte-Plan, verlangt Zwischenprüfungen und lässt offene Punkte rückfragen, bevor die Abschlusstabelle entsteht.",
-  "tipp": "Grenze bei „quellen“ genau ein, welche Domains oder Dokumenttypen zählen, und lass dir nach dem Plan erst kurz bestätigen, ob die Richtung stimmt.",
-  "fehler": "Fünf verschiedene Teilaufgaben ohne Ausgabestruktur in einen einzigen Satz packen und ungeprüfte Zahlen übernehmen.",
-  "jean": "Wer keinen Plan verlangt, bekommt selbstbewusstes Raten in Tabellenform."
- },
- "chatgpt-bild-generieren": {
-  "intro": "Ein kurzer Zuruf im Chat liefert bei der Bildgenerierung meist austauschbare Stockfoto-Optik mit krummen Details. Dieser Prompt übersetzt dein Motiv samt Stil und Seitenverhältnis in eine präzise englische Bildbeschreibung mit Lichtsetzung, Perspektive und klaren Ausschlüssen.",
-  "tipp": "Verzichte auf langen Text im Bild und füge Überschriften lieber nachträglich in Canva oder Figma ein, weil Schrift in generierten Bildern oft buchstabiert wird wie nach drei Espresso.",
-  "fehler": "Zehn widerstreitende Kunststile gleichzeitig verlangen, bis das Motiv unter lauter Effekten verschwindet.",
-  "jean": "Beschreib das Licht und die Kamera, nicht nur den Gegenstand."
- },
- "chatgpt-excel-analysieren": {
-  "intro": "Du starrst auf eine Tabelle mit tausend Zeilen und suchst die richtige Formel, während ein falscher Zellbezug deine ganze Auswertung kippt. Dieser Prompt liefert dir wahlweise die passenden Excel- und Google-Sheets-Formeln mit Erklärung oder wertet eingefügte CSV-Daten direkt auf Ausreißer aus.",
-  "tipp": "Kopiere immer die echten Spaltenüberschriften und drei anonymisierte Beispielzeilen mit hinein, damit Zellbezüge und Datumsformate sofort zur echten Datei passen.",
-  "fehler": "Kundennamen, E-Mail-Adressen oder vertrauliche Umsatzzahlen ungekürzt in den Chat kopieren.",
-  "jean": "Drei echte Musterzeilen sparen dir zehn Runden Formel-Pingpong."
- },
- "chatgpt-uebersetzen-lokalisieren": {
-  "intro": "Wörtliche Übersetzungen aus dem Englischen erkennt man im Deutschen sofort an steifen Satzbauten und unfreiwilliger Komik. Dieser Prompt überträgt deinen Text sinngemäß in den gewünschten Tonfall, bietet für schwierige Stellen Alternativen an und erklärt seine kulturellen Anpassungen.",
-  "tipp": "Gib feste Fachbegriffe oder Produktnamen vorab an, die auf keinen Fall mitübersetzt werden dürfen, und lies die fertige Fassung einmal laut vor.",
-  "fehler": "Ohne Angabe von Zielgruppe und Sie- oder Du-Form übersetzen lassen und sich über den Behördenton wundern.",
-  "jean": "Gute Lokalisierung merkt man daran, dass niemand merkt, dass übersetzt wurde."
- },
- "chatgpt-code-refactoring": {
-  "intro": "Der Code läuft zwar irgendwie, aber niemand im Team traut sich mehr, eine Zeile anzufassen. Dieser Prompt prüft deinen Ausschnitt zuerst auf drei konkrete Schwachstellen, räumt ihn nach modernen Standards auf und liefert zwei kleine Testfälle für die wichtigsten Randfälle mit.",
-  "tipp": "Nenne bei der Sprache auch Laufzeit und Framework-Version, etwa Node 22 oder React 18, damit keine veralteten Hilfsfunktionen im Vorschlag landen.",
-  "fehler": "Den umgebauten Code ohne eigenen Testlauf direkt in Produktion übernehmen.",
-  "jean": "Erst die Tests lesen, dann den neuen Code kopieren."
- },
- "chatgpt-meeting-zusammenfassen": {
-  "intro": "Nach einer Stunde Call hast du zwei Seiten Stichpunkte, aber am nächsten Morgen weiß niemand mehr, wer eigentlich was bis wann erledigen wollte. Dieser Prompt destilliert aus deinen Rohnotizen eine kurze Zusammenfassung, klare Beschlüsse, eine Aufgabentabelle und offene Fragen.",
-  "tipp": "Schreib schon während des Gesprächs hinter wichtige Sätze kurz das Namenskürzel der verantwortlichen Person, damit die Zuordnung in der Tabelle ohne Nacharbeit stimmt.",
-  "fehler": "Automatische Transkripte unbesehen verteilen, ohne Namen, Zahlen und Fristen kurz gegenzulesen.",
-  "jean": "Ein Protokoll ohne Namen und Datum ist kein Protokoll, sondern ein Tagebuch."
- },
- "chatgpt-seo-content-plan": {
-  "intro": "Einfach drauflos zu bloggen bringt selten Sichtbarkeit, wenn sich Artikel gegenseitig die Suchbegriffe wegnehmen. Dieser Prompt gliedert dein Thema in drei klare Säulen, plant zwölf konkrete Artikel mit Suchintention für vier Wochen und legt fest, wie die Beiträge intern aufeinander verweisen.",
-  "tipp": "Prüfe die vorgeschlagenen Suchbegriffe vor dem Schreiben kurz in der Google Search Console oder einem Keyword-Tool gegen echte Suchanfragen deiner Kunden.",
-  "fehler": "Zwölf ähnliche Überschriften zum selben Suchbegriff planen und damit eigene Seiten gegeneinander antreten lassen.",
-  "jean": "Ein starker Artikel pro Suchabsicht schlägt fünf halbherzige Kopien."
- },
- "chatgpt-feedback-analysieren": {
-  "intro": "Wenn fünfzig Support-Mails und Bewertungen durcheinanderliegen, gewinnt bei der Produktplanung oft einfach die lauteste Einzelmeinung. Dieser Prompt sortiert das Feedback nach Häufigkeit und Schwere in die drei größten Schmerzpunkte, drei Stärken und konkrete nächste Schritte.",
-  "tipp": "Entferne vor dem Einfügen alle Namen und E-Mail-Adressen und lass dir zu jedem Schmerzpunkt ein wörtliches Zitat aus den Rückmeldungen ausgeben.",
-  "fehler": "Nur fünf ausgewählte Nachrichten reingeben, die ohnehin die eigene Lieblingsidee bestätigen.",
-  "jean": "Zähl die echten Hürden deiner Nutzer, nicht die lautesten Sonderwünsche."
- },
- "chatgpt-social-media-posts": {
-  "intro": "Dein neuer Fachartikel steckt voller Arbeit, wird aber nach dem Veröffentlichen nur einmal lieblos mit Link geteilt. Dieser Prompt zieht aus deinem Kernthema einen strukturierten LinkedIn-Beitrag, einen fünfteiligen Thread und einen knappen Anreißer für deinen Newsletter.",
-  "tipp": "Füge statt des bloßen Titels lieber die drei wichtigsten Absätze oder Zahlen aus deinem Artikel ein, damit die Beiträge echte Substanz statt leerer Ankündigungen enthalten.",
-  "fehler": "Den Entwurf eins zu eins ohne eigene Haltung und ohne echte Erfahrungswerte veröffentlichen.",
-  "jean": "Teile die beste Erkenntnis direkt im Post, statt nur auf den Link zu verweisen."
  }
 }

@@ -1,1 +1,408 @@
-{}
+{
+ "/tools/chatgpt/": [
+  [
+   "Werden meine Chats zum Training genutzt?",
+   "Das steuerst du in den Datenkontrollen über den Schalter „Improve the model for everyone“. Temporäre Chats nutzt OpenAI laut Hilfe nicht zum Training.",
+   [
+    "/tool-vergleiche/claude-vs-chatgpt/",
+    "Claude vs. ChatGPT"
+   ]
+  ],
+  [
+   "Gibt es ChatGPT im Jahresabo?",
+   "Für Go, Plus und Pro laut OpenAI nicht, abgerechnet wird monatlich. Jahrespläne gibt es nur für Business und Enterprise."
+  ]
+ ],
+ "/tools/claude/": [
+  [
+   "Nutzt Anthropic meine Chats zum Training?",
+   "Laut Anthropic nur, wenn du es erlaubst. Inkognito-Chats werden nie genutzt. Mit Zustimmung werden Daten bis zu 5 Jahre aufbewahrt, sonst 30 Tage.",
+   [
+    "/tool-vergleiche/claude-vs-chatgpt/",
+    "Claude vs. ChatGPT"
+   ]
+  ],
+  [
+   "Was kommt nach Max?",
+   "Ultra für 200 USD im Monat, ohne 5-Stunden-Limit und mit zehnfacher Pro-Nutzung pro Woche (Stand November 2026)."
+  ]
+ ],
+ "/tools/lovable/": [
+  [
+   "Komme ich an meinen Code?",
+   "Ja. Der Zwei-Wege-Sync mit GitHub läuft laut Lovable in allen Plänen, den Download der Codebasis gibt es nur in Bezahlplänen.",
+   [
+    "/tool-vergleiche/lovable-vs-bolt-new-vs-v0/",
+    "Lovable vs. Bolt.new vs. v0"
+   ]
+  ]
+ ],
+ "/tools/bolt-new/": [
+  [
+   "Welche Datenbank nutzt Bolt?",
+   "Bolt Database ist in jedem Plan Standard. Supabase verbinden oder die Datenbank dorthin umziehen geht laut Bolt ab Pro.",
+   [
+    "/tool-vergleiche/lovable-vs-bolt-new-vs-v0/",
+    "Lovable vs. Bolt.new vs. v0"
+   ]
+  ]
+ ],
+ "/tools/v0/": [
+  [
+   "Welche Datenbanken kann ich an v0 anschließen?",
+   "Laut v0-Doku Neon, Supabase, Upstash und Vercel Blob.",
+   [
+    "/tool-vergleiche/lovable-vs-bolt-new-vs-v0/",
+    "Lovable vs. Bolt.new vs. v0"
+   ]
+  ]
+ ],
+ "/tools/github-copilot/": [
+  [
+   "Wie rechnet Copilot seit Juni 2026 ab?",
+   "Nach KI-Credits statt Premium Requests. Ein Credit entspricht laut GitHub 0,01 USD; Pro enthält 1.500 Credits im Monat.",
+   [
+    "/tool-vergleiche/github-copilot-vs-cursor-vs-replit/",
+    "Copilot vs. Cursor vs. Replit"
+   ]
+  ]
+ ],
+ "/tools/cursor/": [
+  [
+   "Welche Modelle stecken im Plus-Tarif?",
+   "Laut Preisseite nur Grok-Modelle. Modelle anderer Anbieter werden zusätzlich zum API-Listenpreis abgerechnet.",
+   [
+    "/tool-vergleiche/github-copilot-vs-cursor-vs-replit/",
+    "Copilot vs. Cursor vs. Replit"
+   ]
+  ]
+ ],
+ "/tools/replit/": [
+  [
+   "Was passiert mit Apps aus dem Gratis-Tarif?",
+   "Im Starter-Tarif ist eine veröffentlichte App möglich, die laut Replit nach 30 Tagen offline geht. Ab Core sind veröffentlichte Apps unbegrenzt.",
+   [
+    "/tool-vergleiche/github-copilot-vs-cursor-vs-replit/",
+    "Copilot vs. Cursor vs. Replit"
+   ]
+  ]
+ ],
+ "/tools/fireflies-ai/": [
+  [
+   "Wo speichert Fireflies meine Meetings?",
+   "Standardmäßig in den USA. EU-Speicherung gibt es laut Fireflies nur mit Private Storage im Enterprise-Tarif, die Verarbeitung bleibt in den USA.",
+   [
+    "/tutorials/meeting-notizen-mit-ki-dsgvo/",
+    "Meeting-Notizen DSGVO-sauber"
+   ]
+  ]
+ ],
+ "/tools/tldv/": [
+  [
+   "Wo liegen die Daten bei tl;dv?",
+   "Betreiber ist die Tldx Solutions GmbH, gehostet wird laut Anbieter im EWR, unter anderem bei Hetzner in Deutschland.",
+   [
+    "/tutorials/meeting-notizen-mit-ki-dsgvo/",
+    "Meeting-Notizen DSGVO-sauber"
+   ]
+  ],
+  [
+   "Gelten die Grenzen des Gratis-Tarifs jeden Monat neu?",
+   "Nein. Die vollen KI-Notizen für die ersten 10 Meetings gelten laut tl;dv einmalig für das Konto."
+  ]
+ ],
+ "/tools/otter-ai/": [
+  [
+   "Kann der Otter-Notetaker unsichtbar teilnehmen?",
+   "Nein, laut Otter-Hilfe tritt er immer sichtbar als Teilnehmer bei.",
+   [
+    "/tutorials/meeting-notizen-mit-ki-dsgvo/",
+    "Meeting-Notizen DSGVO-sauber"
+   ]
+  ]
+ ],
+ "/tools/deepl/": [
+  [
+   "Nutzt DeepL meine Texte zum Training?",
+   "Texte aus der Gratis-Version zeitlich begrenzt ja, Pro-Texte werden laut DeepL nach der Übersetzung gelöscht und nie zum Training genutzt.",
+   [
+    "/tool-vergleiche/deepl-vs-grammarly-vs-quillbot/",
+    "DeepL vs. Grammarly vs. QuillBot"
+   ]
+  ]
+ ],
+ "/tools/grammarly/": [
+  [
+   "Ist das Training mit meinen Texten an?",
+   "Bei Free und Pro für Einzelnutzer laut Grammarly standardmäßig ja, du kannst es in den Einstellungen abschalten.",
+   [
+    "/tool-vergleiche/deepl-vs-grammarly-vs-quillbot/",
+    "DeepL vs. Grammarly vs. QuillBot"
+   ]
+  ]
+ ],
+ "/tools/quillbot/": [
+  [
+   "In wie vielen Sprachen formuliert QuillBot um?",
+   "Laut Anbieter in 23 Sprachen, die Grammatikprüfung gibt es in 6 Sprachen.",
+   [
+    "/tool-vergleiche/deepl-vs-grammarly-vs-quillbot/",
+    "DeepL vs. Grammarly vs. QuillBot"
+   ]
+  ]
+ ],
+ "/prompts/tool/chatgpt/": [
+  [
+   "Wie alt sind die Vorlagen?",
+   "Die zehn ChatGPT-Vorlagen sind am 2. November 2026 entstanden. Funktionen wie Projekte, Deep Research und eigene GPTs hängen vom Tarif ab, das steht auf der Preisseite von OpenAI.",
+   [
+    "/tools/chatgpt/",
+    "Steckbrief ChatGPT"
+   ]
+  ]
+ ],
+ "/tools/perplexity/": [
+  [
+   "Trainiert Perplexity mit meinen Suchen?",
+   "Bei Free, Pro und Max ja, der Schalter „AI data retention“ ist ab Werk an. Du schaltest ihn unter Konto, Einstellungen aus. Das gilt laut Perplexity nur für Daten ab dem Moment, schon gesammelte Trainingsdaten bleiben.",
+   [
+    "/tool-vergleiche/claude-vs-perplexity/",
+    "Claude vs. Perplexity"
+   ]
+  ],
+  [
+   "Wie sieht es bei Enterprise aus?",
+   "Dort nutzt Perplexity Anfragen nie fürs Training, hochgeladene Dateien werden laut Anbieter nur 7 Tage aufbewahrt."
+  ]
+ ],
+ "/tools/google-gemini/": [
+  [
+   "Liest bei Gemini jemand mit?",
+   "Ein Teil der Chats wird von menschlichen Prüfern gesichtet, getrennt von deinem Konto, und bis zu 3 Jahre aufbewahrt. Verhindern kannst du das, indem du die Einstellung „Aktivitäten speichern“ ausschaltest oder temporäre Chats nutzt."
+  ],
+  [
+   "Ist mit ausgeschalteten Aktivitäten alles sofort weg?",
+   "Nein. Laut Google bleiben Chats auch dann 72 Stunden mit deinem Konto gespeichert, werden aber nicht zum Training genutzt, solange du kein Feedback abschickst."
+  ]
+ ],
+ "/tools/microsoft-copilot/": [
+  [
+   "Kann meine Familie Copilot mitnutzen?",
+   "Nein. In Microsoft 365 Family und Premium bekommt nur der Abo-Inhaber die KI-Funktionen in Word, Excel, PowerPoint und Outlook. Die anderen Mitglieder nutzen die Office-Apps, aber ohne Copilot."
+  ],
+  [
+   "Warum geht Copilot in Excel nicht?",
+   "Copilot in Excel braucht laut Microsoft aktiviertes AutoSave, die Datei muss also in OneDrive liegen. Mit lokal ungespeicherten Dateien funktioniert es nicht."
+  ]
+ ],
+ "/tools/mistral-le-chat/": [
+  [
+   "Trainiert Mistral mit meinen Chats?",
+   "Im Free-Tarif und bei Vibe standardmäßig ja. Abschalten geht jederzeit in den Einstellungen unter Datenschutz, in der App unter „Data & Account Controls“. Enterprise-Kunden sind ab Werk ausgenommen."
+  ],
+  [
+   "Was passiert mit Daumen hoch oder runter?",
+   "Wer bewertet und kommentiert, erlaubt Mistral laut Hilfe-Center in jedem Tarif, Bewertung, Eingabe und Antwort zur Verbesserung der Modelle zu nutzen, auch nach einem Opt-out."
+  ]
+ ],
+ "/tools/deepseek/": [
+  [
+   "Wo liegen meine Daten bei DeepSeek?",
+   "Laut Datenschutzerklärung erhebt, verarbeitet und speichert DeepSeek die Daten direkt in der Volksrepublik China. Anbieter ist die Hangzhou DeepSeek Artificial Intelligence Co., Ltd."
+  ],
+  [
+   "Kann ich das Training mit meinen Chats abstellen?",
+   "Die Datenschutzerklärung nennt ein Recht auf Widerspruch gegen die Nutzung fürs Training. Anfragen dazu gehen an privacy@deepseek.com. Deinen Chatverlauf kannst du in den Einstellungen kopieren oder löschen."
+  ]
+ ],
+ "/tools/notion/": [
+  [
+   "Trainiert Notion KI mit meinem Workspace?",
+   "Standardmäßig nein, weder Notion noch die KI-Anbieter dahinter. Das ist laut Notion vertraglich ausgeschlossen."
+  ],
+  [
+   "Wie lange behalten die KI-Anbieter meine Daten?",
+   "In Free, Plus und Business höchstens 30 Tage, danach wird gelöscht. Enterprise nutzt überwiegend Modelle ohne jede Speicherung."
+  ]
+ ],
+ "/tools/canva/": [
+  [
+   "Nutzt Canva meine Designs für KI-Training?",
+   "Nur, wenn deine Datenschutzeinstellungen es erlauben. Du findest sie unter Profil, Dein Konto, Datenschutzkontrollen und kannst die Schalter jederzeit umlegen.",
+   [
+    "/tool-vergleiche/gamma-vs-canva/",
+    "Gamma vs. Canva"
+   ]
+  ]
+ ],
+ "/tools/gamma/": [
+  [
+   "Trainiert Gamma mit meinen Präsentationen?",
+   "Bei Einzelkonten (Free, Plus, Pro, Ultra) ja, das ist voreingestellt. Abschalten kannst du es unter Einstellungen, Data Controls. Business- und Enterprise-Workspaces sind fest ausgenommen.",
+   [
+    "/tool-vergleiche/gamma-vs-canva/",
+    "Gamma vs. Canva"
+   ]
+  ],
+  [
+   "Was passiert, wenn die 400 Start-Credits weg sind?",
+   "Im Free-Tarif füllen sich Credits laut Gamma nicht nach, mehr gibt es nur per Empfehlung (200 Credits pro Freund) oder Upgrade. Außerdem tragen PDF- und PPTX-Exporte im Free-Tarif den Hinweis „Made with Gamma“."
+  ]
+ ],
+ "/tools/midjourney/": [
+  [
+   "Wie viel schnelle Rechenzeit bekomme ich bei Basic?",
+   "3,3 Stunden Fast GPU Time pro Monat, also 200 Minuten. Extra-Zeit kostet in allen Tarifen $4 pro Stunde.",
+   [
+    "/tool-vergleiche/midjourney-vs-leonardo-ai/",
+    "Midjourney vs. Leonardo AI"
+   ]
+  ],
+  [
+   "Gibt es unbegrenzte Videos im Relax-Modus?",
+   "Ja, aber erst ab Pro. Bei Standard sind im Relax-Modus nur Bilder unbegrenzt."
+  ]
+ ],
+ "/tools/elevenlabs/": [
+  [
+   "Darf ich Audios aus dem Gratis-Tarif kommerziell nutzen?",
+   "Nein. Der Free-Plan hat keine kommerzielle Lizenz, und veröffentlichst du etwas, muss „elevenlabs.io“ oder „11.ai“ im Titel stehen. Ein späteres Abo macht alte Gratis-Audios laut ElevenLabs nicht kommerziell nutzbar.",
+   [
+    "/tool-vergleiche/elevenlabs-vs-murf/",
+    "ElevenLabs vs. Murf"
+   ]
+  ]
+ ],
+ "/tools/suno/": [
+  [
+   "Gehören mir die Songs aus dem Free-Plan?",
+   "Nein, die gehören laut Suno Suno selbst. Du darfst sie nur privat und nicht kommerziell nutzen. Mit Pro oder Premier erstellte Songs gehören dir und bleiben kommerziell nutzbar, auch nach Kündigung."
+  ],
+  [
+   "Bekomme ich die Rechte, wenn ich später abonniere?",
+   "Nicht automatisch. Ein Abo gibt laut Suno keine rückwirkende Lizenz für Songs, die du gratis erstellt hast."
+  ]
+ ],
+ "/tools/n8n/": [
+  [
+   "Wofür zahle ich in der n8n Cloud genau?",
+   "Für Workflow-Ausführungen, egal wie viele Schritte ein Workflow hat. Gezählt wird laut n8n nur, was von Anfang bis Ende durchläuft. Nutzer und Workflows sind in allen Tarifen unbegrenzt.",
+   [
+    "/tool-vergleiche/make-vs-zapier-vs-n8n/",
+    "Make vs. Zapier vs. n8n"
+   ]
+  ],
+  [
+   "Welche Grenzen hat der Starter-Tarif?",
+   "5 gleichzeitige Ausführungen, maximal 5 Minuten pro Ausführung und 7 Tage Log-Aufbewahrung. Pro erlaubt 40 Minuten."
+  ]
+ ],
+ "/tools/make/": [
+  [
+   "Was kann der Free-Tarif von Make?",
+   "1.000 Credits im Monat, höchstens 2 aktive Szenarien, Läufe frühestens alle 15 Minuten und maximal 5 Minuten Laufzeit. Dateien dürfen bis 5 MB groß sein.",
+   [
+    "/tool-vergleiche/make-vs-zapier-vs-n8n/",
+    "Make vs. Zapier vs. n8n"
+   ]
+  ],
+  [
+   "Wann verbraucht Make einen Credit?",
+   "Jede Modul-Aktion zählt als ein Credit, etwa eine neue Zeile in Google Sheets. Eigener Code in der Make Code App kostet 2 Credits pro Sekunde Laufzeit."
+  ]
+ ],
+ "/tools/zapier/": [
+  [
+   "Was zählt bei Zapier als Task?",
+   "Nur erfolgreich ausgeführte Aktionen. Trigger, das Abfragen nach neuen Daten und fehlgeschlagene Aktionen kosten laut Zapier nichts, ebenso Filter, Formatter, Tables und Forms.",
+   [
+    "/tool-vergleiche/make-vs-zapier-vs-n8n/",
+    "Make vs. Zapier vs. n8n"
+   ]
+  ],
+  [
+   "Was fehlt im Gratis-Tarif?",
+   "Mehrstufige Zaps. Free kann nur Zwei-Schritt-Zaps, also ein Trigger und eine Aktion. Premium-Apps und Webhooks gibt es erst ab Professional."
+  ]
+ ],
+ "/tools/notebooklm/": [
+  [
+   "Wie viele Quellen passen in ein Notizbuch?",
+   "Bis zu 50 Quellen. Jede darf laut Google bis zu 500.000 Wörter oder 200 MB groß sein."
+  ],
+  [
+   "Aktualisiert sich ein Google Doc automatisch?",
+   "Nein. Gemini Notebook speichert eine feste Kopie zum Zeitpunkt des Imports. Docs und Slides aus Drive synchronisierst du per Klick, wenn du Schreibrechte hast, andere Quellen musst du neu hochladen."
+  ]
+ ],
+ "/tools/runway/": [
+  [
+   "Verfallen ungenutzte Credits?",
+   "Bei Standard und Pro ja, die Monats-Credits verfallen zum Abrechnungstag. Erst ab Max wird bis zu ein Monat übertragen. Zugekaufte Credits verfallen nie.",
+   [
+    "/tool-vergleiche/runway-vs-invideo-ai/",
+    "Runway vs. InVideo AI"
+   ]
+  ],
+  [
+   "Wie weit komme ich mit Standard?",
+   "Standard bringt 625 Credits im Monat. Gen-4.5 kostet laut Runway 12 Credits pro Sekunde Video, das reicht also für rund 50 Sekunden."
+  ]
+ ],
+ "/tools/descript/": [
+  [
+   "Wie viel Material darf ich im Gratis-Tarif verarbeiten?",
+   "60 Minuten importierte oder aufgenommene Medien pro Monat. Hobbyist hat 10 Stunden.",
+   [
+    "/tool-vergleiche/descript-vs-pictory/",
+    "Descript vs. Pictory"
+   ]
+  ],
+  [
+   "Transkribiert Descript auch Deutsch?",
+   "Ja. Die automatische Transkription kann laut Descript 25 Sprachen, Deutsch ist dabei, in allen Tarifen."
+  ]
+ ],
+ "/tools/tally/": [
+  [
+   "Wo speichert Tally meine Formulardaten?",
+   "In Europa, verschlüsselt bei der Übertragung und im Ruhezustand. Tally sitzt in Belgien und bietet einen Auftragsverarbeitungsvertrag (DPA) an.",
+   [
+    "/tool-vergleiche/tally-vs-typeform/",
+    "Tally vs. Typeform"
+   ]
+  ],
+  [
+   "Sind gelöschte Antworten wirklich weg?",
+   "Ja. Laut Tally verschwinden gelöschte Daten spätestens nach 90 Tagen auch aus den Backups, außer du leerst den Papierkorb vorher selbst."
+  ]
+ ],
+ "/tools/typeform/": [
+  [
+   "Wie viele Antworten bekomme ich gratis?",
+   "10 Antworten im Monat, über alle Formulare zusammen. Ist das Limit erreicht, gehen deine Formulare in den privaten Modus, bis der nächste Monat beginnt. Gelöschte Antworten zählen trotzdem mit.",
+   [
+    "/tool-vergleiche/tally-vs-typeform/",
+    "Tally vs. Typeform"
+   ]
+  ],
+  [
+   "Liegen meine Daten in der EU?",
+   "Standardmäßig nicht, die Hauptserver stehen in Virginia (USA). EU-Hosting gibt es laut Typeform nur in Enterprise und Growth Custom."
+  ]
+ ],
+ "/tools/brevo/": [
+  [
+   "Wie viele Mails schaffe ich gratis?",
+   "300 pro Tag, ungenutzte verfallen. Schickst du eine Kampagne an mehr als 300 Kontakte, musst du den Rest an den Folgetagen manuell nachsenden.",
+   [
+    "/tool-vergleiche/beehiiv-vs-kit-vs-getresponse-vs-brevo/",
+    "beehiiv vs. Kit vs. GetResponse vs. Brevo"
+   ]
+  ],
+  [
+   "Steht Brevo in meinen Mails?",
+   "Im Free-Tarif immer, der Hinweis „Sent with Brevo“ lässt sich nicht entfernen. Bei Starter kostet das Entfernen laut Brevo $9 im Monat extra, ab Standard ist das Logo weg."
+  ]
+ ]
+}

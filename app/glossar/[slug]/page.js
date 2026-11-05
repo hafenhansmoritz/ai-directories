@@ -9,6 +9,8 @@ import { KI_GLOSSAR, glossarSlug } from '../../../lib/ki-glossar'
 import { GLOSSAR_DETAILS } from '../../../lib/ki-glossar-details'
 import TEXTE from '../../../db/texte/glossar.json'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
+import { magnetFuer } from '../../../lib/leadmagnets'
 
 export const dynamicParams = false
 
@@ -125,6 +127,7 @@ function BegriffPage({ params }) {
                     <strong>Weiter lernen:</strong> <Link href={b.href}>Passende Seite auf mentat.codes →</Link>
                 </p>
             )}
+            <LeadMagnetBox id={magnetFuer(b.term, b.href)} anlass={`Du weißt jetzt, was ${kurz(b.term)} ist. Jetzt die Praxis:`} />
             {verwandt.length > 0 && (
                 <section aria-labelledby="verwandt">
                     <h2 id="verwandt">Verwandte Begriffe</h2>

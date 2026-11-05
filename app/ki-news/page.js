@@ -9,6 +9,7 @@ import { getNews, getFristen, NEWS_STAND } from '../../lib/news'
 import { absoluteUrl, withBase } from '../../lib/site'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import { ogMeta, OG_BILDER } from '../../lib/og-meta'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'KI-News: aktuelle KI-Nachrichten verständlich erklärt',
@@ -126,6 +127,7 @@ function KiNews() {
                 </ul>
             </section>
 
+            <LeadMagnetBox id="prompt-spickzettel" anlass="Zwischen zwei Meldungen: das Werkzeug, das jede neue KI besser macht." />
             <section aria-labelledby="nach-thema">
                 <h2 id="nach-thema">Alle Meldungen nach Thema</h2>
                 {themen.map((t) => (

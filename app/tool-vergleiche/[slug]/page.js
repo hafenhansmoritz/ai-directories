@@ -15,6 +15,10 @@ import Pruefer from '../../components/Pruefer'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
 import PartnerHinweis from '../../components/PartnerHinweis'
 import { kuerzen, datumDe } from '../../../lib/text'
+import SendToAI from '../../components/SendToAI'
+import { getToolPromptSeite } from '../../../lib/prompt-tools'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
+import { magnetFuer } from '../../../lib/leadmagnets'
 
 export const dynamicParams = false
 
@@ -25,6 +29,13 @@ export function generateStaticParams() {
 // „Jean sagt“ je Vergleich, nur aus den Angaben auf der jeweiligen Seite (BRAND-VOICE: pro Seite einzigartig).
 const JEAN_SAGT = {
     'claude-vs-chatgpt': 'Monatlich gleicher Preis, im Jahresabo spart Claude drei Dollar: Für Code mit Claude 5.5, Artefakte und lange Dokumente nimmst du Claude, für GPT-6, Bilder, Sprachmodus und den Alltags-Einsatz ChatGPT.',
+    'chatgpt-vs-claude-vs-gemini': 'Lebst du in Gmail und Drive, nimm Gemini. Sonst entscheidet, ob du eher Bilder machst oder lange Texte und Code schreibst.',
+    'gemini-vs-chatgpt': 'Die Frage ist nicht, welche KI klüger ist, sondern wo dein Arbeitstag stattfindet. In Gmail und Drive: Gemini. Verstreut über viele Apps: ChatGPT.',
+    'perplexity-vs-chatgpt': 'Willst du wissen, woher eine Zahl kommt, frag Perplexity. Soll aus der Zahl ein fertiger Text oder ein Bild werden, frag ChatGPT.',
+    'lovable-vs-bolt-new-vs-v0': 'Alle drei bauen dir in Minuten eine App. Ob du sie in drei Monaten noch verstehst, liegt an dir, nicht am Tool.',
+    'github-copilot-vs-cursor-vs-replit': 'Du hast einen Editor, den du liebst? Copilot. Du willst einen neuen? Cursor. Du willst gar keinen installieren? Replit.',
+    'fireflies-ai-vs-tldv-vs-otter-ai': 'Erst Datenschutz, dann Funktionen. Ein Protokoll-Bot, den dein Kunde nicht im Meeting haben will, bringt dir gar nichts.',
+    'deepl-vs-grammarly-vs-quillbot': 'Drei Werkzeuge, drei Aufgaben: übersetzen, korrigieren, umformulieren. Nicht verwechseln, dann passt es.',
     'make-vs-zapier-vs-n8n': 'Zwei Apps verheiraten: Zapier. Einen Kabelbaum verlegen: Make. Daten in der eigenen Garage lassen: n8n.',
     'semrush-vs-se-ranking-vs-surfer-seo': 'Kauf nicht den ganzen Werkzeugwagen, wenn du nur Artikel schreibst. Dafür reicht Surfer, für alles andere vergleich Semrush mit SE Ranking.',
     'beehiiv-vs-kit-vs-getresponse-vs-brevo': 'Alle vier lassen dich gratis rein. Entscheide nach deinem Geschäftsmodell, nicht nach der hübscheren Oberfläche.',
@@ -40,6 +51,7 @@ const JEAN_SAGT = {
     'wordtune-vs-rytr': 'Englisch glätten: Wordtune. Deutsch neu schreiben: Rytr. Das ist die ganze Weiche.',
     'runway-vs-invideo-ai': 'Für das eine scharfe Video nimm Runway, für den wöchentlichen Upload-Rhythmus InVideo AI.',
     'otter-ai-vs-descript': 'Willst du ein Protokoll oder einen fertigen Schnitt? Die Antwort entscheidet, nicht der Preis.',
+    'gohighlevel-vs-systeme-io': 'Verwaltest du Funnels für mehrere Kunden, schau dir GoHighLevel an. Baust du dein eigenes Geschäft allein auf, fängst du mit Systeme.io bei $0 an.',
     'systeme-io-vs-kit': 'Willst du den ganzen Laden aus einer Hand, nimm Systeme.io. Lebt dein Geschäft vom Newsletter, nimm Kit.',
     'surfer-seo-vs-writesonic': 'Wer nur Artikel poliert, ist bei Surfer richtig. Wer Audits und KI-Artikel dazu will, testet Writesonic erst 7 Tage.',
 }
@@ -56,10 +68,17 @@ export function generateMetadata({ params }) {
 
 const yesNo = (v) => (v === true ? 'Ja' : v === false ? 'Nein' : 'keine Angabe')
 
+const formatTestphase = (t) => {
+    if (t.free_trial) return t.free_trial
+    if (t.free_plan === true) return 'Keine (dauerhafter Gratis-Tarif)'
+    if (t.free_plan === false) return 'Keine'
+    return 'keine Angabe'
+}
+
 const ROWS = [
     ['Am besten für', (t) => t.best_for_de],
     ['Gratis-Tarif', (t) => yesNo(t.free_plan)],
-    ['Testphase', (t) => t.free_trial || 'keine Angabe'],
+    ['Testphase', formatTestphase],
     ['Bezahlt ab', (t) => t.price_from || 'keine Angabe'],
     ['Oberfläche auf Deutsch', (t) => yesNo(t.german_ui)],
 ]
@@ -77,6 +96,10 @@ function ComparisonPage({ params }) {
         ? { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }
         : null
     const anyAffiliate = c.items.some((t) => t.affiliate)
+    // Gewinner-Box: redaktioneller Sieger (optional c.sieger = [Fall, slug], sonst die erste Empfehlung), nie nach Provision.
+    // CTA mit Partnerlink, wenn einer bestätigt ist, sonst zum Steckbrief.
+    const [siegerFall, siegerSlug, siegerWarum] = c.sieger || c.picks[0]
+    const sieger = getTool(siegerSlug)
     return (
         <>
             <JsonLd
@@ -107,6 +130,32 @@ function ComparisonPage({ params }) {
                     {`Kommt auf deinen Einsatz an. ${c.picks.map(([frage, slug]) => `${frage.replace(/[.!?]$/, '')}: ${getTool(slug)?.name}`).join('. ')}.`}
                 </Kurzantwort>
             </section>
+
+            {sieger && (
+                <section aria-labelledby="gewinner" className="box box-info gewinner-box">
+                    <p className="eyebrow">
+                        <JeanIcon badge="pokal" size={24} /> Unsere Wahl
+                    </p>
+                    <h2 id="gewinner">
+                        {siegerFall.replace(/[.!?]$/, '')}: {sieger.name}
+                    </h2>
+                    <p>{siegerWarum || sieger.summary_de}</p>
+                    <p className="cta-row">
+                        {sieger.affiliate ? (
+                            <a className="button" href={toolHref(sieger)} target="_blank" rel={toolRel(sieger)}>
+                                {sieger.name} testen ↗<sup>*</sup>
+                            </a>
+                        ) : (
+                            <Link className="button" href={`/tools/${sieger.slug}`}>
+                                {sieger.name} im Steckbrief →
+                            </Link>
+                        )}
+                        {sieger.affiliate && <Link href={`/tools/${sieger.slug}`}>Steckbrief mit Preisen</Link>}
+                        <a href="#empfehlung">Andere Fälle, andere Sieger ↓</a>
+                    </p>
+                    <PartnerHinweis zeigen={Boolean(sieger.affiliate)} />
+                </section>
+            )}
 
             <section aria-labelledby="empfehlung">
                 <h2 id="empfehlung">Jeans Empfehlung je Anwendungsfall</h2>
@@ -173,6 +222,7 @@ function ComparisonPage({ params }) {
                 </p>
                 <PartnerHinweis zeigen={anyAffiliate} />
             </section>
+            <LeadMagnetBox id={magnetFuer(c.title, c.picks.map(([, s]) => getTool(s)?.category))} anlass="Egal, wer den Vergleich gewinnt:" />
             {c.unterschiede?.length > 0 && (
                 <section aria-labelledby="unterschiede">
                     <h2 id="unterschiede">Die wichtigsten Unterschiede 🔍</h2>
@@ -184,6 +234,32 @@ function ComparisonPage({ params }) {
                             </div>
                         ))}
                     </dl>
+                </section>
+            )}
+            {c.testen?.length > 0 && (
+                <section aria-labelledby="testen">
+                    <h2 id="testen">Teste es selbst 🧪</h2>
+                    <p>
+                        Schick dieselben {c.testen.length} Prompts an {c.items.map((t) => t.name).join(' und ')} und vergleiche die Antworten nebeneinander. Mehr standardisierte Aufgaben mit Bewertung findest du im{' '}
+                        <Link href={c.kitest ? `/ki-test/${c.kitest}` : '/ki-test'}>KI-Test</Link>.
+                    </p>
+                    <ol>
+                        {c.testen.map(([titel, prompt]) => (
+                            <li key={titel}>
+                                <strong>{titel}</strong>
+                                <div className="stepper-try"><pre tabIndex={0} role="region" aria-label={`Prompt: ${titel}`}>{prompt}</pre></div>
+                                <SendToAI prompt={prompt} />
+                            </li>
+                        ))}
+                    </ol>
+                    {c.items
+                        .map((t) => getToolPromptSeite(t.slug))
+                        .filter(Boolean)
+                        .map((x) => (
+                            <p key={x.slug} className="service-hint">
+                                <strong>Mehr Vorlagen:</strong> <Link href={`/prompts/tool/${x.slug}`}>{x.tool.name}-Prompts →</Link>
+                            </p>
+                        ))}
                 </section>
             )}
             {c.faq?.length > 0 && (

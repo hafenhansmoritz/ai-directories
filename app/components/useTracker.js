@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import useLaunch from './useLaunch'
-import { LOKAL_KEY, ZAEHLT, setzeLaunch } from '../../lib/launch'
+import { LOKAL_KEY, ZAEHLT, setzeLaunch, heute, LOKAL_LAUNCH } from '../../lib/launch'
+import { verleihe } from '../../lib/herz'
 
 // Ohne Anmeldung liegen eingetragene Verzeichnisse nur im Browser; ein Event hält mehrere Tabellen auf derselben Seite synchron.
 // Mit Konto ist der Launch-Tracker im Konto die Quelle (Status eingereicht oder live zählt als eingetragen).
@@ -42,17 +43,38 @@ export default function useTracker() {
             const an = !next.has(slug)
             an ? next.add(slug) : next.delete(slug)
             setzeLaunch(launch.uid, slug, { status: an ? 'eingereicht' : 'geplant' })
+            if (an) {
+                if (next.size >= 1) verleihe('Starter-Abzeichen', { auto: false, konfetti: true })
+                if (next.size >= 10) verleihe('Macher-Abzeichen', { auto: false, konfetti: true })
+            }
             return next
         }
         const next = read()
-        next.has(slug) ? next.delete(slug) : next.add(slug)
+        const an = !next.has(slug)
+        an ? next.add(slug) : next.delete(slug)
         try {
             localStorage.setItem(KEY, JSON.stringify([...next]))
+            localStorage.setItem('mentat-eingetragen', JSON.stringify([...next]))
         } catch {
             // Speicher gesperrt (privates Fenster): Häkchen gilt dann nur bis zum Neuladen.
         }
+        try {
+            const roh = JSON.parse(localStorage.getItem(LOKAL_LAUNCH) || '{}')
+            const bisher = roh[slug] || {}
+            roh[slug] = {
+                ...bisher,
+                status: an ? (bisher.status === 'live' ? 'live' : 'eingereicht') : 'geplant',
+                datum: an ? (bisher.datum || heute()) : bisher.datum,
+                aktualisiert: new Date().toISOString(),
+            }
+            localStorage.setItem(LOKAL_LAUNCH, JSON.stringify(roh))
+        } catch {}
         setDone(next)
         window.dispatchEvent(new Event(EVENT))
+        if (an) {
+            if (next.size >= 1) verleihe('Starter-Abzeichen', { auto: false, konfetti: true })
+            if (next.size >= 10) verleihe('Macher-Abzeichen', { auto: false, konfetti: true })
+        }
         return next
     }, [launch.aktiv, launch.bereit, launch.fehler, launch.uid, wolke])
 

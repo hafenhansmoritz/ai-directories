@@ -2,6 +2,7 @@ import Link from 'next/link'
 import DirectoryTable from './components/DirectoryTable'
 import JsonLd from './components/JsonLd'
 import Faq, { faqSchema } from './components/Faq'
+import EintragsserviceWarteliste from './components/EintragsserviceWarteliste'
 import SchicksalsWuerfel from './components/SchicksalsWuerfel'
 import Jean, { HELLO } from './components/Jean'
 import ToolPartners from './components/ToolPartners'
@@ -28,6 +29,7 @@ import getFaq from '../utils/faq-de'
 import { formatNumber } from '../utils/i18n-de'
 import Vernetzt, { seitenPfad } from './components/Vernetzt'
 import MemeChat from './components/MemeChat'
+import PromptGottFeed from './components/PromptGottFeed'
 
 export function generateMetadata() {
     const stats = getSiteStats()
@@ -59,7 +61,7 @@ function Home() {
         },
         {
             q: 'Kann ich mein KI-Tool eintragen lassen, statt es selbst zu machen?',
-            a: 'Ja. Über das Formular am Ende jeder Seite kannst du den Eintragsservice anfragen. Jean meldet sich in der Regel innerhalb von zwei Werktagen mit einem Angebot.',
+            a: 'Bald. Der Eintragsservice ist in Vorbereitung: Jean trägt dein Tool dann in die passenden Verzeichnisse ein. Trag dich auf der Warteliste unten auf dieser Seite ein, dann bekommst du eine Mail, sobald es losgeht.',
         },
     ]
     const beliebt = getKbTools()
@@ -289,7 +291,7 @@ function Home() {
                 <p>Vier Wege durch mentat.codes, jeweils in der Reihenfolge, die Jean selbst nehmen würde. Darunter alle Bereiche auf einen Blick.</p>
                 <ul className="pfade">
                     {[
-                        ['🚀', 'Mein KI-Tool launchen', '#fde68a', [['/launch-kit', 'Texte und Unterlagen mit dem Launch-Kit erstellen'], ['/liste/kostenlos', 'Mit den kostenlosen Verzeichnissen starten'], ['/freischaltung', 'Freischaltdauer nachschlagen, von sofort bis 80 Tage'], ['/ratgeber', 'Ratgeber: Eintragen, SEO-Einordnung, Product Hunt'], ['/neu-entdeckt', 'Frisch entdeckte Verzeichnisse mitnehmen'], ['/rechner/launch-zeit', 'Aufwand mit dem Launch-Zeit-Rechner planen'], ['#anfrage-tool-eintragen', 'Oder: Jean trägt für dich ein']]],
+                        ['🚀', 'Mein KI-Tool launchen', '#fde68a', [['/launch-kit', 'Texte und Unterlagen mit dem Launch-Kit erstellen'], ['/liste/kostenlos', 'Mit den kostenlosen Verzeichnissen starten'], ['/freischaltung', 'Freischaltdauer nachschlagen, von sofort bis 80 Tage'], ['/ratgeber', 'Ratgeber: Eintragen, SEO-Einordnung, Product Hunt'], ['/neu-entdeckt', 'Frisch entdeckte Verzeichnisse mitnehmen'], ['/rechner/launch-zeit', 'Aufwand mit dem Launch-Zeit-Rechner planen'], ['#warteliste-eintragsservice', 'Bald: Jean trägt für dich ein (Warteliste)']]],
                         ['🎯', 'Das richtige KI-Tool finden', '#bfdbfe', [['/tool-finder', 'Drei Fragen im Tool-Finder beantworten'], ['/beste-ki-tools', 'Die besten Tools nach Aufgabe ansehen'], ['/tools', 'Preise laut Anbieter vergleichen'], ['/rechner/abo-monatlich-oder-jaehrlich', 'Monatlich oder jährlich zahlen?']]],
                         ['🎓', 'KI besser nutzen', '#a7f3d0', [['/tutorials/chatgpt-richtig-nutzen', 'Einsteigerkurs: ChatGPT richtig nutzen'], ['/prompts', 'Fertige Prompts zum Ausfüllen'], ['/prompt-check', 'Eigene Prompts prüfen lassen'], ['/glossar', 'Begriffe im KI-Glossar nachschlagen']]],
                         ['🥊', 'KIs fair vergleichen', '#fbcfe8', [['/ki-news', 'KI-News der Woche, verständlich erklärt'], ['/neue-ki-modelle', 'Neue Modelle: GPT-6, Gemini 4, Claude 5.5'], ['/ki-test', 'Den KI-Test mit 50 Aufgaben machen'], ['/tool-vergleiche', 'Tool-Duelle mit klarer Empfehlung'], ['/ki-tools/alternativen', 'Alternativen zu bekannten Tools'], ['/ki-tools/chatgpt-alternativen', 'ChatGPT-Alternativen im Überblick']]],
@@ -385,6 +387,27 @@ function Home() {
             </section>
 
             <ToolPartners limit={6} />
+            <PromptGottFeed />
+            <section aria-labelledby="mentat-herkunft">
+                <h2 id="mentat-herkunft">Woher kommt der Name mentat.codes? 🛠️</h2>
+                <p>
+                    Bevor hier KI-Verzeichnisse standen, war mentat.codes ab 2023 die Heimat von Mentat, einem der ersten
+                    Open-Source-Assistenten, der direkt im Terminal Code geschrieben hat. Das Projekt ist seit Januar 2025
+                    archiviert. <Link href="/ratgeber/was-wurde-aus-mentat">Was aus Mentat wurde und was du heute stattdessen nimmst →</Link>
+                </p>
+                <ul className="quick-links">
+                    <li><Link href="/ratgeber/terminal-coding-agenten-vergleich">Terminal-Coding-Agenten im Vergleich</Link></li>
+                    <li><Link href="/ratgeber/claude-code-anleitung">Claude Code auf Deutsch</Link></li>
+                    <li><Link href="/ratgeber/claude-code-installieren">Claude Code installieren</Link></li>
+                    <li><Link href="/ratgeber/claude-code-kosten">Was kostet Claude Code?</Link></li>
+                    <li><Link href="/ratgeber/codex-cli-anleitung">Codex CLI Anleitung</Link></li>
+                    <li><Link href="/ratgeber/claude-code-vs-codex">Claude Code oder Codex?</Link></li>
+                    <li><Link href="/ratgeber/agents-md-claude-md">AGENTS.md und CLAUDE.md</Link></li>
+                    <li><Link href="/ratgeber/gemini-cli-antigravity-cli">Von Gemini CLI zu Antigravity CLI</Link></li>
+                    <li><Link href="/ratgeber/aider-ollama-lokal">Aider mit Ollama lokal</Link></li>
+                    <li><Link href="/ratgeber/cursor-alternative-kostenlos">Cursor-Alternativen</Link></li>
+                </ul>
+            </section>
             <section aria-labelledby="wer">
                 <h2 id="wer">Wer steckt dahinter? 🧔</h2>
                 <div className="about-head">
@@ -399,6 +422,7 @@ function Home() {
             <Band farbe="pink" id="faq" titel="Häufige Fragen zu KI-Verzeichnissen 🙋">
                 <Faq items={faq} />
             </Band>
+            <EintragsserviceWarteliste />
         </>
     )
 }

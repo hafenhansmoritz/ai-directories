@@ -7,6 +7,7 @@ import Faq, { faqSchema } from '../components/Faq'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import { absoluteUrl, withBase } from '../../lib/site'
 import { getSkills, SKILL_KATEGORIEN, ALLE_BEFEHL, PLATTFORMEN, SKILLS_QUELLE, SKILLS_REPO_URL } from '../../lib/skills'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'KI-Skills für ChatGPT, Claude und Gemini gratis',
@@ -92,6 +93,7 @@ function SkillsIndex() {
                 )
             })}
 
+            <LeadMagnetBox id="prompt-spickzettel" anlass="Skills plus gute Prompts, das ist die halbe Miete." />
             <section aria-labelledby="installieren">
                 <h2 id="installieren">So installierst du einen Skill 🛠️</h2>
                 {PLATTFORMEN.map((p) => (

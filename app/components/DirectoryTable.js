@@ -4,12 +4,14 @@ import { memo, useCallback, useDeferredValue, useEffect, useMemo, useRef, useSta
 import Link from 'next/link'
 import { PriceBadge, ExperienceBadge } from './Badges'
 import TrackerPanel from './TrackerPanel'
+import LaunchSpeedrun from './LaunchSpeedrun'
 import { formatRating, formatVisits } from '../../utils/i18n-de'
 import useTracker, { RANKS } from './useTracker'
 import konfetti from '../../lib/konfetti'
 import { submitRel } from '../../lib/monetization'
 import '../styles/c-start.css'
-import { kuerzelAus } from '../../lib/herz'
+import { kuerzelAus, toast } from '../../lib/herz'
+import { LOKAL_EVENT, lokalLaunch, setzeLokal, datumDe, ladeLaunchKitDaten, baueUtmLink, haengeUtmAn } from '../../lib/launch'
 
 // Erwartet schlanke Zeilen aus tabellenZeilen() (lib/data.js): Score und Sperre kommen fertig vom Server.
 const SORTS = {
@@ -23,8 +25,8 @@ const MILESTONES = new Set(RANKS.map(([min]) => min).filter(Boolean))
 
 // Filter in der Adresszeile: lesbare Werte, damit geteilte Links und der Zurück-Knopf den Stand behalten.
 const URL_FELDER = {
-    preis: ['pricing', { kostenlos: 'Free', kostenpflichtig: 'Paid' }],
-    einreichung: ['experience', { reibungslos: 'Good', hakelig: 'Bad', zu: 'Closed' }],
+    preis: ['pricing', { kostenlos: 'Free', kostenpflichtig: 'Paid', unklar: 'Unclear' }],
+    einreichung: ['experience', { geprueft: 'Tested', reibungslos: 'Good', hakelig: 'Bad', ungeprueft: 'Untested', zu: 'Closed' }],
     dr: ['minDr', { '30': '30', '50': '50', '70': '70' }],
     link: ['linkType', { dofollow: 'dofollow' }],
     status: ['status', { offen: 'open', eingetragen: 'done' }],
@@ -54,48 +56,161 @@ function abstand(a, b, max) {
     return prev[b.length]
 }
 
-const Zeile = memo(function Zeile({ d, erledigt, onToggle }) {
+const Zeile = memo(function Zeile({ d, erledigt, onToggle, logEintrag, onSpeichernLog, utmAktiv = false, projectUrl = '', onCopyUtm }) {
+    const [offen, setOffen] = useState(false)
+    const hatLog = Boolean(logEintrag?.datum || logEintrag?.listingUrl || logEintrag?.notiz)
+
     return (
-        <tr className={erledigt ? 'is-done' : undefined}>
-            <td>
-                <input type="checkbox" className="track" checked={erledigt} onChange={() => onToggle(d.slug)} aria-label={`${d.name} als eingetragen markieren`} />
-            </td>
-            <th scope="row">
-                {/* Kein Prefetch: sonst lädt jede sichtbare Zeile beim Scrollen die Daten ihrer Detailseite vor. */}
-                <Link href={`/verzeichnis/${d.slug}`} prefetch={false}>
-                    {d.name}
-                </Link>
-                {d.deal && <span className="deal-flag">Rabatt</span>}
-            </th>
-            <td>
-                {d.blocked ? (
-                    <span className="submit-closed">gerade zu</span>
-                ) : (
-                    <a
-                        className="submit-link"
-                        href={d.submission_link}
-                        target="_blank"
-                        rel={submitRel(d)}
-                        aria-label={`${d.name}: Tool eintragen (externer Link, öffnet in neuem Tab)${d.affiliate ? ', Partnerlink' : ''}`}
-                    >
-                        Eintragen ↗{d.affiliate && <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup>}
-                    </a>
-                )}
-            </td>
-            <td className="num">
-                <span className="score-pill" style={{ '--score': d.score }}>
-                    {d.score}
-                </span>
-            </td>
-            <td className="num">{formatRating(d.domain_rating)}</td>
-            <td className="num">{formatVisits(d.monthly_visits)}</td>
-            <td>
-                <PriceBadge value={d.pricing} />
-            </td>
-            <td>
-                <ExperienceBadge value={d.submission_experience} blocked={d.blocked} />
-            </td>
-        </tr>
+        <>
+            <tr className={erledigt ? 'is-done' : undefined}>
+                <td>
+                    <div className="table-track-cell">
+                        <input
+                            type="checkbox"
+                            className="track"
+                            checked={erledigt}
+                            onChange={() => onToggle(d.slug)}
+                            aria-label={`${d.name} als eingetragen markieren`}
+                        />
+                        {erledigt && (
+                            <button
+                                type="button"
+                                className={`table-log-trigger ${offen ? 'is-open' : ''} ${hatLog ? 'has-data' : ''}`}
+                                onClick={() => setOffen((o) => !o)}
+                                title={hatLog ? 'Logbuch bearbeiten (Datum, Notiz, Listing-URL)' : 'Logbuch öffnen (Datum, Notiz, Listing-URL)'}
+                                aria-label={`Logbuch für ${d.name} ${offen ? 'schließen' : 'öffnen'}`}
+                                aria-expanded={offen}
+                            >
+                                📝
+                            </button>
+                        )}
+                    </div>
+                </td>
+                <th scope="row">
+                    {/* Kein Prefetch: sonst lädt jede sichtbare Zeile beim Scrollen die Daten ihrer Detailseite vor. */}
+                    <Link href={`/verzeichnis/${d.slug}`} prefetch={false}>
+                        {d.name}
+                    </Link>
+                    {d.deal && <span className="deal-flag">Rabatt</span>}
+                    {erledigt && logEintrag?.datum && (
+                        <span className="table-log-datum-hint" title={`Eingereicht am ${datumDe(logEintrag.datum)}`}>
+                            📅 {datumDe(logEintrag.datum)}
+                        </span>
+                    )}
+                    {erledigt && logEintrag?.listingUrl && (
+                        <a
+                            href={logEintrag.listingUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="table-log-link-hint"
+                            title={`Deine Listing-Seite auf ${d.name} öffnen`}
+                        >
+                            Listing ↗
+                        </a>
+                    )}
+                </th>
+                <td>
+                    {d.blocked ? (
+                        <span className="submit-closed">gerade zu</span>
+                    ) : (
+                        <div className="table-submit-cell">
+                            <a
+                                className="submit-link"
+                                href={utmAktiv ? haengeUtmAn(d.submission_link, d.slug) : d.submission_link}
+                                target="_blank"
+                                rel={submitRel(d)}
+                                aria-label={`${d.name}: Tool eintragen (externer Link, öffnet in neuem Tab)${d.affiliate ? ', Partnerlink' : ''}${utmAktiv ? ', mit UTM-Tracking' : ''}`}
+                            >
+                                Eintragen ↗{d.affiliate && <sup title="Partnerlink: Wir erhalten ggf. eine Provision.">*</sup>}
+                            </a>
+                            {projectUrl && onCopyUtm && (
+                                <button
+                                    type="button"
+                                    className="table-utm-copy-btn"
+                                    onClick={() => onCopyUtm(d.slug, d.name)}
+                                    title={`Persönlichen UTM-Link für ${d.name} kopieren: ${baueUtmLink(projectUrl, d.slug)}`}
+                                    aria-label={`UTM-Link für ${d.name} kopieren`}
+                                >
+                                    UTM
+                                </button>
+                            )}
+                        </div>
+                    )}
+                </td>
+                <td className="num">
+                    <span className="score-pill" style={{ '--score': d.score }}>
+                        {d.score}
+                    </span>
+                </td>
+                <td className="num">{formatRating(d.domain_rating)}</td>
+                <td className="num">{formatVisits(d.monthly_visits)}</td>
+                <td>
+                    <PriceBadge value={d.pricing} />
+                </td>
+                <td>
+                    <ExperienceBadge value={d.submission_experience} blocked={d.blocked} />
+                </td>
+            </tr>
+            {erledigt && offen && (
+                <tr className="table-log-row">
+                    <td colSpan={8}>
+                        <div className="table-log-card">
+                            <div className="table-log-header">
+                                <strong>Logbuch für {d.name}:</strong>
+                                <span className="widget-note">Wird automatisch in deinem Browser gespeichert</span>
+                                <button
+                                    type="button"
+                                    className="table-log-close-btn"
+                                    onClick={() => setOffen(false)}
+                                    aria-label="Logbuch schließen"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+                            <div className="table-log-fields">
+                                <label>
+                                    <span>Einreichdatum:</span>
+                                    <input
+                                        type="date"
+                                        value={logEintrag?.datum || ''}
+                                        onChange={(e) => onSpeichernLog(d.slug, { datum: e.target.value || null })}
+                                    />
+                                </label>
+                                <label className="table-log-url-field">
+                                    <span>Listing-URL:</span>
+                                    <input
+                                        type="url"
+                                        placeholder="https://.../tool/dein-projekt"
+                                        value={logEintrag?.listingUrl || ''}
+                                        onChange={(e) => onSpeichernLog(d.slug, { listingUrl: e.target.value })}
+                                    />
+                                </label>
+                                <label className="table-log-notiz-field">
+                                    <span>Notiz:</span>
+                                    <input
+                                        type="text"
+                                        placeholder="z. B. Paket Free, Login via GitHub, Freischaltung in 3 Tagen"
+                                        value={logEintrag?.notiz || ''}
+                                        onChange={(e) => onSpeichernLog(d.slug, { notiz: e.target.value })}
+                                    />
+                                </label>
+                                {logEintrag?.listingUrl && (
+                                    <a
+                                        href={logEintrag.listingUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="button button-small"
+                                        style={{ textDecoration: 'none' }}
+                                    >
+                                        Listing ↗
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            )}
+        </>
     )
 })
 
@@ -106,6 +221,57 @@ export default function DirectoryTable({ directories, interactive = true, defaul
     // Die Eingabe bleibt sofort bedienbar, die Tabelle rechnet im Hintergrund nach (wichtig für INP auf Handys).
     const spaet = useDeferredValue(filter)
     const { done, toggle } = useTracker()
+    const [launchEintraege, setLaunchEintraege] = useState(() => new Map())
+    useEffect(() => {
+        const sync = () => setLaunchEintraege(lokalLaunch())
+        sync()
+        window.addEventListener(LOKAL_EVENT, sync)
+        window.addEventListener('storage', sync)
+        return () => {
+            window.removeEventListener(LOKAL_EVENT, sync)
+            window.removeEventListener('storage', sync)
+        }
+    }, [])
+    const onSpeichernLog = useCallback((slug, felder) => {
+        setzeLokal(slug, felder)
+    }, [])
+    const [launchKit, setLaunchKit] = useState({ url: '', name: '' })
+    const [utmAktiv, setUtmAktiv] = useState(false)
+
+    useEffect(() => {
+        const syncKit = () => {
+            const lk = ladeLaunchKitDaten()
+            setLaunchKit(lk)
+            try {
+                const w = localStorage.getItem('mentat-utm-aktiv')
+                if (w !== null) {
+                    setUtmAktiv(w === 'true')
+                } else if (lk.url) {
+                    setUtmAktiv(true)
+                }
+            } catch {}
+        }
+        syncKit()
+        window.addEventListener('storage', syncKit)
+        return () => window.removeEventListener('storage', syncKit)
+    }, [])
+
+    const toggleUtm = useCallback((aktiv) => {
+        setUtmAktiv(aktiv)
+        try {
+            localStorage.setItem('mentat-utm-aktiv', String(aktiv))
+        } catch {}
+    }, [])
+
+    const handleCopyUtm = useCallback((slug, name) => {
+        const url = baueUtmLink(launchKit.url || 'https://dein-projekt.de', slug)
+        try {
+            navigator.clipboard.writeText(url)
+            toast(`UTM-Link für ${name} kopiert!`, '📋')
+        } catch {
+            toast('Kopieren fehlgeschlagen.', '⚠️')
+        }
+    }, [launchKit.url])
     const searchRef = useRef(null)
     const urlGelesen = useRef(false)
 
@@ -164,8 +330,19 @@ export default function DirectoryTable({ directories, interactive = true, defaul
     const { treffer, aehnlich } = useMemo(() => {
         const { query, pricing, experience, minDr, linkType, sort } = spaet
         const basis = index
-            .filter(({ d }) => pricing === 'all' || d.pricing === pricing)
-            .filter(({ d }) => experience === 'all' || (experience === 'Closed' ? d.blocked : !d.blocked && d.submission_experience === experience))
+            .filter(({ d }) => {
+                if (pricing === 'all') return true
+                if (pricing === 'Unclear') return !d.pricing || d.pricing === 'Unclear'
+                return d.pricing === pricing
+            })
+            .filter(({ d }) => {
+                if (experience === 'all') return true
+                if (experience === 'Closed') return Boolean(d.blocked)
+                if (d.blocked) return false
+                if (experience === 'Tested') return Boolean(d.submission_experience)
+                if (experience === 'Untested') return !d.submission_experience
+                return d.submission_experience === experience
+            })
             .filter(({ d }) => minDr === 'all' || (d.domain_rating ?? 0) >= Number(minDr))
             .filter(({ d }) => linkType === 'all' || Boolean(d.dofollow))
         const q = norm(query)
@@ -201,7 +378,39 @@ export default function DirectoryTable({ directories, interactive = true, defaul
         <div className={`table-block c-tabelle${interactive ? '' : ' c-tabelle-leicht'}`}>
             {tracker && <TrackerPanel directories={directories} />}
             {interactive && (
-                <form className="filters" role="search" aria-label="Verzeichnisse filtern" onSubmit={(e) => e.preventDefault()}>
+                <>
+                    <LaunchSpeedrun directories={directories} done={done} onToggle={onToggle} launchKit={launchKit} utmAktiv={utmAktiv} />
+                    <div className="table-utm-bar">
+                        <label className="table-utm-toggle">
+                            <input
+                                type="checkbox"
+                                checked={utmAktiv}
+                                onChange={(e) => toggleUtm(e.target.checked)}
+                            />
+                            <span>
+                                <strong>🔗 UTM-Tracking an Eintragen-Links anhängen</strong>
+                                {launchKit.url ? (
+                                    <span className="table-utm-url" title={`Projekt: ${launchKit.url}`}>
+                                        {' '}(Projekt: {launchKit.url.replace(/^https?:\/\//, '').replace(/\/$/, '')})
+                                    </span>
+                                ) : (
+                                    <span className="table-utm-hint">
+                                        {' '}(Projekt-URL im <Link href="/launch-kit">Launch-Kit</Link> hinterlegen)
+                                    </span>
+                                )}
+                            </span>
+                        </label>
+                        {launchKit.url ? (
+                            <span className="table-utm-subtext">
+                                Hängt <code>utm_source=&lt;slug&gt;&amp;utm_medium=directory&amp;utm_campaign=launch</code> an.
+                            </span>
+                        ) : (
+                            <Link href="/launch-kit" className="table-utm-link-action">
+                                Projekt-URL im Launch-Kit eingeben →
+                            </Link>
+                        )}
+                    </div>
+                    <form className="filters" role="search" aria-label="Verzeichnisse filtern" onSubmit={(e) => e.preventDefault()}>
                     <label>
                         <span>
                             Suche <kbd>/</kbd>
@@ -221,14 +430,17 @@ export default function DirectoryTable({ directories, interactive = true, defaul
                             <option value="all">Alle</option>
                             <option value="Free">Kostenlos</option>
                             <option value="Paid">Kostenpflichtig</option>
+                            <option value="Unclear">Unklar / Freemium</option>
                         </select>
                     </label>
                     <label>
                         <span>Einreichung</span>
                         <select value={filter.experience} onChange={(e) => setze('experience', e.target.value)}>
                             <option value="all">Alle</option>
+                            <option value="Tested">Geprüfte Einreichung</option>
                             <option value="Good">Reibungslos</option>
                             <option value="Bad">Hakelig</option>
+                            <option value="Untested">Noch nicht getestet</option>
                             <option value="Closed">Gerade zu</option>
                         </select>
                     </label>
@@ -271,6 +483,7 @@ export default function DirectoryTable({ directories, interactive = true, defaul
                         {aehnlich ? `, ähnlich geschrieben wie „${spaet.query.trim()}“` : ''}
                     </p>
                 </form>
+                </>
             )}
             {rows.length > 0 && (
                 <div className="table-scroll" aria-busy={laedt || undefined}>
@@ -298,7 +511,7 @@ export default function DirectoryTable({ directories, interactive = true, defaul
                         </thead>
                         <tbody>
                             {rows.map((d) => (
-                                <Zeile key={d.slug} d={d} erledigt={done.has(d.slug)} onToggle={onToggle} />
+                                <Zeile key={d.slug} d={d} erledigt={done.has(d.slug)} onToggle={onToggle} logEintrag={launchEintraege.get(d.slug)} onSpeichernLog={onSpeichernLog} utmAktiv={utmAktiv} projectUrl={launchKit.url} onCopyUtm={handleCopyUtm} />
                             ))}
                         </tbody>
                     </table>

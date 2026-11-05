@@ -29,7 +29,7 @@ const FAQ = [
     },
     {
         "q": "Kann ich das abgeben?",
-        "a": "Ja, der Launch-Service von mentat.codes übernimmt das Eintragen. Details auf der Seite Werben."
+        "a": "Bald. Ein Eintragsservice, bei dem Jean dein Tool in die passenden Verzeichnisse einträgt, ist in Vorbereitung. Auf der Startseite kannst du dich auf die Warteliste setzen und bekommst eine Mail, sobald es losgeht."
     }
 ]
 
@@ -72,7 +72,7 @@ function Page() {
                 <LaunchRechnerMitDaten />
             </Band>
             <p className="box box-tipp">
-                Texte einmal vorbereiten spart am meisten Zeit: <Link href="/launch-kit">Launch-Kit öffnen</Link>, danach mit den <Link href="/liste/kostenlos">kostenlosen Verzeichnissen</Link> anfangen.
+                Texte einmal vorbereiten spart am meisten Zeit: <Link href="/launch-kit">Launch-Kit öffnen</Link>, danach mit den <Link href="/liste/kostenlos">kostenlosen Verzeichnissen</Link> anfangen. Lieber abgeben? <Link href="/#warteliste-eintragsservice">Auf die Warteliste für den Eintragsservice</Link>.
             </p>
             <Band farbe="pink" id="faq" titel="Fragen und Antworten 🙋">
                 <Faq items={FAQ} />

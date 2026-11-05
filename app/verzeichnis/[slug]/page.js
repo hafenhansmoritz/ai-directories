@@ -12,6 +12,8 @@ import { jeanLine } from '../../../lib/score'
 import Jean from '../../components/Jean'
 import ScoreBar from '../../components/ScoreBar'
 import CopyButton from '../../components/CopyButton'
+import VerzeichnisHeroStatus from '../../components/VerzeichnisHeroStatus'
+import VerzeichnisLaunchKitBox from '../../components/VerzeichnisLaunchKitBox'
 import FreshBox from '../../components/FreshBox'
 import CheckBox from '../../components/CheckBox'
 import { getCheck, hasStatusIssue } from '../../../lib/checks'
@@ -22,6 +24,7 @@ import { submitRel } from '../../../lib/monetization'
 import { dealLabel, formatRating, formatVisits, pricingLabel } from '../../../utils/i18n-de'
 import TEXTE from '../../../db/texte/verzeichnisse.json'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import LeadMagnetBox from '../../components/LeadMagnetBox'
 
 export const dynamicParams = false
 
@@ -158,6 +161,8 @@ function DirectoryPage({ params }) {
                 </div>
             </header>
 
+            <VerzeichnisHeroStatus slug={d.slug} name={d.name} />
+
             <p className="cta-row">
                 <a className="button" href={hasStatusIssue(d.slug) ? d.link : d.submission_link} target="_blank" rel={hasStatusIssue(d.slug) ? 'nofollow noopener noreferrer' : submitRel(d)}>
                     {hasStatusIssue(d.slug) ? `Website von ${d.name} ansehen ↗` : `Jetzt bei ${d.name} eintragen 🚀`}
@@ -169,6 +174,9 @@ function DirectoryPage({ params }) {
                 </a>
                 <CopyButton label="Link zu dieser Seite kopieren 🔗" done="Link kopiert ✓" />
             </p>
+
+            <VerzeichnisLaunchKitBox slug={d.slug} directoryName={d.name} />
+
 
             <div className={`verdict verdict-${verdict.tone}`}>
                 <p className="verdict-label">Jeans Urteil: {verdict.short}</p>
@@ -227,6 +235,8 @@ function DirectoryPage({ params }) {
                 <FreshBox directory={d} />
                 <CheckBox slug={d.slug} />
             </section>
+
+            <LeadMagnetBox id="top-50" anlass={`Neben ${d.name}: die 50 stärksten Verzeichnisse auf einen Blick.`} />
 
             <section aria-labelledby="staerken">
                 <h2 id="staerken">Wofür sich {d.name} eignet 🎯</h2>

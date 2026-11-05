@@ -284,7 +284,7 @@ Alphabetisch sortiert, 256 Einträge.
 | [Super Tools](https://supertools.therundown.ai/) | [Eintragen](https://supertools.therundown.ai/submit) | 55 | 257.200 | **🟢 Reibungslos** | **🟢 Kostenlos** |
 | [SustainabilitySoftwares](https://sustainabilitysoftwares.com) | [Eintragen](https://sustainabilitysoftwares.com/submit) | 0 | 1.000 | **🟢 Reibungslos** | **🟢 Kostenlos** |
 | [Synoptica](https://synoptica.com/) | [Eintragen](https://synoptica.com/submit-an-ai-tool/) | 17 | 5.000 | **🟢 Reibungslos** | **🟢 Kostenlos** |
-| [Tekpon](https://tekpon.com/get-listed/) | [Eintragen](https://tekpon.com/get-listed/) | 54 | 134.000 | **🟢 Reibungslos** | **🟢 Kostenlos** |
+| [Tekpon](https://tekpon.com/get-listed/) | [Eintragen](https://tekpon.com/get-listed/) | 54 | 134.000 | **🟢 Reibungslos** | **🔴 Kostenpflichtig** |
 | [That AI Collection](https://www.thataicollection.com/) | [Eintragen](https://aicollection.lemonsqueezy.com) | 41 | 553.400 | **🟢 Reibungslos** | **🔴 Kostenpflichtig** |
 | [The ai Generation](https://www.theaigeneration.com/) | [Eintragen](https://www.theaigeneration.com/add/) | 11 | 77.000 | **🟢 Reibungslos** | **🟢 Kostenlos** |
 | [The AI Warehouse](https://www.thewarehouse.ai/) | [Eintragen](https://inside.thewarehouse.ai/submissions) | 11 | 6.000 | **🟢 Reibungslos** | **🟢 Kostenlos** |

@@ -6,8 +6,8 @@ import { getDirectories } from '../../lib/data'
 import { getScore, scoreLabel } from '../../lib/score'
 import { hasStatusIssue } from '../../lib/checks'
 import { absoluteUrl } from '../../lib/site'
-import ServiceHint from '../components/ServiceHint'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'KI-Verzeichnisse vergleichen: bis zu 3 nebeneinander',
@@ -53,7 +53,7 @@ function VergleichPage() {
                 <Jean>Wie beim Moped-Kauf: erst vergleichen, dann eintragen. Oder umgekehrt, wenn du gern bereust.</Jean>
             </section>
             <Vergleich options={options} />
-            <ServiceHint text="Keine Lust, alle drei selbst auszufüllen?" />
+            <LeadMagnetBox id="top-50" anlass="Noch nicht die richtigen drei gefunden?" />
         </>
     )
 }

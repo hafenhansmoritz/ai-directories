@@ -61,6 +61,8 @@ export default function Herzstuecke() {
     // Einmal pro Seitenaufruf: Einstellungen anwenden, Saison, Besuche, Konsole, Pausen, Kopieren, Tab-Titel.
     useEffect(() => {
         const html = document.documentElement
+        const theme = lies('mentat-theme')
+        if (theme === 'dark' || theme === 'light') html.dataset.theme = theme
         const akzent = lies('mentat-akzent')
         if (akzent) html.dataset.akzent = akzent
         if (lies('mentat-ruhig')) html.dataset.ruhig = 'an'
@@ -144,6 +146,9 @@ export default function Herzstuecke() {
             const neu = ABZEICHEN.find(([n]) => n === besucht.size)
             if (neu) setTimeout(() => verleihe(neu[1]), 1200)
         }
+        if (pfad.startsWith('/rechner')) setTimeout(() => verleihe('Prüfmeister-Abzeichen'), 1200)
+        if (pfad.startsWith('/ki-test')) setTimeout(() => verleihe('Benchmark-Abzeichen'), 1200)
+        if (pfad.startsWith('/launch-kit')) setTimeout(() => verleihe('Launch-Pionier-Abzeichen'), 1200)
         // Verlauf für die Merkliste: die letzten 8 Seiten. Titel erst nach dem Seitenwechsel lesen.
         const verlaufTimer = setTimeout(() => {
             if (pfad.startsWith('/merkliste')) return

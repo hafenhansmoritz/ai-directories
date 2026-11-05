@@ -80,3 +80,13 @@ Plan und Stand: `docs/TRAUMSEITE-30.md`. Alles ist gebaut, aber unsichtbar, bis 
 
 - Cursor-Steckbrief (`db/tools.json`, Preis „$8/Monat … Teil von The X Subscription“): weicht stark von den übrigen Coding-Tools ab und fließt in den Abo-Rechner. Bitte die Preisseite von Cursor einmal selbst öffnen und das Datum notieren (Audit CON-12). Nichts geändert.
 - Datenschutzerklärung: Abschnitt Widerspruchsrecht, Speicherdauer der Hosting-Logs (Verweis auf GitHub) und Löschaussage wurden ergänzt. Endfassung bitte rechtlich prüfen lassen; die ladungsfähige Anschrift fehlt weiter (Punkt 4).
+
+## Offen aus der Sitzung vom 2. November 2026
+
+- Cursor-Preisseite wurde am 2. November 2026 geprüft und bestätigt (Free, Plus 8 $ nur Grok-Modelle, Premium 30 $, Super 100 $, Ultra 200 $). Der Punkt oben ist damit erledigt.
+- Search-Console-Export als CSV ablegen: `docs/gsc/2026-11-30.csv` und `docs/gsc/2026-12-28.csv` (Leistungsbericht, Seiten und Suchanfragen). Danach laufen die Mess-Aufgaben in `docs/TASKS.md` automatisch.
+- Die 111 Prompts unter `/prompts/tool/*` und die 10 ChatGPT-Prompts einmal live testen (eigene Logins nötig) und Auffälligkeiten notieren.
+- DomainKits-API-Key im DomainKits-Konto neu erzeugen, weil der alte im Chat stand. Den neuen nur in den Umgebungseinstellungen als `DOMAINKITS_API_KEY` speichern.
+- aigeddon.de und promptgott.de sind laut DENIC frei (Stand 2. November 2026). Registrieren, falls gewünscht.
+- LOVO AI (`db/partners.json`): lovo.ai lieferte am 2. November 2026 ein abgeschaltetes Vercel-Deployment. Vor einer Anmeldung erneut prüfen oder Eintrag pausieren.
+- Geplante Aufgabe „Domain-Radar täglich“: auf claude.ai unter den geplanten Aufgaben DomainKits und Semrush als Verbindungen ergänzen, sonst wertet sie nur die .uk-Drop-Liste aus.

@@ -8,11 +8,27 @@ const path = require('path')
 const OUT = path.join(__dirname, '../../out')
 const BASE = process.env.BASE_PATH || ''
 
-const walk = (dir) =>
-    fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+const walk = (dir) => {
+    let entries
+    for (let i = 0; i < 10; i++) {
+        try {
+            entries = fs.readdirSync(dir, { withFileTypes: true })
+            break
+        } catch (e) {
+            if (['ENOENT', 'EPERM', 'EBUSY'].includes(e.code) && i < 9) {
+                const s = Date.now()
+                while (Date.now() - s < 50) {}
+                continue
+            }
+            if (e.code === 'ENOENT') return []
+            throw e
+        }
+    }
+    return entries.flatMap((e) => {
         const p = path.join(dir, e.name)
         return e.isDirectory() ? walk(p) : [p]
     })
+}
 
 const files = walk(OUT)
 let bilder = 0

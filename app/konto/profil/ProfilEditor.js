@@ -5,7 +5,7 @@ import Link from 'next/link'
 import useKonto from '../../components/useKonto'
 import { KONTO_AKTIV, supabase, bildUrl, ladeProfil } from '../../../lib/konto'
 import { bildVorbereiten } from '../../../lib/bild'
-import { toast, verleihe } from '../../../lib/herz'
+import { toast } from '../../../lib/herz'
 
 const VERLAEUFE = [
     ['sonne', 'Sonne'],
@@ -109,7 +109,7 @@ export default function ProfilEditor() {
             await ladeProfil()
             setStatus('')
             toast(bucket === 'avatare' ? 'Neues Profilbild gespeichert. Steht dir!' : 'Neues Banner gespeichert.', '📸')
-            verleihe('Gesicht-zeigen-Abzeichen')
+
         } catch (e) {
             setStatus(
                 e.message === 'typ'

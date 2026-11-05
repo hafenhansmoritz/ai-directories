@@ -5,7 +5,7 @@ import Link from 'next/link'
 import useKonto from '../components/useKonto'
 import useLaunch from '../components/useLaunch'
 import { KONTO_AKTIV } from '../../lib/konto'
-import { LOKAL_EVENT, LOKAL_LAUNCH, LOKAL_KEY, STATUS, datumDe, heute, lokalLaunch, setzeLaunch, setzeLokal, uebernehmeLokal } from '../../lib/launch'
+import { LOKAL_EVENT, LOKAL_LAUNCH, LOKAL_KEY, STATUS, datumDe, heute, lokalLaunch, setzeLaunch, setzeLokal, uebernehmeLokal, ladeLaunchKitDaten, baueUtmLink } from '../../lib/launch'
 import { submitRel } from '../../lib/monetization'
 import { toast } from '../../lib/herz'
 
@@ -131,10 +131,22 @@ export default function LaunchTracker({ verzeichnisse }) {
         toast(n > 0 ? `${n} ${n === 1 ? 'Eintrag' : 'Einträge'} aus diesem Browser übernommen.` : n < 0 ? 'Das hat nicht geklappt. Bitte versuch es noch einmal.' : 'Alles schon da.', n < 0 ? '⚠️' : '☁️')
     }
     const exportieren = () => {
-        const zeilen = [['Verzeichnis', 'Website', 'Einreichung', 'Status', 'Erinnerung', 'Notiz', 'Geändert']]
+        const kit = ladeLaunchKitDaten()
+        const projectUrl = kit.url
+        const zeilen = [['Verzeichnis', 'Website', 'Einreichung', 'Status', 'Erinnerung', 'Notiz', 'Geändert', 'Dein UTM-Link']]
         verzeichnisse.forEach((v) => {
             const e = eintraege.get(v.slug)
-            zeilen.push([v.name, v.link, v.submission_link, e ? STATUS.find(([k]) => k === e.status)?.[1] : 'Offen', e?.erinnerung || '', e?.notiz || '', e?.aktualisiert ? e.aktualisiert.slice(0, 10) : ''])
+            const utm = baueUtmLink(projectUrl, v.slug)
+            zeilen.push([
+                v.name,
+                v.link,
+                v.submission_link,
+                e ? STATUS.find(([k]) => k === e.status)?.[1] : 'Offen',
+                e?.erinnerung || '',
+                e?.notiz || '',
+                e?.aktualisiert ? e.aktualisiert.slice(0, 10) : '',
+                utm || `?utm_source=${v.slug}&utm_medium=directory&utm_campaign=launch`,
+            ])
         })
         const csv = zeilen.map((r) => r.map((x) => `"${String(x).replace(/"/g, '""')}"`).join(';')).join('\n')
         const url = URL.createObjectURL(new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' }))

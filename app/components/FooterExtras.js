@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { lies, schreib, toast, setzeRuhe, kuerzelAus, setzeKuerzel } from '../../lib/herz'
+import ThemeSchalter from './ThemeSchalter'
+import { lies, schreib, toast, verleihe, setzeRuhe, kuerzelAus, setzeKuerzel } from '../../lib/herz'
 
 // Farbwahl, Ruhe-Modus, Tastenkürzel-Schalter und ein Gruß zum Wochentag im Footer.
 const FARBEN = [
@@ -48,6 +49,7 @@ export default function FooterExtras() {
         if (wert) document.documentElement.dataset.akzent = wert
         else delete document.documentElement.dataset.akzent
         toast(`Neue Lieblingsfarbe: ${name}. Steht dir!`, '🎨')
+        verleihe('Farbenfroh-Abzeichen', { auto: false })
     }
     const ruhe = () => {
         const neu = !still
@@ -79,6 +81,7 @@ export default function FooterExtras() {
                         />
                     ))}
                 </div>
+                <ThemeSchalter />
                 <button type="button" className="ruhe-knopf" aria-pressed={still} onClick={ruhe}>
                     <span aria-hidden="true">{still ? '🌙' : '✨'}</span> {still ? 'Ruhe-Modus an' : 'Ruhe-Modus'}
                 </button>

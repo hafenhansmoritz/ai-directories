@@ -4,12 +4,15 @@
 const EXPERIENCE = {
     Good: 'Reibungslos',
     Bad: 'Hakelig',
+    Tested: 'Geprüft',
+    Untested: 'Noch nicht getestet',
     '': 'Noch nicht getestet',
 }
 
 const PRICING = {
     Free: 'Kostenlos',
     Paid: 'Kostenpflichtig',
+    Unclear: 'Unklar',
     '': 'Unklar',
 }
 

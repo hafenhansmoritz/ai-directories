@@ -2,17 +2,18 @@
 
 ## Der einfachste Weg zu E-Mails (ohne Server, ohne Cookie-Banner)
 
-1. Newsletter **PromptGott** bei beehiiv (empfohlen: Empfehlungsprogramm, Werbenetzwerk, Lead-Magnet-Auslieferung) oder Substack anlegen, mit eigener Domain-Mail als Absender.
-2. Im Pages-Workflow (`.github/workflows/pages.yml`, Schritt `npx next build`, Block `env`) eintragen:
-   - `NEXT_PUBLIC_NEWSLETTER_URL`: Adresse des Newsletters, z. B. `https://promptgott.substack.com`
+1. Newsletter **PromptGott** läuft auf Substack: https://promptgott.substack.com. Diese Adresse ist der Fallback in `lib/monetization.js`, alle Lead-Bausteine verlinken ohne weitere Einstellung auf `/subscribe` (reiner Link, kein iframe).
+2. Nur für eine andere Adresse: im GitHub-Repo unter Settings → Secrets and variables → Actions → Variables die Variable `NEWSLETTER_URL` anlegen (der Pages-Workflow reicht sie als `NEXT_PUBLIC_NEWSLETTER_URL` an den Build weiter, siehe `.env.example`):
+   - Brevo: die Formular-URL `https://….sibforms.com/serve/…`. Sie wird direkt verlinkt (ohne `/subscribe`), und /datenschutz zeigt automatisch den Brevo-Abschnitt.
+   - Substack/beehiiv: Adresse des Newsletters, z. B. `https://promptgott.substack.com`
    - nur bei beehiiv zusätzlich `NEXT_PUBLIC_NEWSLETTER_EMBED`: Embed-URL aus *Grow → Subscribe Forms*
-3. Ab dem nächsten Build zeigen alle Lead-Bausteine das eingebettete Formular (Substack: automatisch `/embed`). Double-Opt-in, Abmeldelink und Speicherung erledigt der Anbieter, also auch der DSGVO-Nachweis.
-4. In der **Willkommensmail** die Links zu den gesperrten Downloads eintragen (Tabelle unten, Spalte „gesperrt“).
-5. Datenschutzerklärung um den Newsletter-Anbieter ergänzen (gehört zur Aufgabe Impressum/Datenschutz).
+3. Ab dem nächsten Build verlinken alle Lead-Bausteine die Anmeldeseite. Ein eingebettetes Formular gibt es nur mit ausdrücklich gesetztem `NEXT_PUBLIC_NEWSLETTER_EMBED`; dann /datenschutz anpassen. Double-Opt-in, Abmeldelink und Speicherung erledigt der Anbieter.
+4. Downloads sind standardmäßig frei, daneben steht „PromptGott abonnieren“. Die Sperre (Tabelle unten, Spalte „gesperrt“) greift nur mit Repository-Variable `NEWSLETTER_GATE` = `1` (Build-Variable `NEXT_PUBLIC_NEWSLETTER_GATE`). Vorher in der **Willkommensmail** die Links zu den gesperrten Downloads eintragen und mit einer Testanmeldung prüfen, sonst gehen Abonnenten leer aus.
+5. /datenschutz zeigt den passenden Newsletter-Abschnitt automatisch (Substack, Brevo oder allgemein).
 
 ## Downloads und wo sie stehen
 
-| Download | Datei | gesperrt nach Newsletter-Start | steht auf |
+| Download | Datei | gesperrt mit NEWSLETTER_GATE=1 | steht auf |
 |---|---|---|---|
 | Prompt-Spickzettel | `/downloads/prompt-spickzettel` (Drucken → PDF) | nein, bewusst frei: wird geteilt und verlinkt | Tutorials-Übersicht, Prompt-Baukasten, Prompt-Check, Downloads |
 | Prompt-Paket | `/downloads/prompt-paket.md` (wächst mit der Bibliothek) | ja | jede Prompt-Seite, Tutorial „Prompt-Kette“, Downloads |

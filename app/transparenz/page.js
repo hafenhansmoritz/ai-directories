@@ -1,12 +1,11 @@
-import Link from 'next/link'
 import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import JsonLd from '../components/JsonLd'
 import { SITE_NAME } from '../../lib/site'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 
 export const metadata = {
-    title: 'Transparenz: So finanziert sich mentat.codes',
-    description: 'Partnerlinks, Anzeigen und Sponsoring auf mentat.codes: wie sie gekennzeichnet sind und warum sie Bewertungen nicht beeinflussen.',
+    title: 'Transparenz: Partnerlinks auf mentat.codes',
+    description: 'Partnerlinks auf mentat.codes: wie sie gekennzeichnet sind, warum es keine bezahlten Plätze gibt und warum Bewertungen nicht käuflich sind.',
     alternates: { canonical: '/transparenz' },
 }
 
@@ -20,8 +19,8 @@ function TransparencyPage() {
             <JsonLd data={[breadcrumbSchema(crumbs)]} />
             <Breadcrumbs items={crumbs} />
             <section className="hero">
-                <h1>So finanziert sich mentat.codes</h1>
-                <p className="lead">Die Liste ist kostenlos. Damit das so bleibt, verdienen wir auf drei Wegen Geld.</p>
+                <h1>Transparenz: Partnerlinks und was nicht käuflich ist</h1>
+                <p className="lead">Die Liste ist kostenlos und ein privates, nichtkommerzielles Projekt. Hier steht, welche Links Geld bringen können und welche nicht.</p>
             </section>
             <section>
                 <h2>Partnerlinks</h2>
@@ -30,15 +29,10 @@ function TransparencyPage() {
                     markiert. Kaufst oder buchst du darüber etwas, erhalten wir eine Provision. Für dich ändert sich am
                     Preis nichts.
                 </p>
-                <h2>Anzeigen und Sponsoring</h2>
+                <h2>Keine Anzeigen, kein Sponsoring</h2>
                 <p>
-                    Bezahlte Platzierungen stehen als „Anzeige“ gekennzeichnet. Sponsoren im Newsletter oder auf YouTube
-                    werden genannt.
-                </p>
-                <h2>Eigene Leistungen</h2>
-                <p>
-                    Den Launch-Service und geprüfte Profile bieten wir selbst an. Details unter{' '}
-                    <Link href="/werben">Werben</Link>.
+                    Plätze in Listen, Tabellen, Foren oder im Newsletter lassen sich nicht kaufen. Es gibt keine
+                    bezahlten Platzierungen, keine Anzeigen und keine Sponsoren.
                 </p>
                 <h2>Was nicht käuflich ist</h2>
                 <p>

@@ -82,7 +82,6 @@ export default function ForumStart() {
                             </span>
                             <span>
                                 <strong>{k.name}</strong>
-                                {k.gesponsert_von && <span className="f-sponsor">präsentiert von {k.gesponsert_von}*</span>}
                                 <br />
                                 <span className="widget-note">{k.beschreibung}</span>
                             </span>

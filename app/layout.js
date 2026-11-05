@@ -24,6 +24,7 @@ import { KONTO_AKTIV } from '../lib/konto'
 import HauptNav from './components/HauptNav'
 import MerkZaehler from './components/MerkZaehler'
 import RuheKnopf from './components/RuheKnopf'
+import ThemeSchalter from './components/ThemeSchalter'
 import { HeuteKarte } from './components/HeuteWidgets'
 import SENF_TEXTE from '../db/texte/hubs.json'
 import JsonLd from './components/JsonLd'
@@ -139,6 +140,8 @@ const footerSpalten = () => [
             ['/downloads', 'Downloads'],
             ['/ratgeber', 'Ratgeber'],
             ['/glossar', 'KI-Glossar'],
+            ['https://promptgott.mentat.codes', 'PromptGott-Blog'],
+            ['https://promptgott.mentat.codes/newsletter/', 'PromptGott-Newsletter'],
         ],
     ],
 ]
@@ -208,6 +211,11 @@ export default function RootLayout({ children }) {
                 {process.env.NODE_ENV === 'production' && <meta httpEquiv="Content-Security-Policy" content={CSP} />}
                 <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME}: Neues auf einen Blick`} href={absoluteUrl('/feed.xml')} />
                 <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME}: KI-News`} href={absoluteUrl('/ki-news/feed.xml')} />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(){try{var t=localStorage.getItem('mentat-theme');if(t==='"dark"'||t==='dark'){document.documentElement.dataset.theme='dark'}else if(t==='"light"'||t==='light'){document.documentElement.dataset.theme='light'}}catch(e){}})()`,
+                    }}
+                />
             </head>
             <body>
                 <JeanSprite />
@@ -226,6 +234,7 @@ export default function RootLayout({ children }) {
                         </Link>
                         <Gruss />
                         <div className="konto-leiste">
+                            <ThemeSchalter kompakt className="header-theme-toggle" />
                             {!KONTO_AKTIV && <MerkZaehler />}
                             <Glocke />
                             <KontoKnopf />
@@ -234,12 +243,17 @@ export default function RootLayout({ children }) {
                     </div>
                 </header>
                 <div className="ticker a-ticker">
-                    <div className="ticker-track" aria-hidden="true">
-                        {TICKER.map((t) => (
-                            <span key={t}>{t}</span>
-                        ))}
+                    <div className="a-ticker-ruhe-wrap">
+                        <RuheKnopf />
                     </div>
-                    <RuheKnopf />
+                    <div className="ticker-viewport">
+                        <div className="ticker-track" aria-hidden="true">
+                            {TICKER.map((t) => (
+                                <span key={t}>{t}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="a-ticker-schutz-rechts" aria-hidden="true" />
                 </div>
                 <div className="page-grid">
                     <aside className="sidebar sidebar-left" aria-label="Jeans Kompass">
@@ -290,8 +304,8 @@ export default function RootLayout({ children }) {
                         <FooterExtras />
                         <p>
                             Gebaut von <Link href="/ueber-jean">Jean Maurice Port</Link>, Senior SEO/SGE Manager bei der MotoMobilityGroup. ·{' '}
-                            <Link href="/werben">Werben</Link> · <Link href="/transparenz">Transparenz</Link> · <Link href="/so-pruefen-wir">So prüfen wir</Link> ·{' '}
-                            <Link href="/datenschutz">Datenschutz</Link> · <Link href="/merkliste">
+                            <Link href="/transparenz">Transparenz</Link> · <Link href="/so-pruefen-wir">So prüfen wir</Link> ·{' '}
+                            <Link href="/impressum">Impressum</Link> · <Link href="/datenschutz">Datenschutz</Link> · <Link href="/merkliste">
                                 Merkliste <span aria-hidden="true">⭐</span>
                             </Link> ·{' '}
                             {KONTO_AKTIV && (
@@ -299,7 +313,10 @@ export default function RootLayout({ children }) {
                                     <Link href="/forum">Forum</Link> · <Link href="/community-regeln">Community-Regeln</Link> ·{' '}
                                 </>
                             )}
-                            <a href="https://www.youtube.com/@AIGeddon">YouTube</a>
+                            <a href="https://www.youtube.com/@AIGeddon">YouTube</a> ·{' '}
+                            <a href="https://me.developers.google.com/u/portai" rel="me noopener">
+                                Google Developer Profil
+                            </a>
                         </p>
                         <p>
                             Open Source auf <a href={REPO_URL}>GitHub</a> (Pull Requests werden mit Konfetti empfangen) · Rohdaten als{' '}

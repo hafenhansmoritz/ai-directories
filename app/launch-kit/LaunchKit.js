@@ -2,9 +2,11 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import CopyButton from '../components/CopyButton'
+import { verleihe } from '../../lib/herz'
+import { baueUtmLink, baueLaunchTexte, LAUNCH_KIT_KEY, PRICING } from '../../lib/launch'
 import '../styles/e-inhalte.css'
 
-const KEY = 'kiv-launch-kit'
+const KEY = LAUNCH_KIT_KEY
 
 const EMPTY = {
     name: '',
@@ -53,56 +55,6 @@ const FIELDS = [
     ['benefitEn', 'Was macht es? auf Englisch (optional)', 'z. B. checks incoming invoices for errors automatically'],
 ]
 
-const PRICING = {
-    Kostenlos: ['kostenlos', 'free'],
-    Freemium: ['kostenlos testbar, mit bezahlten Plänen', 'free to start, with paid plans'],
-    Kostenpflichtig: ['kostenpflichtig', 'paid'],
-}
-
-const cap = (s) => (s ? s[0].toUpperCase() + s.slice(1) : s)
-
-function build(f) {
-    const n = f.name || 'Dein Tool'
-    const features = [f.feature1, f.feature2, f.feature3].filter(Boolean)
-    const [priceDe, priceEn] = PRICING[f.pricing]
-    const catEn = (f.categoryEn || '').toLowerCase()
-    const audEn = f.audienceEn || 'teams of any size'
-    const featDe = features.length ? features.join(', ') : 'spart Zeit bei wiederkehrenden Aufgaben'
-    return {
-        einzeilerDe: `${n}: ${f.benefit || 'KI-Tool, das Arbeit abnimmt'}`,
-        einzeilerEn: f.benefitEn ? `${n}: ${cap(f.benefitEn)}` : `${n}: AI ${catEn ? catEn + ' ' : ''}tool for ${audEn}`,
-        kurzDe: `${n} ${f.benefit || 'nimmt dir wiederkehrende Arbeit ab'}. Für ${f.audience || 'Teams jeder Größe'}, ${priceDe}${f.hosting ? `, ${f.hosting}` : ''}.`,
-        kurzEn: `${n} ${f.benefitEn || 'takes repetitive work off your plate'}. Built for ${audEn}. ${cap(priceEn)}.`,
-        langDe: [
-            `${n} ist ein KI-Tool${f.category ? ` für ${f.category}` : ''}, das ${f.benefit || 'wiederkehrende Arbeit abnimmt'}. Es richtet sich an ${f.audience || 'Teams jeder Größe'}, die weniger Zeit mit Routine und mehr Zeit mit ihrer eigentlichen Arbeit verbringen wollen.`,
-            `Die wichtigsten Funktionen: ${featDe}.`,
-            `${n} ist ${priceDe}.${f.hosting ? ` ${cap(f.hosting)}.` : ''} Ausprobieren unter ${f.url || 'der Website'}.`,
-        ].join('\n\n'),
-        langEn: [
-            `${n} is an AI tool${catEn ? ` for ${catEn}` : ''} built for ${audEn}. It ${f.benefitEn || 'takes repetitive work off your plate'}, so you can focus on what matters.`,
-            `Key features: see ${f.url || 'the website'} for the full list.`,
-            `${n} is ${priceEn}. Try it at ${f.url || 'the website'}.`,
-        ].join('\n\n'),
-        tags: [f.category, 'KI', 'AI', 'Automatisierung', f.pricing === 'Kostenlos' ? 'kostenlos' : f.pricing, ...features.slice(0, 2)]
-            .filter(Boolean)
-            .map((t) => t.toLowerCase())
-            .join(', '),
-    }
-}
-
-function utm(url, slug) {
-    if (!url) return ''
-    try {
-        const u = new URL(url)
-        u.searchParams.set('utm_source', slug)
-        u.searchParams.set('utm_medium', 'referral')
-        u.searchParams.set('utm_campaign', 'launch')
-        return u.toString()
-    } catch {
-        return ''
-    }
-}
-
 const LIMITS = { einzeilerDe: 60, einzeilerEn: 60, kurzDe: 160, kurzEn: 160 }
 
 const OUTPUTS = [
@@ -143,15 +95,17 @@ export default function LaunchKit({ directories }) {
     useEffect(() => {
         try {
             localStorage.setItem(KEY, JSON.stringify(f))
+            window.dispatchEvent(new Event('storage'))
         } catch {
             // Ohne Speicher geht es trotzdem, nur ohne Erinnerung.
         }
-    }, [f])
+        if (!leer) verleihe('Launch-Pionier-Abzeichen', { auto: false })
+    }, [f, leer])
 
-    const out = useMemo(() => build(f), [f])
+    const out = useMemo(() => baueLaunchTexte(f), [f])
     const words = out.langDe.split(/\s+/).filter(Boolean).length
     const chosen = directories.find((d) => d.slug === dir)
-    const link = utm(f.url, dir)
+    const link = baueUtmLink(f.url, dir)
 
     return (
         <div className="kit">
@@ -178,7 +132,10 @@ export default function LaunchKit({ directories }) {
                                     ok = window.confirm('Deine Eingaben durch das Beispiel RechnungsRadar ersetzen?')
                                 } catch {}
                             }
-                            if (ok) setF(EXAMPLE)
+                            if (ok) {
+                                setF(EXAMPLE)
+                                verleihe('Launch-Pionier-Abzeichen', { auto: false })
+                            }
                         }}
                     >
                         Beispiel laden

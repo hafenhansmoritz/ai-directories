@@ -103,12 +103,6 @@ export function SidebarRight() {
             <Widget icon="pokal" title="Dein Glückskeks">
                 <Glueckskeks />
             </Widget>
-            <Widget icon="rakete" title="Launch-Service">
-                <p>Keine Zeit für 50 Formulare? Wir tragen dein Tool ein.</p>
-                <Link className="button button-small" href="/werben">
-                    Eintrags-Service und Preise ansehen →
-                </Link>
-            </Widget>
         </>
     )
 }

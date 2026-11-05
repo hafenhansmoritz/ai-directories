@@ -4,6 +4,7 @@ import { ARTIKEL } from '../lib/ratgeber'
 import { getTools } from '../lib/tools'
 import { getComparisons } from '../lib/comparisons'
 import { getPrompts, promptsByKategorie } from '../lib/prompts'
+import { getToolPromptSeiten } from '../lib/prompt-tools'
 import { KATEGORIE_TEXTE } from '../lib/prompt-kategorien'
 import { getTutorials } from '../lib/tutorials'
 import { getKbRubriken, getKbTools, kbIndexierbar } from '../lib/kb'
@@ -29,7 +30,6 @@ const STATISCH = {
     '/ratgeber': ['lib/ratgeber.js'],
     '/glossar': ['lib/ki-glossar.js'],
     '/freischaltung': ['db/checks.json'],
-    '/werben': [],
     '/transparenz': [],
     '/tools': ['db/tools.json'],
     '/mein-stack': ['app/mein-stack/MeinStack.js', 'lib/stack.js', 'lib/abo-preise.js'],
@@ -94,6 +94,7 @@ export default function sitemap() {
         ...promptsByKategorie()
             .filter((k) => k.prompts.length && KATEGORIE_TEXTE[k.key])
             .map((k) => eintrag(`/prompts/kategorie/${k.key}`, dateiStand('lib/prompts.js', 'lib/prompt-kategorien.js'), 'monthly', 0.7)),
+        ...getToolPromptSeiten().map((s) => eintrag(`/prompts/tool/${s.slug}`, dateiStand('lib/prompts.js', 'lib/prompt-tools.js'), 'monthly', 0.7)),
         ...getTools().map((t) => eintrag(`/tools/${t.slug}`, eintragStand(t.slug, 'db/tools.json', 'db/texte/tools.json') || dateiStand('db/tools.json', 'db/texte/tools.json'), 'monthly', 0.6)),
         // Je Verzeichnis das Datum der letzten Änderung an genau diesem Eintrag (Daten, Text, Freischaltungs-Check).
         ...getDirectories().map((d) =>

@@ -1,10 +1,14 @@
 import Link from 'next/link'
+import { getToolPromptSeiten } from '../../lib/prompt-tools'
 import JsonLd from '../components/JsonLd'
 import Breadcrumbs, { breadcrumbSchema } from '../components/Breadcrumbs'
 import JeanIcon from '../components/JeanIcon'
 import { SITE_NAME } from '../../lib/site'
 import { promptsByKategorie, getPrompts, TECHNIKEN } from '../../lib/prompts'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
+import PromptCardList from '../components/PromptCardList'
+import LeadMagnetBox from '../components/LeadMagnetBox'
+import PromptGottFeed from '../components/PromptGottFeed'
 
 export const metadata = {
     title: 'KI-Prompts auf Deutsch: Vorlagen für ChatGPT & Claude',
@@ -33,6 +37,11 @@ function PromptsPage() {
                         Eigenen Prompt bauen →
                     </Link>
                     <Link href="/prompts/archiv">103 Rollen-Prompts im Archiv</Link>
+                    {getToolPromptSeiten().map((x) => (
+                        <Link key={x.slug} href={`/prompts/tool/${x.slug}`}>
+                            {x.tool.name}-Prompts
+                        </Link>
+                    ))}
                     <Link href="/prompt-check">Prompt prüfen</Link>
                     <Link href="/tutorials/prompt-engineering-in-15-minuten">Grundkurs in 15 Minuten</Link>
                 </p>
@@ -42,19 +51,10 @@ function PromptsPage() {
                     <h2 id={`kat-${k.key}`} className="with-icon">
                         <JeanIcon badge={k.icon} size={34} /> <Link href={`/prompts/kategorie/${k.key}`}>{k.name}</Link>
                     </h2>
-                    <ul className="link-cards">
-                        {k.prompts.map((p) => (
-                            <li key={p.slug}>
-                                <Link href={`/prompts/${p.slug}`}>
-                                    <strong>{p.title}</strong>
-                                </Link>
-                                <span>{p.ziel}</span>
-                                <span>{p.techniken.map((t) => TECHNIKEN[t][0]).join(' · ')}</span>
-                            </li>
-                        ))}
-                    </ul>
+                    <PromptCardList prompts={k.prompts} />
                 </section>
             ))}
+            <LeadMagnetBox id="prompt-paket" anlass="Alle Vorlagen aus der Bibliothek auf einmal, statt jede einzeln zu kopieren." />
             <section aria-labelledby="techniken">
                 <h2 id="techniken">Die 8 Techniken hinter guten Prompts</h2>
                 <dl className="technik-liste">
@@ -77,6 +77,7 @@ export default function Seite() {
     return (
         <>
             <PromptsPage />
+            <PromptGottFeed />
             <Vernetzt pfad={seitenPfad('/prompts')} />
         </>
     )

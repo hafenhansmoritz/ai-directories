@@ -1,5 +1,8 @@
 import Link from 'next/link'
-import TEXTE from '../../../db/texte/prompts.json'
+import BASIS_TEXTE from '../../../db/texte/prompts.json'
+import { TOOL_PROMPT_TEXTE_EXTRA } from '../../../lib/prompts-tool/index.js'
+
+const TEXTE = { ...BASIS_TEXTE, ...TOOL_PROMPT_TEXTE_EXTRA }
 import Jean from '../../components/Jean'
 import { notFound } from 'next/navigation'
 import JsonLd from '../../components/JsonLd'
@@ -8,11 +11,12 @@ import PromptRunner from '../../components/PromptRunner'
 import LeadMagnetBox from '../../components/LeadMagnetBox'
 import SlideInLead from '../../components/SlideInLead'
 import EmailCapture from '../../components/EmailCapture'
-import { NEWSLETTER_NAME, NEWSLETTER_URL } from '../../../lib/monetization'
+import { HAS_NEWSLETTER, NEWSLETTER_NAME } from '../../../lib/monetization'
 import { SITE_NAME } from '../../../lib/site'
 import { getPrompts, getPrompt, PROMPT_KATEGORIEN, TECHNIKEN } from '../../../lib/prompts'
 import { getTool, toolHref, toolRel } from '../../../lib/tools'
 import Vernetzt, { seitenPfad } from '../../components/Vernetzt'
+import { getToolPromptSeite } from '../../../lib/prompt-tools'
 
 export const dynamicParams = false
 
@@ -62,6 +66,15 @@ function PromptPage({ params }) {
             <section className="hero">
                 <p className="eyebrow">
                     Prompt · <Link href={`/prompts/kategorie/${p.kategorie}`}>{kat.name}</Link>
+                    {(p.fuer || [])
+                        .map(getToolPromptSeite)
+                        .filter(Boolean)
+                        .map((x) => (
+                            <span key={x.slug}>
+                                {' · '}
+                                <Link href={`/prompts/tool/${x.slug}`}>{x.tool.name}-Prompts</Link>
+                            </span>
+                        ))}
                 </p>
                 <h1>{p.title}</h1>
                 <p className="lead">{p.ziel}</p>
@@ -116,8 +129,8 @@ function PromptPage({ params }) {
                     </ul>
                 </section>
             )}
-            <SlideInLead id="prompt" title={NEWSLETTER_URL ? `Jeden Freitag 5 neue Prompts von ${NEWSLETTER_NAME} 📬` : 'Prompt-Tricks als Video 🎬'}>
-                <p>{NEWSLETTER_URL ? 'Getestet, auf Deutsch, sofort nutzbar. Kostenlos, jederzeit kündbar.' : 'Neue Prompts, Tool-Tests und Case Studies auf dem mentat.codes-Kanal.'}</p>
+            <SlideInLead id="prompt" title={HAS_NEWSLETTER ? `Jeden Freitag 5 neue Prompts von ${NEWSLETTER_NAME} 📬` : 'Prompt-Tricks als Video 🎬'}>
+                <p>{HAS_NEWSLETTER ? 'Getestet, auf Deutsch, sofort nutzbar. Kostenlos, jederzeit kündbar.' : 'Neue Prompts, Tool-Tests und Case Studies auf dem mentat.codes-Kanal.'}</p>
                 <EmailCapture />
             </SlideInLead>
             <p>

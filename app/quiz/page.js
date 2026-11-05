@@ -5,6 +5,7 @@ import JsonLd from '../components/JsonLd'
 import { getDirectories } from '../../lib/data'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import { ogMeta, OG_BILDER } from '../../lib/og-meta'
+import LeadMagnetBox from '../components/LeadMagnetBox'
 
 export const metadata = {
     title: 'Quiz: Welche KI-Verzeichnisse passen zu deinem Launch?',
@@ -39,6 +40,7 @@ function QuizPage() {
                 <Jean>Ich stelle die Fragen, du antwortest ehrlich. Ich merke es, wenn du beim Budget schummelst.</Jean>
             </section>
             <Quiz options={options} />
+            <LeadMagnetBox id="top-50" anlass="Dein Ergebnis reicht dir nicht? Hier sind alle Top-Kandidaten:" />
         </>
     )
 }

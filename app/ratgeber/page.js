@@ -5,6 +5,7 @@ import Jean from '../components/Jean'
 import { ARTIKEL } from '../../lib/ratgeber'
 import Vernetzt, { seitenPfad } from '../components/Vernetzt'
 import { ogMeta, OG_BILDER } from '../../lib/og-meta'
+import PromptGottFeed from '../components/PromptGottFeed'
 
 export const metadata = {
     title: 'Ratgeber: KI-Tools richtig in Verzeichnisse eintragen',
@@ -58,6 +59,7 @@ export default function Seite() {
     return (
         <>
             <RatgeberIndex />
+            <PromptGottFeed />
             <Vernetzt pfad={seitenPfad('/ratgeber')} />
         </>
     )
