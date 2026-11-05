@@ -141,7 +141,7 @@ const footerSpalten = () => [
             ['/ratgeber', 'Ratgeber'],
             ['/glossar', 'KI-Glossar'],
             ['https://promptgott.mentat.codes', 'PromptGott-Blog'],
-            ['https://promptgott.substack.com', 'PromptGott-Newsletter'],
+            ['https://promptgott.mentat.codes/newsletter/', 'PromptGott-Newsletter'],
         ],
     ],
 ]
